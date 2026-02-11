@@ -1,0 +1,825 @@
+/* Realistic Process Visuals - UI Mockups */
+
+.realistic-mockup {
+    width: 100%;
+    height: 100%;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #f1f5f9;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Fix: Mockup clips its own content */
+    position: relative;
+}
+
+[data-theme="light"] .realistic-mockup {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
+}
+
+/* Step 1: Upload Mockup */
+.upload-mockup {
+    text-align: center;
+}
+
+.upload-icon {
+    font-size: 2.5rem;
+    color: #3b82f6;
+    margin-bottom: 12px;
+}
+
+.progress-container {
+    width: 140px;
+    height: 8px;
+    background: #1e293b;
+    border-radius: 4px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+[data-theme="light"] .progress-container {
+    background: #f1f5f9;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    background: #3b82f6;
+}
+
+.status-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #10b981;
+}
+
+/* Step 2: Fingerprint Mockup - ENHANCED */
+.fingerprint-mockup {
+    align-items: stretch;
+    position: relative;
+    padding-top: 35px !important;
+}
+
+.hash-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="light"] .hash-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.hash-card::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.1), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+.hash-label {
+    font-size: 0.6rem;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.hash-value {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    word-break: break-all;
+    color: #3b82f6;
+    line-height: 1.2;
+}
+
+.fingerprint-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.verification-badge {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.qr-code-placeholder {
+    width: 28px;
+    height: 28px;
+    background: repeating-conic-gradient(#334155 0% 25%, #1e293b 0% 50%) 50% / 4px 4px;
+    border-radius: 3px;
+    opacity: 0.5;
+}
+
+[data-theme="light"] .qr-code-placeholder {
+    background: repeating-conic-gradient(#cbd5e1 0% 25%, #f1f5f9 0% 50%) 50% / 4px 4px;
+}
+
+.integrity-seal {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #10b981;
+}
+
+/* Step 3: Distributed Mockup - ENHANCED */
+.nodes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.node-dot {
+    width: 32px;
+    height: 32px;
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .node-dot {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+.node-dot i {
+    font-size: 0.75rem;
+    color: #3b82f6;
+    opacity: 0.5;
+}
+
+.node-dot.active {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+    animation: nodePulse 2s infinite ease-in-out;
+}
+
+.node-dot.active i {
+    color: #10b981;
+    opacity: 1;
+}
+
+@keyframes nodePulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.sync-status-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.sync-status {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #ef4444;
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background: #ef4444;
+    border-radius: 50%;
+    animation: livePulse 1s infinite;
+}
+
+@keyframes livePulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Step 4: Verifiable Mockup */
+.verification-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    width: 160px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    color: #0f172a;
+    text-align: center;
+}
+
+.success-check {
+    width: 40px;
+    height: 40px;
+    background: #dcfce7;
+    color: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 1.2rem;
+}
+
+.verif-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.verif-sub {
+    font-size: 0.65rem;
+    color: #64748b;
+}
+
+/* Sequential Process Animation Styles (LiveKit inspired) */
+.process-step.sequential-reveal {
+    opacity: 0 !important;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+}
+
+.process-step.sequential-reveal.visible {
+    opacity: 1 !important;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.step-number-wrapper {
+    position: absolute;
+    top: -18px;
+    /* Balanced corner placement */
+    right: -18px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 0 0px transparent);
+    transition: filter 0.5s ease;
+}
+
+/* Current processing step glow - Blue Flowy Feel */
+.process-step.processing .progress-ring {
+    filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.9));
+    animation: ringGlowPulse 2s ease-in-out infinite;
+}
+
+@keyframes ringGlowPulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+    }
+
+    50% {
+        filter: drop_shadow(0 0 16px rgba(0, 210, 255, 1));
+    }
+}
+
+.progress-ring__circle {
+    stroke-dasharray: 94;
+    /* 2 * PI * 15 = 94.2 */
+    stroke-dashoffset: 94;
+    stroke: #00d2ff;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 2s linear;
+}
+
+.progress-ring__track {
+    stroke: rgba(255, 255, 255, 0.05);
+    /* Fainter track to make blue pop */
+}
+
+/* Only animate when processing */
+.process-step.processing .progress-ring__circle {
+    stroke-dashoffset: 0;
+}
+
+/* Stay full once completed */
+.process-step.completed .progress-ring__circle {
+    stroke-dashoffset: 0;
+}
+
+/* Reset lifecycle.css absolute positioning to ensure concentricity */
+.step-number-wrapper .step-number {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin: 0 !important;
+    width: 28px;
+    height: 28px;
+    background: #ffffff !important;
+    color: #020617 !important;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 2px solid #000;
+    z-index: 10;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.process-step.processing .step-number {
+    transform: scale(1.15);
+}
+
+[data-theme="light"] .step-number {
+    border-color: #e2e8f0;
+    background: #fff !important;
+}
+
+/* Comparison Mockup */
+.comparison-mockup {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.comp-panel {
+    flex: 1;
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+[data-theme="light"] .comp-panel {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.comp-header {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.doc-preview {
+    background: #ffffff;
+    height: 140px;
+    border-radius: 4px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.doc-line {
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+}
+
+.doc-line.short {
+    width: 60%;
+}
+
+.doc-line.med {
+    width: 80%;
+}
+
+.sig-area {
+    margin-top: auto;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.handwritten-sig {
+    font-family: 'Varela Round', sans-serif;
+    /* Using a rounded font as placeholder for handwriting */
+    font-style: italic;
+    color: #1e40af;
+    font-size: 0.9rem;
+}
+
+.crypt-seal {
+    background: #f0f7ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1d4ed8;
+}
+
+.comp-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-ok {
+    color: #10b981;
+}
+
+.status-neutral {
+    color: #64748b;
+}
+
+/* REPLICATED COMPARISON LAYOUT (Tablet vs Laptop) */
+.comparison-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: 60px auto;
+    max-width: 1100px;
+}
+
+.comp-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comp-column-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 40px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+[data-theme="dark"] .comp-column-title {
+    color: #f1f5f9;
+}
+
+/* Device Mockups */
+.device-container {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+/* Tablet Mockup (Standard side) */
+.tablet-mockup {
+    width: 300px;
+    height: 420px;
+    background: #111827;
+    border-radius: 32px;
+    padding: 12px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+    position: relative;
+    border: 4px solid #374151;
+}
+
+.tablet-screen {
+    width: 100%;
+    height: 100%;
+    background: #f8fafc;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    padding: 30px;
+}
+
+/* Laptop Mockup (Encrypted side) */
+.laptop-mockup {
+    width: 480px;
+    height: 320px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.laptop-lid {
+    width: 100%;
+    height: 100%;
+    background: #1f2937;
+    border-radius: 12px 12px 0 0;
+    padding: 10px;
+    border: 2px solid #4b5563;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.laptop-screen {
+    width: 100%;
+    height: 100%;
+    background: #0f172a;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+.laptop-base {
+    width: 110%;
+    height: 12px;
+    background: #4b5563;
+    margin-left: -5%;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Mockup Document Styling */
+.mockup-doc {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mockup-doc-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1e293b;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.mockup-text-line {
+    height: 4px;
+    background: #f1f5f9;
+    border-radius: 2px;
+}
+
+.mockup-text-line.l-80 {
+    width: 80%;
+}
+
+.mockup-text-line.l-60 {
+    width: 60%;
+}
+
+.mockup-text-line.l-100 {
+    width: 100%;
+}
+
+.mockup-sig-area {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mockup-handwriting {
+    font-family: 'Varela Round', sans-serif;
+    font-style: italic;
+    color: #1e40af;
+    font-size: 0.9rem;
+}
+
+.mockup-check-seal {
+    width: 20px;
+    height: 20px;
+    background: #22c55e;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+/* Security Shield Overlays */
+.security-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.floating-shield {
+    position: absolute;
+    background: rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(4px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.shield-main {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    color: #fff;
+    background: radial-gradient(circle, #3b82f6, #1d4ed8);
+}
+
+.shield-small-1 {
+    top: 20%;
+    left: 15%;
+}
+
+.shield-small-2 {
+    top: 15%;
+    right: 20%;
+}
+
+.shield-small-3 {
+    bottom: 25%;
+    left: 10%;
+}
+
+.shield-small-4 {
+    bottom: 20%;
+    right: 15%;
+}
+
+/* Benefit Cards at Bottom */
+.benefit-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comp-benefit-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.comp-benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .comp-benefit-icon {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+}
+
+.encrypted-benefit .comp-benefit-icon {
+    color: #10b981;
+    background: #ecfdf5;
+    border-color: #d1fae5;
+}
+
+.comp-benefit-card span {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: capitalize;
+}
+
+[data-theme="dark"] .comp-benefit-card span {
+    color: #94a3b8;
+}
+
+@media (max-width: 1100px) {
+    .laptop-mockup {
+        width: 400px;
+        height: 280px;
+    }
+
+    .tablet-mockup {
+        width: 260px;
+        height: 360px;
+    }
+}
+
+@media (max-width: 900px) {
+    .comparison-grid-v2 {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,360 @@
+/* Storage Risks & Sovereignty Section - High Fidelity Styles */
+
+.storage-risks-section {
+    padding: 100px 5% 60px;
+    background: var(--bg-section-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    position: relative;
+    z-index: 10;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+[data-theme="dark"] .section-header h2 {
+    color: #fff;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Risk Matrix Bento Grid */
+.risk-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 280px;
+    gap: 24px;
+    margin-bottom: 100px;
+}
+
+.risk-card {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #0d1423;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+.risk-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(0, 210, 255, 0.3);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+.risk-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: all 0.8s ease;
+    filter: none;
+}
+
+.risk-card:hover .risk-card-image {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.risk-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top,
+            rgba(3, 7, 18, 0.95) 0%,
+            rgba(3, 7, 18, 0.6) 40%,
+            transparent 100%);
+}
+
+.risk-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.risk-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* Bento Sizing - Elite Layout */
+.risk-card.card-1 {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.risk-card.card-2 {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.risk-card.card-3 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.risk-card.card-4 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.risk-card.card-5 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* Sovereignty Flow Diagram Styles */
+.sovereignty-flow-container {
+    padding-top: 100px;
+    border-top: 1px solid rgba(0, 102, 255, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+/* Lifecycle Diagram Integration */
+.storage-risks-section .lifecycle-container-v2 {
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.diagram-transition-text {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--hero-subtext);
+    margin: 80px auto 40px;
+    max-width: 950px;
+    line-height: 1.4;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.diagram-transition-text strong {
+    font-weight: 800;
+    font-size: 1.7rem;
+    color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #00d2ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+    display: inline-block;
+}
+
+[data-theme="light"] .diagram-transition-text {
+    color: #475569;
+}
+
+[data-theme="light"] .diagram-transition-text strong {
+    color: #003755;
+    background: none;
+    -webkit-text-fill-color: initial;
+    text-shadow: none;
+}
+
+.storage-risks-section .process-diagram-wrapper {
+    padding-top: 20px;
+}
+
+.flow-transition-text {
+    font-size: 1.4rem;
+    color: var(--hero-subtext);
+    max-width: 900px;
+    margin: 0 auto 80px;
+    line-height: 1.6;
+}
+
+.flow-diagram {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Connecting Line - Dim Base */
+.flow-diagram::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: rgba(0, 210, 255, 0.05);
+    z-index: 0;
+}
+
+/* Animated Progress Line */
+.flow-progress-line {
+    position: absolute;
+    top: 30px;
+    left: 12.5%;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, #00d2ff, #3b82f6);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+    z-index: 0;
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.1s;
+}
+
+.flow-diagram.active .flow-progress-line {
+    width: 75%;
+}
+
+.flow-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #0d1423;
+    border: 2px solid #00d2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: #00d2ff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.flow-step.active .step-circle {
+    background: #00d2ff;
+    color: #0d1423;
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.7);
+    animation: circle-pulse 2s infinite alternate;
+}
+
+@keyframes circle-pulse {
+    from {
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        transform: scale(1);
+    }
+
+    to {
+        box-shadow: 0 0 40px rgba(0, 210, 255, 0.9);
+        transform: scale(1.05);
+    }
+}
+
+.step-content {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+    padding: 0 10px;
+    transition: all 0.5s ease;
+}
+
+.flow-step.active .step-content {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] .step-circle {
+    background: #f8fafc;
+    border-color: #0066ff;
+    color: #0066ff;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.1);
+}
+
+[data-theme="light"] .flow-step.active .step-circle {
+    background: #0066ff;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(0, 102, 255, 0.4);
+}
+
+[data-theme="light"] .flow-progress-line {
+    background: linear-gradient(90deg, #0066ff, #3b82f6);
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .risk-matrix-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .risk-card.large {
+        grid-column: span 2;
+    }
+
+    .flow-diagram {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    .flow-diagram::before,
+    .flow-progress-line {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .risk-matrix-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .risk-card.large {
+        grid-column: span 1;
+    }
+
+    .flow-diagram {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}

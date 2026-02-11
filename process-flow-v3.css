@@ -1,0 +1,483 @@
+/* ========================================
+   ENCRYPTED ESIGN: ELITE PROCESS DIAGRAM (CONSOLIDATED)
+   ======================================== */
+
+:root {
+    --process-blue: #0066ff;
+    --process-cyan: #00d2ff;
+    --process-green: #22c55e;
+    --node-bg: #0f172a;
+    --node-border: rgba(0, 102, 255, 0.3);
+}
+
+.lifecycle-section {
+    padding: 120px 0;
+    background: #020617;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.lifecycle-container-v2 {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 40px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- HEADER --- */
+.lifecycle-header-centered {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.lifecycle-main-title {
+    font-size: 3.5rem !important;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+}
+
+.lifecycle-main-title span {
+    color: #00d2ff;
+    -webkit-text-fill-color: #00d2ff;
+    text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+}
+
+.lifecycle-sub-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #3b82f6;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* --- DIAGRAM CORE --- */
+.process-diagram-wrapper {
+    position: relative;
+    padding: 80px 0;
+}
+
+/* Background static line */
+.process-line-bg {
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    right: 80px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+/* Active growing line */
+.process-line-active {
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, transparent, var(--process-blue), var(--process-cyan), var(--process-blue), transparent);
+    background-size: 200% 100%;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+    transition: width 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process-line-active.active {
+    width: calc(100% - 160px);
+    animation: lineFlow 3s linear infinite;
+}
+
+@keyframes lineFlow {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* --- STEPS --- */
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+}
+
+.process-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.process-step.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- CONSOLIDATED FORCED OVERRIDE --- */
+#lifecycle-esign-process {
+    background: #020617 !important;
+}
+
+#lifecycle-esign-process .step-node {
+    width: 90px !important;
+    height: 90px !important;
+    background: #0f172a !important;
+    border: 1px solid rgba(0, 102, 255, 0.4) !important;
+    border-radius: 12px !important;
+    /* FORCED SQUARE-ISH */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+    clip-path: none !important;
+    /* Prevent any circle clipping */
+}
+
+#lifecycle-esign-process .node-visual {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 8px !important;
+    background-image:
+        linear-gradient(rgba(0, 102, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 102, 255, 0.15) 1px, transparent 1px) !important;
+    background-size: 10px 10px !important;
+    border: 1px solid rgba(0, 102, 255, 0.2) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#lifecycle-esign-process .step-number {
+    position: absolute !important;
+    top: -10px !important;
+    right: -10px !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    /* Numbers stay round */
+    background: linear-gradient(135deg, #0066ff, #00d2ff) !important;
+    border: 2px solid #020617 !important;
+}
+
+/* Node Container (Blueprint Style) */
+.step-node {
+    width: 90px;
+    height: 90px;
+    background: var(--node-bg);
+    border: 1px solid var(--node-border);
+    border-radius: 18px;
+    /* Squircle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 102, 255, 0.05);
+    transition: all 0.4s ease;
+}
+
+.process-step:hover .step-node {
+    transform: scale(1.05) translateY(-5px);
+    border-color: var(--process-cyan);
+    box-shadow: 0 25px 50px rgba(0, 102, 255, 0.2);
+}
+
+/* The Number Badge */
+.step-number {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--process-blue), var(--process-cyan));
+    color: white !important;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
+    border: 2px solid #020617;
+}
+
+/* Visual Illustration Area */
+.node-visual {
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 102, 255, 0.03);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    /* Grid Pattern */
+    background-image:
+        linear-gradient(rgba(0, 102, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 102, 255, 0.08) 1px, transparent 1px);
+    background-size: 8px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.node-visual i {
+    font-size: 26px;
+    color: var(--process-cyan);
+    z-index: 10;
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.6));
+}
+
+/* --- STEP SPECIFIC ANIMATIONS --- */
+
+/* Step 1: Upload (Rising Data) */
+.process-step[data-step="1"].active .node-visual::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(0deg, var(--process-blue), transparent);
+    bottom: -50%;
+    opacity: 0.3;
+    animation: dataRise 2s ease-in-out infinite;
+}
+
+@keyframes dataRise {
+    0% {
+        bottom: -50%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+/* Step 2: Hashing (Scanning Grid) */
+.process-step[data-step="2"].active .scanner-line {
+    position: absolute;
+    width: 140%;
+    height: 2px;
+    background: var(--process-cyan);
+    box-shadow: 0 0 20px var(--process-cyan);
+    left: -20%;
+    animation: scanPulse 2.5s ease-in-out infinite;
+    z-index: 11;
+}
+
+@keyframes scanPulse {
+
+    0%,
+    100% {
+        top: 0;
+        opacity: 0.1;
+    }
+
+    50% {
+        top: 100%;
+        opacity: 0.8;
+    }
+}
+
+/* Step 3: Distributed (Pulsing Nodes) */
+.process-step[data-step="3"].active .orbit-particles span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--process-cyan);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--process-cyan);
+    animation: meshPulse 2s infinite;
+}
+
+.orbit-particles span:nth-child(1) {
+    top: 12px;
+    left: 12px;
+    animation-delay: 0s;
+}
+
+.orbit-particles span:nth-child(2) {
+    top: 12px;
+    right: 12px;
+    animation-delay: 0.4s;
+}
+
+.orbit-particles span:nth-child(3) {
+    bottom: 12px;
+    left: 50%;
+    margin-left: -3px;
+    animation-delay: 0.8s;
+}
+
+@keyframes meshPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.8);
+        opacity: 1;
+        box-shadow: 0 0 20px var(--process-cyan);
+    }
+}
+
+/* Step 4: Verification (Seal Rotation) */
+.process-step[data-step="4"].active .success-glow {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    border: 1px dashed var(--process-green);
+    border-radius: 50%;
+    animation: rotatingSeal 15s linear infinite;
+    opacity: 0.2;
+}
+
+@keyframes rotatingSeal {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.process-step[data-step="4"].active i {
+    color: var(--process-green) !important;
+    filter: drop-shadow(0 0 15px var(--process-green));
+}
+
+/* --- CONTENT --- */
+.step-content h4 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.step-content p {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/* --- LIGHT MODE REFINED --- */
+[data-theme="light"] .lifecycle-section {
+    background: #ffffff;
+}
+
+[data-theme="light"] .lifecycle-main-title {
+    color: #0f172a !important;
+    background: none;
+    -webkit-text-fill-color: #0f172a;
+}
+
+[data-theme="light"] .process-line-bg {
+    background: rgba(0, 102, 255, 0.1);
+}
+
+[data-theme="light"] .step-node {
+    background: #ffffff;
+    border-color: rgba(0, 102, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.08);
+}
+
+[data-theme="light"] .node-visual {
+    background: rgba(0, 102, 255, 0.02);
+    background-image:
+        linear-gradient(rgba(0, 102, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 102, 255, 0.05) 1px, transparent 1px);
+}
+
+[data-theme="light"] .step-content h4 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .step-content p {
+    color: #475569;
+}
+
+[data-theme="light"] .step-number {
+    border-color: #ffffff;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+    .process-steps {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+
+    .process-line-bg {
+        top: 0;
+        bottom: 0;
+        left: 65px;
+        width: 2px;
+        height: auto;
+    }
+
+    .process-line-active {
+        top: 0;
+        left: 65px;
+        width: 2px;
+        height: 0;
+        transition: height 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .process-line-active.active {
+        height: 100%;
+    }
+
+    .process-step {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 40px 0;
+        width: 100%;
+        gap: 40px;
+    }
+
+    .step-node {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .step-content {
+        text-align: left;
+    }
+
+    .step-content p {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
