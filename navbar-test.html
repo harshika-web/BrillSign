@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Test</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@400;600;800&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 80px 20px 20px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .test-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f0f9ff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/brillsign-b.png" class="logo-icon" alt="BrillSign">
+                <span class="logo-text">rillSign</span>
+            </a>
+            <ul class="nav-links">
+                <li class="nav-item-with-dropdown">
+                    <a href="#features"><span>Features</span> <i class="fas fa-chevron-down nav-arrow"></i></a>
+                </li>
+                <li><a href="#solutions"><span>Solutions</span> <i class="fas fa-chevron-down nav-arrow"></i></a></li>
+                <li><a href="#apis"><span>APIs & Integrations</span> <i class="fas fa-chevron-down nav-arrow"></i></a>
+                </li>
+                <li><a href="#resources"><span>Resources</span> <i class="fas fa-chevron-down nav-arrow"></i></a></li>
+            </ul>
+            <div class="nav-btns">
+                <div class="lang-selector">
+                    <button class="lang-btn" aria-label="Select Language">
+                        <i class="fas fa-globe"></i>
+                        <span class="current-lang">EN</span>
+                    </button>
+                </div>
+                <a href="#waitlist" class="btn-primary-v3">Join the Waitlist</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="test-info">
+        <h1>Navbar Text Cropping Test</h1>
+        <p>This page tests the navbar text rendering to ensure no cropping occurs.</p>
+        <h2>Changes Made:</h2>
+        <ul>
+            <li><strong>Navbar height:</strong> Increased from 56px to 60px</li>
+            <li><strong>Container padding:</strong> Changed from "0 20px" to "10px 20px"</li>
+            <li><strong>Nav-links padding:</strong> Changed from "0" to "5px 0"</li>
+            <li><strong>Nav link styles:</strong> Added font-size: 0.95rem, line-height: 1.5, display: inline-flex,
+                align-items: center</li>
+        </ul>
+        <h2>What to Check:</h2>
+        <ul>
+            <li>All navbar text should be fully visible with no cropping</li>
+            <li>Letters with descenders (like 'g', 'p', 'y') should not be cut off</li>
+            <li>Letters with ascenders (like 'h', 'l', 't') should not be cut off</li>
+            <li>The logo "BrillSign" should be fully visible</li>
+            <li>All menu items should be vertically centered</li>
+        </ul>
+    </div>
+</body>
+
+</html>

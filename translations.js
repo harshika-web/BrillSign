@@ -97,7 +97,7 @@ const translations = {
         infra_integration_title: "Designed to Fit Your Existing Infrastructure",
         infra_integration_subtitle: "BrillSign does not require replacing your storage, workflows, or internal processes. It adds verification and control without operational change.",
         infra_integration_cta: "Explore API & System Integration",
-        faq_storage_title: "FAQ",
+        faq_storage_title: "Frequently Asked Questions",
         faq_storage_q1: "Are documents public?",
         faq_storage_a1: "No. Only verification proofs are used. Document contents remain private.",
         faq_storage_q2: "Can we still keep local copies?",

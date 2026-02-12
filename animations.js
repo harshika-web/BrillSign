@@ -344,12 +344,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const scenarioSlides = document.querySelectorAll('.scenario-slide');
     const scenarioTabs = document.querySelectorAll('.tab');
     const scenarioBackgrounds = [
-        'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600', // Audit Trails: Vibrant Blue Tech Circuit
-        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600', // Compliance: Vibrant neon matrix
-        'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1600', // Zero Knowledge: Abstract energetic purple/blue
-        'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=1600', // Jurisdiction: 3D global data architecture
-        'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1600', // Identity: Sophisticated digital mesh
-        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600'  // Exit Safe: High-energy global infrastructure
+        'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600', // Audit Trails: Document/Records Management
+        'images/scenario_compliance.jpg', // Compliance: Local asset image
+        'images/scenario_encryption.jpg', // Zero Knowledge: Local asset image
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600', // Jurisdiction: Elite Skyscraper Glass (KEPT)
+        'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1600', // Identity: High-end Professional context
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600'  // Exit Safe: Business Analytics/Freedom
     ];
 
     const handleScenarioScroll = () => {
@@ -401,8 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetImgUrl = scenarioBackgrounds[activeIndex];
 
             if (!currentImg.includes(targetImgUrl)) {
-                // Ultra-vibrant multi-stop overlay with lower white opacity
-                const overlayGradient = `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.5) 100%)`;
+                // Elite deep-navy overlay for maximum "richness" and professional contrast
+                const overlayGradient = `linear-gradient(135deg, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 0.4) 50%, rgba(2, 6, 23, 0.8) 100%)`;
                 bgOverlay.style.backgroundImage = `${overlayGradient}, url("${targetImgUrl}")`;
             }
         }

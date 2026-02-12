@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #f1f5f9;
     border-radius: 12px;
     overflow: hidden;
@@ -487,7 +487,7 @@
 }
 
 .handwritten-sig {
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Poppins', sans-serif;
     /* Using a rounded font as placeholder for handwriting */
     font-style: italic;
     color: #1e40af;
@@ -543,7 +543,7 @@
     font-weight: 800;
     color: #1e293b;
     margin-bottom: 40px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 [data-theme="dark"] .comp-column-title {
@@ -671,7 +671,7 @@
 }
 
 .mockup-handwriting {
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: italic;
     color: #1e40af;
     font-size: 0.9rem;
