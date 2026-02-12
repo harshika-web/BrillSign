@@ -4589,7 +4589,7 @@ a {
 
 .scenarios-section .scenario-slide .scenario-caption strong {
     font-size: 1.8rem !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
 }
 
 .scenarios-section .scenario-slide .mockup-frame {
