@@ -1,0 +1,118 @@
+/* Section: Risks Without Integrity Proof */
+.integrity-risks {
+    padding: 100px 0;
+    background: var(--bg-deep);
+    position: relative;
+    overflow: hidden;
+}
+
+.integrity-risks .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.risks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.risk-card {
+    flex: 0 1 340px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+[data-theme="light"] .risk-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.risk-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 59, 48, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .risk-card:hover {
+    background: #ffffff;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.risk-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(255, 59, 48, 0.15) 0%, rgba(255, 59, 48, 0.05) 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #ff3b30;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 59, 48, 0.1);
+}
+
+.risk-card:hover .risk-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: #ff3b30;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(255, 59, 48, 0.5);
+}
+
+.risk-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+[data-theme="light"] .risk-card h3 {
+    color: #0f172a;
+}
+
+.risk-card p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+@media (max-width: 768px) {
+    .risks-grid {
+        gap: 30px;
+    }
+
+    .risk-card {
+        flex: 1 1 300px;
+        padding: 30px;
+    }
+}
+
+/* Subtle background accent */
+.integrity-risks::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 59, 48, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}

@@ -1,0 +1,132 @@
+/* Independent Verification Hero Specific Styles */
+.independent-variant {
+    background: radial-gradient(circle at 10% 20%, rgba(0, 173, 239, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(142, 45, 226, 0.05) 0%, transparent 40%);
+}
+
+.independent-visual-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1500px;
+}
+
+.platform-box-scene {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    transform-style: preserve-3d;
+}
+
+.platform-frame {
+    position: absolute;
+    width: 250px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    left: 10%;
+    top: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transform: rotateY(-20deg);
+}
+
+[data-theme="light"] .platform-frame {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.document-escape {
+    position: absolute;
+    width: 160px;
+    height: 220px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    right: 15%;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    animation: docEscape 6s ease-in-out infinite;
+    z-index: 5;
+}
+
+[data-theme="light"] .document-escape {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes docEscape {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(30px, -20px) rotate(10deg);
+    }
+}
+
+.verification-badge {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 60px;
+    height: 60px;
+    background: #4cd964;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(76, 217, 100, 0.4);
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(76, 217, 100, 0.4);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(76, 217, 100, 0.6);
+    }
+}
+
+.doc-line {
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+[data-theme="light"] .doc-line {
+    background: #e2e8f0;
+}
+
+.offline-tag {
+    position: absolute;
+    top: -40px;
+    left: 20%;
+    background: var(--bg-deep);
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}

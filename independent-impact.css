@@ -1,0 +1,72 @@
+/* Independent Impact Section */
+.independent-impact {
+    padding: 100px 0;
+    background: var(--bg-dark);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.impact-col {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.4s ease;
+}
+
+[data-theme="light"] .impact-col {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.impact-col:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+}
+
+[data-theme="light"] .impact-col:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.impact-icon {
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 25px;
+}
+
+.impact-col h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+[data-theme="light"] .impact-col h3 {
+    color: var(--text-primary);
+}
+
+.impact-benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.impact-benefit i {
+    color: #4cd964;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+}

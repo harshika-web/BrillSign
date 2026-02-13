@@ -1,0 +1,158 @@
+/* Independent How It Works Section */
+.independent-how {
+    padding: 120px 0;
+    background: var(--bg-deep);
+}
+
+.how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.how-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.how-step {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.step-num {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 173, 239, 0.1);
+    border: 1px solid var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.step-info h4 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+[data-theme="light"] .step-info h4 {
+    color: var(--text-primary);
+}
+
+.step-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.flow-visual-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="light"] .flow-visual-box {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+}
+
+.flow-node {
+    width: 100px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    z-index: 5;
+}
+
+[data-theme="light"] .flow-node {
+    background: #f8fafc;
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.flow-node.active {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.traveling-proof {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px rgba(0, 173, 239, 0.5);
+    animation: proofTravel 4s linear infinite;
+    z-index: 10;
+}
+
+@keyframes proofTravel {
+    0% {
+        left: 120px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 280px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.flow-line {
+    position: absolute;
+    left: 150px;
+    right: 150px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    top: 50%;
+}
+
+[data-theme="light"] .flow-line {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+    .how-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}

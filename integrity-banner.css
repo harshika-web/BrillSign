@@ -1,0 +1,341 @@
+.integrity-banner-v2 {
+    padding: 100px 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    /* Contain the glows */
+}
+
+/* Brand Background Glows */
+.banner-glow-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.12;
+    /* Subtle branding */
+}
+
+.glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+/* Blue: 60% presence (largest) */
+.blob-blue {
+    width: 600px;
+    height: 600px;
+    background: #0066ff;
+    top: -100px;
+    left: -100px;
+}
+
+/* Red: 30% presence (medium) */
+.blob-red {
+    width: 400px;
+    height: 400px;
+    background: #ff0000;
+    bottom: -50px;
+    right: -50px;
+}
+
+/* Yellow: 10% presence (smallest) */
+.blob-yellow {
+    width: 250px;
+    height: 250px;
+    background: #ffff00;
+    top: 20%;
+    right: 15%;
+}
+
+.banner-v2-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fff;
+    border-radius: 4px;
+    /* Sharp professional edges as per reference */
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+/* --- Left Side: Info --- */
+.banner-v2-info {
+    padding: 60px 40px;
+    /* Adjusted padding for better balance */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Removed background to let divider handle it */
+    z-index: 5;
+    overflow: hidden;
+    /* Contain background accents */
+}
+
+/* --- Info Section Background Enhancement --- */
+.banner-v2-info::before {
+    content: "B";
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    font-size: 35rem;
+    /* Huge subtle watermark */
+    font-weight: 900;
+    color: #000;
+    opacity: 0.04;
+    /* Slightly more visible but still elite */
+    transform: translateY(-50%) rotate(-15deg);
+    pointer-events: none;
+    line-height: 1;
+}
+
+.tech-bg-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.tech-item {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #000;
+    opacity: 0.05;
+    text-transform: uppercase;
+}
+
+.tech-hash-1 {
+    top: 15%;
+    left: 45%;
+    transform: rotate(90deg);
+}
+
+.tech-hash-2 {
+    bottom: 25%;
+    left: 5%;
+}
+
+.tech-status {
+    top: 10%;
+    right: 15%;
+    padding: 4px 8px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.tech-grid-left {
+    top: 40px;
+    left: 40px;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(#000 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.03;
+}
+
+.banner-v2-info::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.05), transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.banner-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.brand-v-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff0055, #ffaa00);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.4rem;
+    border-radius: 8px;
+}
+
+.banner-brand span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.banner-v2-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #002222;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    max-width: 95%;
+}
+
+.banner-v2-sub {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+.banner-v2-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.banner-v2-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: #000;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    width: fit-content;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.banner-v2-btn:hover {
+    background: #004444;
+    transform: translateX(5px);
+}
+
+
+/* --- Wavy Divider --- */
+.banner-v2-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    /* Behind content, over image */
+    pointer-events: none;
+}
+
+.banner-v2-divider svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* --- Right Side: Visual --- */
+.banner-v2-visual {
+    position: relative;
+    background: #004444;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #ffffff00, #004444cc);
+    z-index: 2;
+}
+
+.visual-img-container {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.1);
+}
+
+
+/* --- Geometric Accents --- */
+.accent-dots {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background-image: radial-gradient(#ccc 2px, transparent 2px);
+    background-size: 8px 8px;
+    opacity: 0.5;
+}
+
+.accent-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #004444;
+    opacity: 0.3;
+}
+
+.t-1 {
+    top: 40px;
+    left: 40px;
+    transform: rotate(45deg);
+}
+
+.t-2 {
+    bottom: 15%;
+    right: 10%;
+    border-bottom-color: #00ffff;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 991px) {
+    .banner-v2-card {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-v2-info {
+        text-align: center;
+        align-items: center;
+        padding: 60px 20px;
+        background: #ffffff;
+        /* Restore for mobile stack */
+    }
+
+    .banner-v2-divider {
+        display: none;
+    }
+
+    .banner-brand,
+    .banner-v2-cta-group {
+        align-items: center;
+    }
+
+    .value-prop-circle {
+        display: none;
+    }
+
+    .banner-v2-visual {
+        height: 300px;
+    }
+}

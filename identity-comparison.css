@@ -1,0 +1,83 @@
+/* Identity Comparison Section */
+.identity-comparison {
+    padding: 100px 0;
+    background: var(--bg-deep);
+}
+
+.comparison-table-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .comparison-table-wrapper {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.comp-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comp-table th,
+.comp-table td {
+    padding: 25px 40px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .comp-table th,
+[data-theme="light"] .comp-table td {
+    border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+
+.comp-table th {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+[data-theme="light"] .comp-table th {
+    background: #f8fafc;
+    color: var(--text-primary);
+}
+
+.comp-table td:first-child {
+    color: var(--text-muted);
+    font-weight: 500;
+    width: 30%;
+}
+
+[data-theme="light"] .comp-table td:first-child {
+    color: var(--text-secondary);
+}
+
+.comp-table td:nth-child(2) {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.comp-table td:nth-child(3) {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.comp-table tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+
+    .comp-table th,
+    .comp-table td {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+    }
+}

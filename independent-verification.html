@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Independent Verification | BrillSign</title>
+    <meta name="description"
+        content="Verify BrillSign documents without needing the platform. Cryptographic portability ensures your digital signatures are always valid and verifiable.">
+    <link rel="stylesheet" href="index.css?v=20260213">
+    <link rel="stylesheet" href="independent-hero.css">
+    <link rel="stylesheet" href="independent-risks.css">
+    <link rel="stylesheet" href="independent-how.css">
+    <link rel="stylesheet" href="independent-impact.css">
+    <link rel="stylesheet" href="independent-demo.css">
+    <link rel="stylesheet" href="independent-comparison.css">
+    <link rel="stylesheet" href="independent-faq.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="feature-page">
+    <!-- The logo background removal filter -->
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+        <filter id="remove-bg" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                 0 1 0 0 0
+                                                 0 0 1 0 0
+                                                 -1 -1 -1 3 0" />
+        </filter>
+    </svg>
+    <!-- Navbar will be loaded from shared-components.js -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="feature-hero independent-variant">
+            <div class="glow-blob blob-1"></div>
+            <div class="glow-blob blob-2"></div>
+            <div class="hero-grid-overlay"></div>
+
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content animate-up">
+                        <h1 class="feature-title premium-heading" data-i18n="hero_independent_title">
+                            Verify documents — <span class="text-highlight">even if the platform is offline</span>
+                        </h1>
+                        <p class="hero-subtitle" data-i18n="hero_independent_subtitle">
+                            Independent of any vendor. Proof travels with the document.
+                        </p>
+                        <div class="feature-ctas">
+                            <a href="#how-it-works" class="btn-primary">
+                                <span>See How Independent Verification Works</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#" class="btn-outline">
+                                <i class="fas fa-magnifying-glass"></i>
+                                <span>Download Verification Tools</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual animate-right">
+                        <div class="independent-visual-container">
+                            <div class="platform-box-scene">
+                                <div class="offline-tag">Platform Offline</div>
+                                <div class="platform-frame">
+                                    <span>Vendor Repository</span>
+                                </div>
+                                <div class="document-escape">
+                                    <div class="doc-line" style="width: 80%;"></div>
+                                    <div class="doc-line" style="width: 100%;"></div>
+                                    <div class="doc-line" style="width: 60%;"></div>
+                                    <div class="doc-line" style="width: 90%;"></div>
+                                    <div class="verification-badge">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Risks -->
+        <section class="independent-risks">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" data-i18n="independent_risk_title">Why Verification Portability Matters?
+                    </h2>
+                </div>
+
+                <div class="risks-grid">
+                    <div class="risk-card reveal" style="transition-delay: 0.1s">
+                        <div class="risk-icon"><i class="fas fa-plug-circle-xmark"></i></div>
+                        <h3 data-i18n="independent_risk_1_title">Vendor outage risk</h3>
+                        <p data-i18n="independent_risk_1_sub">Your documents should be verifiable even when the platform
+                            is down.</p>
+                    </div>
+
+                    <div class="risk-card reveal" style="transition-delay: 0.2s">
+                        <div class="risk-icon"><i class="fas fa-power-off"></i></div>
+                        <h3 data-i18n="independent_risk_2_title">Vendor shutdown risk</h3>
+                        <p data-i18n="independent_risk_2_sub">If a provider closes, your proofs must remain valid
+                            forever.</p>
+                    </div>
+
+                    <div class="risk-card reveal" style="transition-delay: 0.3s">
+                        <div class="risk-icon"><i class="fas fa-file-export"></i></div>
+                        <h3 data-i18n="independent_risk_3_title">Migration proof loss</h3>
+                        <p data-i18n="independent_risk_3_sub">Moving platforms shouldn't break your signature audit
+                            trails.</p>
+                    </div>
+
+                    <div class="risk-card reveal" style="transition-delay: 0.4s">
+                        <div class="risk-icon"><i class="fas fa-user-lock"></i></div>
+                        <h3 data-i18n="independent_risk_4_title">Restricted access events</h3>
+                        <p data-i18n="independent_risk_4_sub">Verify identity without needing active account access.</p>
+                    </div>
+
+                    <div class="risk-card reveal" style="transition-delay: 0.5s">
+                        <div class="risk-icon"><i class="fas fa-box-open"></i></div>
+                        <h3 data-i18n="independent_risk_5_title">Vendor lock verification</h3>
+                        <p data-i18n="independent_risk_5_sub">Avoid proprietary black boxes that trap your legal
+                            evidence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 2: How It Works -->
+        <section class="independent-how" id="how-it-works">
+            <div class="container">
+                <div class="how-grid">
+                    <div class="how-steps reveal">
+                        <h2 class="premium-heading" data-i18n="independent_how_title">How Independent Verification Works
+                        </h2>
+
+                        <div class="how-step">
+                            <div class="step-num">01</div>
+                            <div class="step-info">
+                                <h4 data-i18n="independent_step_1_title">Proof created at signing</h4>
+                            </div>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-num">02</div>
+                            <div class="step-info">
+                                <h4 data-i18n="independent_step_2_title">Proof travels with document</h4>
+                            </div>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-num">03</div>
+                            <div class="step-info">
+                                <h4 data-i18n="independent_step_3_title">Anyone can verify using tools</h4>
+                            </div>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-num">04</div>
+                            <div class="step-info">
+                                <h4 data-i18n="independent_step_4_title">No platform required</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="how-visual reveal">
+                        <div class="flow-visual-box">
+                            <div class="flow-node active">
+                                <i class="fas fa-file-signature"></i>
+                                <span style="font-size: 0.7rem;">Sign</span>
+                            </div>
+                            <div class="flow-line"></div>
+                            <div class="traveling-proof">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div class="flow-node">
+                                <i class="fas fa-magnifying-glass"></i>
+                                <span style="font-size: 0.7rem;">Verify</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Impact -->
+        <section class="independent-impact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" data-i18n="independent_impact_title">Verification Autonomy</h2>
+                </div>
+
+                <div class="impact-grid">
+                    <div class="impact-col reveal" style="transition-delay: 0.1s">
+                        <div class="impact-icon"><i class="fas fa-landmark"></i></div>
+                        <h3 data-i18n="independent_impact_legal">Legal</h3>
+                        <div class="impact-benefit">
+                            <i class="fas fa-check"></i>
+                            <span data-i18n="independent_impact_legal_sub">Long-term evidence</span>
+                        </div>
+                    </div>
+
+                    <div class="impact-col reveal" style="transition-delay: 0.2s">
+                        <div class="impact-icon"><i class="fas fa-handshake-slash"></i></div>
+                        <h3 data-i18n="independent_impact_security">Security</h3>
+                        <div class="impact-benefit">
+                            <i class="fas fa-check"></i>
+                            <span data-i18n="independent_impact_security_sub">Vendor independence</span>
+                        </div>
+                    </div>
+
+                    <div class="impact-col reveal" style="transition-delay: 0.3s">
+                        <div class="impact-icon"><i class="fas fa-infinity"></i></div>
+                        <h3 data-i18n="independent_impact_ops">Operations</h3>
+                        <div class="impact-benefit">
+                            <i class="fas fa-check"></i>
+                            <span data-i18n="independent_impact_ops_sub">Continuous accessibility</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Try Independent Verification -->
+        <section class="independent-demo">
+            <div class="container">
+                <div class="demo-card reveal">
+                    <div class="demo-content">
+                        <h2 class="premium-heading" data-i18n="independent_demo_title">Try Independent Verification</h2>
+                        <p data-i18n="independent_demo_sub">Download a signed document and verify it using an external
+                            tool.</p>
+                        <a href="#" class="btn-primary" data-i18n="independent_btn_verify">Get Verification Tools</a>
+                    </div>
+                    <div class="demo-visual-demo">
+                        <div class="external-tool-badge">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="verification-status">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Verified via 3rd-Party Cryptographic Suite</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Comparison -->
+        <section class="independent-comparison">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" data-i18n="independent_comp_title">Comparison</h2>
+                </div>
+
+                <div class="comparison-table-wrapper reveal">
+                    <table class="comp-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th data-i18n="independent_comp_platform">Platform eSign</th>
+                                <th data-i18n="independent_comp_brillsign">BrillSign</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="independent_comp_row1_label">Accessibility</td>
+                                <td data-i18n="independent_comp_row1_platform">Needs platform</td>
+                                <td data-i18n="independent_comp_row1_brillsign">Works anywhere</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="independent_comp_row2_label">Control</td>
+                                <td data-i18n="independent_comp_row2_platform">Vendor controlled</td>
+                                <td data-i18n="independent_comp_row2_brillsign">User controlled</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Integration Banner -->
+        <section class="independent-integration">
+            <div class="container">
+                <div class="integration-banner reveal">
+                    <div class="integration-content">
+                        <h2 data-i18n="independent_int_title">Standardized Evidence</h2>
+                        <p data-i18n="independent_int_subtitle">No workflow change required.</p>
+                    </div>
+                    <a href="#" class="api-btn" data-i18n="independent_btn_api">Explore Verification API</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: FAQ -->
+        <section class="independent-faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" data-i18n="independent_faq_title">FAQ</h2>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item reveal">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span data-i18n="independent_faq_q1">Can third parties verify?</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="independent_faq_a1">Yes, using standard tools without a BrillSign account.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded from shared-components.js -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script src="animations.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            if (window.updateLanguage) window.updateLanguage(savedLang);
+        });
+    </script>
+</body>
+
+</html>

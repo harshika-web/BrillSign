@@ -1,0 +1,139 @@
+.non-repudiation-chain {
+    padding: 100px 0;
+    background: var(--bg-deep);
+    position: relative;
+    overflow: hidden;
+}
+
+.chain-pipeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 60px auto 0;
+    padding: 0 40px;
+}
+
+.chain-pipeline::before {
+    content: '';
+    position: absolute;
+    top: 45px;
+    left: 80px;
+    right: 80px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+.chain-step {
+    position: relative;
+    z-index: 2;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.chain-node {
+    width: 90px;
+    height: 90px;
+    background: var(--bg-dark);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: var(--accent-blue);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 0 0 rgba(0, 173, 239, 0);
+}
+
+[data-theme="light"] .chain-node {
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.chain-step:hover .chain-node {
+    border-color: var(--accent-blue);
+    color: white;
+    background: var(--accent-blue);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 173, 239, 0.4);
+}
+
+.chain-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    line-height: 1.4;
+}
+
+[data-theme="light"] .chain-label {
+    color: var(--text-primary);
+}
+
+/* Chain Link Visuals */
+.link-connection {
+    position: absolute;
+    top: 45px;
+    width: calc(100% - 180px);
+    left: 135px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.chain-link-icon {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.05);
+    transform: rotate(-45deg);
+    transition: all 0.5s;
+}
+
+.step-active .chain-link-icon {
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px var(--accent-purple);
+    animation: link-pulse 2s infinite;
+}
+
+@keyframes link-pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(-45deg) scale(1.2);
+    }
+}
+
+@media (max-width: 991px) {
+    .chain-pipeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        padding: 0;
+    }
+
+    .chain-pipeline::before {
+        display: none;
+    }
+
+    .link-connection {
+        display: none;
+    }
+
+    .chain-step {
+        width: 100%;
+    }
+}

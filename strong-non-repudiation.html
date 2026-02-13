@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Non-Repudiation | BrillSign</title>
+    <meta name="description"
+        content="Signatures that cannot be denied later. BrillSign binds signer identity, timestamp, and document fingerprint into permanent proof.">
+    <link rel="stylesheet" href="index.css?v=20260208s">
+    <link rel="stylesheet" href="non-repudiation-hero.css">
+    <link rel="stylesheet" href="non-repudiation-risks.css">
+    <link rel="stylesheet" href="non-repudiation-chain.css">
+    <link rel="stylesheet" href="non-repudiation-impact.css">
+    <link rel="stylesheet" href="non-repudiation-demo.css">
+    <link rel="stylesheet" href="non-repudiation-comparison.css">
+    <link rel="stylesheet" href="non-repudiation-faq.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="feature-page">
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+        <filter id="remove-bg" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                 0 1 0 0 0
+                                                 0 0 1 0 0
+                                                 -1 -1 -1 3 0" />
+        </filter>
+    </svg>
+    <!-- Navbar will be loaded from shared-components.js -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Section 0: Hero -->
+        <section class="non-repudiation-hero">
+            <div class="container">
+                <div class="hero-grid-2col">
+                    <div class="hero-text-content reveal">
+                        <h1 class="premium-heading" data-i18n="nr_hero_title">Signatures that cannot be denied later
+                        </h1>
+                        <p class="premium-subtitle" data-i18n="nr_hero_subtitle">BrillSign binds signer identity,
+                            timestamp, and document fingerprint into permanent proof.</p>
+                        <div class="hero-cta-group">
+                            <a href="#demo" class="btn-primary-v3" data-i18n="nr_btn_verify_demo">Try Non-Repudiation
+                                Demo</a>
+                            <a href="#features" class="btn-secondary-v3">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual reveal locking-active">
+                        <div class="locking-container">
+                            <div class="doc-layer">
+                                <div class="doc-content">
+                                    <div class="line-placeholder" style="width: 80%"></div>
+                                    <div class="line-placeholder" style="width: 90%"></div>
+                                    <div class="line-placeholder" style="width: 60%"></div>
+                                    <div class="line-placeholder" style="width: 85%"></div>
+                                    <div class="line-placeholder" style="width: 70%"></div>
+                                    <div class="sig-block">
+                                        <svg class="sig-path" viewBox="0 0 100 40">
+                                            <path d="M10,30 Q30,10 50,30 T90,20" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blockchain-seal">
+                                <div class="seal-inner">
+                                    <div class="particle-ring"></div>
+                                    <i class="fas fa-link seal-icon"></i>
+                                    <div class="anchor-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Signer Denial Risks -->
+        <section class="non-repudiation-risks">
+            <div class="container">
+                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
+                    <h2 class="premium-heading" data-i18n="nr_risk_title">Signer Denial Risks</h2>
+                </div>
+                <div class="risks-grid">
+                    <!-- Risk 1 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.1s">
+                        <div class="risk-icon"><i class="fas fa-user-times"></i></div>
+                        <h3 data-i18n="nr_risk_1_title">Signer Denial Claims</h3>
+                        <p data-i18n="nr_risk_1_sub">"I never signed that."</p>
+                    </div>
+                    <!-- Risk 2 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.2s">
+                        <div class="risk-icon"><i class="fas fa-clock-rotate-left"></i></div>
+                        <h3 data-i18n="nr_risk_2_title">Timestamp Disputes</h3>
+                        <p data-i18n="nr_risk_2_sub">Unclear approval timing.</p>
+                    </div>
+                    <!-- Risk 3 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.3s">
+                        <div class="risk-icon"><i class="fas fa-building-shield"></i></div>
+                        <h3 data-i18n="nr_risk_3_title">Platform Evidence Dependency</h3>
+                        <p data-i18n="nr_risk_3_sub">Vendor testimony needed.</p>
+                    </div>
+                    <!-- Risk 4 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.4s">
+                        <div class="risk-icon"><i class="fas fa-history"></i></div>
+                        <h3 data-i18n="nr_risk_4_title">Log Tampering Risk</h3>
+                        <p data-i18n="nr_risk_4_sub">Editable activity history.</p>
+                    </div>
+                    <!-- Risk 5 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.5s">
+                        <div class="risk-icon"><i class="fas fa-user-secret"></i></div>
+                        <h3 data-i18n="nr_risk_5_title">Identity Spoofing</h3>
+                        <p data-i18n="nr_risk_5_sub">Weak signer validation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Evidence Chain (How It Works) -->
+        <section class="non-repudiation-chain">
+            <div class="container">
+                <div class="section-header reveal text-center" style="margin-bottom: 80px;">
+                    <h2 class="premium-heading" data-i18n="nr_how_title">How It Works (Evidence Chain)</h2>
+                </div>
+
+                <div class="chain-pipeline">
+                    <!-- Step 1 -->
+                    <div class="chain-step reveal" style="transition-delay: 0.1s">
+                        <div class="chain-node"><i class="fas fa-id-card-clip"></i></div>
+                        <div class="chain-label" data-i18n="nr_step_1_title">Identity verified</div>
+                        <div class="link-connection step-active"><i class="fas fa-link chain-link-icon"></i></div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="chain-step reveal" style="transition-delay: 0.3s">
+                        <div class="chain-node"><i class="fas fa-fingerprint"></i></div>
+                        <div class="chain-label" data-i18n="nr_step_2_title">Document fingerprint created</div>
+                        <div class="link-connection step-active"><i class="fas fa-link chain-link-icon"></i></div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="chain-step reveal" style="transition-delay: 0.5s">
+                        <div class="chain-node"><i class="fas fa-file-contract"></i></div>
+                        <div class="chain-label" data-i18n="nr_step_3_title">Signature cryptographically bound</div>
+                        <div class="link-connection step-active"><i class="fas fa-link chain-link-icon"></i></div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="chain-step reveal" style="transition-delay: 0.7s">
+                        <div class="chain-node"><i class="fas fa-cube"></i></div>
+                        <div class="chain-label" data-i18n="nr_step_4_title">Proof permanently recorded</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Business Impact -->
+        <section class="non-repudiation-impact">
+            <div class="container">
+                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
+                    <h2 class="premium-heading" data-i18n="nr_impact_title">Business Impact</h2>
+                </div>
+                <div class="impact-grid">
+                    <!-- Legal -->
+                    <div class="impact-card reveal" style="transition-delay: 0.1s">
+                        <div class="impact-header">
+                            <i class="fas fa-gavel"></i>
+                            <h3 data-i18n="nr_impact_legal">Legal</h3>
+                        </div>
+                        <p data-i18n="nr_impact_legal_sub">Strong litigation defense</p>
+                    </div>
+                    <!-- Security -->
+                    <div class="impact-card reveal" style="transition-delay: 0.2s">
+                        <div class="impact-header">
+                            <i class="fas fa-user-shield"></i>
+                            <h3 data-i18n="nr_impact_security">Security</h3>
+                        </div>
+                        <p data-i18n="nr_impact_security_sub">Fraud prevention</p>
+                    </div>
+                    <!-- Operations -->
+                    <div class="impact-card reveal" style="transition-delay: 0.3s">
+                        <div class="impact-header">
+                            <i class="fas fa-industry"></i>
+                            <h3 data-i18n="nr_impact_ops">Operations</h3>
+                        </div>
+                        <p data-i18n="nr_impact_ops_sub">Clear approval ownership</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Independent Verification (Download UI) -->
+        <section class="non-repudiation-demo">
+            <div class="container">
+                <div class="proof-bundle-card reveal">
+                    <div class="bundle-visual">
+                        <div class="file-stack">
+                            <div class="file-item"></div>
+                            <div class="file-item"></div>
+                            <div class="file-item">
+                                <i class="fas fa-file-shield"></i>
+                                <span class="badge"
+                                    style="background: var(--accent-blue); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">ENCRYPTED</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bundle-info">
+                        <h2 class="premium-heading" style="font-size: 2.2rem; margin-bottom: 20px;"
+                            data-i18n="nr_verify_ext_title">Verify Without BrillSign</h2>
+                        <p data-i18n="nr_verify_ext_sub">Evidence package can be verified independently.</p>
+                        <ul class="evidence-specs">
+                            <li><i class="fas fa-check-circle"></i> Signer Identity (DID)</li>
+                            <li><i class="fas fa-check-circle"></i> Document Hash (SHA-256)</li>
+                            <li><i class="fas fa-check-circle"></i> Cryptographic Timestamp</li>
+                            <li><i class="fas fa-check-circle"></i> Blockchain Proof Anchor</li>
+                        </ul>
+                        <div class="download-btn-set">
+                            <a href="#" class="btn-primary-v3" style="padding: 12px 25px;"><i class="fas fa-download"
+                                    style="margin-right: 10px;"></i> Download Proof Bundle</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Comparison Table -->
+        <section class="non-repudiation-comparison">
+            <div class="container">
+                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
+                    <h2 class="premium-heading" data-i18n="nr_comp_title">Comparison Table</h2>
+                </div>
+                <div class="comparison-table-wrapper reveal">
+                    <table class="comp-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th data-i18n="nr_comp_trad">Traditional eSign</th>
+                                <th data-i18n="nr_comp_brillsign">BrillSign</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Verification Source</td>
+                                <td data-i18n="nr_comp_log_based">Log based</td>
+                                <td data-i18n="nr_comp_crypto_proof">Cryptographic proof</td>
+                            </tr>
+                            <tr>
+                                <td>Evidence Dependency</td>
+                                <td data-i18n="nr_comp_vendor_dep">Vendor dependent</td>
+                                <td data-i18n="nr_comp_indep_evid">Independent evidence</td>
+                            </tr>
+                            <tr>
+                                <td>Legal Standing</td>
+                                <td data-i18n="nr_comp_disputable">Disputable</td>
+                                <td data-i18n="nr_comp_non_repud">Non-repudiable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Integration Banner & FAQ -->
+        <section class="non-repudiation-integration">
+            <div class="container">
+                <div class="integration-banner reveal">
+                    <div class="banner-content">
+                        <h2 data-i18n="nr_int_banner_title">Works with existing identity providers</h2>
+                        <p data-i18n="nr_int_banner_sub">Connect with SSO, DID solutions, and corporate directories.</p>
+                        <div class="sso-icons"
+                            style="margin-top: 30px; display: flex; gap: 25px; font-size: 32px; color: rgba(255, 255, 255, 0.4);">
+                            <i class="fab fa-microsoft"></i>
+                            <i class="fab fa-google"></i>
+                            <i class="fab fa-apple"></i>
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                    </div>
+                    <div class="banner-cta">
+                        <a href="#" class="btn-primary-v3" data-i18n="nr_btn_explore_api">Explore Identity API</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="non-repudiation-faq">
+            <div class="container">
+                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
+                    <h2 class="premium-heading" data-i18n="nr_faq_title">FAQ</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item reveal">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span data-i18n="nr_faq_q1">Is this legally enforceable?</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="nr_faq_a1">Yes — aligns with global digital signature standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholders for future sections -->
+        <div id="nr-content"></div>
+    </main>
+
+    <!-- Footer will be loaded from shared-components.js -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script src="animations.js"></script>
+    <script src="translations.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,462 @@
+/* Realistic Integrity Hero Visual */
+.integrity-visual-pro {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* --- Layer 1: Background Data Stream (Subtle) --- */
+.data-stream-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+    mask-image: radial-gradient(circle, black 30%, transparent 80%);
+}
+
+.stream-col {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 55, 85, 0.15), transparent);
+    animation: streamDrop 4s infinite linear;
+}
+
+.s-1 {
+    left: 20%;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    height: 150px;
+}
+
+.s-2 {
+    left: 50%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 102, 255, 0.1), transparent);
+}
+
+.s-3 {
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+    height: 120px;
+}
+
+@keyframes streamDrop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* --- Layer 2: Main Document Paper (Realistic) --- */
+.doc-card-container {
+    position: relative;
+    z-index: 5;
+    transform-style: preserve-3d;
+    animation: docFloat 8s ease-in-out infinite;
+    margin-left: 180px;
+}
+
+@keyframes docFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(-10deg) rotateX(5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotateY(-8deg) rotateX(2deg);
+    }
+}
+
+.doc-card-surface {
+    position: relative;
+    width: 350px;
+    height: 480px;
+    background: #ffffff;
+    border-radius: 4px;
+    /* Sharp corners mostly for paper realism */
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        /* Close shadow */
+        0 20px 40px rgba(0, 55, 85, 0.15),
+        /* Deep ambient */
+        inset 0 0 40px rgba(255, 255, 255, 0.8);
+    /* Paper texture feel */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* For scan line */
+    border-top: 4px solid var(--primary-blue);
+    /* Decorative brand color bar */
+}
+
+/* Paper Fold Effect (Top Right) */
+.doc-card-surface::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 20px 20px 0;
+    border-style: solid;
+    border-color: #f1f5f9 #ffffff;
+    box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Content Layout */
+.doc-header-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.doc-mini-logo {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 55, 85, 0.05));
+    border-radius: 8px;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.doc-mini-logo::after {
+    content: "B";
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    opacity: 0.8;
+    color: var(--primary-blue);
+}
+
+.doc-lines-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.doc-line {
+    background: transparent;
+    border-radius: 0;
+    height: auto;
+    min-height: 14px;
+    font-size: 0.65rem;
+    color: #64748b;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.title {
+    width: 100%;
+    height: auto;
+    background: transparent;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.subtitle {
+    width: 100%;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.doc-body-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.body-1,
+.body-2,
+.body-3,
+.body-short {
+    width: 100%;
+}
+
+.doc-spacer {
+    height: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 5px;
+}
+
+.doc-metadata-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.meta-label,
+.meta-label-2 {
+    width: 100%;
+    background: transparent;
+    font-size: 0.45rem;
+    font-family: 'Courier New', monospace;
+    color: #94a3b8;
+}
+
+.meta-value,
+.meta-value-2 {
+    width: 100%;
+    background: transparent;
+    font-size: 0.45rem;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.status-verified {
+    color: #10b981 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em;
+}
+
+.doc-footer-row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.doc-footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.footer-1 {
+    width: auto;
+    height: auto;
+    background: transparent;
+    font-weight: 700;
+    font-size: 0.5rem;
+    color: #475569;
+}
+
+.footer-2 {
+    width: auto;
+    height: auto;
+    background: transparent;
+    font-size: 0.4rem;
+    color: #94a3b8;
+}
+
+.doc-signature-line {
+    width: 120px;
+    height: 2px;
+    background: #003755;
+    opacity: 0.2;
+}
+
+.doc-seal-mark {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    border: 2px solid rgba(0, 102, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 1.4rem;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
+}
+
+.seal-inner-glow {
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
+    animation: sealGlow 3s ease-in-out infinite;
+}
+
+@keyframes sealGlow {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+/* --- Scanning Effect (Classy) --- */
+.verification-scan-line {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(0, 102, 255, 0.1) 50%,
+            rgba(0, 102, 255, 0.3) 95%,
+            rgba(0, 102, 255, 0.6) 100%);
+    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.1);
+    animation: scanDocument 4s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes scanDocument {
+
+    0%,
+    20% {
+        top: -20%;
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    70% {
+        opacity: 0.8;
+    }
+
+    80%,
+    100% {
+        top: 120%;
+        opacity: 0;
+    }
+}
+
+
+/* --- Layer 3: Glass Shield (Floating) --- */
+.shield-glass-wrapper {
+    position: absolute;
+    bottom: 40px;
+    left: 80px;
+    z-index: 10;
+    animation: shieldFloat 6s ease-in-out infinite reverse;
+}
+
+@keyframes shieldFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-8px) scale(1.02);
+    }
+}
+
+.shield-glass-model {
+    width: 80px;
+    height: 100px;
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 8px 32px 0 rgba(31, 38, 135, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    /* Shield-like rounding manually */
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.shield-glass-model i {
+    font-size: 2.5rem;
+    /* Gradient Text for Icon */
+    background: linear-gradient(135deg, #0066ff 0%, #003755 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.2));
+}
+
+.shield-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent 100%);
+    transform: skewX(-25deg);
+    animation: shimmerPass 4s infinite ease-in-out;
+}
+
+@keyframes shimmerPass {
+
+    0%,
+    40% {
+        left: -100%;
+    }
+
+    60%,
+    100% {
+        left: 200%;
+    }
+}
+
+.shield-lock-indicator {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f1f5f9;
+}
+
+.shield-lock-indicator i {
+    font-size: 0.9rem;
+    color: #10b981;
+    /* Success Green */
+}
+
+/* Light/Dark Mode Adjustments */
+[data-theme="light"] .doc-card-surface {
+    background: #ffffff;
+}

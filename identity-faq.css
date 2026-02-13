@@ -1,0 +1,99 @@
+/* Identity FAQ & Integration Banner */
+.identity-integration {
+    padding: 80px 0;
+    background: linear-gradient(90deg, #001f3f 0%, #001122 100%);
+}
+
+[data-theme="light"] .identity-integration {
+    background: linear-gradient(90deg, #f8fafc 0%, #f1f5f9 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.integration-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.integration-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.integration-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.api-btn {
+    padding: 18px 40px;
+    background: transparent;
+    border: 2px solid var(--accent-blue);
+    color: var(--accent-blue);
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.api-btn:hover {
+    background: var(--accent-blue);
+    color: #000;
+    box-shadow: 0 0 30px rgba(0, 173, 239, 0.4);
+}
+
+.identity-faq {
+    padding: 100px 0;
+    background: var(--bg-dark);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .faq-item {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+}
+
+.faq-question {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+[data-theme="light"] .faq-question {
+    color: var(--text-primary);
+}
+
+.faq-answer {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    padding-left: 30px;
+}
+
+@media (max-width: 768px) {
+    .integration-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+}

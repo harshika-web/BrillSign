@@ -1,0 +1,352 @@
+/* Section: How BrillSign Protects Integrity - Flow Timeline */
+.integrity-flow {
+    padding: 120px 0;
+    background: var(--bg-dark);
+    position: relative;
+}
+
+.integrity-flow .premium-heading {
+    font-size: 2.8rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.flow-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Layout V2 - Two Column Grid */
+.flow-layout-v2 {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Horizontal line connection - The Energy Rail (Vertical Version) */
+.flow-pipeline.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 20px 0;
+    position: relative;
+    width: fit-content;
+}
+
+.flow-pipeline.vertical::before {
+    content: "";
+    position: absolute;
+    left: 40px;
+    /* Center of 80px nodes */
+    top: 40px;
+    bottom: 40px;
+    width: 3px;
+    height: auto;
+    background: linear-gradient(180deg,
+            rgba(0, 173, 239, 0) 0%,
+            rgba(0, 173, 239, 0.4) 10%,
+            rgba(0, 173, 239, 0.8) 50%,
+            rgba(0, 173, 239, 0.4) 90%,
+            rgba(0, 173, 239, 0) 100%);
+    box-shadow: 0 0 15px rgba(0, 173, 239, 0.3);
+    z-index: 1;
+}
+
+/* Data Particles Movement (Vertical) */
+.flow-pipeline.vertical .flow-particles {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    bottom: 40px;
+    width: 3px;
+    height: auto;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.flow-pipeline.vertical .particle {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(180deg, transparent, var(--accent-blue), transparent);
+    animation: flowParticleVertical 4s linear infinite;
+}
+
+@keyframes flowParticleVertical {
+    0% {
+        top: -10%;
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+.flow-step {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+    position: relative;
+    z-index: 3;
+    padding: 0;
+}
+
+.step-node {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 173, 239, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .step-node {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(0, 173, 239, 0.2);
+    box-shadow:
+        0 8px 32px rgba(0, 173, 239, 0.1),
+        inset 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.flow-step:hover .step-node {
+    transform: scale(1.1);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 30px rgba(0, 173, 239, 0.4);
+}
+
+/* Video Side Styling */
+.flow-video-side {
+    position: relative;
+}
+
+.video-window-frame {
+    background: #0f172a;
+    border-radius: 24px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.video-controls-fake {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+.video-controls-fake span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.integrity-marketing-video {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.video-overlay-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 173, 239, 0.05) 100%);
+    mix-blend-mode: screen;
+}
+
+/* Reuse existing icon animations and other styles */
+.fa-file-upload {
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.integrity-flow .fa-fingerprint::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue);
+    opacity: 0.6;
+    animation: scanLine 2s linear infinite;
+}
+
+.fa-link {
+    animation: rotateSnap 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+.fa-search {
+    animation: radarMotion 4s linear infinite;
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes scanLine {
+    0% {
+        top: 10%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 90%;
+        opacity: 0;
+    }
+}
+
+@keyframes rotateSnap {
+
+    0%,
+    80% {
+        transform: rotate(0);
+    }
+
+    85% {
+        transform: rotate(15deg);
+    }
+
+    90% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes radarMotion {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    25% {
+        transform: rotate(90deg) scale(1.1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1);
+    }
+
+    75% {
+        transform: rotate(270deg) scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.step-content h4 {
+    color: var(--text-light);
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+[data-theme="light"] .step-content h4 {
+    color: #0f172a;
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-blue);
+    color: #000;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 2px 10px;
+    border-radius: 20px;
+    z-index: 5;
+}
+
+/* Animated Hash Pulse (Subtle Outer Rings) */
+.step-node.pulsing::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border: 1px solid var(--accent-blue);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: nodePulse 2s ease-out infinite;
+}
+
+@keyframes nodePulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .flow-layout-v2 {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .flow-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .flow-pipeline.vertical {
+        width: 100%;
+        align-items: center;
+    }
+
+    .flow-step {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}

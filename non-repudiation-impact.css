@@ -1,0 +1,75 @@
+.non-repudiation-impact {
+    padding: 100px 0;
+    background: var(--bg-dark);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.impact-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.4s ease;
+}
+
+[data-theme="light"] .impact-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.impact-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--accent-purple);
+    transform: translateY(-5px);
+}
+
+[data-theme="light"] .impact-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.impact-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.impact-header i {
+    font-size: 28px;
+    color: var(--accent-purple);
+    background: rgba(142, 45, 226, 0.1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.impact-card h3 {
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 600;
+}
+
+[data-theme="light"] .impact-card h3 {
+    color: var(--text-primary);
+}
+
+.impact-card p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+}
