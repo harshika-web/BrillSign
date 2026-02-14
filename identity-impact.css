@@ -1,5 +1,6 @@
 /* Identity Impact Section */
-.identity-impact {
+.identity-impact,
+.independent-impact {
     padding: 100px 0;
     background: var(--bg-dark);
 }
@@ -15,8 +16,11 @@
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 20px;
-    padding: 40px;
+    padding: 40px 30px;
     transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 [data-theme="light"] .impact-col {
@@ -42,27 +46,52 @@
 }
 
 .impact-col h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 [data-theme="light"] .impact-col h3 {
     color: var(--text-primary);
 }
 
-.impact-benefit {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    font-weight: 500;
+/* New List Styling */
+.impact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
 }
 
-.impact-benefit i {
+.impact-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.impact-list li:last-child {
+    margin-bottom: 0;
+}
+
+.impact-list li::before {
+    content: '\f00c';
+    /* Font Awesome checkmark */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
     color: #4cd964;
-    font-size: 0.9rem;
+    /* Success Green */
+    font-size: 0.85rem;
+}
+
+[data-theme="light"] .impact-list li {
+    color: var(--text-secondary);
 }
 
 @media (max-width: 992px) {

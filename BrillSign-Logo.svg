@@ -1,0 +1,22 @@
+<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- BrillSign Logo: Icon + Typography -->
+  
+  <!-- Icon Section -->
+  <g transform="translate(10, 10) scale(0.9)">
+    <!-- Blue Circle (Bottom Loop) -->
+    <circle cx="30" cy="65" r="30" fill="#1A73E8" />
+    
+    <!-- Overlap Area -->
+    <path d="M5 35 H30 C42 35 48 40 48 50 C48 60 42 65 30 65 H5 V35Z" fill="#1557B0" />
+
+    <!-- Red Shape (Top Loop) -->
+    <path d="M5 8 H30 C55 8 55 52 30 52 H5 V8Z" fill="#EA4335" fill-opacity="0.9" />
+
+    <!-- Yellow Bar (Left Stem) -->
+    <rect x="0" y="8" width="5" height="84" rx="2.5" fill="#FBBC05" />
+  </g>
+
+  <!-- Typography Section -->
+  <!-- Note: This uses standard SVG text. For a "real" PDF export, we'll embed the font in the HTML container. -->
+  <text x="85" y="85" font-family="'Varela Round', 'Inter', sans-serif" font-size="72" font-weight="800" fill="#003755" letter-spacing="-3">BrillSign</text>
+</svg>

@@ -16,133 +16,392 @@
 
 .identity-badge-scene {
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
     transform-style: preserve-3d;
-    animation: sceneFloat 6s ease-in-out infinite;
+    perspective: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
-@keyframes sceneFloat {
+/* CYBER BADGE */
+.cyber-badge {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    transform: rotateY(25deg) rotateX(10deg);
+    box-shadow:
+        25px 25px 60px rgba(0, 0, 0, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    animation: badgeFloat 6s ease-in-out infinite;
+    z-index: 10;
+    overflow: hidden;
+}
+
+@keyframes badgeFloat {
 
     0%,
     100% {
-        transform: translateY(0) rotateX(5deg);
+        transform: rotateY(25deg) rotateX(10deg) translateY(0);
     }
 
     50% {
-        transform: translateY(-20px) rotateX(10deg);
+        transform: rotateY(20deg) rotateX(5deg) translateY(-25px);
     }
 }
 
-.identity-badge {
+.badge-glare {
     position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+    transform: rotate(45deg);
+    animation: glareMove 8s linear infinite;
+}
+
+@keyframes glareMove {
+    0% {
+        transform: rotate(45deg) translate(-10%, -10%);
+    }
+
+    50% {
+        transform: rotate(45deg) translate(10%, 10%);
+    }
+
+    100% {
+        transform: rotate(45deg) translate(-10%, -10%);
+    }
+}
+
+.badge-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    z-index: 2;
+}
+
+.user-silhouette {
+    width: 110px;
+    height: 110px;
+    background: radial-gradient(circle at center, rgba(0, 173, 239, 0.15), rgba(0, 173, 239, 0.05));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--accent-blue);
-    box-shadow: 0 0 40px rgba(0, 173, 239, 0.2);
-    z-index: 10;
+    border: 2px solid rgba(0, 173, 239, 0.3);
+    box-shadow: 0 0 40px rgba(0, 173, 239, 0.3);
+    position: relative;
 }
 
-[data-theme="light"] .identity-badge {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(0, 173, 239, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 173, 239, 0.1);
-}
-
-.signature-event {
+.user-silhouette::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    right: 20%;
-    transform: translate(50%, -50%);
-    width: 140px;
-    height: 180px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
+    width: 120%;
+    height: 120%;
+    border: 1px solid rgba(0, 173, 239, 0.1);
+    border-radius: 50%;
+    animation: rotateRing 10s linear infinite;
+}
+
+@keyframes rotateRing {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.badge-details {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    gap: 10px;
 }
 
-[data-theme="light"] .signature-event {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(0, 0, 0, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+.badge-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
 }
 
-.sig-line {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+.badge-name {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.02em;
 }
 
-[data-theme="light"] .sig-line {
-    background: rgba(0, 0, 0, 0.05);
+.badge-uid {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.6rem;
+    color: var(--accent-blue);
+    opacity: 0.8;
 }
 
-.sig-placeholder {
-    margin-top: auto;
-    height: 40px;
-    border: 1px dashed var(--accent-blue);
-    border-radius: 8px;
+.badge-score {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-purple);
+}
+
+.badge-score i {
+    font-size: 0.6rem;
+}
+
+.doc-header-mini {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+}
+
+.doc-body-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.doc-body-mini .doc-line {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #475569;
+}
+
+.badge-status-ring {
+    position: absolute;
+    bottom: -10px;
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent-blue);
-    font-size: 1.2rem;
+    background: rgba(15, 23, 42, 0.8);
+    box-shadow: 0 0 15px rgba(0, 173, 239, 0.4);
 }
 
-/* Connecting Beam */
-.identity-beam {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    width: 40%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-    transform: translateY(-50%);
+.status-dot {
+    width: 14px;
+    height: 14px;
+    background: var(--accent-blue);
+    border-radius: 50%;
     box-shadow: 0 0 20px var(--accent-blue);
-    opacity: 0.6;
+    animation: statusPulse 1.5s ease-in-out infinite;
 }
 
-.beam-pulse {
-    position: absolute;
-    width: 40px;
-    height: 100%;
-    background: white;
-    box-shadow: 0 0 15px white;
-    filter: blur(5px);
-    animation: beamMove 2s linear infinite;
-}
+@keyframes statusPulse {
 
-@keyframes beamMove {
-    0% {
-        left: 0;
-        opacity: 0;
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 15px var(--accent-blue);
     }
 
     50% {
-        opacity: 1;
+        opacity: 0.7;
+        transform: scale(1.2);
+        box-shadow: 0 0 25px var(--accent-blue);
+    }
+}
+
+.badge-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    letter-spacing: 0.15em;
+    margin-top: 15px;
+    text-shadow: 0 0 12px rgba(0, 173, 239, 0.6);
+}
+
+/* BEAM & PARTICLES - High Tech Feel */
+.identity-beam {
+    position: absolute;
+    top: 50%;
+    left: 200px;
+    right: 220px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    transform: translateY(-50%);
+    opacity: 0.5;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 173, 239, 0.3);
+}
+
+.beam-data-particles {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg,
+            transparent 0, transparent 40px,
+            var(--accent-blue) 40px, #fff 42px, var(--accent-blue) 44px);
+    animation: particleFlow 1.5s linear infinite;
+}
+
+@keyframes particleFlow {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* SIGNATURE VAULT - Realistic Depth */
+.signature-vault {
+    position: relative;
+    width: 220px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    transform: rotateY(-20deg) rotateX(5deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -30px 30px 70px rgba(0, 0, 0, 0.5);
+    animation: vaultPulse 5s ease-in-out infinite;
+    z-index: 5;
+}
+
+@keyframes vaultPulse {
+
+    0%,
+    100% {
+        transform: rotateY(-20deg) rotateX(5deg) scale(1);
+        background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    50% {
+        transform: rotateY(-15deg) rotateX(8deg) scale(1.03);
+        background-color: rgba(142, 45, 226, 0.08);
+    }
+}
+
+.doc-preview-small {
+    width: 140px;
+    height: 190px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.doc-preview-small::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(225deg, transparent 50%, rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.doc-line {
+    height: 4px;
+    background: #f1f5f9;
+    border-radius: 2px;
+}
+
+.sig-stamp {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    font-size: 2.5rem;
+    color: var(--accent-purple);
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(142, 45, 226, 0.3));
+    animation: stampAppear 3s ease-in-out infinite;
+}
+
+@keyframes stampAppear {
+
+    0%,
+    10% {
+        opacity: 0;
+        transform: scale(3) rotate(-15deg);
+    }
+
+    20%,
+    80% {
+        opacity: 0.8;
+        transform: scale(1) rotate(-10deg);
     }
 
     100% {
-        left: 100%;
         opacity: 0;
+        transform: scale(1) rotate(-10deg);
     }
+}
+
+.vault-glow {
+    position: absolute;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(circle, rgba(142, 45, 226, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* LIGHT MODE OVERRIDES */
+[data-theme="light"] .cyber-badge {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 173, 239, 0.25);
+    box-shadow: 25px 25px 50px rgba(0, 173, 239, 0.12);
+}
+
+[data-theme="light"] .signature-vault {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(142, 45, 226, 0.3);
+    box-shadow: -25px 25px 50px rgba(142, 45, 226, 0.1);
+}
+
+[data-theme="light"] .badge-line {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .badge-status-ring {
+    background: #fff;
+    border-color: var(--accent-blue);
 }
 
 .identity-variant .text-highlight {
@@ -151,4 +410,55 @@
     background-clip: text;
     color: transparent;
     font-weight: 800;
+}
+
+/* COMPLIANCE SECTION STYLES */
+.identity-compliance,
+.independent-compliance {
+    padding: 100px 0;
+    background: var(--bg-deep);
+}
+
+.compliance-wrapper {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 60px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .compliance-wrapper {
+    background: rgba(0, 173, 239, 0.03);
+    border-color: rgba(0, 173, 239, 0.1);
+}
+
+.compliance-info {
+    max-width: 800px;
+}
+
+.standards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.standard-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.standard-tag {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    letter-spacing: 0.05em;
+}
+
+.standard-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
 }

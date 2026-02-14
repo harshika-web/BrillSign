@@ -1,6 +1,6 @@
 /* Identity Comparison Section */
 .identity-comparison {
-    padding: 100px 0;
+    padding: 60px 0;
     background: var(--bg-deep);
 }
 
@@ -27,7 +27,7 @@
 
 .comp-table th,
 .comp-table td {
-    padding: 25px 40px;
+    padding: 15px 25px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }

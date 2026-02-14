@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="independent-impact.css">
     <link rel="stylesheet" href="independent-demo.css">
     <link rel="stylesheet" href="independent-comparison.css">
-    <link rel="stylesheet" href="independent-faq.css">
+    <link rel="stylesheet" href="independent-unified-banner.css">
+    <link rel="stylesheet" href="faq-section.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -45,7 +46,8 @@
                 <div class="hero-layout">
                     <div class="hero-content animate-up">
                         <h1 class="feature-title premium-heading" data-i18n="hero_independent_title">
-                            Verify documents — <span class="text-highlight">even if the platform is offline</span>
+                            Independent <br>verification — <span class="text-highlight">autonomous of any
+                                platform</span>
                         </h1>
                         <p class="hero-subtitle" data-i18n="hero_independent_subtitle">
                             Independent of any vendor. Proof travels with the document.
@@ -63,21 +65,90 @@
                     </div>
 
                     <div class="hero-visual animate-right">
-                        <div class="independent-visual-container">
-                            <div class="platform-box-scene">
-                                <div class="offline-tag">Platform Offline</div>
-                                <div class="platform-frame">
-                                    <span>Vendor Repository</span>
-                                </div>
-                                <div class="document-escape">
-                                    <div class="doc-line" style="width: 80%;"></div>
-                                    <div class="doc-line" style="width: 100%;"></div>
-                                    <div class="doc-line" style="width: 60%;"></div>
-                                    <div class="doc-line" style="width: 90%;"></div>
-                                    <div class="verification-badge">
-                                        <i class="fas fa-check"></i>
+                        <div class="independent-visual-pro">
+                            <!-- Background Grid (High Tech Feel) -->
+                            <div class="tech-grid-layer"></div>
+
+                            <!-- Platform Cage (Semi-transparent / broken) -->
+                            <div class="platform-cage">
+                                <div class="cage-label" data-i18n="independent_comp_platform">Vendor Platform</div>
+                                <div class="cage-mesh"></div>
+                            </div>
+
+                            <!-- 3D Wrapper for Card and Tags -->
+                            <div class="evidence-3d-wrapper">
+                                <!-- Self-Verifying Document Bundle -->
+                                <div class="evidence-package-model">
+                                    <div class="package-glare"></div>
+                                    <div class="evidence-content">
+                                        <div class="doc-preview">
+                                            <div class="doc-header">
+                                                <i class="fas fa-file-signature"></i>
+                                                <span>Master Service Agreement</span>
+                                            </div>
+                                            <div class="doc-verification-info">
+                                                <div class="info-row">
+                                                    <span class="label">Serial:</span>
+                                                    <span class="value">BS-MSA-2026-X8</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="label">Merkle:</span>
+                                                    <span class="value monospace">0x72a...f91b</span>
+                                                </div>
+                                                <!-- Additional Content Rows -->
+                                                <div class="info-row">
+                                                    <span class="label">Timestamp:</span>
+                                                    <span class="value">2026-02-14 08:30 UTC</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="label">Signer:</span>
+                                                    <span class="value">John Doe (CEO)</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Actual Document Content Text -->
+                                            <div class="doc-body-text">
+                                                <p><strong>1. Services Rendered.</strong> The Service Provider agrees to
+                                                    provide the Client with professional consulting services as outlined
+                                                    in Exhibit A attached hereto.</p>
+                                                <p><strong>2. Term.</strong> This Agreement shall commence on the
+                                                    Effective Date and shall continue until the completion of the
+                                                    Services, unless earlier terminated as provided herein.</p>
+                                                <p><strong>3. Compensation.</strong> In consideration for the Services,
+                                                    the Client agrees to pay the Service Provider the fees set forth in
+                                                    Exhibit B.</p>
+                                                <p><strong>4. Confidentiality.</strong> Both parties agree to maintain
+                                                    the confidentiality of any proprietary information disclosed during
+                                                    the term of this Agreement.</p>
+                                                <p class="fade-text"><strong>5. Governing Law.</strong> This Agreement
+                                                    shall be governed by and construed in accordance with the laws of
+                                                    the State of Delaware.</p>
+                                            </div>
+
+                                            <div class="doc-stamp-container">
+                                                <div class="stamp-seal">
+                                                    <i class="fas fa-fingerprint"></i>
+                                                    <span>AUTHENTIC</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Forensic Seal inside content -->
+                                        <div class="forensic-seal">
+                                            <i class="fas fa-microscope"></i>
+                                            <div class="seal-ring"></div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <!-- Floating Metadata Tags (Inside 3D wrapper but outside card overflow) -->
+                                <div class="metadata-tag tag-1">LTA-Valid</div>
+                                <div class="metadata-tag tag-2">Independent</div>
+                            </div>
+
+                            <!-- Verification Tools Orbiting -->
+                            <div class="orbiting-tools">
+                                <div class="tool-icon t-1"><i class="fas fa-key"></i></div>
+                                <div class="tool-icon t-2"><i class="fas fa-magnifying-glass-chart"></i></div>
                             </div>
                         </div>
                     </div>
@@ -94,49 +165,87 @@
                 </div>
 
                 <div class="risks-grid">
+                    <!-- Risk 1 -->
                     <div class="risk-card reveal" style="transition-delay: 0.1s">
-                        <div class="risk-icon"><i class="fas fa-plug-circle-xmark"></i></div>
-                        <h3 data-i18n="independent_risk_1_title">Vendor outage risk</h3>
-                        <p data-i18n="independent_risk_1_sub">Your documents should be verifiable even when the platform
-                            is down.</p>
+                        <div class="risk-index">R-01</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-server"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="independent_risk_1_title">Platform continuity failure</h3>
+                            <p data-i18n="independent_risk_1_sub">Your signatures must remain valid even during total
+                                vendor service outages.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 2 -->
                     <div class="risk-card reveal" style="transition-delay: 0.2s">
-                        <div class="risk-icon"><i class="fas fa-power-off"></i></div>
-                        <h3 data-i18n="independent_risk_2_title">Vendor shutdown risk</h3>
-                        <p data-i18n="independent_risk_2_sub">If a provider closes, your proofs must remain valid
-                            forever.</p>
+                        <div class="risk-index">R-02</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-hourglass-end"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="independent_risk_2_title">Operational sunset risk</h3>
+                            <p data-i18n="independent_risk_2_sub">If a provider shuts down, proprietary verification
+                                silos disappear forever.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 3 -->
                     <div class="risk-card reveal" style="transition-delay: 0.3s">
-                        <div class="risk-icon"><i class="fas fa-file-export"></i></div>
-                        <h3 data-i18n="independent_risk_3_title">Migration proof loss</h3>
-                        <p data-i18n="independent_risk_3_sub">Moving platforms shouldn't break your signature audit
-                            trails.</p>
+                        <div class="risk-index">R-03</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-file-export"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="independent_risk_3_title">Audit trail fragmentation</h3>
+                            <p data-i18n="independent_risk_3_sub">Migrating documents between systems typically breaks
+                                legacy signature validity.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 4 -->
                     <div class="risk-card reveal" style="transition-delay: 0.4s">
-                        <div class="risk-icon"><i class="fas fa-user-lock"></i></div>
-                        <h3 data-i18n="independent_risk_4_title">Restricted access events</h3>
-                        <p data-i18n="independent_risk_4_sub">Verify identity without needing active account access.</p>
+                        <div class="risk-index">R-04</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-user-shield"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="independent_risk_4_title">Access-restricted verification</h3>
+                            <p data-i18n="independent_risk_4_sub">Verify identity and integrity without requiring active
+                                platform account credentials.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 5 -->
                     <div class="risk-card reveal" style="transition-delay: 0.5s">
-                        <div class="risk-icon"><i class="fas fa-box-open"></i></div>
-                        <h3 data-i18n="independent_risk_5_title">Vendor lock verification</h3>
-                        <p data-i18n="independent_risk_5_sub">Avoid proprietary black boxes that trap your legal
-                            evidence.</p>
+                        <div class="risk-index">R-05</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-lock"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="independent_risk_5_title">Vendor lock-in trap</h3>
+                            <p data-i18n="independent_risk_5_sub">Proprietary formats prevent you from switching
+                                providers freely later.</p>
+                        </div>
                     </div>
                 </div>
+
+            </div>
             </div>
         </section>
         <!-- Section 2: How It Works -->
         <section class="independent-how" id="how-it-works">
             <div class="container">
+                <h2 class="premium-heading" style="text-align: center; margin-bottom: 60px;"
+                    data-i18n="independent_how_title">How Independent Verification Works</h2>
                 <div class="how-grid">
                     <div class="how-steps reveal">
-                        <h2 class="premium-heading" data-i18n="independent_how_title">How Independent Verification Works
-                        </h2>
 
                         <div class="how-step">
                             <div class="step-num">01</div>
@@ -196,30 +305,41 @@
 
                 <div class="impact-grid">
                     <div class="impact-col reveal" style="transition-delay: 0.1s">
-                        <div class="impact-icon"><i class="fas fa-landmark"></i></div>
-                        <h3 data-i18n="independent_impact_legal">Legal</h3>
-                        <div class="impact-benefit">
-                            <i class="fas fa-check"></i>
-                            <span data-i18n="independent_impact_legal_sub">Long-term evidence</span>
-                        </div>
+                        <div class="impact-icon"><i class="fas fa-scale-balanced"></i></div>
+                        <h3 data-i18n="independent_impact_legal">Legal Autonomy</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="independent_impact_legal_p1">Forever-valid evidence independent of vendor
+                                status</li>
+                            <li data-i18n="independent_impact_legal_p2">No vendor dependency for court admissibility
+                            </li>
+                            <li data-i18n="independent_impact_legal_p3">Standardized export formats for legal discovery
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="impact-col reveal" style="transition-delay: 0.2s">
-                        <div class="impact-icon"><i class="fas fa-handshake-slash"></i></div>
-                        <h3 data-i18n="independent_impact_security">Security</h3>
-                        <div class="impact-benefit">
-                            <i class="fas fa-check"></i>
-                            <span data-i18n="independent_impact_security_sub">Vendor independence</span>
-                        </div>
+                        <div class="impact-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3 data-i18n="independent_impact_security">Security Assurance</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="independent_impact_security_p1">Mathematical independence from platform
+                                integrity</li>
+                            <li data-i18n="independent_impact_security_p2">Standard cryptographic verification
+                                (OpenSSL/GPG)</li>
+                            <li data-i18n="independent_impact_security_p3">Offline validation capability for
+                                high-security environments</li>
+                        </ul>
                     </div>
 
                     <div class="impact-col reveal" style="transition-delay: 0.3s">
-                        <div class="impact-icon"><i class="fas fa-infinity"></i></div>
-                        <h3 data-i18n="independent_impact_ops">Operations</h3>
-                        <div class="impact-benefit">
-                            <i class="fas fa-check"></i>
-                            <span data-i18n="independent_impact_ops_sub">Continuous accessibility</span>
-                        </div>
+                        <div class="impact-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3 data-i18n="independent_impact_ops">Operational Integrity</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="independent_impact_ops_p1">System-agnostic access to all signed records</li>
+                            <li data-i18n="independent_impact_ops_p2">Long-term preservation compatible with archive
+                                standards</li>
+                            <li data-i18n="independent_impact_ops_p3">Open-standard compliance (PDF/A, PAdES) built-in
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -275,40 +395,84 @@
                                 <td data-i18n="independent_comp_row2_platform">Vendor controlled</td>
                                 <td data-i18n="independent_comp_row2_brillsign">User controlled</td>
                             </tr>
+                            <tr>
+                                <td data-i18n="independent_comp_row3_label">Long-Term Validity</td>
+                                <td data-i18n="independent_comp_row3_platform">Dependent on vendor</td>
+                                <td data-i18n="independent_comp_row3_brillsign">Cryptographically guaranteed</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="independent_comp_row4_label">Offline Verification</td>
+                                <td data-i18n="independent_comp_row4_platform">Impossible</td>
+                                <td data-i18n="independent_comp_row4_brillsign">Supported (local tools)</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="independent_comp_row5_label">Cost of Verification</td>
+                                <td data-i18n="independent_comp_row5_platform">Recurring fees</td>
+                                <td data-i18n="independent_comp_row5_brillsign">Free forever</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
 
-        <!-- Section 6: Integration Banner -->
-        <section class="independent-integration">
+        <!-- Section 6: Unified Evidence Sovereignty Banner -->
+        <section class="independent-unified-banner">
             <div class="container">
-                <div class="integration-banner reveal">
-                    <div class="integration-content">
-                        <h2 data-i18n="independent_int_title">Standardized Evidence</h2>
-                        <p data-i18n="independent_int_subtitle">No workflow change required.</p>
+                <div class="banner-grid">
+                    <!-- Text Content -->
+                    <div class="banner-content">
+                        <h2 data-i18n="independent_unified_title">Sustainable Evidence Sovereignty</h2>
+                        <p data-i18n="independent_unified_sub">BrillSign ensures your documents remain legally binding
+                            under global standards, independent of proprietary software. No workflow change required.
+                        </p>
+                        <div class="banner-actions">
+                            <a href="#" class="btn-banner-primary" data-i18n="independent_btn_api">Explore Verification
+                                API</a>
+                        </div>
                     </div>
-                    <a href="#" class="api-btn" data-i18n="independent_btn_api">Explore Verification API</a>
+
+                    <!-- Standards Grid -->
+                    <div class="standards-display">
+                        <div class="standard-card featured">
+                            <span class="std-tag">LTA</span>
+                            <h4>Long-Term Archival</h4>
+                            <p>PAdES-LTA compliance ensures validity for decades.</p>
+                        </div>
+                        <div class="standard-card">
+                            <span class="std-tag">ISO/IEC</span>
+                            <h4>Identity Standards</h4>
+                            <p>Compliant with 24727 Identity Interoperability.</p>
+                        </div>
+                        <div class="standard-card">
+                            <span class="std-tag">RFC 4880</span>
+                            <h4>OpenPGP Support</h4>
+                            <p>Standard open-source evidence formats.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        </div>
+        </div>
+        </section>
 
-        <!-- Section 7: FAQ -->
-        <section class="independent-faq">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2 class="premium-heading" data-i18n="independent_faq_title">FAQ</h2>
+        <!-- Section 8: FAQ (Standardized) -->
+        <section class="section-6">
+            <div class="faq-container animate-up">
+                <div class="faq-header">
+                    <h2 class="faq-title premium-heading" data-i18n="independent_faq_title">FAQ</h2>
+                    <p class="faq-subtitle">Common questions about Independent Verification.</p>
                 </div>
 
-                <div class="faq-container">
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <i class="fas fa-question-circle"></i>
-                            <span data-i18n="independent_faq_q1">Can third parties verify?</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p data-i18n="independent_faq_a1">Yes, using standard tools without a BrillSign account.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="independent_faq_q1">Can third parties verify?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="independent_faq_a1">
+                            Yes, using standard tools without a BrillSign account.
                         </div>
                     </div>
                 </div>
@@ -326,6 +490,29 @@
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('selectedLanguage') || 'en';
             if (window.updateLanguage) window.updateLanguage(savedLang);
+
+            // FAQ Accordion logic
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Close all other items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                        item.querySelector('.faq-answer').style.opacity = 0;
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        const answer = faqItem.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.opacity = 1;
+                    }
+                });
+            });
         });
     </script>
 </body>

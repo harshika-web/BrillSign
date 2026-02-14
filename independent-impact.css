@@ -1,72 +1,169 @@
-/* Independent Impact Section */
+/* Independent Impact Section - Premium Upgrade */
 .independent-impact {
-    padding: 100px 0;
-    background: var(--bg-dark);
+    padding: 120px 0;
+    background: var(--bg-deep);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background subtle glow */
+.independent-impact::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 173, 239, 0.03) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .impact-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 60px;
+    margin-top: 70px;
+    position: relative;
+    z-index: 1;
 }
 
 .impact-col {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 40px;
-    transition: all 0.4s ease;
+    background: rgba(20, 30, 50, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 40px 35px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Card Hover Effect */
+.impact-col:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 173, 239, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 173, 239, 0.1);
+    background: rgba(25, 40, 65, 0.7);
+}
+
+/* Gradient highlight on hover */
+.impact-col::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.impact-col:hover::after {
+    opacity: 1;
+}
+
+/* Icon Styling */
+.impact-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 173, 239, 0.08);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 173, 239, 0.1);
+}
+
+.impact-col:hover .impact-icon {
+    background: var(--accent-blue);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 173, 239, 0.4);
+    transform: scale(1.05) rotate(3deg);
+}
+
+/* Heading */
+.impact-col h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* List Styling */
+.impact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.impact-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding-left: 28px;
+    position: relative;
+}
+
+.impact-list li::before {
+    content: '\f00c';
+    /* Font Awesome Check */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #4cd964;
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.impact-col:hover .impact-list li::before {
+    transform: scale(1.2);
+}
+
+/* Light Mode Overrides */
 [data-theme="light"] .impact-col {
     background: #ffffff;
     border-color: rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.impact-col:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: var(--accent-blue);
-    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 [data-theme="light"] .impact-col:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.impact-icon {
-    font-size: 2.5rem;
-    color: var(--accent-blue);
-    margin-bottom: 25px;
-}
-
-.impact-col h3 {
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 15px;
+    box-shadow: 0 25px 50px rgba(0, 173, 239, 0.1);
+    border-color: rgba(0, 173, 239, 0.2);
 }
 
 [data-theme="light"] .impact-col h3 {
     color: var(--text-primary);
 }
 
-.impact-benefit {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    font-weight: 500;
+[data-theme="light"] .impact-list li {
+    color: var(--text-secondary);
 }
 
-.impact-benefit i {
-    color: #4cd964;
-    font-size: 0.9rem;
+[data-theme="light"] .impact-icon {
+    background: rgba(0, 173, 239, 0.05);
 }
 
+/* Responsive */
 @media (max-width: 992px) {
     .impact-grid {
         grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

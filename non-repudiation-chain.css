@@ -1,139 +1,153 @@
-.non-repudiation-chain {
-    padding: 100px 0;
+/* Non-Repudiation How It Works Section */
+.non-repudiation-how {
+    padding: 80px 0;
     background: var(--bg-deep);
+}
+
+.how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.how-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.how-step {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.step-num {
+    width: 45px;
+    height: 45px;
+    background: rgba(142, 45, 226, 0.1);
+    border: 1px solid var(--accent-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--accent-purple);
+    flex-shrink: 0;
+}
+
+.step-info h4 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+[data-theme="light"] .step-info h4 {
+    color: var(--text-primary);
+}
+
+.flow-visual-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     overflow: hidden;
 }
 
-.chain-pipeline {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1000px;
-    margin: 60px auto 0;
-    padding: 0 40px;
+[data-theme="light"] .flow-visual-box {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
 }
 
-.chain-pipeline::before {
-    content: '';
-    position: absolute;
-    top: 45px;
-    left: 80px;
-    right: 80px;
-    height: 2px;
+.flow-node {
+    width: 100px;
+    height: 120px;
     background: rgba(255, 255, 255, 0.05);
-    z-index: 1;
-}
-
-.chain-step {
-    position: relative;
-    z-index: 2;
-    width: 180px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    z-index: 5;
 }
 
-.chain-node {
-    width: 90px;
-    height: 90px;
-    background: var(--bg-dark);
-    border: 2px solid rgba(255, 255, 255, 0.08);
+[data-theme="light"] .flow-node {
+    background: #f8fafc;
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.flow-node.active {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+}
+
+.traveling-proof {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-purple);
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
-    font-size: 28px;
-    color: var(--accent-blue);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 0 0 rgba(0, 173, 239, 0);
-}
-
-[data-theme="light"] .chain-node {
-    border-color: rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.chain-step:hover .chain-node {
-    border-color: var(--accent-blue);
-    color: white;
-    background: var(--accent-blue);
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(0, 173, 239, 0.4);
-}
-
-.chain-label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: white;
-    line-height: 1.4;
-}
-
-[data-theme="light"] .chain-label {
-    color: var(--text-primary);
-}
-
-/* Chain Link Visuals */
-.link-connection {
-    position: absolute;
-    top: 45px;
-    width: calc(100% - 180px);
-    left: 135px;
-    height: 30px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 1;
-    pointer-events: none;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+    animation: proofTravel 4s linear infinite;
+    z-index: 10;
 }
 
-.chain-link-icon {
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.05);
-    transform: rotate(-45deg);
-    transition: all 0.5s;
-}
-
-.step-active .chain-link-icon {
-    color: var(--accent-purple);
-    text-shadow: 0 0 10px var(--accent-purple);
-    animation: link-pulse 2s infinite;
-}
-
-@keyframes link-pulse {
-
-    0%,
-    100% {
-        opacity: 0.5;
-        transform: rotate(-45deg) scale(1);
+@keyframes proofTravel {
+    0% {
+        left: 120px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
     }
 
-    50% {
+    10% {
         opacity: 1;
-        transform: rotate(-45deg) scale(1.2);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 280px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
     }
 }
 
-@media (max-width: 991px) {
-    .chain-pipeline {
-        flex-direction: column;
-        align-items: center;
+.flow-line {
+    position: absolute;
+    left: 150px;
+    right: 150px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    top: 50%;
+}
+
+[data-theme="light"] .flow-line {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+    .how-grid {
+        grid-template-columns: 1fr;
         gap: 60px;
-        padding: 0;
-    }
-
-    .chain-pipeline::before {
-        display: none;
-    }
-
-    .link-connection {
-        display: none;
-    }
-
-    .chain-step {
-        width: 100%;
     }
 }

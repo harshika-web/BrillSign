@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="non-repudiation-impact.css">
     <link rel="stylesheet" href="non-repudiation-demo.css">
     <link rel="stylesheet" href="non-repudiation-comparison.css">
-    <link rel="stylesheet" href="non-repudiation-faq.css">
+    <link rel="stylesheet" href="non-repudiation-unified-banner.css">
+    <link rel="stylesheet" href="non-repudiation-geometric-banner.css">
+    <link rel="stylesheet" href="faq-section.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -34,42 +36,51 @@
     <div id="navbar-placeholder"></div>
 
     <main>
-        <!-- Section 0: Hero -->
-        <section class="non-repudiation-hero">
+        <!-- Section 0: Hero (Redesigned) -->
+        <section class="feature-hero non-repudiation-variant">
+            <div class="glow-blob blob-1"></div>
+            <div class="glow-blob blob-2"></div>
+            <div class="hero-grid-overlay"></div>
+
             <div class="container">
-                <div class="hero-grid-2col">
-                    <div class="hero-text-content reveal">
-                        <h1 class="premium-heading" data-i18n="nr_hero_title">Signatures that cannot be denied later
+                <div class="hero-layout">
+                    <div class="hero-content animate-up">
+                        <h1 class="feature-title premium-heading" data-i18n="nr_hero_title">
+                            Signatures that <span class="text-highlight">cannot be denied later</span>
                         </h1>
-                        <p class="premium-subtitle" data-i18n="nr_hero_subtitle">BrillSign binds signer identity,
-                            timestamp, and document fingerprint into permanent proof.</p>
-                        <div class="hero-cta-group">
-                            <a href="#demo" class="btn-primary-v3" data-i18n="nr_btn_verify_demo">Try Non-Repudiation
-                                Demo</a>
-                            <a href="#features" class="btn-secondary-v3">Learn More</a>
+                        <p class="hero-subtitle" data-i18n="nr_hero_subtitle">
+                            BrillSign binds signer identity, timestamp, and document fingerprint into permanent proof.
+                        </p>
+                        <div class="feature-ctas">
+                            <a href="#how-it-works" class="btn-primary-v3">
+                                <span>See How It Works</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#" class="btn-outline-v3">
+                                <i class="fas fa-file-shield"></i>
+                                <span>Get Non-Repudiation Demo</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="hero-visual reveal locking-active">
-                        <div class="locking-container">
-                            <div class="doc-layer">
-                                <div class="doc-content">
-                                    <div class="line-placeholder" style="width: 80%"></div>
-                                    <div class="line-placeholder" style="width: 90%"></div>
-                                    <div class="line-placeholder" style="width: 60%"></div>
-                                    <div class="line-placeholder" style="width: 85%"></div>
-                                    <div class="line-placeholder" style="width: 70%"></div>
-                                    <div class="sig-block">
-                                        <svg class="sig-path" viewBox="0 0 100 40">
-                                            <path d="M10,30 Q30,10 50,30 T90,20" />
-                                        </svg>
-                                    </div>
+
+                    <div class="hero-visual animate-right observed"
+                        style="opacity: 1 !important; transform: none !important;">
+                        <div class="non-repudiation-visual-pro">
+                            <div class="tech-grid-layer"></div>
+
+                            <!-- New Elite Photographic Hero Visual -->
+                            <div class="elite-hero-photographic"
+                                style="opacity: 1 !important; visibility: visible !important;">
+                                <div class="hero-image-wrapper">
+                                    <img src="assets/nr_elite_hero_visual_final.png"
+                                        alt="Strong Non-Repudiation Photographic Visual" class="hero-main-image">
+                                    <div class="hero-overlay-scan"></div>
+                                    <div class="hero-glare-prism"></div>
                                 </div>
-                            </div>
-                            <div class="blockchain-seal">
-                                <div class="seal-inner">
-                                    <div class="particle-ring"></div>
-                                    <i class="fas fa-link seal-icon"></i>
-                                    <div class="anchor-line"></div>
+                                <div class="hero-floating-particles">
+                                    <span class="particle p1"></span>
+                                    <span class="particle p2"></span>
+                                    <span class="particle p3"></span>
                                 </div>
                             </div>
                         </div>
@@ -78,157 +89,223 @@
             </div>
         </section>
 
-        <!-- Section 1: Signer Denial Risks -->
+        <!-- Section 1: Risks (Standardized) -->
         <section class="non-repudiation-risks">
             <div class="container">
-                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
+                <div class="section-header reveal">
                     <h2 class="premium-heading" data-i18n="nr_risk_title">Signer Denial Risks</h2>
                 </div>
+
                 <div class="risks-grid">
                     <!-- Risk 1 -->
                     <div class="risk-card reveal" style="transition-delay: 0.1s">
-                        <div class="risk-icon"><i class="fas fa-user-times"></i></div>
-                        <h3 data-i18n="nr_risk_1_title">Signer Denial Claims</h3>
-                        <p data-i18n="nr_risk_1_sub">"I never signed that."</p>
+                        <div class="risk-index">R-01</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-user-times"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="nr_risk_1_title">Signer Denial Claims</h3>
+                            <p data-i18n="nr_risk_1_sub">"I never signed that." — Standard eSignatures lack
+                                cryptographic intent binding, making it difficult to prove authorship in court. Without
+                                a direct link between the user's private key and the specific document version, the
+                                burden of proof remains on the business.</p>
+                        </div>
                     </div>
+
                     <!-- Risk 2 -->
                     <div class="risk-card reveal" style="transition-delay: 0.2s">
-                        <div class="risk-icon"><i class="fas fa-clock-rotate-left"></i></div>
-                        <h3 data-i18n="nr_risk_2_title">Timestamp Disputes</h3>
-                        <p data-i18n="nr_risk_2_sub">Unclear approval timing.</p>
+                        <div class="risk-index">R-02</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-clock-rotate-left"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="nr_risk_2_title">Timestamp Disputes</h3>
+                            <p data-i18n="nr_risk_2_sub">Unclear approval timing due to reliance on server-side clocks
+                                that can be out of sync or manipulated. BrillSign solves this by using decentralized,
+                                immutable timestamps that provide an indisputable record of exactly when an action
+                                occurred.</p>
+                        </div>
                     </div>
+
                     <!-- Risk 3 -->
                     <div class="risk-card reveal" style="transition-delay: 0.3s">
-                        <div class="risk-icon"><i class="fas fa-building-shield"></i></div>
-                        <h3 data-i18n="nr_risk_3_title">Platform Evidence Dependency</h3>
-                        <p data-i18n="nr_risk_3_sub">Vendor testimony needed.</p>
+                        <div class="risk-index">R-03</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-building-shield"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="nr_risk_3_title">Platform Evidence Dependency</h3>
+                            <p data-i18n="nr_risk_3_sub">Evidence relies on proprietary vendor logs; without their
+                                active testimony and platform availability, your signatures may be invalid. Traditional
+                                vendors create a "walled garden" where you lose access to your own proof if you switch
+                                providers.</p>
+                        </div>
                     </div>
+
                     <!-- Risk 4 -->
                     <div class="risk-card reveal" style="transition-delay: 0.4s">
-                        <div class="risk-icon"><i class="fas fa-history"></i></div>
-                        <h3 data-i18n="nr_risk_4_title">Log Tampering Risk</h3>
-                        <p data-i18n="nr_risk_4_sub">Editable activity history.</p>
+                        <div class="risk-index">R-04</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-history"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="nr_risk_4_title">Log Tampering Risk</h3>
+                            <p data-i18n="nr_risk_4_sub">Centralized logs are vulnerable to unauthorized edits by
+                                administrators or malicious actors, compromising the integrity of the audit trail. Once
+                                a log is modified, the entire chain of trust is broken, rendering the eSignature
+                                factually useless.</p>
+                        </div>
                     </div>
+
                     <!-- Risk 5 -->
                     <div class="risk-card reveal" style="transition-delay: 0.5s">
-                        <div class="risk-icon"><i class="fas fa-user-secret"></i></div>
-                        <h3 data-i18n="nr_risk_5_title">Identity Spoofing</h3>
-                        <p data-i18n="nr_risk_5_sub">Weak signer validation.</p>
+                        <div class="risk-index">R-05</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-user-secret"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="nr_risk_5_title">Identity Spoofing</h3>
+                            <p data-i18n="nr_risk_5_sub">Standard email-based authentication is prone to session
+                                hijacking and spoofed identities, failing to provide strong non-repudiation. High-value
+                                transactions require multi-factor, biometric-backed proof that cannot be easily
+                                replicated or stolen.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Evidence Chain (How It Works) -->
-        <section class="non-repudiation-chain">
+        <!-- Section 2: How It Works (Standardized) -->
+        <section class="non-repudiation-how" id="how-it-works">
             <div class="container">
-                <div class="section-header reveal text-center" style="margin-bottom: 80px;">
-                    <h2 class="premium-heading" data-i18n="nr_how_title">How It Works (Evidence Chain)</h2>
-                </div>
-
-                <div class="chain-pipeline">
-                    <!-- Step 1 -->
-                    <div class="chain-step reveal" style="transition-delay: 0.1s">
-                        <div class="chain-node"><i class="fas fa-id-card-clip"></i></div>
-                        <div class="chain-label" data-i18n="nr_step_1_title">Identity verified</div>
-                        <div class="link-connection step-active"><i class="fas fa-link chain-link-icon"></i></div>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="chain-step reveal" style="transition-delay: 0.3s">
-                        <div class="chain-node"><i class="fas fa-fingerprint"></i></div>
-                        <div class="chain-label" data-i18n="nr_step_2_title">Document fingerprint created</div>
-                        <div class="link-connection step-active"><i class="fas fa-link chain-link-icon"></i></div>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="chain-step reveal" style="transition-delay: 0.5s">
-                        <div class="chain-node"><i class="fas fa-file-contract"></i></div>
-                        <div class="chain-label" data-i18n="nr_step_3_title">Signature cryptographically bound</div>
-                        <div class="link-connection step-active"><i class="fas fa-link chain-link-icon"></i></div>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="chain-step reveal" style="transition-delay: 0.7s">
-                        <div class="chain-node"><i class="fas fa-cube"></i></div>
-                        <div class="chain-label" data-i18n="nr_step_4_title">Proof permanently recorded</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Business Impact -->
-        <section class="non-repudiation-impact">
-            <div class="container">
-                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
-                    <h2 class="premium-heading" data-i18n="nr_impact_title">Business Impact</h2>
-                </div>
-                <div class="impact-grid">
-                    <!-- Legal -->
-                    <div class="impact-card reveal" style="transition-delay: 0.1s">
-                        <div class="impact-header">
-                            <i class="fas fa-gavel"></i>
-                            <h3 data-i18n="nr_impact_legal">Legal</h3>
+                <h2 class="premium-heading" style="text-align: center; margin-bottom: 60px;" data-i18n="nr_how_title">
+                    How It Works (Evidence Chain)</h2>
+                <div class="how-grid">
+                    <div class="how-steps reveal">
+                        <div class="how-step">
+                            <div class="step-num">01</div>
+                            <div class="step-info">
+                                <h4 data-i18n="nr_step_1_title">Identity verified</h4>
+                            </div>
                         </div>
-                        <p data-i18n="nr_impact_legal_sub">Strong litigation defense</p>
-                    </div>
-                    <!-- Security -->
-                    <div class="impact-card reveal" style="transition-delay: 0.2s">
-                        <div class="impact-header">
-                            <i class="fas fa-user-shield"></i>
-                            <h3 data-i18n="nr_impact_security">Security</h3>
-                        </div>
-                        <p data-i18n="nr_impact_security_sub">Fraud prevention</p>
-                    </div>
-                    <!-- Operations -->
-                    <div class="impact-card reveal" style="transition-delay: 0.3s">
-                        <div class="impact-header">
-                            <i class="fas fa-industry"></i>
-                            <h3 data-i18n="nr_impact_ops">Operations</h3>
-                        </div>
-                        <p data-i18n="nr_impact_ops_sub">Clear approval ownership</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Section 4: Independent Verification (Download UI) -->
-        <section class="non-repudiation-demo">
-            <div class="container">
-                <div class="proof-bundle-card reveal">
-                    <div class="bundle-visual">
-                        <div class="file-stack">
-                            <div class="file-item"></div>
-                            <div class="file-item"></div>
-                            <div class="file-item">
-                                <i class="fas fa-file-shield"></i>
-                                <span class="badge"
-                                    style="background: var(--accent-blue); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">ENCRYPTED</span>
+                        <div class="how-step">
+                            <div class="step-num">02</div>
+                            <div class="step-info">
+                                <h4 data-i18n="nr_step_2_title">Document fingerprint created</h4>
+                            </div>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-num">03</div>
+                            <div class="step-info">
+                                <h4 data-i18n="nr_step_3_title">Signature cryptographically bound</h4>
+                            </div>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-num">04</div>
+                            <div class="step-info">
+                                <h4 data-i18n="nr_step_4_title">Proof permanently recorded</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="bundle-info">
-                        <h2 class="premium-heading" style="font-size: 2.2rem; margin-bottom: 20px;"
-                            data-i18n="nr_verify_ext_title">Verify Without BrillSign</h2>
-                        <p data-i18n="nr_verify_ext_sub">Evidence package can be verified independently.</p>
-                        <ul class="evidence-specs">
-                            <li><i class="fas fa-check-circle"></i> Signer Identity (DID)</li>
-                            <li><i class="fas fa-check-circle"></i> Document Hash (SHA-256)</li>
-                            <li><i class="fas fa-check-circle"></i> Cryptographic Timestamp</li>
-                            <li><i class="fas fa-check-circle"></i> Blockchain Proof Anchor</li>
-                        </ul>
-                        <div class="download-btn-set">
-                            <a href="#" class="btn-primary-v3" style="padding: 12px 25px;"><i class="fas fa-download"
-                                    style="margin-right: 10px;"></i> Download Proof Bundle</a>
+
+                    <div class="how-visual reveal">
+                        <div class="flow-visual-box">
+                            <div class="flow-node active">
+                                <i class="fas fa-id-card-clip"></i>
+                                <span style="font-size: 0.7rem;">Verify</span>
+                            </div>
+                            <div class="flow-line"></div>
+                            <div class="traveling-proof">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <div class="flow-node">
+                                <i class="fas fa-cube"></i>
+                                <span style="font-size: 0.7rem;">Record</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 5: Comparison Table -->
+        <!-- Section 3: Impact (Standardized) -->
+        <section class="non-repudiation-impact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" data-i18n="nr_impact_title">Business Impact</h2>
+                </div>
+
+                <div class="impact-grid">
+                    <div class="impact-col reveal" style="transition-delay: 0.1s">
+                        <div class="impact-icon"><i class="fas fa-gavel"></i></div>
+                        <h3 data-i18n="nr_impact_legal">Legal</h3>
+                        <ul class="impact-list">
+                            <li>Strong litigation defense</li>
+                            <li>Court-admissible evidence</li>
+                            <li>Independent validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="impact-col reveal" style="transition-delay: 0.2s">
+                        <div class="impact-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3 data-i18n="nr_impact_security">Security</h3>
+                        <ul class="impact-list">
+                            <li>Fraud prevention</li>
+                            <li>Identity assurance</li>
+                            <li>Immutable proof trail</li>
+                        </ul>
+                    </div>
+
+                    <div class="impact-col reveal" style="transition-delay: 0.3s">
+                        <div class="impact-icon"><i class="fas fa-industry"></i></div>
+                        <h3 data-i18n="nr_impact_ops">Operations</h3>
+                        <ul class="impact-list">
+                            <li>Clear approval ownership</li>
+                            <li>Efficient audit cycles</li>
+                            <li>Zero dependency on logs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Try Non-Repudiation Demo -->
+        <section class="non-repudiation-demo">
+            <div class="container">
+                <div class="demo-card reveal">
+                    <div class="demo-content">
+                        <h2 class="premium-heading" data-i18n="nr_verify_ext_title">Verify Without BrillSign</h2>
+                        <p data-i18n="nr_verify_ext_sub">Evidence package can be verified independently.</p>
+                        <a href="#" class="btn-primary-v3" data-i18n="nr_btn_verify_demo">Download Proof Bundle</a>
+                    </div>
+                    <div class="demo-visual-demo">
+                        <div class="external-tool-badge">
+                            <i class="fas fa-file-shield"></i>
+                        </div>
+                        <div class="verification-status">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Math-based proof verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Comparison (Standardized) -->
         <section class="non-repudiation-comparison">
             <div class="container">
-                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
+                <div class="section-header reveal">
                     <h2 class="premium-heading" data-i18n="nr_comp_title">Comparison Table</h2>
                 </div>
+
                 <div class="comparison-table-wrapper reveal">
                     <table class="comp-table">
                         <thead>
@@ -240,17 +317,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Verification Source</td>
+                                <td data-i18n="nr_comp_row1_label">Verification Source</td>
                                 <td data-i18n="nr_comp_log_based">Log based</td>
                                 <td data-i18n="nr_comp_crypto_proof">Cryptographic proof</td>
                             </tr>
                             <tr>
-                                <td>Evidence Dependency</td>
+                                <td data-i18n="nr_comp_row2_label">Evidence Dependency</td>
                                 <td data-i18n="nr_comp_vendor_dep">Vendor dependent</td>
                                 <td data-i18n="nr_comp_indep_evid">Independent evidence</td>
                             </tr>
                             <tr>
-                                <td>Legal Standing</td>
+                                <td data-i18n="nr_comp_row3_label">Legal Standing</td>
                                 <td data-i18n="nr_comp_disputable">Disputable</td>
                                 <td data-i18n="nr_comp_non_repud">Non-repudiable</td>
                             </tr>
@@ -260,41 +337,64 @@
             </div>
         </section>
 
-        <!-- Section 6: Integration Banner & FAQ -->
-        <section class="non-repudiation-integration">
+        <!-- Section 6: Geometric Standards Banner (Redesigned) -->
+        <section class="non-repudiation-geometric-banner">
+            <div class="gb-extra-glow"></div>
             <div class="container">
-                <div class="integration-banner reveal">
-                    <div class="banner-content">
-                        <h2 data-i18n="nr_int_banner_title">Works with existing identity providers</h2>
-                        <p data-i18n="nr_int_banner_sub">Connect with SSO, DID solutions, and corporate directories.</p>
-                        <div class="sso-icons"
-                            style="margin-top: 30px; display: flex; gap: 25px; font-size: 32px; color: rgba(255, 255, 255, 0.4);">
-                            <i class="fab fa-microsoft"></i>
-                            <i class="fab fa-google"></i>
-                            <i class="fab fa-apple"></i>
-                            <i class="fas fa-fingerprint"></i>
+                <div class="geometric-banner-wrapper reveal">
+                    <!-- Left Column: Image -->
+                    <div class="gb-image-container">
+                        <div class="gb-image-bg" style="background-image: url('non-repudiation-tech-banner.png')">
                         </div>
                     </div>
-                    <div class="banner-cta">
-                        <a href="#" class="btn-primary-v3" data-i18n="nr_btn_explore_api">Explore Identity API</a>
+
+                    <!-- Right Column: Content -->
+                    <div class="gb-right-content">
+                        <!-- Top Teal Section -->
+                        <div class="gb-top-teal">
+                            <span>BrillSign</span>
+                            <h2>IDENTITY</h2>
+                        </div>
+
+                        <!-- Bottom Dark Section -->
+                        <div class="gb-bottom-dark">
+                            <div class="gb-year-tag">2026</div>
+                            <div class="gb-mission">Secure Digital Transformation</div>
+                            <p class="gb-description" data-i18n="nr_int_banner_sub">Connect with SSO, DID solutions, and
+                                corporate directories for enterprise-grade cryptographic verification.</p>
+                        </div>
                     </div>
+
+                    <!-- Floating Branding Diamond -->
+                    <div class="gb-branding-diamond">
+                        <div class="gb-diamond-logo">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>BrillSign Pro</h4>
+                    </div>
+
+                    <!-- Bottom Link -->
+                    <div class="gb-footer-link">WWW.BRILLSIGN.COM</div>
                 </div>
             </div>
         </section>
 
-        <section class="non-repudiation-faq">
-            <div class="container">
-                <div class="section-header reveal text-center" style="margin-bottom: 60px;">
-                    <h2 class="premium-heading" data-i18n="nr_faq_title">FAQ</h2>
+        <!-- Section 6: FAQ (Standardized) -->
+        <section class="section-6">
+            <div class="faq-container animate-up">
+                <div class="faq-header">
+                    <h2 class="faq-title premium-heading" data-i18n="nr_faq_title">FAQ</h2>
+                    <p class="faq-subtitle">Common questions about Strong Non-Repudiation.</p>
                 </div>
-                <div class="faq-container">
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <i class="fas fa-question-circle"></i>
-                            <span data-i18n="nr_faq_q1">Is this legally enforceable?</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p data-i18n="nr_faq_a1">Yes — aligns with global digital signature standards.</p>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="nr_faq_q1">Is this legally enforceable?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="nr_faq_a1">
+                            Yes — aligns with global digital signature standards.
                         </div>
                     </div>
                 </div>
@@ -311,6 +411,30 @@
     <script src="shared-components.js"></script>
     <script src="animations.js"></script>
     <script src="translations.js"></script>
+    <script>
+        // FAQ Accordion logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = null;
+                    item.querySelector('.faq-answer').style.opacity = 0;
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.opacity = 1;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

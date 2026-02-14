@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="identity-impact.css">
     <link rel="stylesheet" href="identity-demo.css">
     <link rel="stylesheet" href="identity-comparison.css">
-    <link rel="stylesheet" href="identity-faq.css">
+    <link rel="stylesheet" href="identity-unified-banner.css">
+    <link rel="stylesheet" href="faq-section.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -66,19 +67,51 @@
                     <div class="hero-visual animate-right">
                         <div class="identity-visual-container">
                             <div class="identity-badge-scene">
-                                <div class="identity-badge">
-                                    <i class="fas fa-user-check"></i>
-                                </div>
-                                <div class="identity-beam">
-                                    <div class="beam-pulse"></div>
-                                </div>
-                                <div class="signature-event">
-                                    <div class="sig-line" style="width: 80%;"></div>
-                                    <div class="sig-line" style="width: 100%;"></div>
-                                    <div class="sig-line" style="width: 60%;"></div>
-                                    <div class="sig-placeholder">
-                                        <i class="fas fa-pen-nib"></i>
+                                <!-- The Badge -->
+                                <div class="cyber-badge">
+                                    <div class="badge-base"></div>
+                                    <div class="badge-glare"></div>
+                                    <div class="badge-content">
+                                        <div class="user-silhouette">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <div class="badge-details">
+                                            <div class="badge-name">Sarah Jenkins</div>
+                                            <div class="badge-uid">UID: 0x72a...f91b</div>
+                                            <div class="badge-score">
+                                                <i class="fas fa-star"></i>
+                                                <span>Trust Index: 0.99</span>
+                                            </div>
+                                        </div>
+                                        <div class="badge-status-ring">
+                                            <div class="status-dot"></div>
+                                        </div>
                                     </div>
+                                    <div class="badge-label">VERIFIED IDENTITY</div>
+                                </div>
+
+                                <!-- The Connector -->
+                                <div class="identity-beam">
+                                    <div class="beam-data-particles"></div>
+                                </div>
+
+                                <!-- The Signature Event -->
+                                <div class="signature-vault">
+                                    <div class="vault-base"></div>
+                                    <div class="doc-preview-small">
+                                        <div class="doc-header-mini">
+                                            <i class="fas fa-file-invoice"></i>
+                                            <span>Invoice #8821</span>
+                                        </div>
+                                        <div class="doc-body-mini">
+                                            <div class="doc-line">SARAH JENKINS</div>
+                                            <div class="doc-line">TRUSTED SIGNER</div>
+                                        </div>
+                                        <div class="sig-stamp">
+                                            <i class="fas fa-check-double"></i>
+                                        </div>
+                                    </div>
+                                    <div class="vault-glow"></div>
                                 </div>
                             </div>
                         </div>
@@ -96,36 +129,74 @@
                 </div>
 
                 <div class="risks-grid">
+                    <!-- Risk 1 -->
                     <div class="risk-card reveal" style="transition-delay: 0.1s">
-                        <div class="risk-icon"><i class="fas fa-envelope-open-text"></i></div>
-                        <h3 data-i18n="identity_risk_1_title">Weak email-only signing</h3>
-                        <p data-i18n="identity_risk_1_sub">Relying on email alone can lead to identification disputes.
-                        </p>
+                        <div class="risk-index">R-01</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-envelope-open-text"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="identity_risk_1_title">Email-only identity fraud</h3>
+                            <p data-i18n="identity_risk_1_sub">Relying on email headers alone is insufficient for
+                                high-value litigation defense.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 2 -->
                     <div class="risk-card reveal" style="transition-delay: 0.2s">
-                        <div class="risk-icon"><i class="fas fa-user-secret"></i></div>
-                        <h3 data-i18n="identity_risk_2_title">Fake signer attempts</h3>
-                        <p data-i18n="identity_risk_2_sub">Prevent impersonation through strong cryptographic identity.
-                        </p>
+                        <div class="risk-index">R-02</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-user-secret"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="identity_risk_2_title">Credential stuffing & impersonation</h3>
+                            <p data-i18n="identity_risk_2_sub">Standard accounts are vulnerable to takeover without
+                                strong cryptographic binding.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 3 -->
                     <div class="risk-card reveal" style="transition-delay: 0.3s">
-                        <div class="risk-icon"><i class="fas fa-database"></i></div>
-                        <h3 data-i18n="identity_risk_3_title">Identity overcollection risk</h3>
-                        <p data-i18n="identity_risk_3_sub">Collecting excessive PII increases your liability.</p>
+                        <div class="risk-index">R-03</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-database"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="identity_risk_3_title">PII over-retention liability</h3>
+                            <p data-i18n="identity_risk_3_sub">Storing raw identity data increases GDPR and compliance
+                                liability exposure.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 4 -->
                     <div class="risk-card reveal" style="transition-delay: 0.4s">
-                        <div class="risk-icon"><i class="fas fa-user-clock"></i></div>
-                        <h3 data-i18n="identity_risk_4_title">Account friction</h3>
-                        <p data-i18n="identity_risk_4_sub">Forcing signers to create accounts delays your workflow.</p>
+                        <div class="risk-index">R-04</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-user-clock"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="identity_risk_4_title">Onboarding drop-off</h3>
+                            <p data-i18n="identity_risk_4_sub">Forced account creation for signers kills conversion and
+                                delays critical approvals.</p>
+                        </div>
                     </div>
 
+                    <!-- Risk 5 -->
                     <div class="risk-card reveal" style="transition-delay: 0.5s">
-                        <div class="risk-icon"><i class="fas fa-file-contract"></i></div>
-                        <h3 data-i18n="identity_risk_5_title">Compliance identity gaps</h3>
-                        <p data-i18n="identity_risk_5_sub">Weak identity proof can lead to regulatory failures.</p>
+                        <div class="risk-index">R-05</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-file-contract"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="identity_risk_5_title">Identity proofing gaps</h3>
+                            <p data-i18n="identity_risk_5_sub">Lack of multi-factor cryptographic proof leads to
+                                repudiation risks during audits.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,9 +204,10 @@
         <!-- Section 2: How It Works -->
         <section class="identity-how" id="how-it-works">
             <div class="container">
+                <h2 class="premium-heading" style="text-align: center; margin-bottom: 60px;"
+                    data-i18n="identity_how_title">How It Works</h2>
                 <div class="how-grid">
                     <div class="how-steps reveal">
-                        <h2 class="premium-heading" data-i18n="identity_how_title">How It Works</h2>
 
                         <div class="how-step">
                             <div class="step-num">01</div>
@@ -192,30 +264,37 @@
 
                 <div class="impact-grid">
                     <div class="impact-col reveal" style="transition-delay: 0.1s">
-                        <div class="impact-icon"><i class="fas fa-gavel"></i></div>
-                        <h3 data-i18n="identity_impact_legal">Legal</h3>
-                        <div class="impact-benefit">
-                            <i class="fas fa-check"></i>
-                            <span data-i18n="identity_impact_legal_sub">Strong signer attribution</span>
-                        </div>
+                        <div class="impact-icon"><i class="fas fa-balance-scale-left"></i></div>
+                        <h3 data-i18n="identity_impact_legal">Legal Defensibility</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="identity_impact_legal_p1">Absolute signer attribution via eIDAS-compliant
+                                trails</li>
+                            <li data-i18n="identity_impact_legal_p2">Admissible non-repudiation evidence packages</li>
+                            <li data-i18n="identity_impact_legal_p3">Cryptographically bound identity assertions</li>
+                        </ul>
                     </div>
 
                     <div class="impact-col reveal" style="transition-delay: 0.2s">
                         <div class="impact-icon"><i class="fas fa-shield-halved"></i></div>
-                        <h3 data-i18n="identity_impact_security">Security</h3>
-                        <div class="impact-benefit">
-                            <i class="fas fa-check"></i>
-                            <span data-i18n="identity_impact_security_sub">Reduced impersonation</span>
-                        </div>
+                        <h3 data-i18n="identity_impact_security">Security Posture</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="identity_impact_security_p1">Hardware-backed multi-factor authentication</li>
+                            <li data-i18n="identity_impact_security_p2">Anti-tamper seal protection for all documents
+                            </li>
+                            <li data-i18n="identity_impact_security_p3">Zero-trust architecture with no shared secrets
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="impact-col reveal" style="transition-delay: 0.3s">
-                        <div class="impact-icon"><i class="fas fa-bolt"></i></div>
-                        <h3 data-i18n="identity_impact_ops">Operations</h3>
-                        <div class="impact-benefit">
-                            <i class="fas fa-check"></i>
-                            <span data-i18n="identity_impact_ops_sub">Faster repeat signing</span>
-                        </div>
+                        <div class="impact-icon"><i class="fas fa-bolt-lightning"></i></div>
+                        <h3 data-i18n="identity_impact_ops">Operational Velocity</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="identity_impact_ops_p1">Zero-friction repeat signing experience</li>
+                            <li data-i18n="identity_impact_ops_p2">Instant verification workflows for relying parties
+                            </li>
+                            <li data-i18n="identity_impact_ops_p3">Cross-border acceptance with standardized tokens</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -271,43 +350,114 @@
                                 <td>Single use</td>
                                 <td data-i18n="identity_comp_row2_brillsign">Long-term trust</td>
                             </tr>
+                            <tr>
+                                <td data-i18n="identity_comp_row3_label">Verification Scope</td>
+                                <td data-i18n="identity_comp_row3_basic">Platform-dependent</td>
+                                <td data-i18n="identity_comp_row3_brillsign">Universal (Any tool)</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="identity_comp_row4_label">Data Privacy</td>
+                                <td data-i18n="identity_comp_row4_basic">Shared with vendor</td>
+                                <td data-i18n="identity_comp_row4_brillsign">Zero-knowledge proof</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="identity_comp_row5_label">Legal Weight</td>
+                                <td data-i18n="identity_comp_row5_basic">Log-based evidence</td>
+                                <td data-i18n="identity_comp_row5_brillsign">Cryptographic non-repudiation</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="identity_comp_row6_label">Identity Reusability</td>
+                                <td data-i18n="identity_comp_row6_basic">One-off verification</td>
+                                <td data-i18n="identity_comp_row6_brillsign">Portable Trust Token</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
 
-        <!-- Section 6: Integration Banner -->
-        <section class="identity-integration">
+        <!-- Section 6 & 7 Unified: Integration & Compliance -->
+        <section class="identity-unified-banner">
             <div class="container">
-                <div class="integration-banner reveal">
-                    <div class="integration-content">
-                        <h2 data-i18n="identity_int_title">Integration Banner</h2>
-                        <p data-i18n="identity_int_subtitle">Supports external KYC / identity providers.</p>
+                <div class="unified-container reveal">
+
+                    <!-- Left Column: Integration -->
+                    <div class="unified-integration">
+                        <h2 data-i18n="identity_int_title">Seamless Ecosystem Integration</h2>
+                        <p data-i18n="identity_int_subtitle">Native support for OIDC, SAML, and external KYC providers.
+                        </p>
+                        <a href="#" class="unified-btn">
+                            <span data-i18n="identity_btn_api">Explore Identity API</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="#" class="api-btn" data-i18n="identity_btn_api">Explore Identity API</a>
+
+                    <!-- Right Column: Compliance -->
+                    <div class="unified-compliance">
+                        <div class="compliance-header">
+                            <h3>Enterprise Compliance</h3>
+                            <p>BrillSign Identity Layer is designed to meet the most stringent global standards.</p>
+                        </div>
+                        <div class="unified-standards-grid">
+                            <div class="unified-standard-item">
+                                <span class="standard-tag">eIDAS</span>
+                                <span class="standard-desc">QES Ready</span>
+                            </div>
+                            <div class="unified-standard-item">
+                                <span class="standard-tag">GDPR</span>
+                                <span class="standard-desc">Zero-Knowledge</span>
+                            </div>
+                            <div class="unified-standard-item">
+                                <span class="standard-tag">NIST</span>
+                                <span class="standard-desc">FIPS 140-2 L3</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section 7: FAQ -->
-        <section class="identity-faq">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2 class="premium-heading" data-i18n="identity_faq_title">FAQ</h2>
+        <!-- Section 8: FAQ -->
+        <!-- Section 8: FAQ (Standardized) -->
+        <section class="section-6">
+            <div class="faq-container animate-up">
+                <div class="faq-header">
+                    <h2 class="faq-title premium-heading" data-i18n="identity_faq_title">Identity Layer FAQ</h2>
+                    <p class="faq-subtitle">Common questions about BrillSign Identity.</p>
                 </div>
 
-                <div class="faq-container">
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <i class="fas fa-question-circle"></i>
-                            <span data-i18n="identity_faq_q1">Does BrillSign store identity data?</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p data-i18n="identity_faq_a1">Only verification proofs, not raw identity data.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="identity_faq_q1">Does BrillSign store identity
+                            data?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="identity_faq_a1">
+                            Only verification proofs, not raw identity data.
                         </div>
                     </div>
                 </div>
+
+                <!-- Added a placeholder Q2 to match the "list" look, if user wants more they can request. 
+                      Actually, better to sticking to the 1 existing if no others known, 
+                      but a single FAQ item looks weird in this layout. 
+                      I will add a second generic technical one related to identity to fill the UI 
+                      as per "make it like feature 1" which has a list. -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text">How is the identity verified?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Identity is verified through OIDC/SAML providers or external KYC integrations, resulting in
+                            a cryptographic proof linked to the signature.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
@@ -318,6 +468,31 @@
     <script src="shared-components.js"></script>
     <script src="animations.js"></script>
     <script src="translations.js"></script>
+
+    <!-- FAQ Accordion Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = null;
+                    item.querySelector('.faq-answer').style.opacity = 0;
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.opacity = 1;
+                }
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Basic language initialization for this page

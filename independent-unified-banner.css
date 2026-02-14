@@ -1,0 +1,153 @@
+/* Unified Evidence Sovereignty Banner */
+.independent-unified-banner {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Background effects */
+.independent-unified-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(0, 173, 239, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(76, 217, 100, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.banner-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Content Side */
+.banner-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #fff, #94a3b8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.banner-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+
+.banner-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-banner-primary {
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 173, 239, 0.3);
+}
+
+.btn-banner-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 173, 239, 0.4);
+}
+
+/* Standards Grid Side */
+.standards-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns for better layout */
+    gap: 20px;
+}
+
+.standard-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.standard-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Featured card spans full width */
+.standard-card.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border-color: rgba(0, 173, 239, 0.2);
+}
+
+.std-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    background: rgba(0, 173, 239, 0.1);
+    padding: 5px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.standard-card h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.standard-card p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .banner-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .banner-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .standards-display {
+        grid-template-columns: 1fr;
+    }
+
+    .standard-card.featured {
+        grid-column: span 1;
+    }
+}
