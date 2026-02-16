@@ -1,0 +1,118 @@
+.audit-comparison {
+    padding: 120px 0;
+    background: #fff;
+    position: relative;
+}
+
+.audit-table-wrapper {
+    margin: 60px auto 0;
+    max-width: 1000px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+.audit-comp-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.audit-comp-table th {
+    padding: 30px 40px;
+    background: rgba(16, 185, 129, 0.02);
+    color: #10b981;
+    /* Emerald Green */
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.audit-comp-table td {
+    padding: 25px 40px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.audit-comp-table tr:last-child td {
+    border-bottom: none;
+}
+
+.audit-comp-table tr:hover td {
+    background: rgba(16, 185, 129, 0.01);
+}
+
+.audit-comp-table td:first-child {
+    font-weight: 700;
+    color: var(--text-primary);
+    width: 30%;
+}
+
+/* Highlight BrillSign Column */
+.audit-comp-table th:last-child,
+.audit-comp-table td:last-child {
+    background: rgba(16, 185, 129, 0.04);
+    position: relative;
+}
+
+.audit-comp-table th:last-child::after,
+.audit-comp-table td:last-child::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #10b981, transparent);
+    opacity: 0.3;
+}
+
+.comp-val {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.comp-val i {
+    font-size: 1.1rem;
+}
+
+.comp-val.basic {
+    color: var(--text-muted);
+}
+
+.comp-val.basic i {
+    color: #94a3b8;
+}
+
+.comp-val.premium {
+    color: #10b981;
+}
+
+.comp-val.premium i {
+    color: #10b981;
+    filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.3));
+}
+
+@media (max-width: 768px) {
+
+    .audit-comp-table th,
+    .audit-comp-table td {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .comp-val {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

@@ -1,0 +1,46 @@
+.access-verify {
+    padding: 120px 0;
+    background: var(--bg-section-alt);
+    text-align: center;
+}
+
+.approval-timeline-box {
+    max-width: 800px;
+    margin: 60px auto 0;
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 40px;
+    padding: 60px;
+    box-shadow: var(--card-shadow);
+    text-align: left;
+}
+
+.timeline-item-access {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 30px;
+    border-left: 2px dashed rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.timeline-item-access:last-child {
+    border-left: none;
+}
+
+.timeline-dot-access {
+    position: absolute;
+    left: -9px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: #22c55e;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+.timeline-meta-access {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-Knowledge Data Handling | BrillSign</title>
+    <meta name="description"
+        content="Prove authenticity without exposing document contents. BrillSign's privacy-first verification uses cryptographic fingerprints.">
+    <link rel="stylesheet" href="index.css?v=20260216">
+    <link rel="stylesheet" href="interactive-bg.css">
+    <link rel="stylesheet" href="zero-knowledge-hero.css">
+    <link rel="stylesheet" href="zero-knowledge-risks.css">
+    <link rel="stylesheet" href="zero-knowledge-how.css">
+    <link rel="stylesheet" href="zero-knowledge-impact.css">
+    <link rel="stylesheet" href="zero-knowledge-verify.css">
+    <link rel="stylesheet" href="zero-knowledge-comparison.css">
+    <link rel="stylesheet" href="zero-knowledge-integration.css">
+    <link rel="stylesheet" href="faq-section.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="feature-page" data-page="zero-knowledge">
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="feature-hero zk-variant">
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content animate-up">
+                        <h1 class="feature-title premium-heading" data-i18n="hero_zk_title">
+                            Prove authenticity — <span class="text-highlight">without exposing document contents</span>
+                        </h1>
+                        <p class="hero-subtitle" data-i18n="hero_zk_subtitle">
+                            BrillSign verifies documents using cryptographic fingerprints, not document data.
+                        </p>
+                        <div class="feature-ctas">
+                            <a href="#how-it-works" class="btn-primary">
+                                <span data-i18n="btn_see_how_zk">See How Zero Knowledge Verification Works</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#" class="btn-outline">
+                                <i class="fas fa-shield-halved"></i>
+                                <span data-i18n="btn_privacy_overview">Download Privacy Architecture Overview</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual animate-right">
+                        <div class="zk-visual-pro">
+                            <div class="privacy-shield-container">
+                                <div class="shield-layer">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="doc-hidden"></div>
+                                <div class="hash-stream">
+                                    <div class="hash-line">SHA256: 8a3f... | HEX: f291... | HASH: 771b...</div>
+                                    <div class="hash-line" style="animation-delay: -5s">SHA256: 5c2e... | HEX: a1b2... |
+                                        HASH: d3f4...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Risks -->
+        <section class="zk-risks">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" style="text-align: center;" data-i18n="zk_risk_title">Risks of
+                        Traditional Document Processing</h2>
+                </div>
+
+                <div class="risks-grid-zk">
+                    <div class="zk-risk-card reveal">
+                        <div class="zk-risk-icon"><i class="fas fa-eye"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="zk_risk_1_title">Document Visibility to Vendors</h3>
+                            <p data-i18n="zk_risk_1_sub">Providers can access stored files.</p>
+                        </div>
+                    </div>
+                    <div class="zk-risk-card reveal">
+                        <div class="zk-risk-icon"><i class="fas fa-user-lock"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="zk_risk_2_title">Insider Access Exposure</h3>
+                            <p data-i18n="zk_risk_2_sub">Privileged access increases risk.</p>
+                        </div>
+                    </div>
+                    <div class="zk-risk-card reveal">
+                        <div class="zk-risk-icon"><i class="fas fa-burst"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="zk_risk_3_title">Breach Amplification Risk</h3>
+                            <p data-i18n="zk_risk_3_sub">Full document repositories exposed.</p>
+                        </div>
+                    </div>
+                    <div class="zk-risk-card reveal">
+                        <div class="zk-risk-icon"><i class="fas fa-scale-balanced"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="zk_risk_4_title">Privacy Compliance Burden</h3>
+                            <p data-i18n="zk_risk_4_sub">Data residency & privacy complexity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: How It Works -->
+        <section class="zk-how" id="how-it-works">
+            <div class="container">
+                <h2 class="premium-heading reveal" style="text-align: center; margin-bottom: 60px;"
+                    data-i18n="zk_how_title">How Zero Knowledge Signing Works</h2>
+
+                <div class="privacy-tunnel-container reveal">
+                    <div class="tunnel-layer layer-1">
+                        <div class="tunnel-node">
+                            <div class="node-icon"><i class="fas fa-file-shield"></i></div>
+                            <div class="node-text">
+                                <h4 data-i18n="zk_step_1_title">Document processed locally</h4>
+                                <p>Original data never leaves your device</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tunnel-line">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                    <div class="tunnel-layer layer-2">
+                        <div class="tunnel-node">
+                            <div class="node-icon"><i class="fas fa-fingerprint"></i></div>
+                            <div class="node-text">
+                                <h4 data-i18n="zk_step_2_title">Fingerprint generated</h4>
+                                <p>Non-reversible crypto-hash created</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tunnel-line">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                    <div class="tunnel-layer layer-3">
+                        <div class="tunnel-node">
+                            <div class="node-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="node-text">
+                                <h4 data-i18n="zk_step_3_title">Only fingerprint used</h4>
+                                <p>Zero data exposure during signing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="privacy-status reveal">
+                    <i class="fas fa-user-secret"></i>
+                    <span data-i18n="zk_step_4_title">Document content never exposed</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Organizational Impact -->
+        <section class="zk-impact">
+            <div class="container">
+                <h2 class="premium-heading reveal" style="text-align: center; margin-bottom: 60px;"
+                    data-i18n="zk_impact_title">
+                    Organizational Impact</h2>
+                <div class="impact-grid-zk">
+                    <div class="zk-impact-col reveal">
+                        <div class="zk-impact-icon"><i class="fas fa-balance-scale"></i></div>
+                        <h3 data-i18n="zk_impact_legal">Legal</h3>
+                        <ul class="zk-bullet-list">
+                            <li data-i18n="zk_impact_legal_p1">Strong privacy compliance support</li>
+                            <li data-i18n="zk_impact_legal_p2">Reduced data liability exposure</li>
+                        </ul>
+                    </div>
+                    <div class="zk-impact-col reveal">
+                        <div class="zk-impact-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3 data-i18n="zk_impact_security">Security</h3>
+                        <ul class="zk-bullet-list">
+                            <li data-i18n="zk_impact_security_p1">Reduced breach blast radius</li>
+                            <li data-i18n="zk_impact_security_p2">Zero document visibility risk</li>
+                        </ul>
+                    </div>
+                    <div class="zk-impact-col reveal">
+                        <div class="zk-impact-icon"><i class="fas fa-gears"></i></div>
+                        <h3 data-i18n="zk_impact_ops">Operations</h3>
+                        <ul class="zk-bullet-list">
+                            <li data-i18n="zk_impact_ops_p1">Simplified data governance</li>
+                            <li data-i18n="zk_impact_ops_p2">Easier compliance audits</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section 6: Comparison Table -->
+        <section class="zk-comparison">
+            <div class="container">
+                <h2 class="premium-heading reveal" style="text-align: center;" data-i18n="zk_comp_title">Comparison
+                    Table</h2>
+                <div class="zk-table-wrapper reveal">
+                    <table class="zk-comp-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th data-i18n="zk_comp_traditional">Traditional Platforms</th>
+                                <th data-i18n="zk_comp_brillsign">BrillSign Zero Knowledge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="zk_comp_row1_label">Content Handling</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="zk_comp_row1_traditional">Stores document content</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="zk_comp_row1_brillsign">Stores proof only</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="zk_comp_row2_label">Risk Profile</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="zk_comp_row2_traditional">High breach impact</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="zk_comp_row2_brillsign">Minimal breach exposure</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="zk_comp_row3_label">Verification Basis</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="zk_comp_row3_traditional">Data-heavy security</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="zk_comp_row3_brillsign">Math-based verification</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Integration Banner -->
+        <section class="zk-integration">
+            <div class="container">
+                <div class="zk-integration-content reveal">
+                    <div class="zk-integration-text">
+                        <h1 class="premium-heading"
+                            style="color: #FFFFFF !important; background: none !important; -webkit-text-fill-color: #FFFFFF !important; margin-bottom: 25px;"
+                            data-i18n="zk_integration_title">Enterprise-Grade Privacy Orchestration</h1>
+                        <p data-i18n="zk_integration_subtitle">Seamlessly works with your existing encryption, DLP, and
+                            identity governance controls across on-prem and cloud environments.</p>
+                        <a href="#" class="btn-privacy">
+                            <span data-i18n="zk_integration_btn">Explore Privacy & Security Integration</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="zk-pipeline-visual">
+                        <!-- Floating Data Bits -->
+                        <div class="data-bit" style="top: 10%; left: 20%; animation-delay: 0s;">0x1F4A</div>
+                        <div class="data-bit" style="top: 80%; left: 10%; animation-delay: 2s;">0x7B9C</div>
+                        <div class="data-bit" style="top: 30%; left: 85%; animation-delay: 4s;">0x1101</div>
+                        <div class="data-bit" style="top: 70%; left: 90%; animation-delay: 6s;">0x8E2F</div>
+
+                        <div class="shield-wave" style="animation-delay: 0s;"></div>
+                        <div class="shield-wave" style="animation-delay: 2s;"></div>
+                        <div class="shield-ring outer"></div>
+                        <div class="shield-ring middle"></div>
+                        <div class="shield-ring inner">
+                            <div class="privacy-core-visual">
+                                <i class="fas fa-fingerprint core-icon"></i>
+                                <span class="core-label">PRIVACY CORE</span>
+                            </div>
+                        </div>
+
+                        <!-- Technical Nodes (Similar to Audit) -->
+                        <div class="zk-block bc-block"><i class="fas fa-user-secret"></i><span>ZK-SHIELD</span></div>
+                        <div class="zk-block bc-block"><i class="fas fa-microchip"></i><span>L2-NODE</span></div>
+                        <div class="zk-block bc-block"><i class="fas fa-vault"></i><span>VAULT-SYNC</span></div>
+                        <div class="zk-block bc-block"><i class="fas fa-mask"></i><span>DATA-MASK</span></div>
+                        <div class="zk-block bc-block"><i class="fas fa-key"></i><span>KEY-ROTATION</span></div>
+
+                        <!-- Info Cards -->
+                        <div class="zk-info-card zk-card-1">ZK-PROOF LAYER</div>
+                        <div class="zk-info-card zk-card-2">PRIVACY-L2 SYNC</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: FAQ -->
+        <section class="section-6">
+            <div class="faq-container animate-up">
+                <div class="faq-header">
+                    <h2 class="faq-title premium-heading" style="text-align: center;" data-i18n="zk_faq_title">FAQ</h2>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="zk_faq_q1">Can BrillSign read my documents?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="zk_faq_a1">
+                            No — verification uses fingerprints only.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="zk_faq_q2">Does this affect verification accuracy?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="zk_faq_a2">
+                            No — cryptographic hashes guarantee precision.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="zk_faq_q3">Is document encryption required?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="zk_faq_a3">
+                            Optional — but supported.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="zk_faq_q4">Does this help with GDPR / data privacy
+                            rules?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="zk_faq_a4">
+                            Yes — reduces stored sensitive data exposure.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script src="interactive-bg.js"></script>
+    <script src="animations.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            if (window.updateLanguage) window.updateLanguage(savedLang);
+
+            // FAQ Accordion logic
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Close all other items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                        item.querySelector('.faq-answer').style.opacity = 0;
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        const answer = faqItem.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.opacity = 1;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+/* ========================================
+   FLOATING COMPUTATIONAL AURA BACKGROUND
+   Premium animated background for feature pages
+   ======================================== */
+
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Floating Gradient Orbs */
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+    animation: float 20s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.bg-orb-1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    left: -200px;
+    background: radial-gradient(circle, var(--orb-color-1, #0066ff), transparent);
+    animation-delay: 0s;
+}
+
+.bg-orb-2 {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    right: -150px;
+    background: radial-gradient(circle, var(--orb-color-2, #10b981), transparent);
+    animation-delay: 5s;
+    animation-duration: 25s;
+}
+
+.bg-orb-3 {
+    width: 450px;
+    height: 450px;
+    bottom: -150px;
+    left: 30%;
+    background: radial-gradient(circle, var(--orb-color-3, #8b5cf6), transparent);
+    animation-delay: 10s;
+    animation-duration: 30s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(50px, -50px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-30px, 30px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(40px, 20px) scale(1.05);
+    }
+}
+
+/* Computational Grid */
+.bg-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.6;
+    animation: gridShift 60s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridShift {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(60px, 60px);
+    }
+}
+
+/* Floating Particles */
+.bg-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--particle-color, rgba(0, 102, 255, 0.5));
+    border-radius: 50%;
+    animation: particleFloat 15s infinite ease-in-out;
+    pointer-events: none;
+    box-shadow: 0 0 10px var(--particle-color, rgba(0, 102, 255, 0.4));
+}
+
+.bg-particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bg-particle:nth-child(2) {
+    top: 40%;
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.bg-particle:nth-child(3) {
+    top: 60%;
+    left: 30%;
+    animation-delay: 6s;
+}
+
+.bg-particle:nth-child(4) {
+    top: 80%;
+    left: 70%;
+    animation-delay: 9s;
+}
+
+.bg-particle:nth-child(5) {
+    top: 30%;
+    left: 50%;
+    animation-delay: 12s;
+}
+
+@keyframes particleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+}
+
+/* Page-Specific Color Overrides */
+body[data-page="jurisdiction"] {
+    --orb-color-1: #0066ff;
+    --orb-color-2: #0052cc;
+    --orb-color-3: #003d99;
+    --particle-color: rgba(0, 102, 255, 0.6);
+}
+
+body[data-page="audit"] {
+    --orb-color-1: #10b981;
+    --orb-color-2: #059669;
+    --orb-color-3: #047857;
+    --particle-color: rgba(16, 185, 129, 0.6);
+}
+
+body[data-page="zero-knowledge"] {
+    --orb-color-1: #8b5cf6;
+    --orb-color-2: #7c3aed;
+    --orb-color-3: #6d28d9;
+    --particle-color: rgba(139, 92, 246, 0.6);
+}
+
+body[data-page="exit-safe"] {
+    --orb-color-1: #06b6d4;
+    --orb-color-2: #0891b2;
+    --orb-color-3: #0e7490;
+    --particle-color: rgba(6, 182, 212, 0.6);
+}
+
+body[data-page="access"] {
+    --orb-color-1: #4f46e5;
+    --orb-color-2: #4338ca;
+    --orb-color-3: #3730a3;
+    --particle-color: rgba(79, 70, 229, 0.6);
+}
+
+/* Disable animations on mobile for performance */
+@media (max-width: 768px) {
+
+    .bg-orb,
+    .bg-grid,
+    .bg-particle {
+        animation: none;
+    }
+
+    .bg-orb {
+        opacity: 0.08;
+    }
+}

@@ -1,0 +1,138 @@
+.feature-hero.access-variant {
+    background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 160px 0 100px;
+}
+
+.access-visual-pro {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.org-hierarchy-box {
+    position: relative;
+    width: 320px;
+    height: 380px;
+    padding: 40px;
+}
+
+.org-node {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 2px solid var(--primary-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    position: absolute;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.node-top {
+    top: 0;
+    left: 130px;
+}
+
+.node-mid-1 {
+    top: 120px;
+    left: 50px;
+}
+
+.node-mid-2 {
+    top: 120px;
+    left: 210px;
+}
+
+.node-bot-1 {
+    top: 240px;
+    left: 130px;
+    background: var(--primary-blue);
+    color: #fff;
+}
+
+.org-path {
+    position: absolute;
+    background: rgba(0, 102, 255, 0.1);
+    z-index: -1;
+}
+
+.path-1 {
+    width: 2px;
+    height: 60px;
+    top: 60px;
+    left: 159px;
+}
+
+.path-2 {
+    width: 80px;
+    height: 2px;
+    top: 90px;
+    left: 80px;
+}
+
+.path-3 {
+    width: 80px;
+    height: 2px;
+    top: 90px;
+    left: 160px;
+}
+
+.doc-workflow-path {
+    position: absolute;
+    width: 40px;
+    height: 50px;
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #22c55e;
+    animation: workflow-move 6s infinite ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes workflow-move {
+    0% {
+        top: 10px;
+        left: 140px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    30% {
+        top: 125px;
+        left: 60px;
+    }
+
+    60% {
+        top: 245px;
+        left: 140px;
+    }
+
+    90% {
+        top: 245px;
+        left: 140px;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        top: 245px;
+        left: 140px;
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}

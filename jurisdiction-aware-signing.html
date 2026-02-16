@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurisdiction-Aware Signing | BrillSign</title>
+    <meta name="description"
+        content="Sign compliantly across regions automatically. BrillSign adapts to regional regulations (eIDAS, ESIGN) in real-time.">
+    <link rel="stylesheet" href="index.css?v=20260216">
+    <link rel="stylesheet" href="interactive-bg.css">
+    <link rel="stylesheet" href="jurisdiction-hero.css">
+    <link rel="stylesheet" href="jurisdiction-risks.css">
+    <link rel="stylesheet" href="jurisdiction-how.css">
+    <link rel="stylesheet" href="jurisdiction-impact.css">
+    <link rel="stylesheet" href="jurisdiction-comparison.css">
+    <link rel="stylesheet" href="faq-section.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="jurisdiction-integration.css">
+</head>
+
+<body class="feature-page" data-page="jurisdiction">
+    <!-- Navbar will be loaded from shared-components.js -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="feature-hero jurisdiction-variant">
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content animate-up">
+                        <h1 class="feature-title premium-heading" data-i18n="hero_jurisdiction_title">
+                            Sign compliantly across regions <span class="text-highlight">automatically</span>
+                        </h1>
+                        <p class="hero-subtitle" data-i18n="hero_jurisdiction_subtitle">
+                            BrillSign detects regional legal requirements in real-time and adapts compliance rules.
+                        </p>
+                        <div class="feature-ctas">
+                            <a href="#how-it-works" class="btn-primary">
+                                <span>See How It Works</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#" class="btn-outline">
+                                <i class="fas fa-globe"></i>
+                                <span>Global Compliance Map</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual animate-right">
+                        <div class="jurisdiction-visual-pro">
+                            <div class="world-map-layer"></div>
+                            <div class="compliance-overlay">
+                                <div class="compliance-node node-1"></div>
+                                <div class="compliance-node node-2"></div>
+                                <div class="compliance-node node-3"></div>
+                                <div class="compliance-node node-4"></div>
+                            </div>
+                            <div class="status-badge">
+                                <div class="dot"></div>
+                                <span data-i18n="jurisdiction_status">Global Compliance Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Risks -->
+        <section class="jurisdiction-risks">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" style="text-align: center;" data-i18n="jurisdiction_risk_title">Global
+                        Compliance Risks</h2>
+                </div>
+
+                <div class="risks-grid">
+                    <!-- Risk 1 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.1s">
+                        <div class="risk-index">C-01</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-landmark"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="jurisdiction_risk_1_title">Region legal mismatch</h3>
+                            <p data-i18n="jurisdiction_risk_1_sub">Single signing standards risk legal invalidity in
+                                specific jurisdictions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Risk 2 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.2s">
+                        <div class="risk-index">C-02</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="jurisdiction_risk_2_title">Manual compliance effort</h3>
+                            <p data-i18n="jurisdiction_risk_2_sub">Manually researching legal requirements for every
+                                country delays operations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Risk 3 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.3s">
+                        <div class="risk-index">C-03</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-bridge"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="jurisdiction_risk_3_title">Cross-border disputes</h3>
+                            <p data-i18n="jurisdiction_risk_3_sub">Conflicting regional laws create ambiguity during
+                                forensic discovery.</p>
+                        </div>
+                    </div>
+
+                    <!-- Risk 4 -->
+                    <div class="risk-card reveal" style="transition-delay: 0.4s">
+                        <div class="risk-index">C-04</div>
+                        <div class="risk-visual">
+                            <div class="risk-icon"><i class="fas fa-file-invoice"></i></div>
+                            <div class="risk-glow"></div>
+                        </div>
+                        <div class="risk-content">
+                            <h3 data-i18n="jurisdiction_risk_4_title">Evidence formatting differences</h3>
+                            <p data-i18n="jurisdiction_risk_4_sub">Failure to provide evidence in local court-accepted
+                                formats leads to inadmissible records.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: How It Works -->
+        <section class="jurisdiction-how" id="how-it-works">
+            <div class="container">
+                <h2 class="premium-heading" style="text-align: center; margin-bottom: 60px;"
+                    data-i18n="jurisdiction_how_title">How Automated Compliance Works</h2>
+                <div class="radar-path-wrapper reveal">
+                    <div class="radar-line"></div>
+                    <div class="radar-nodes">
+                        <!-- Node 1 -->
+                        <div class="radar-node active">
+                            <div class="node-pulse"></div>
+                            <div class="node-icon"><img src="jurisdiction-step1.png" alt="Jurisdiction Detection"></div>
+                            <div class="node-content">
+                                <span class="node-number">01</span>
+                                <h4 data-i18n="jurisdiction_step_1_title">Jurisdiction detected</h4>
+                            </div>
+                        </div>
+                        <!-- Node 2 -->
+                        <div class="radar-node">
+                            <div class="node-pulse"></div>
+                            <div class="node-icon"><img src="jurisdiction-step2.png" alt="Compliance Rules"></div>
+                            <div class="node-content">
+                                <span class="node-number">02</span>
+                                <h4 data-i18n="jurisdiction_step_2_title">Compliance rules applied</h4>
+                            </div>
+                        </div>
+                        <!-- Node 3 -->
+                        <div class="radar-node">
+                            <div class="node-pulse"></div>
+                            <div class="node-icon"><img src="jurisdiction-step3.png" alt="Evidence Formatting"></div>
+                            <div class="node-content">
+                                <span class="node-number">03</span>
+                                <h4 data-i18n="jurisdiction_step_3_title">Evidence formatted regionally</h4>
+                            </div>
+                        </div>
+                        <!-- Node 4 -->
+                        <div class="radar-node">
+                            <div class="node-pulse"></div>
+                            <div class="node-icon"><img src="jurisdiction-step4.png" alt="Audit Package"></div>
+                            <div class="node-content">
+                                <span class="node-number">04</span>
+                                <h4 data-i18n="jurisdiction_step_4_title">Audit package generated</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Impact -->
+        <section class="jurisdiction-impact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" style="text-align: center;" data-i18n="jurisdiction_impact_title">Global
+                        Strategic Impact</h2>
+                </div>
+
+                <div class="impact-grid">
+                    <div class="impact-col reveal" style="transition-delay: 0.1s">
+                        <div class="impact-icon"><i class="fas fa-balance-scale"></i></div>
+                        <h3 data-i18n="jurisdiction_impact_legal">Global Enforceability</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="jurisdiction_impact_legal_p1">Real-time alignment with eIDAS, ESIGN, and
+                                local laws</li>
+                            <li data-i18n="jurisdiction_impact_legal_p2">Standardized court-ready evidence for every
+                                region</li>
+                            <li data-i18n="jurisdiction_impact_legal_p3">Conflict-free international agreement execution
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="impact-col reveal" style="transition-delay: 0.2s">
+                        <div class="impact-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3 data-i18n="jurisdiction_impact_security">Regulatory Alignment</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="jurisdiction_impact_security_p1">Automated adherence to regional data
+                                residency laws</li>
+                            <li data-i18n="jurisdiction_impact_security_p2">Hardware-enforced regional encryption
+                                standards</li>
+                            <li data-i18n="jurisdiction_impact_security_p3">Tamper-proof localized audit trails</li>
+                        </ul>
+                    </div>
+
+                    <div class="impact-col reveal" style="transition-delay: 0.3s">
+                        <div class="impact-icon"><i class="fas fa-clock"></i></div>
+                        <h3 data-i18n="jurisdiction_impact_ops">Reduced Compliance Overhead</h3>
+                        <ul class="impact-list">
+                            <li data-i18n="jurisdiction_impact_ops_p1">Zero manual legal research per transaction</li>
+                            <li data-i18n="jurisdiction_impact_ops_p2">Instant multi-regional signing workflows</li>
+                            <li data-i18n="jurisdiction_impact_ops_p3">Unified visibility into global compliance status
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Comparison -->
+        <section class="jurisdiction-comparison">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" style="text-align: center;" data-i18n="jurisdiction_comp_title">
+                        Comparison</h2>
+                </div>
+
+                <div class="comparison-table-wrapper reveal">
+                    <table class="comp-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th data-i18n="jurisdiction_comp_manual">Manual Compliance</th>
+                                <th data-i18n="jurisdiction_comp_brillsign">BrillSign</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="jurisdiction_comp_row1_label">Efficiency</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="jurisdiction_comp_row1_manual">Human dependent</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="jurisdiction_comp_row1_brillsign">Automated</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="jurisdiction_comp_row2_label">Risk Profile</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="jurisdiction_comp_row2_manual">Risk prone</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="jurisdiction_comp_row2_brillsign">Regulation aligned</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="jurisdiction_comp_row3_label">Scalability</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="jurisdiction_comp_row3_manual">Slow/Manual</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="jurisdiction_comp_row3_brillsign">Instant/Global</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Integration Banner -->
+        <section class="jurisdiction-integration">
+            <div class="container">
+                <div class="jurisdiction-integration-content">
+                    <div class="jurisdiction-text">
+                        <h1 class="premium-heading"
+                            style="color: #FFFFFF !important; background: none !important; -webkit-text-fill-color: #FFFFFF !important; margin-bottom: 25px;"
+                            data-i18n="jurisdiction_integration_title">Global Regulatory Compliance Integration</h1>
+                        <p data-i18n="jurisdiction_integration_subtitle">Automatically apply regional technical
+                            standards (eIDAS, ESIGN, ZertES) by integrating with your legal ops and compliance
+                            management systems.</p>
+                        <a href="#" class="btn-jurisdiction">
+                            <span data-i18n="jurisdiction_integration_btn">Explore Regulatory Integrations</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="jurisdiction-map-visual">
+                        <div class="map-glow"></div>
+
+                        <!-- Compliance Hotspots -->
+                        <div class="compliance-hotspot" style="top: 25%; left: 40%;"></div>
+                        <div class="compliance-hotspot" style="top: 45%; left: 20%;"></div>
+                        <div class="compliance-hotspot" style="top: 65%; left: 55%;"></div>
+                        <div class="compliance-hotspot" style="top: 35%; left: 80%;"></div>
+                        <div class="compliance-hotspot" style="top: 75%; left: 35%;"></div>
+
+                        <!-- Zone Cards -->
+                        <div class="compliance-zone zone-1">
+                            <i class="fas fa-flag-eu"></i>
+                            <span>eIDAS STANDARDS</span>
+                        </div>
+                        <div class="compliance-zone zone-2">
+                            <i class="fas fa-building-columns"></i>
+                            <span>SEC/FINRA READY</span>
+                        </div>
+                        <div class="compliance-zone zone-3">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>GDPR PRIVACY</span>
+                        </div>
+                        <div class="compliance-zone zone-4">
+                            <i class="fas fa-mountain"></i>
+                            <span>ZERTES (SWISS)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: FAQ -->
+        <section class="section-6">
+            <div class="faq-container animate-up">
+                <div class="faq-header">
+                    <h2 class="faq-title premium-heading" style="text-align: center;"
+                        data-i18n="jurisdiction_faq_title">FAQ</h2>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="jurisdiction_faq_q1">Does this replace legal
+                            advice?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="jurisdiction_faq_a1">
+                            No — it supports compliance execution by automating the application of technical standards.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded from shared-components.js -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script src="interactive-bg.js"></script>
+    <script src="animations.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            if (window.updateLanguage) window.updateLanguage(savedLang);
+
+            // FAQ Accordion logic
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Close all other items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                        item.querySelector('.faq-answer').style.opacity = 0;
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        const answer = faqItem.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.opacity = 1;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

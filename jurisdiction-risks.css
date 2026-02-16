@@ -1,0 +1,94 @@
+.jurisdiction-risks {
+    padding: 100px 0;
+    background: var(--bg-body);
+    position: relative;
+}
+
+.risks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.risk-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 35px;
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: var(--card-shadow);
+}
+
+.risk-card:hover {
+    transform: translateY(-10px);
+    background: #fff;
+    border-color: var(--primary-blue);
+}
+
+.risk-index {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    opacity: 0.2;
+    letter-spacing: 2px;
+}
+
+.risk-visual {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.risk-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-blue), #00d2ff);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.risk-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.1), transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.risk-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.risk-content p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+    .risks-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exit-Safe Architecture | BrillSign</title>
+    <meta name="description"
+        content="BrillSign ensures signed documents remain verifiable forever — even if you migrate systems or stop using the platform.">
+    <link rel="stylesheet" href="index.css?v=20260216">
+    <link rel="stylesheet" href="interactive-bg.css">
+    <link rel="stylesheet" href="exit-safe-hero.css">
+    <link rel="stylesheet" href="exit-safe-risks.css">
+    <link rel="stylesheet" href="exit-safe-how.css">
+    <link rel="stylesheet" href="exit-safe-impact.css">
+    <link rel="stylesheet" href="exit-safe-verify.css">
+    <link rel="stylesheet" href="exit-safe-comparison.css">
+    <link rel="stylesheet" href="exit-safe-integration.css">
+    <link rel="stylesheet" href="faq-section.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="feature-page" data-page="exit-safe">
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="feature-hero exit-variant">
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content animate-up">
+                        <h1 class="feature-title premium-heading" data-i18n="hero_exit_title">
+                            Your proof survives — <span class="text-highlight">even if the platform doesn’t</span>
+                        </h1>
+                        <p class="hero-subtitle" data-i18n="hero_exit_subtitle">
+                            BrillSign ensures signed documents remain verifiable forever — even if you migrate systems
+                            or stop using the platform.
+                        </p>
+                        <div class="feature-ctas">
+                            <a href="#how-it-works" class="btn-primary">
+                                <span data-i18n="btn_see_how_exit">See How Exit-Safe Proof Works</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#" class="btn-outline">
+                                <i class="fas fa-folder-open"></i>
+                                <span data-i18n="btn_portability_guide">Download Portability Architecture Guide</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual animate-right">
+                        <div class="exit-visual-pro">
+                            <div class="portability-box">
+                                <div class="platform-boundary">BrillSign Platform</div>
+                                <div class="doc-proof-bundle">
+                                    <div class="bundle-icon"><i class="fas fa-file-contract"></i></div>
+                                    <div class="bundle-token"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Risks -->
+        <section class="exit-safe-risks">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="premium-heading" data-i18n="exit_risk_title">Risks of Vendor-Dependent Proof</h2>
+                </div>
+
+                <div class="risks-grid-exit">
+                    <div class="exit-risk-card reveal">
+                        <div class="exit-risk-icon"><i class="fas fa-power-off"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="exit_risk_1_title">Vendor Shutdown Risk</h3>
+                            <p data-i18n="exit_risk_1_sub">Proof verification lost if service ends.</p>
+                        </div>
+                    </div>
+                    <div class="exit-risk-card reveal">
+                        <div class="exit-risk-icon"><i class="fas fa-file-export"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="exit_risk_2_title">Migration Evidence Loss</h3>
+                            <p data-i18n="exit_risk_2_sub">Legacy proofs may break.</p>
+                        </div>
+                    </div>
+                    <div class="exit-risk-card reveal">
+                        <div class="exit-risk-icon"><i class="fas fa-calendar-days"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="exit_risk_3_title">Contract Longevity Risk</h3>
+                            <p data-i18n="exit_risk_3_sub">Long contracts outlive platforms.</p>
+                        </div>
+                    </div>
+                    <div class="exit-risk-card reveal">
+                        <div class="exit-risk-icon"><i class="fas fa-key"></i></div>
+                        <div class="risk-content">
+                            <h3 data-i18n="exit_risk_4_title">Access Dependency</h3>
+                            <p data-i18n="exit_risk_4_sub">Verification tied to vendor login.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: How It Works -->
+        <section class="exit-how" id="how-it-works">
+            <div class="container">
+                <h2 class="premium-heading reveal" style="text-align: center; margin-bottom: 60px;"
+                    data-i18n="exit_how_title">How Exit-Safe Proof Works</h2>
+
+                <div class="proof-stack-container reveal">
+                    <div class="proof-stack">
+                        <!-- Layer 1: Document Core -->
+                        <div class="stack-layer layer-doc">
+                            <div class="layer-visual">
+                                <img src="images/exit-step-1.png" alt="Proof Created at Signing" class="step-icon-img">
+                            </div>
+                            <div class="layer-content">
+                                <span class="layer-step">Step 01</span>
+                                <h4 data-i18n="exit_step_1_title">Proof Created at Signing</h4>
+                                <p>Cryptographic anchor point generated</p>
+                            </div>
+                        </div>
+
+                        <!-- Layer 2: Proof Metadata -->
+                        <div class="stack-layer layer-proof">
+                            <div class="layer-visual">
+                                <img src="images/exit-step-2.png" alt="Proof Stored with Document"
+                                    class="step-icon-img">
+                            </div>
+                            <div class="layer-content">
+                                <span class="layer-step">Step 02</span>
+                                <h4 data-i18n="exit_step_2_title">Proof Attached to Document</h4>
+                                <p>Self-contained LTV (Long Term Validity)</p>
+                            </div>
+                        </div>
+
+                        <!-- Layer 3: Independent Tool -->
+                        <div class="stack-layer layer-tools">
+                            <div class="layer-visual">
+                                <img src="images/exit-step-3.png" alt="Independent Tools Verify" class="step-icon-img">
+                            </div>
+                            <div class="layer-content">
+                                <span class="layer-step">Step 03</span>
+                                <h4 data-i18n="exit_step_4_title">Independent Tools Verify</h4>
+                                <p>Open-source tools validate integrity anywhere</p>
+                            </div>
+                        </div>
+
+                        <div class="stack-scanner"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Impact -->
+        <section class="exit-impact">
+            <div class="container">
+                <h2 class="premium-heading reveal" style="margin-bottom: 60px;" data-i18n="exit_impact_title">
+                    Organizational Impact</h2>
+                <div class="impact-grid-exit">
+                    <div class="exit-impact-col reveal">
+                        <div class="exit-impact-icon"><i class="fas fa-gavel"></i></div>
+                        <h3 data-i18n="exit_impact_legal">Legal</h3>
+                        <ul class="exit-bullet-list">
+                            <li data-i18n="exit_impact_legal_p1">Long-term contract enforceability</li>
+                            <li data-i18n="exit_impact_legal_p2">Vendor-independent evidence</li>
+                        </ul>
+                    </div>
+                    <div class="exit-impact-col reveal">
+                        <div class="exit-impact-icon"><i class="fas fa-shield-virus"></i></div>
+                        <h3 data-i18n="exit_impact_security">Security</h3>
+                        <ul class="exit-bullet-list">
+                            <li data-i18n="exit_impact_security_p1">Reduced vendor risk exposure</li>
+                        </ul>
+                    </div>
+                    <div class="exit-impact-col reveal">
+                        <div class="exit-impact-icon"><i class="fas fa-arrows-rotate"></i></div>
+                        <h3 data-i18n="exit_impact_ops">Operations</h3>
+                        <ul class="exit-bullet-list">
+                            <li data-i18n="exit_impact_ops_p1">Easier system migration</li>
+                            <li data-i18n="exit_impact_ops_p2">Long-term archival confidence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section 6: Comparison -->
+        <section class="exit-comparison">
+            <div class="container">
+                <h2 class="premium-heading reveal" data-i18n="exit_comp_title">Comparison Table</h2>
+                <div class="exit-table-wrapper reveal">
+                    <table class="exit-comp-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th data-i18n="exit_comp_traditional">Platform eSign</th>
+                                <th data-i18n="exit_comp_brillsign">BrillSign Exit Safe</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="exit_comp_row1_label">Proof Type</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="exit_comp_row1_traditional">Vendor locked proof</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="exit_comp_row1_brillsign">Open verification proof</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="exit_comp_row2_label">Dependency</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="exit_comp_row2_traditional">Platform dependent</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="exit_comp_row2_brillsign">Platform independent</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="exit_comp_row3_label">Migration</td>
+                                <td>
+                                    <div class="comp-val basic">
+                                        <i class="fas fa-circle-xmark"></i>
+                                        <span data-i18n="exit_comp_row3_traditional">Migration risk</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="comp-val premium">
+                                        <i class="fas fa-circle-check"></i>
+                                        <span data-i18n="exit_comp_row3_brillsign">Migration safe</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Integration Banner -->
+        <section class="exit-integration">
+            <div class="container">
+                <div class="exit-integration-content animate-up">
+                    <div class="exit-integration-text">
+                        <h2 data-i18n="exit_integration_title">Seamless Ecosystem Integration</h2>
+                        <p data-i18n="exit_integration_subtitle">Works alongside your existing storage, archive, and
+                            contract management systems without disrupting existing workflows.</p>
+                        <a href="#" class="btn-exit">
+                            <span data-i18n="exit_integration_btn">Explore Archive & Portability Integrations</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="exit-cloud-visual">
+                        <div class="cloud-card">
+                            <i class="fas fa-cloud-arrow-down"></i>
+                            <div class="badge-float"><i class="fas fa-check"></i></div>
+                        </div>
+                        <div class="floating-node node-1"><i class="fas fa-server"></i></div>
+                        <div class="floating-node node-2"><i class="fas fa-database"></i></div>
+                        <div class="floating-node node-3"><i class="fas fa-folder-open"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: FAQ -->
+        <section class="section-6">
+            <div class="faq-container animate-up">
+                <div class="faq-header">
+                    <h2 class="faq-title premium-heading" data-i18n="exit_faq_title">FAQ</h2>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="exit_faq_q1">If we stop using BrillSign, can documents
+                            still be verified?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="exit_faq_a1">
+                            Yes — verification remains independent.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="exit_faq_q2">Is proof stored in proprietary
+                            format?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="exit_faq_a2">
+                            No — open verification standard.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="exit_faq_q3">Can proofs be archived long term?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="exit_faq_a3">
+                            Yes — designed for decades-long validity.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="question-text" data-i18n="exit_faq_q4">Does this increase storage size?</span>
+                        <div class="faq-toggle"></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="exit_faq_a4">
+                            Minimal — proof data is very small.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script src="interactive-bg.js"></script>
+    <script src="animations.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            if (window.updateLanguage) window.updateLanguage(savedLang);
+
+            // FAQ Accordion logic
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Close all other items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                        item.querySelector('.faq-answer').style.opacity = 0;
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        const answer = faqItem.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.opacity = 1;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

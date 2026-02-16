@@ -9,8 +9,7 @@ const navbarHTML = `
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="nav-logo">
-                <img src="assets/brillsign-b.png" class="logo-icon" alt="BrillSign">
-                <span class="logo-text">rillSign</span>
+                <span class="logo-text">BrillSign</span>
             </a>
             <ul class="nav-links">
                 <li class="nav-item-with-dropdown">
@@ -117,6 +116,7 @@ const featuresDropdownHTML = `
         </div>
     </div>
     <div class="feature-item">
+        <a href="jurisdiction-aware-signing.html" class="stretched-link"></a>
         <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
         <div class="feature-text">
             <h4 data-i18n="feat_jurisdiction">Jurisdiction-Aware Signing</h4>
@@ -124,6 +124,7 @@ const featuresDropdownHTML = `
         </div>
     </div>
     <div class="feature-item">
+        <a href="audit-trails.html" class="stretched-link"></a>
         <div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>
         <div class="feature-text">
             <h4 data-i18n="feat_audit">Audit-Ready Logs</h4>
@@ -131,6 +132,7 @@ const featuresDropdownHTML = `
         </div>
     </div>
     <div class="feature-item">
+        <a href="zero-knowledge-handling.html" class="stretched-link"></a>
         <div class="feature-icon"><i class="fas fa-user-secret"></i></div>
         <div class="feature-text">
             <h4 data-i18n="feat_zero_knowledge">Zero-Knowledge Data Handling</h4>
@@ -138,6 +140,7 @@ const featuresDropdownHTML = `
         </div>
     </div>
     <div class="feature-item">
+        <a href="exit-safe-architecture.html" class="stretched-link"></a>
         <div class="feature-icon"><i class="fas fa-door-open"></i></div>
         <div class="feature-text">
             <h4 data-i18n="feat_exit_safe">Exit-Safe Architecture</h4>
@@ -145,6 +148,7 @@ const featuresDropdownHTML = `
         </div>
     </div>
     <div class="feature-item">
+        <a href="enterprise-access-controls.html" class="stretched-link"></a>
         <div class="feature-icon"><i class="fas fa-users-gear"></i></div>
         <div class="feature-text">
             <h4 data-i18n="feat_access">Enterprise Access Controls</h4>

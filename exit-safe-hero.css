@@ -1,0 +1,96 @@
+.feature-hero.exit-variant {
+    background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 160px 0 100px;
+}
+
+.exit-visual-pro {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portability-box {
+    position: relative;
+    width: 320px;
+    height: 380px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: var(--card-shadow);
+}
+
+.platform-boundary {
+    width: 100%;
+    height: 180px;
+    border: 2px dashed var(--primary-blue);
+    border-radius: 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.doc-proof-bundle {
+    position: absolute;
+    width: 120px;
+    height: 140px;
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    top: 20px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: move-out-exit 4s ease-in-out infinite;
+    z-index: 5;
+}
+
+.bundle-icon {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.bundle-token {
+    width: 100%;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 3px;
+    position: relative;
+}
+
+.bundle-token::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: -10px;
+    top: -12px;
+    color: #22c55e;
+    font-size: 0.8rem;
+}
+
+@keyframes move-out-exit {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(220px);
+    }
+}

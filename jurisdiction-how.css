@@ -1,0 +1,217 @@
+.jurisdiction-how {
+    padding: 120px 0;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Unified Frame Container */
+.radar-path-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 60px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 102, 255, 0.08);
+}
+
+/* Vertical Connection Line */
+.radar-line {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    width: 2px;
+    height: calc(100% - 160px);
+    background: linear-gradient(to bottom,
+            rgba(0, 102, 255, 0.1) 0%,
+            rgba(0, 102, 255, 0.3) 15%,
+            rgba(0, 102, 255, 0.3) 85%,
+            rgba(0, 102, 255, 0.1) 100%);
+}
+
+.radar-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Individual Step Node */
+.radar-node {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInStep 0.7s ease-out forwards;
+}
+
+/* Sequential Animation Delays */
+.radar-node:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.radar-node:nth-child(2) {
+    animation-delay: 1.3s;
+}
+
+.radar-node:nth-child(3) {
+    animation-delay: 2.1s;
+}
+
+.radar-node:nth-child(4) {
+    animation-delay: 2.9s;
+}
+
+@keyframes slideInStep {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Icon Container */
+.node-icon {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+    border: 2px solid rgba(0, 102, 255, 0.15);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--primary-blue);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.node-icon img {
+    width: 130% !important;
+    /* Increase scale further to allow room for 4-side cropping */
+    height: 130% !important;
+    object-fit: cover !important;
+    object-position: center;
+    clip-path: inset(10px) !important;
+    /* Aggressively crop 10px from ALL edges to remove all borders */
+    margin: 0 !important;
+    /* Reset margin as we are cropping evenly now */
+}
+
+.radar-node:hover .node-icon {
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(0, 102, 255, 0.25);
+    border-color: var(--primary-blue);
+}
+
+/* Hide the pulse dots that appear as visual artifacts on the cards */
+.node-pulse {
+    display: none !important;
+}
+
+@keyframes pulseRing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 102, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
+    }
+}
+
+/* Content Card */
+.node-content {
+    background: #fff;
+    border: 1px solid rgba(0, 102, 255, 0.08);
+    border-radius: 20px;
+    padding: 25px 35px;
+    flex: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.radar-node:hover .node-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    transform: translateX(8px);
+    border-color: rgba(0, 102, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.08);
+}
+
+.node-number {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 8px;
+    display: block;
+    opacity: 0.5;
+}
+
+.node-content h4 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .radar-path-wrapper {
+        padding: 40px 30px;
+    }
+
+    .radar-line {
+        left: 60px;
+        top: 60px;
+        height: calc(100% - 120px);
+    }
+
+    .node-pulse {
+        left: 60px;
+    }
+
+    .radar-nodes {
+        gap: 35px;
+    }
+
+    .radar-node {
+        gap: 20px;
+    }
+
+    .node-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 1.3rem;
+        border-radius: 18px;
+        padding: 14px;
+    }
+
+    .node-content {
+        padding: 20px 25px;
+    }
+
+    .node-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .node-number {
+        font-size: 0.75rem;
+    }
+}

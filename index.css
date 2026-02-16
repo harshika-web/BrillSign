@@ -576,7 +576,7 @@ a {
     align-items: center;
     gap: 0;
     overflow: visible;
-    margin-left: -18px;
+    margin-left: 0;
     margin-top: -2px;
 }
 
@@ -4627,7 +4627,21 @@ a {
     transform: rotateY(-10deg) rotateX(5deg) !important;
     box-shadow: none !important;
     transform-style: preserve-3d !important;
+    overflow: hidden !important;
+    /* Aggressive clipping of edge artifacts */
 }
+
+/* Aggressively target the jurisdiction image to remove the black border or bracket artifacts */
+#slide-3 .mockup-frame img {
+    border: none !important;
+    box-shadow: none !important;
+    /* Use an aggressive 8px crop to remove any artifacts near the edges */
+    clip-path: inset(8px) !important;
+    object-fit: cover !important;
+    /* Maintain standard subtle scale */
+    transform: scale(1.02) !important;
+}
+
 
 /* --- Feature Page Specific (Elite Enhancement) --- */
 .feature-page {

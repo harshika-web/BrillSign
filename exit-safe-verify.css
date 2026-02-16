@@ -1,0 +1,37 @@
+.exit-verify {
+    padding: 120px 0;
+    background: var(--bg-section-alt);
+    text-align: center;
+}
+
+.offline-verify-box {
+    max-width: 800px;
+    margin: 60px auto 0;
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 40px;
+    padding: 60px;
+    box-shadow: var(--card-shadow);
+}
+
+.offline-tool-ui {
+    width: 100%;
+    height: 250px;
+    background: #f1f5f9;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    text-align: left;
+}
+
+.ui-header-dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}

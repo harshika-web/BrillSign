@@ -1,0 +1,251 @@
+.access-how {
+    padding: 120px 0;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.governance-container {
+    max-width: 1200px;
+    /* Increased from 1000px to fit longer lines */
+    margin: 60px auto;
+    height: 700px;
+    /* Increased height to accommodate vertical spread */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.governance-hub {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.hub-core {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 0 50px rgba(79, 70, 229, 0.4);
+    border: 4px solid #fff;
+}
+
+.hub-core i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hub-core span {
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.gov-spoke {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    /* Allow width to expand to fit new larger cards */
+    transform-origin: 0 50%;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    /* Prevent overlapping invisible areas blocking clicks */
+}
+
+.spoke-line {
+    width: 250px;
+    /* Increased from 150px */
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-blue), rgba(79, 70, 229, 0.1));
+    flex-shrink: 0;
+    /* Prevent line from disappearing when content is wide */
+}
+
+.spoke-node {
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 20px;
+    width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s ease;
+}
+
+.gov-spoke:hover .spoke-node {
+    border-color: var(--primary-blue);
+    transform: scale(1.05);
+    /* Reduced scale to prevent overlap with wider cards */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.spoke-node .node-icon {
+    width: 100px;
+    /* Slightly smaller to give text more room */
+    height: 100px;
+    background: transparent;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    flex-shrink: 0;
+}
+
+.access-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Removed drop-shadow as it reveals the non-transparent image box */
+    /* filter: drop-shadow(0 5px 15px rgba(79, 70, 229, 0.2)); */
+    transition: transform 0.3s ease;
+
+    /* Simulate transparency for white-bg images on white cards */
+    mix-blend-mode: multiply;
+
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered Delays for Radial Reveal */
+.spoke-1 .access-icon-img {
+    animation-delay: 0.2s;
+}
+
+.spoke-2 .access-icon-img {
+    animation-delay: 0.4s;
+}
+
+.spoke-3 .access-icon-img {
+    animation-delay: 0.6s;
+}
+
+.spoke-4 .access-icon-img {
+    animation-delay: 0.8s;
+}
+
+.spoke-node .node-label {
+    font-size: 0.95rem;
+    /* Increased font size */
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+    flex: 1;
+    /* Allow text to take remaining space */
+}
+
+/* Position Spikes */
+.spoke-1 {
+    transform: rotate(-45deg);
+}
+
+.spoke-2 {
+    transform: rotate(45deg);
+}
+
+.spoke-3 {
+    transform: rotate(135deg);
+}
+
+.spoke-4 {
+    transform: rotate(225deg);
+}
+
+/* Counter-Rotate Content to remain upright */
+.spoke-1 .spoke-node {
+    transform: rotate(45deg);
+}
+
+.spoke-2 .spoke-node {
+    transform: rotate(-45deg);
+}
+
+.spoke-3 .spoke-node {
+    transform: rotate(-135deg);
+}
+
+.spoke-4 .spoke-node {
+    transform: rotate(-225deg);
+}
+
+.spoke-1:hover .spoke-node {
+    transform: rotate(45deg) scale(1.1);
+}
+
+.spoke-2:hover .spoke-node {
+    transform: rotate(-45deg) scale(1.1);
+}
+
+.spoke-3:hover .spoke-node {
+    transform: rotate(-135deg) scale(1.1);
+}
+
+.spoke-4:hover .spoke-node {
+    transform: rotate(-225deg) scale(1.1);
+}
+
+
+@media (max-width: 900px) {
+    .governance-container {
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .governance-hub {
+        width: 100%;
+        height: auto;
+    }
+
+    .hub-core {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 40px auto;
+    }
+
+    .gov-spoke {
+        position: static;
+        width: 100%;
+        transform: none !important;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .spoke-line {
+        display: none;
+    }
+
+    .spoke-node {
+        transform: none !important;
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .spoke-node:hover {
+        transform: translateY(-5px) !important;
+    }
+}

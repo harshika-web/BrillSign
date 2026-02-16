@@ -1,0 +1,38 @@
+.audit-verify {
+    padding: 120px 0;
+    background: var(--bg-section-alt);
+    text-align: center;
+}
+
+.verify-box {
+    max-width: 800px;
+    margin: 60px auto 0;
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 32px;
+    padding: 60px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.verify-visual {
+    width: 100%;
+    height: 200px;
+    background: #f8fafc;
+    border: 2px dashed var(--card-border);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: var(--text-muted);
+}
+
+.verify-visual i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+}

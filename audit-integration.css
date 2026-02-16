@@ -1,0 +1,278 @@
+.audit-integration {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #062b32 0%, #001215 100%);
+    color: #fff;
+    margin: 80px 20px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 188, 212, 0.4);
+}
+
+/* Scan-line effect */
+.audit-integration::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Background Decoration & Particles */
+.audit-integration::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(0, 188, 212, 0.2) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.integration-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.integration-text h1 {
+    font-size: 3.5rem;
+    color: #FFFFFF !important;
+    background: none !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    font-weight: 800;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.integration-text p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 25px;
+    max-width: 500px;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating Particles */
+.bc-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00bcd4;
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: blur(2px);
+    animation: pFlow 12s infinite linear;
+}
+
+@keyframes pFlow {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: translate(600px, -300px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Blockchain Visual */
+.integration-visual-blockchain {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    transform: translateX(80px);
+}
+
+.bc-block {
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 39, 44, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #FFFFFF;
+    position: absolute;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.1);
+    animation: blockFloat 5s infinite ease-in-out;
+    z-index: 3;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.bc-block i {
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.3));
+}
+
+.bc-block span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 10px;
+    letter-spacing: 1.5px;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.bc-block:nth-child(1) {
+    --tx: -220px;
+    --ty: -140px;
+    animation-delay: 0s;
+}
+
+.bc-block:nth-child(2) {
+    --tx: -50px;
+    --ty: 160px;
+    animation-delay: 1.2s;
+}
+
+.bc-block:nth-child(3) {
+    --tx: 220px;
+    --ty: -120px;
+    animation-delay: 2.4s;
+}
+
+.bc-block:nth-child(4) {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+    --tx: -180px;
+    --ty: 140px;
+    animation-delay: 3.6s;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.bc-block:nth-child(5) {
+    width: 80px;
+    height: 80px;
+    font-size: 1.6rem;
+    --tx: 200px;
+    --ty: 140px;
+    animation-delay: 4.8s;
+}
+
+.bc-block:nth-child(6) {
+    --tx: 100px;
+    --ty: -180px;
+    animation-delay: 0.6s;
+}
+
+.bc-block:nth-child(7) {
+    --tx: -240px;
+    --ty: 20px;
+    animation-delay: 1.8s;
+}
+
+.bc-block:nth-child(8) {
+    --tx: 250px;
+    --ty: 0px;
+    animation-delay: 3.0s;
+}
+
+.bc-block:nth-child(9) {
+    --tx: -50px;
+    --ty: -180px;
+    animation-delay: 3.2s;
+}
+
+.bc-link {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.6), transparent);
+    width: 180px;
+    z-index: 2;
+}
+
+.bc-link-1 {
+    transform: translate(-70px, 0) rotate(45deg);
+}
+
+.bc-link-2 {
+    transform: translate(70px, 0) rotate(-45deg);
+}
+
+@keyframes blockFloat {
+
+    0%,
+    100% {
+        transform: translate(var(--tx), var(--ty)) translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(var(--tx), var(--ty)) translateY(-25px) rotate(3deg);
+    }
+}
+
+.btn-blockchain {
+    background: #00bcd4;
+    color: #fff;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 15px 35px rgba(0, 188, 212, 0.4);
+}
+
+.btn-blockchain:hover {
+    background: #fff;
+    color: #062b32;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 188, 212, 0.6);
+}
+
+@media (max-width: 992px) {
+    .integration-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .integration-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .integration-text p {
+        margin: 0 auto 40px auto;
+    }
+
+    .integration-visual-blockchain {
+        height: 300px;
+        order: -1;
+        transform: none;
+    }
+}
