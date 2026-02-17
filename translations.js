@@ -60,7 +60,7 @@ const translations = {
         integrity_comp_copy_trust: "Copy-based trust",
         integrity_comp_math_proof: "Math-based proof",
 
-        integrity_int_banner_title: "Integration Banner",
+        integrity_int_banner_title: "Continuous Integrity Across Systems",
         integrity_int_banner_sub: "Adds integrity proof without changing storage systems",
         integrity_btn_explore_api: "Explore Integrity API",
 
@@ -264,7 +264,7 @@ const translations = {
         nr_comp_disputable: "Disputable",
         nr_comp_non_repud: "Non-repudiable",
 
-        nr_int_banner_title: "Integration Banner",
+        nr_int_banner_title: "Unified Evidence Integration",
         nr_int_banner_sub: "Works with existing identity providers.",
         nr_btn_explore_api: "Explore Identity API",
 
@@ -469,7 +469,7 @@ const translations = {
         audit_comp_row3_label: "Completeness",
         audit_comp_row3_traditional: "Event snapshots",
         audit_comp_row3_brillsign: "Full lifecycle proof",
-        audit_integration_title: "Integration Banner",
+        audit_integration_title: "Seamless Compliance Connectivity",
         audit_integration_subtitle: "Works with your existing SIEM, storage, and compliance tools",
         audit_integration_btn: "Explore Audit API & Integrations",
         audit_faq_title: "FAQ",
@@ -526,7 +526,7 @@ const translations = {
         zk_comp_row3_label: "Verification Basis",
         zk_comp_row3_traditional: "Data-heavy security",
         zk_comp_row3_brillsign: "Math-based verification",
-        zk_integration_title: "Integration Banner",
+        zk_integration_title: "Privacy-Preserving Integrations",
         zk_integration_subtitle: "Works with your encryption, DLP, and privacy controls",
         zk_integration_btn: "Explore Privacy & Security Integration",
         zk_faq_title: "FAQ",
@@ -582,7 +582,7 @@ const translations = {
         exit_comp_row3_label: "Migration",
         exit_comp_row3_traditional: "Migration risk",
         exit_comp_row3_brillsign: "Migration safe",
-        exit_integration_title: "Integration Banner",
+        exit_integration_title: "Enterprise Ecosystem Integration",
         exit_integration_subtitle: "Works alongside your storage, archive, and contract lifecycle tools",
         exit_integration_btn: "Explore Archive & Portability Integrations",
         exit_faq_title: "FAQ",

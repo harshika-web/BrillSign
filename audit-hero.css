@@ -1,128 +1,194 @@
 .feature-hero.audit-variant {
-    background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
-    padding: 160px 0 100px;
+    padding: 140px 0 80px;
+    animation: auditEntranceZoom 1.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-.audit-visual-pro {
-    position: relative;
-    width: 100%;
-    height: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-}
+@keyframes auditEntranceZoom {
+    0% {
+        transform: scale(1.1);
+        filter: blur(15px);
+        opacity: 0;
+    }
 
-.timeline-ledger {
-    position: relative;
-    width: 320px;
-    height: 400px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-}
-
-.ledger-event {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transform: translateX(-10px);
-    opacity: 0.8;
-}
-
-.event-icon-box {
-    width: 36px;
-    height: 36px;
-    background: #fff;
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-blue);
-    position: relative;
-}
-
-.event-lock {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 16px;
-    height: 16px;
-    background: #22c55e;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 0.6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
-}
-
-.event-line {
-    flex: 1;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
-}
-
-.event-line.half {
-    width: 50%;
-}
-
-/* Animation */
-.ledger-event:nth-child(1) {
-    animation: slide-in 0.5s ease forwards 0.2s;
-}
-
-.ledger-event:nth-child(2) {
-    animation: slide-in 0.5s ease forwards 0.4s;
-}
-
-.ledger-event:nth-child(3) {
-    animation: slide-in 0.5s ease forwards 0.6s;
-}
-
-.ledger-event:nth-child(4) {
-    animation: slide-in 0.5s ease forwards 0.8s;
-}
-
-@keyframes slide-in {
-    to {
-        transform: translateX(0);
+    100% {
+        transform: scale(1);
+        filter: blur(0);
         opacity: 1;
     }
 }
 
-.audit-status {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(34, 197, 94, 0.1);
-    color: #166534;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+.hero-content.animate-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: auditRevealText 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s forwards;
 }
 
-.audit-status::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    background: #22c55e;
-    border-radius: 50%;
+@keyframes auditRevealText {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-visual.animate-right {
+    opacity: 0;
+    transform: translateX(60px) rotateY(-8deg);
+    animation: auditRevealVisual 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.9s forwards;
+}
+
+@keyframes auditRevealVisual {
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0);
+    }
+}
+
+.audit-visual-premium {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 2500px;
+}
+
+.hero-main-frame {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    background: #000c1d;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow:
+        0 60px 130px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    transform: rotateY(-18deg) rotateX(12deg);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: auditFloat 10s infinite ease-in-out;
+}
+
+@keyframes auditFloat {
+
+    0%,
+    100% {
+        transform: rotateY(-18deg) rotateX(12deg) translateY(0);
+    }
+
+    50% {
+        transform: rotateY(-14deg) rotateX(10deg) translateY(-20px);
+    }
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.1) contrast(1.05);
+    transition: transform 1.5s ease;
+}
+
+.hero-main-frame:hover .hero-photo {
+    transform: scale(1.06);
+}
+
+/* Glass Reflection */
+.hero-main-frame::before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -50%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0) 45%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0) 55%,
+            transparent 100%);
+    z-index: 15;
+    pointer-events: none;
+    animation: auditShine 15s infinite ease-in-out;
+}
+
+@keyframes auditShine {
+    0% {
+        transform: translateX(-30%) translateY(-30%);
+    }
+
+    50% {
+        transform: translateX(30%) translateY(30%);
+    }
+
+    100% {
+        transform: translateX(-30%) translateY(-30%);
+    }
+}
+
+/* Quantum Audit Scan Overlay */
+.quantum-scan-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.scan-beam {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(34, 197, 94, 0.02) 20%,
+            rgba(34, 197, 94, 0.12) 50%,
+            rgba(34, 197, 94, 0.02) 80%,
+            transparent);
+    animation: quantumScan 7s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(25px);
+}
+
+.scan-beam::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.8);
+}
+
+@keyframes quantumScan {
+    0% {
+        top: -40%;
+        opacity: 0;
+    }
+
+    15%,
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 140%;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .audit-visual-premium {
+        height: 350px;
+        margin-top: 40px;
+    }
 }

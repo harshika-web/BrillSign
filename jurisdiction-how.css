@@ -1,5 +1,5 @@
 .jurisdiction-how {
-    padding: 120px 0;
+    padding: 60px 0;
     background: #fff;
     position: relative;
     overflow: hidden;
@@ -10,7 +10,7 @@
     max-width: 900px;
     margin: 0 auto;
     position: relative;
-    padding: 60px;
+    padding: 40px;
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
@@ -35,7 +35,7 @@
 .radar-nodes {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     position: relative;
     z-index: 2;
 }
@@ -77,35 +77,35 @@
 
 /* Icon Container */
 .node-icon {
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
     background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
     border: 2px solid rgba(0, 102, 255, 0.15);
-    border-radius: 24px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    color: var(--primary-blue);
     position: relative;
     z-index: 2;
     box-shadow: 0 8px 20px rgba(0, 102, 255, 0.08);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     flex-shrink: 0;
     overflow: hidden;
-    padding: 20px;
+    padding: 0;
+    /* Removed padding to allow image to fill to edges */
 }
 
 .node-icon img {
-    width: 130% !important;
-    /* Increase scale further to allow room for 4-side cropping */
-    height: 130% !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover !important;
+    /* Fill container while maintaining aspect ratio */
     object-position: center;
-    clip-path: inset(10px) !important;
-    /* Aggressively crop 10px from ALL edges to remove all borders */
     margin: 0 !important;
-    /* Reset margin as we are cropping evenly now */
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    /* Webkit sharpness */
+    image-rendering: crisp-edges;
 }
 
 .radar-node:hover .node-icon {
@@ -137,8 +137,8 @@
 .node-content {
     background: #fff;
     border: 1px solid rgba(0, 102, 255, 0.08);
-    border-radius: 20px;
-    padding: 25px 35px;
+    border-radius: 18px;
+    padding: 18px 28px;
     flex: 1;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
@@ -164,11 +164,11 @@
 }
 
 .node-content h4 {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     color: var(--text-primary);
     margin: 0;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 /* Responsive Design */

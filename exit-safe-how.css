@@ -1,6 +1,8 @@
 .exit-how {
-    padding: 100px 0;
-    background: var(--bg-section-alt);
+    padding: 60px 0;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
 }
 
 .exit-flow-visual {
@@ -72,12 +74,6 @@
     }
 }
 
-.exit-how {
-    padding: 120px 0;
-    background: #f8fafc;
-    position: relative;
-    overflow: hidden;
-}
 
 .proof-stack-container {
     max-width: 900px;
@@ -86,52 +82,57 @@
     padding: 20px;
 }
 
-/* Vertical Non-Skewed Stack */
+/* Vertical Unified Stack Frame */
 .proof-stack {
     display: flex;
     flex-direction: column;
-    gap: 30px;
     align-items: center;
     position: relative;
-    padding-left: 0;
+    padding: 40px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
 }
 
-/* Timeline Line */
+/* Timeline Line (Internal to Frame) */
 .proof-stack::before {
     content: '';
     position: absolute;
-    top: 40px;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 60px;
+    bottom: 60px;
+    left: 110px;
+    /* Aligned with visual centers */
     width: 2px;
     background: linear-gradient(180deg,
-            rgba(6, 182, 212, 0.1),
-            rgba(6, 182, 212, 0.5) 50%,
-            rgba(6, 182, 212, 0.1));
-    z-index: 0;
+            rgba(6, 182, 212, 0.05),
+            rgba(6, 182, 212, 0.3) 50%,
+            rgba(6, 182, 212, 0.05));
+    z-index: 1;
 }
 
 .stack-layer {
     width: 100%;
     height: auto;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 24px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
     margin-bottom: 0;
-    transform: none !important;
-    /* Force override of any lingering skews */
+    padding: 40px;
     display: flex;
     align-items: center;
-    padding: 30px 40px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     z-index: 10;
+    transition: all 0.4s ease;
 
     /* Animation Initial State */
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Subtle separators between items */
+.stack-layer:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 /* Staggered Delays for "One by One" Effect */
@@ -169,14 +170,16 @@
 .layer-visual {
     width: 140px;
     height: 140px;
-    background: transparent;
-    border-radius: 12px;
+    background: #fff;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 40px;
-    border: none;
+    margin-right: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
     flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+    z-index: 2;
 }
 
 .step-icon-img {

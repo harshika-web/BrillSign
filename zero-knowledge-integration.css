@@ -1,8 +1,8 @@
 .zk-integration {
-    padding: 70px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #2e1065 0%, #0c0a09 100%);
     color: #fff;
-    margin: 80px 20px;
+    margin: 60px 20px;
     border-radius: 50px;
     position: relative;
     overflow: hidden;
@@ -110,9 +110,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 400px;
+    /* Increased from 300px to prevent clipping */
     z-index: 2;
     transform: translateX(80px);
+    overflow: visible;
 }
 
 .shield-ring {
@@ -303,19 +305,21 @@
 
 .zk-block:nth-child(10) {
     --tx: -200px;
-    --ty: -180px;
+    --ty: -150px;
+    /* Shifting down to prevent top-clipping */
     animation-delay: 0s;
 }
 
 .zk-block:nth-child(11) {
     --tx: 180px;
-    --ty: 160px;
+    --ty: 140px;
     animation-delay: 1.5s;
 }
 
 .zk-block:nth-child(12) {
     --tx: 240px;
-    --ty: -100px;
+    --ty: -80px;
+    /* Shifting down to prevent top-clipping */
     animation-delay: 3s;
 }
 
@@ -327,51 +331,11 @@
 
 .zk-block:nth-child(14) {
     --tx: 100px;
-    --ty: -200px;
+    --ty: -160px;
+    /* Shifting down to prevent top-clipping */
     animation-delay: 6s;
 }
 
-/* New: Info Cards around shield */
-.zk-info-card {
-    position: absolute;
-    padding: 12px 20px;
-    background: rgba(46, 16, 101, 0.6);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(139, 92, 246, 0.5);
-    border-radius: 12px;
-    color: #fff;
-    font-weight: 800;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    z-index: 11;
-    animation: infoFloat 6s infinite ease-in-out;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    transform: translate(var(--tx), var(--ty));
-}
-
-@keyframes infoFloat {
-
-    0%,
-    100% {
-        transform: translate(var(--tx), var(--ty)) translateY(0);
-    }
-
-    50% {
-        transform: translate(var(--tx), var(--ty)) translateY(-15px);
-    }
-}
-
-.zk-card-1 {
-    --tx: -360px;
-    --ty: -120px;
-    animation-delay: 0s;
-}
-
-.zk-card-2 {
-    --tx: 360px;
-    --ty: 140px;
-    animation-delay: 3s;
-}
 
 .btn-privacy {
     background: #8b5cf6;

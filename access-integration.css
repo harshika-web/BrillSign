@@ -223,7 +223,7 @@
     background: #2196f3;
     color: #fff;
     border: none;
-    padding: 20px 50px;
+    padding: 18px 45px;
     border-radius: 50px;
     font-weight: 800;
     display: inline-flex;
@@ -233,8 +233,9 @@
     cursor: pointer;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     box-shadow: 0 15px 35px rgba(33, 150, 243, 0.4);
+    white-space: nowrap;
 }
 
 .btn-access:hover {

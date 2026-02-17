@@ -1,8 +1,8 @@
 .jurisdiction-integration {
-    padding: 70px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #091a44 0%, #01040d 100%);
     color: #fff;
-    margin: 80px 20px;
+    margin: 40px 20px;
     border-radius: 50px;
     position: relative;
     overflow: hidden;
@@ -100,24 +100,28 @@
     animation: pulseMap 4s infinite ease-in-out;
 }
 
-.compliance-hotspot {
+/* Professional Anchored Hotspots */
+.zone-hotspot {
     position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 12px;
     height: 12px;
-    background: #0891b2;
+    background: #22d3ee;
     border-radius: 50%;
-    box-shadow: 0 0 20px #0891b2;
-    z-index: 6;
+    box-shadow: 0 0 15px #22d3ee;
+    z-index: 10;
 }
 
-.compliance-hotspot::after {
+.zone-hotspot::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #0891b2;
+    width: 25px;
+    height: 25px;
+    border: 1.5px solid rgba(34, 211, 238, 0.4);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: hotspotPulse 2s infinite ease-out;
@@ -130,7 +134,7 @@
     }
 
     100% {
-        transform: translate(-50%, -50%) scale(4);
+        transform: translate(-50%, -50%) scale(2.5);
         opacity: 0;
     }
 }
@@ -154,8 +158,9 @@
 
 .compliance-zone i {
     font-size: 2.5rem;
-    color: #0891b2;
-    filter: drop-shadow(0 0 10px rgba(8, 145, 178, 0.5));
+    color: #22d3ee;
+    /* Brightened from #0891b2 */
+    filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.6));
 }
 
 .compliance-zone span {

@@ -1,127 +1,205 @@
 .feature-hero.jurisdiction-variant {
-    background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
     position: relative;
     overflow: hidden;
-    padding: 160px 0 100px;
+    padding: 140px 0 80px;
+    animation: globalZoomOut 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-.jurisdiction-visual-pro {
+@keyframes globalZoomOut {
+    0% {
+        transform: scale(1.1);
+        filter: blur(10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.hero-content.animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealText 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s forwards;
+}
+
+@keyframes revealText {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-visual.animate-right {
+    opacity: 0;
+    transform: translateX(50px) rotateY(-10deg);
+    animation: revealVisual 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 1s forwards;
+}
+
+@keyframes revealVisual {
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0);
+    }
+}
+
+.jurisdiction-visual-premium {
     position: relative;
     width: 100%;
-    height: 450px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1000px;
+    perspective: 2000px;
 }
 
-.world-map-layer {
-    position: absolute;
-    width: 120%;
-    height: 120%;
-    background-image: url('scenario_jurisdiction.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.15;
-    filter: var(--map-filter);
-    animation: slow-float 10s ease-in-out infinite alternate;
+.hero-main-frame {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    background: #000c1d;
+    /* Deep professional dark */
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow:
+        0 50px 120px rgba(0, 0, 0, 0.45),
+        0 0 50px rgba(0, 102, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    transform: rotateY(-18deg) rotateX(10deg);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: heroFloatElite 10s infinite ease-in-out;
 }
 
-@keyframes slow-float {
-    0% {
-        transform: translateY(0) scale(1);
-    }
+@keyframes heroFloatElite {
 
+    0%,
     100% {
-        transform: translateY(-10px) scale(1.02);
-    }
-}
-
-.compliance-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.compliance-node {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--primary-blue);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
-    animation: pulse-node 2s infinite;
-}
-
-@keyframes pulse-node {
-    0% {
-        transform: scale(1);
-        opacity: 1;
+        transform: rotateY(-18deg) rotateX(10deg) translateY(0);
     }
 
     50% {
-        transform: scale(1.5);
-        opacity: 0.5;
+        transform: rotateY(-14deg) rotateX(8deg) translateY(-20px);
+    }
+}
+
+.hero-main-frame:hover {
+    transform: rotateY(-5deg) rotateX(4deg) scale(1.04);
+    box-shadow:
+        0 70px 150px rgba(0, 0, 0, 0.6),
+        0 0 70px rgba(0, 102, 255, 0.25);
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    filter: saturate(1.15) contrast(1.1);
+    transition: transform 1.2s ease;
+}
+
+.hero-main-frame:hover .hero-photo {
+    transform: scale(1.08);
+    /* Slight zoom on hover */
+}
+
+/* Elite Glass Reflection / Shine Effect */
+.hero-main-frame::before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -50%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0) 45%,
+            rgba(255, 255, 255, 0.12) 50%,
+            rgba(255, 255, 255, 0) 55%,
+            transparent 100%);
+    z-index: 15;
+    pointer-events: none;
+    animation: eliteShine 12s infinite ease-in-out;
+}
+
+@keyframes eliteShine {
+    0% {
+        transform: translateX(-40%) translateY(-40%);
+    }
+
+    50% {
+        transform: translateX(40%) translateY(40%);
     }
 
     100% {
-        transform: scale(1);
-        opacity: 1;
+        transform: translateX(-40%) translateY(-40%);
     }
 }
 
-/* Sample node positions */
-.node-1 {
-    top: 35%;
-    left: 25%;
-}
-
-/* US */
-.node-2 {
-    top: 30%;
-    left: 55%;
-}
-
-/* Europe */
-.node-3 {
-    top: 45%;
-    left: 80%;
-}
-
-/* Asia */
-.node-4 {
-    top: 70%;
-    left: 35%;
-}
-
-/* SA */
-
-.status-badge {
+/* Diagnostic Resolution Scan */
+.scanning-overlay {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    padding: 10px 20px;
-    border-radius: 30px;
-    color: var(--text-primary);
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: var(--card-shadow);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
 }
 
-.status-badge .dot {
-    width: 8px;
-    height: 8px;
-    background: #22c55e;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+.scan-beam {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(34, 211, 238, 0.02) 20%,
+            rgba(34, 211, 238, 0.08) 50%,
+            rgba(34, 211, 238, 0.02) 80%,
+            transparent);
+    animation: scanMoveElite 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(20px);
+}
+
+.scan-beam::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(34, 211, 238, 0.4);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+}
+
+@keyframes scanMoveElite {
+    100% {
+        top: 125%;
+        opacity: 0;
+    }
+}
+
+.map-data-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(0, 102, 255, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.4;
+}
+
+@media (max-width: 992px) {
+    .jurisdiction-visual-premium {
+        height: 350px;
+        margin-top: 40px;
+    }
 }
