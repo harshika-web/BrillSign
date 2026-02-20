@@ -214,42 +214,21 @@ h3.layer-value {
     font-size: 1.5rem;
 }
 
-/* --- PREMIUM HEADINGS (Titanium Silver Theme) --- */
+/* --- PREMIUM HEADINGS (Branded Solid & Silver Theme) --- */
 .premium-heading {
+    color: var(--text-primary);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+[data-theme="dark"] .premium-heading {
     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 30%, #94a3b8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
-    letter-spacing: -0.02em;
-    line-height: 1.1;
 }
-
-.text-highlight {
-    color: #f8fafc !important;
-    -webkit-text-fill-color: #f8fafc !important;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-    font-weight: 800;
-}
-
-/* Brand Color Text Classes */
-.text-blue {
-    color: #0066ff !important;
-    -webkit-text-fill-color: #0066ff !important;
-}
-
-.text-red {
-    color: #ff0000 !important;
-    -webkit-text-fill-color: #ff0000 !important;
-}
-
-/* Light Mode Text Overrides */
-[data-theme="light"] .text-highlight {
-    color: #0066ff !important;
-    -webkit-text-fill-color: #0066ff !important;
-    text-shadow: none !important;
-}
-
 
 [data-theme="light"] .feature-title,
 [data-theme="light"] .premium-heading {

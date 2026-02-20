@@ -242,7 +242,7 @@ const translations = {
         nr_step_3_title: "Signature cryptographically bound",
         nr_step_4_title: "Proof permanently recorded",
 
-        nr_impact_title: "Business Impact",
+        nr_impact_title: "Institutional Value & Strategic Impact",
         nr_impact_legal: "Legal",
         nr_impact_legal_sub: "Strong litigation defense",
         nr_impact_security: "Security",
@@ -257,7 +257,7 @@ const translations = {
         nr_lifecycle_subtitle: "Accelerate cycle times, maximize agreement value, and eliminate unnecessary contractual risks.",
         nr_explore_clm: "Explore CLM",
 
-        nr_comp_title: "Comparison Table",
+        nr_comp_title: "Technical Benchmark & Comparison",
         nr_comp_trad: "Traditional eSign",
         nr_comp_brillsign: "BrillSign",
         nr_comp_log_based: "Log based",
@@ -271,7 +271,7 @@ const translations = {
         nr_int_banner_sub: "Works with existing identity providers.",
         nr_btn_explore_api: "Explore Identity API",
 
-        nr_faq_title: "FAQ",
+        nr_faq_title: "Frequently Asked Questions",
         nr_faq_q1: "Is this legally enforceable?",
         nr_faq_a1: "Yes — aligns with global digital signature standards.",
         test_card_3_quote: "The biggest value wasn’t speed, it was certainty.",
@@ -777,7 +777,7 @@ const translations = {
         nr_step_3_title: "Firma vinculada criptográficamente",
         nr_step_4_title: "Prueba registrada permanentemente",
 
-        nr_impact_title: "Impacto empresarial",
+        nr_impact_title: "Valor Institucional e Impacto Estratégico",
         nr_impact_legal: "Legal",
         nr_impact_legal_sub: "Sólida defensa en litigios",
         nr_impact_security: "Seguridad",
@@ -792,7 +792,7 @@ const translations = {
         nr_lifecycle_subtitle: "Acelere los tiempos de ciclo, maximice el valor del acuerdo y elimine los riesgos contractuales innecesarios.",
         nr_explore_clm: "Explorar CLM",
 
-        nr_comp_title: "Tabla de comparación",
+        nr_comp_title: "Punto de Referencia Técnico y Comparación",
         nr_comp_trad: "eSign tradicional",
         nr_comp_brillsign: "BrillSign",
         nr_comp_log_based: "Basado en registros",
@@ -806,7 +806,7 @@ const translations = {
         nr_int_banner_sub: "Funciona con proveedores de identidad existentes.",
         nr_btn_explore_api: "Explorar API de identidad",
 
-        nr_faq_title: "Preguntas frecuentes",
+        nr_faq_title: "Preguntas Frecuentes",
         nr_faq_q1: "¿Es esto legalmente vinculante?",
         nr_faq_a1: "Sí — se alinea con los estándares globales de firma digital.",
 
