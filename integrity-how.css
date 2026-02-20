@@ -17,12 +17,64 @@
     position: relative;
 }
 
-/* Layout V2 - Two Column Grid */
-.flow-layout-v2 {
+/* Layout V2 - Sequential Step Blocks */
+.integrity-steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.integrity-step-block {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 80px;
     align-items: center;
+}
+
+/* Reverse every second block for visual variety */
+.integrity-step-block:nth-child(even) {
+    direction: rtl;
+}
+
+.integrity-step-block:nth-child(even) .step-text-side,
+.integrity-step-block:nth-child(even) .step-visual-side {
+    direction: ltr;
+    /* Reset text direction inside */
+}
+
+.step-text-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.step-desc {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 450px;
+}
+
+.step-visual-side {
+    position: relative;
+}
+
+.integrity-additional-steps {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .integrity-additional-steps {
+    border-top-color: rgba(0, 55, 85, 0.05);
+}
+
+.flow-pipeline.vertical.small {
+    gap: 40px;
 }
 
 /* Horizontal line connection - The Energy Rail (Vertical Version) */
@@ -170,6 +222,25 @@
     border-radius: 12px;
     display: block;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.integrity-dashboard-img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.integrity-dashboard-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 102, 255, 0.15);
+}
+
+[data-theme="light"] .video-window-frame {
+    background: #f1f5f9;
+    border-color: rgba(0, 55, 85, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 55, 85, 0.1);
 }
 
 .video-overlay-glow {
@@ -327,15 +398,27 @@
 }
 
 @media (max-width: 992px) {
-    .flow-layout-v2 {
-        grid-template-columns: 1fr;
-        gap: 60px;
+    .integrity-steps-container {
+        gap: 80px;
     }
 
-    .flow-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+    .integrity-step-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .integrity-step-block:nth-child(even) {
+        direction: ltr;
+    }
+
+    .step-text-side {
+        align-items: center;
+    }
+
+    .step-desc {
+        max-width: 100%;
+        margin: 15px auto 0;
     }
 
     .flow-pipeline.vertical {
@@ -348,5 +431,10 @@
         flex-direction: column;
         text-align: center;
         gap: 20px;
+    }
+
+    .integrity-additional-steps {
+        margin-top: 40px;
+        padding-top: 40px;
     }
 }

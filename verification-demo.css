@@ -17,14 +17,20 @@
 
 .verification-text-content {
     max-width: 500px;
+    text-align: center;
 }
 
 .verification-text-content .section-title {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #003755;
+    color: #0066ff;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #003755 0%, #0066ff 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .verification-text-content .description {
@@ -32,12 +38,14 @@
     line-height: 1.6;
     color: #475569;
     margin-bottom: 35px;
+    text-align: center;
 }
 
 .verification-cta {
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    justify-content: center;
     font-weight: 700;
     font-size: 1.1rem;
     color: #0066ff;
@@ -61,6 +69,22 @@
 .verification-visual {
     position: relative;
     padding: 20px;
+}
+
+.verification-section-img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 30px 70px rgba(0, 55, 85, 0.12);
+    display: block;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.verification-section-img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 40px 90px rgba(0, 102, 255, 0.15);
 }
 
 .verification-ui-mockup {
