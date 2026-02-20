@@ -1,7 +1,201 @@
 /* Non-Repudiation Demo Section - Premium Upgrade */
 .non-repudiation-demo {
-    padding: 80px 0;
+    padding: 100px 0;
     background: var(--bg-deep);
+}
+
+.demo-unified-container {
+    background: #f0edff;
+    border-radius: 48px;
+    padding: 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .demo-unified-container {
+    background: linear-gradient(135deg, rgba(80, 70, 229, 0.08), rgba(142, 45, 226, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+}
+
+.demo-layout-v4 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.demo-top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+    z-index: 2;
+}
+
+.demo-card-v4,
+.demo-bottom-visual-container {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+[data-theme="dark"] .demo-card-v4,
+[data-theme="dark"] .demo-bottom-visual-container {
+    background: #1a1b3a;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.demo-card-v4:hover,
+.demo-bottom-visual-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.browser-header {
+    height: 32px;
+    background: #f1f3f4;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .browser-header {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.browser-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.dot-red {
+    background: #ff5f57;
+}
+
+.dot-yellow {
+    background: #ffbd2e;
+}
+
+.dot-green {
+    background: #28c940;
+}
+
+.demo-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    position: relative;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .demo-bottom-row {
+    border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+.demo-bottom-content {
+    flex: 1.1;
+    max-width: 550px;
+    text-align: center;
+}
+
+.demo-bottom-content h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #1a1b3a;
+    letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .demo-bottom-content h2 {
+    color: #fff;
+}
+
+.demo-bottom-content p {
+    font-size: 1.15rem;
+    color: #5b5c7e;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+[data-theme="dark"] .demo-bottom-content p {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.demo-image-v4 {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.demo-bottom-visual {
+    flex: 1.3;
+    position: relative;
+}
+
+.explore-clm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--accent-purple);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.explore-clm-btn:hover {
+    transform: translateX(10px);
+    color: var(--accent-blue);
+}
+
+@media (max-width: 1100px) {
+    .demo-bottom-content h2 {
+        font-size: 2.2rem;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 992px) {
+    .demo-unified-container {
+        padding: 40px 25px;
+        border-radius: 32px;
+    }
+
+    .demo-top-row {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-bottom-row {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+        padding-top: 50px;
+    }
+
+    .demo-bottom-content {
+        max-width: 100%;
+    }
+
+    .explore-clm-btn {
+        justify-content: center;
+    }
 }
 
 .demo-card {

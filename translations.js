@@ -253,6 +253,9 @@ const translations = {
         nr_verify_ext_title: "Verify Without BrillSign",
         nr_verify_ext_sub: "Evidence package can be verified independently.",
         nr_btn_verify_demo: "Try Non-Repudiation Demo",
+        nr_lifecycle_title: "Optimize your <br>contract lifecycle",
+        nr_lifecycle_subtitle: "Accelerate cycle times, maximize agreement value, and eliminate unnecessary contractual risks.",
+        nr_explore_clm: "Explore CLM",
 
         nr_comp_title: "Comparison Table",
         nr_comp_trad: "Traditional eSign",
@@ -785,6 +788,9 @@ const translations = {
         nr_verify_ext_title: "Verificar sin BrillSign",
         nr_verify_ext_sub: "El paquete de evidencia se puede verificar de forma independiente.",
         nr_btn_verify_demo: "Probar demo de no repudio",
+        nr_lifecycle_title: "Optimice el <br>ciclo de vida de sus contratos",
+        nr_lifecycle_subtitle: "Acelere los tiempos de ciclo, maximice el valor del acuerdo y elimine los riesgos contractuales innecesarios.",
+        nr_explore_clm: "Explorar CLM",
 
         nr_comp_title: "Tabla de comparación",
         nr_comp_trad: "eSign tradicional",
@@ -1332,6 +1338,9 @@ const translations = {
         nr_verify_ext_title: "BrillSign के बिना सत्यापित करें",
         nr_verify_ext_sub: "साक्ष्य पैकेज को स्वतंत्र रूप से सत्यापित किया जा सकता है।",
         nr_btn_verify_demo: "गैर-अस्वीकरण डेमो आज़माएं",
+        nr_lifecycle_title: "अपने अनुबंध के <br>जीवनचक्र को अनुकूलित करें",
+        nr_lifecycle_subtitle: "चक्र समय को तेज़ करें, समझौते के मूल्य को अधिकतम करें और अनावश्यक अनुबंध संबंधी जोखिमों को समाप्त करें।",
+        nr_explore_clm: "CLM का अन्वेषण करें",
 
         nr_comp_title: "तुलना तालिका",
         nr_comp_trad: "पारंपरिक ई-साइन",
