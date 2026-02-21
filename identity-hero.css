@@ -405,10 +405,11 @@
 }
 
 .identity-variant .text-highlight {
-    background: linear-gradient(90deg, #00ADEF, #8E2DE2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background: linear-gradient(135deg, #003755 0%, #0066ff 50%, #00d2ff 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
     font-weight: 800;
 }
 

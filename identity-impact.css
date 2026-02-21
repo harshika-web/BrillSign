@@ -1,7 +1,7 @@
 /* Identity Impact Section */
 .identity-impact,
 .independent-impact {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--bg-dark);
 }
 
@@ -15,34 +15,104 @@
 .impact-col {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 40px 30px;
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.impact-col::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+/* Category Specific Styles */
+.impact-legal {
+    background: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 60%), rgba(255, 255, 255, 0.02);
+}
+
+.impact-legal::before {
+    background: var(--accent-blue);
+}
+
+.impact-legal .impact-icon {
+    color: var(--accent-blue);
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.impact-security {
+    background: radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.1) 0%, transparent 60%), rgba(255, 255, 255, 0.02);
+}
+
+.impact-security::before {
+    background: #10b981;
+}
+
+.impact-security .impact-icon {
+    color: #10b981;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.impact-velocity {
+    background: radial-gradient(circle at 0% 0%, rgba(0, 173, 239, 0.1) 0%, transparent 60%), rgba(255, 255, 255, 0.02);
+}
+
+.impact-velocity::before {
+    background: #00adef;
+}
+
+.impact-velocity .impact-icon {
+    color: #00adef;
+    text-shadow: 0 0 20px rgba(0, 173, 239, 0.3);
 }
 
 [data-theme="light"] .impact-col {
     background: #ffffff;
     border-color: rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .impact-col:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: var(--accent-blue);
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-[data-theme="light"] .impact-col:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.impact-legal:hover {
+    background: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.2) 0%, transparent 70%), rgba(255, 255, 255, 0.04);
+}
+
+.impact-security:hover {
+    background: radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.2) 0%, transparent 70%), rgba(255, 255, 255, 0.04);
+}
+
+.impact-velocity:hover {
+    background: radial-gradient(circle at 0% 0%, rgba(0, 173, 239, 0.2) 0%, transparent 70%), rgba(255, 255, 255, 0.04);
+}
+
+.impact-col:hover::before {
+    opacity: 1;
 }
 
 .impact-icon {
-    font-size: 2.5rem;
-    color: var(--accent-blue);
+    font-size: 2.8rem;
     margin-bottom: 25px;
+    transition: transform 0.4s ease;
+}
+
+.impact-col:hover .impact-icon {
+    transform: scale(1.1);
 }
 
 .impact-col h3 {
@@ -85,9 +155,28 @@
     position: absolute;
     left: 0;
     top: 4px;
-    color: #4cd964;
-    /* Success Green */
+    color: var(--check-color, #4cd964);
     font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.impact-legal {
+    --check-color: var(--accent-blue);
+    background: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 60%), rgba(255, 255, 255, 0.02);
+}
+
+.impact-security {
+    --check-color: #10b981;
+    background: radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.1) 0%, transparent 60%), rgba(255, 255, 255, 0.02);
+}
+
+.impact-velocity {
+    --check-color: #00adef;
+    background: radial-gradient(circle at 0% 0%, rgba(0, 173, 239, 0.1) 0%, transparent 60%), rgba(255, 255, 255, 0.02);
+}
+
+.impact-col:hover .impact-list li::before {
+    transform: scale(1.2);
 }
 
 [data-theme="light"] .impact-list li {

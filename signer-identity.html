@@ -204,54 +204,121 @@
         <!-- Section 2: How It Works -->
         <section class="identity-how" id="how-it-works">
             <div class="container">
-                <h2 class="premium-heading" style="text-align: center; margin-bottom: 60px;"
-                    data-i18n="identity_how_title">How It Works</h2>
-                <div class="how-grid">
-                    <div class="how-steps reveal">
+                <div class="section-header reveal text-center" style="margin-bottom: 80px;">
+                    <h2 class="premium-heading" data-i18n="identity_how_title">How It Works</h2>
+                </div>
+            </div> <!-- End .container -->
 
-                        <div class="how-step">
-                            <div class="step-num">01</div>
-                            <div class="step-info">
-                                <h4 data-i18n="identity_step_1_title">Identity verification triggered</h4>
+            <div class="identity-scroll-wrapper">
+                <div class="identity-steps-container">
+                    <!-- Step Block 1: Identity verification triggered -->
+                    <div class="identity-step-block reveal">
+                        <div class="step-text-side">
+                            <div class="flow-step">
+                                <div class="step-node">
+                                    <span class="step-number">01</span>
+                                    <i class="fas fa-id-card-clip"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 data-i18n="identity_step_1_title">Identity verification triggered</h4>
+                                    <p class="step-desc">The system automatically requests identity proof when a
+                                        document is opened for signing, ensuring absolute attribution.</p>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="how-step">
-                            <div class="step-num">02</div>
-                            <div class="step-info">
-                                <h4 data-i18n="identity_step_2_title">Identity proof hashed</h4>
-                            </div>
-                        </div>
-
-                        <div class="how-step">
-                            <div class="step-num">03</div>
-                            <div class="step-info">
-                                <h4 data-i18n="identity_step_3_title">Signature bound to identity proof</h4>
-                            </div>
-                        </div>
-
-                        <div class="how-step">
-                            <div class="step-num">04</div>
-                            <div class="step-info">
-                                <h4 data-i18n="identity_step_4_title">Reusable trust token created</h4>
+                        <div class="step-visual-side">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <img src="image copy 12.png" alt="Identity Verification Triggered"
+                                    class="identity-step-img">
+                                <div class="video-overlay-glow"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="how-visual reveal">
-                        <div class="token-visual-box">
-                            <div class="token-badge">
-                                <i class="fas fa-fingerprint"></i>
+                    <!-- Step Block 2: Identity proof hashed -->
+                    <div class="identity-step-block reveal" style="transition-delay: 0.2s">
+                        <div class="step-text-side">
+                            <div class="flow-step">
+                                <div class="step-node pulsing">
+                                    <span class="step-number">02</span>
+                                    <i class="fas fa-fingerprint"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 data-i18n="identity_step_2_title">Identity proof hashed</h4>
+                                    <p class="step-desc">Sensitive identity data is converted into a secure
+                                        cryptographic hash, protecting privacy while maintaining proof.</p>
+                                </div>
                             </div>
-                            <div class="token-connection"></div>
-                            <div class="doc-mini-stack">
-                                <div class="doc-mini"></div>
-                                <div class="doc-mini"></div>
-                                <div class="doc-mini"></div>
+                        </div>
+                        <div class="step-visual-side">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <!-- Step 2 image -->
+                                <img src="image copy 8.png" alt="Identity Proof Hashed" class="identity-step-img">
+                                <div class="video-overlay-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step Block 3: Signature bound to identity proof -->
+                    <div class="identity-step-block reveal" style="transition-delay: 0.4s">
+                        <div class="step-text-side">
+                            <div class="flow-step">
+                                <div class="step-node">
+                                    <span class="step-number">03</span>
+                                    <i class="fas fa-link"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 data-i18n="identity_step_3_title">Signature bound to identity proof</h4>
+                                    <p class="step-desc">The signer's digital signature is mathematically linked to
+                                        their identity proof, creating an unbreakable bond.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-visual-side">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <img src="image copy 9.png" alt="Signature Binding" class="identity-step-img">
+                                <div class="video-overlay-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step Block 4: Reusable trust token created -->
+                    <div class="identity-step-block reveal" style="transition-delay: 0.6s">
+                        <div class="step-text-side">
+                            <div class="flow-step">
+                                <div class="step-node pulsing">
+                                    <span class="step-number">04</span>
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 data-i18n="identity_step_4_title">Reusable trust token created</h4>
+                                    <p class="step-desc">A reusable trust token is issued, allowing the signer to
+                                        verify
+                                        their identity instantly in future transactions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-visual-side">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <img src="image copy 10.png" alt="Trust Token" class="identity-step-img">
+                                <div class="video-overlay-glow"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
 
@@ -263,7 +330,7 @@
                 </div>
 
                 <div class="impact-grid">
-                    <div class="impact-col reveal" style="transition-delay: 0.1s">
+                    <div class="impact-col impact-legal reveal" style="transition-delay: 0.1s">
                         <div class="impact-icon"><i class="fas fa-balance-scale-left"></i></div>
                         <h3 data-i18n="identity_impact_legal">Legal Defensibility</h3>
                         <ul class="impact-list">
@@ -274,7 +341,7 @@
                         </ul>
                     </div>
 
-                    <div class="impact-col reveal" style="transition-delay: 0.2s">
+                    <div class="impact-col impact-security reveal" style="transition-delay: 0.2s">
                         <div class="impact-icon"><i class="fas fa-shield-halved"></i></div>
                         <h3 data-i18n="identity_impact_security">Security Posture</h3>
                         <ul class="impact-list">
@@ -286,7 +353,7 @@
                         </ul>
                     </div>
 
-                    <div class="impact-col reveal" style="transition-delay: 0.3s">
+                    <div class="impact-col impact-velocity reveal" style="transition-delay: 0.3s">
                         <div class="impact-icon"><i class="fas fa-bolt-lightning"></i></div>
                         <h3 data-i18n="identity_impact_ops">Operational Velocity</h3>
                         <ul class="impact-list">
@@ -304,6 +371,10 @@
         <section class="identity-demo">
             <div class="container">
                 <div class="demo-card reveal">
+                    <!-- Premium Decorative Ornaments -->
+                    <div class="tech-ornament ornament-1"></div>
+                    <div class="tech-ornament ornament-2"></div>
+
                     <div class="demo-content">
                         <h2 class="premium-heading" data-i18n="identity_verify_ext_title">Verify Without Platform</h2>
                         <p data-i18n="identity_verify_ext_sub">Identity proof can be validated separately.</p>
@@ -311,13 +382,8 @@
                             Demo</a>
                     </div>
                     <div class="demo-visual-demo">
-                        <div class="identity-token-badge">
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <div class="verification-status">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Signer Identity Verified Cryptographically</span>
-                        </div>
+                        <img src="images/autonomous-identity-realistic.png" alt="Autonomous Identity Verification"
+                            class="autonomous-identity-img">
                     </div>
                 </div>
             </div>

@@ -221,19 +221,7 @@
                         </div>
                     </div>
 
-                    <!-- Risk 5 -->
-                    <div class="risk-card reveal" style="transition-delay: 0.5s">
-                        <div class="risk-index">R-05</div>
-                        <div class="risk-visual">
-                            <div class="risk-icon"><i class="fas fa-lock"></i></div>
-                            <div class="risk-glow"></div>
-                        </div>
-                        <div class="risk-content">
-                            <h3 data-i18n="independent_risk_5_title">Vendor lock-in trap</h3>
-                            <p data-i18n="independent_risk_5_sub">Proprietary formats prevent you from switching
-                                providers freely later.</p>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>
@@ -241,54 +229,89 @@
         </section>
         <!-- Section 2: How It Works -->
         <section class="independent-how" id="how-it-works">
-            <div class="container">
-                <h2 class="premium-heading" style="text-align: center; margin-bottom: 60px;"
-                    data-i18n="independent_how_title">How Independent Verification Works</h2>
-                <div class="how-grid">
-                    <div class="how-steps reveal">
+            <h2 class="premium-heading" style="text-align: center; margin-bottom: 60px;"
+                data-i18n="independent_how_title">Autonomous Verification Flow</h2>
 
-                        <div class="how-step">
-                            <div class="step-num">01</div>
-                            <div class="step-info">
-                                <h4 data-i18n="independent_step_1_title">Proof created at signing</h4>
+            <div class="independent-scroll-wrapper">
+                <div class="independent-steps-container">
+                    <!-- Step 1 -->
+                    <div class="independent-step-block">
+                        <div class="step-content">
+                            <div class="step-node pulsing">
+                                <span class="step-number">01</span>
+                                <i class="fas fa-file-signature"></i>
                             </div>
+                            <h4 data-i18n="independent_step_1_title">Self-verifying evidence package created</h4>
+                            <p class="step-desc">The system automatically embeds cryptographic proof directly into the
+                                document container during the signing process.</p>
                         </div>
-
-                        <div class="how-step">
-                            <div class="step-num">02</div>
-                            <div class="step-info">
-                                <h4 data-i18n="independent_step_2_title">Proof travels with document</h4>
-                            </div>
-                        </div>
-
-                        <div class="how-step">
-                            <div class="step-num">03</div>
-                            <div class="step-info">
-                                <h4 data-i18n="independent_step_3_title">Anyone can verify using tools</h4>
-                            </div>
-                        </div>
-
-                        <div class="how-step">
-                            <div class="step-num">04</div>
-                            <div class="step-info">
-                                <h4 data-i18n="independent_step_4_title">No platform required</h4>
+                        <div class="step-visual">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake"><span></span><span></span><span></span></div>
+                                <img src="images/verify-step-1.png" alt="Evidence Creation"
+                                    class="independent-step-img">
+                                <div class="video-overlay-glow"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="how-visual reveal">
-                        <div class="flow-visual-box">
-                            <div class="flow-node active">
-                                <i class="fas fa-file-signature"></i>
-                                <span style="font-size: 0.7rem;">Sign</span>
-                            </div>
-                            <div class="flow-line"></div>
-                            <div class="traveling-proof">
+                    <!-- Step 2 -->
+                    <div class="independent-step-block">
+                        <div class="step-content">
+                            <div class="step-node">
+                                <span class="step-number">02</span>
                                 <i class="fas fa-shield-halved"></i>
                             </div>
-                            <div class="flow-node">
+                            <h4 data-i18n="independent_step_2_title">Proof travels with document metadata</h4>
+                            <p class="step-desc">The proof is not locked in a database; it is a portable part of the
+                                document that stays valid across systems and repositories.</p>
+                        </div>
+                        <div class="step-visual">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake"><span></span><span></span><span></span></div>
+                                <img src="images/verify-step-2.png" alt="Proof Metadata" class="independent-step-img">
+                                <div class="video-overlay-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="independent-step-block">
+                        <div class="step-content">
+                            <div class="step-node">
+                                <span class="step-number">03</span>
                                 <i class="fas fa-magnifying-glass"></i>
-                                <span style="font-size: 0.7rem;">Verify</span>
+                            </div>
+                            <h4 data-i18n="independent_step_3_title">Universal verification via OpenSML/GPG</h4>
+                            <p class="step-desc">Any verifying party can use open-standard tools to validate the
+                                signature identity without ever accessing our platform.</p>
+                        </div>
+                        <div class="step-visual">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake"><span></span><span></span><span></span></div>
+                                <img src="images/verify-step-3.png" alt="Universal Verification"
+                                    class="independent-step-img">
+                                <div class="video-overlay-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="independent-step-block">
+                        <div class="step-content">
+                            <div class="step-node">
+                                <span class="step-number">04</span>
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <h4 data-i18n="independent_step_4_title">Platform-agnostic audit readiness</h4>
+                            <p class="step-desc">Auditors and compliance teams can verify records offline, ensuring
+                                long-term audit readiness without vendor dependency.</p>
+                        </div>
+                        <div class="step-visual">
+                            <div class="video-window-frame">
+                                <div class="video-controls-fake"><span></span><span></span><span></span></div>
+                                <img src="images/verify-step-4.jpg" alt="Audit Ready" class="independent-step-img">
+                                <div class="video-overlay-glow"></div>
                             </div>
                         </div>
                     </div>
@@ -303,8 +326,10 @@
                     <h2 class="premium-heading" data-i18n="independent_impact_title">Verification Autonomy</h2>
                 </div>
 
-                <div class="impact-grid">
-                    <div class="impact-col reveal" style="transition-delay: 0.1s">
+                <div class="bento-matrix">
+                    <!-- Card 1: Legal Autonomy (Large/Detailed) -->
+                    <div class="bento-card bento-legal reveal" style="transition-delay: 0.1s">
+                        <div class="bento-tag">SEC_LEVEL_01</div>
                         <div class="impact-icon"><i class="fas fa-scale-balanced"></i></div>
                         <h3 data-i18n="independent_impact_legal">Legal Autonomy</h3>
                         <ul class="impact-list">
@@ -314,23 +339,34 @@
                             </li>
                             <li data-i18n="independent_impact_legal_p3">Standardized export formats for legal discovery
                             </li>
+                            <li data-i18n="independent_impact_legal_p4">Jurisdiction-agnostic digital signature validity
+                            </li>
+                            <li data-i18n="independent_impact_legal_p5">Full chain-of-custody metadata preservation</li>
+                            <li data-i18n="independent_impact_legal_p6">Zero-dependency audit trail availability</li>
                         </ul>
                     </div>
 
-                    <div class="impact-col reveal" style="transition-delay: 0.2s">
+                    <!-- Card 2: Security Assurance (Wide/Technical) -->
+                    <div class="bento-card bento-security reveal" style="transition-delay: 0.2s">
+                        <div class="bento-tag">AUTH_FLOW_V6</div>
                         <div class="impact-icon"><i class="fas fa-user-shield"></i></div>
-                        <h3 data-i18n="independent_impact_security">Security Assurance</h3>
-                        <ul class="impact-list">
-                            <li data-i18n="independent_impact_security_p1">Mathematical independence from platform
-                                integrity</li>
-                            <li data-i18n="independent_impact_security_p2">Standard cryptographic verification
-                                (OpenSSL/GPG)</li>
-                            <li data-i18n="independent_impact_security_p3">Offline validation capability for
-                                high-security environments</li>
-                        </ul>
+                        <div class="bento-text">
+                            <h3 data-i18n="independent_impact_security">Security Assurance</h3>
+                            <ul class="impact-list">
+                                <li data-i18n="independent_impact_security_p1">Mathematical independence from
+                                    platform
+                                    integrity</li>
+                                <li data-i18n="independent_impact_security_p2">Standard cryptographic verification
+                                    (OpenSSL/GPG)</li>
+                                <li data-i18n="independent_impact_security_p3">Offline validation capability for
+                                    high-security environments</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="impact-col reveal" style="transition-delay: 0.3s">
+                    <!-- Card 3: Operational Integrity (Vertical/Sleek) -->
+                    <div class="bento-card bento-ops reveal" style="transition-delay: 0.3s">
+                        <div class="bento-tag">OPS_TYPE_INF</div>
                         <div class="impact-icon"><i class="fas fa-network-wired"></i></div>
                         <h3 data-i18n="independent_impact_ops">Operational Integrity</h3>
                         <ul class="impact-list">
@@ -349,19 +385,36 @@
         <section class="independent-demo">
             <div class="container">
                 <div class="demo-card reveal">
+                    <!-- Premium Decorative Ornaments -->
+                    <div class="tech-ornament ornament-1"></div>
+                    <div class="tech-ornament ornament-2"></div>
+
                     <div class="demo-content">
-                        <h2 class="premium-heading" data-i18n="independent_demo_title">Try Independent Verification</h2>
-                        <p data-i18n="independent_demo_sub">Download a signed document and verify it using an external
-                            tool.</p>
-                        <a href="#" class="btn-primary" data-i18n="independent_btn_verify">Get Verification Tools</a>
+                        <span class="demo-tag">LIVE VERIFICATION SANDBOX</span>
+                        <h2 class="premium-heading" data-i18n="independent_demo_title">Experience Total <span
+                                class="text-accent">Independence</span></h2>
+                        <p data-i18n="independent_demo_sub">Download any signed BrillSign document and verify its
+                            integrity using third-party cryptographic tools.</p>
+                        <a href="#" class="btn-primary" data-i18n="independent_btn_verify">Get Verification Suite</a>
                     </div>
-                    <div class="demo-visual-demo">
-                        <div class="external-tool-badge">
-                            <i class="fas fa-download"></i>
+                    <div class="demo-image-stack">
+                        <div class="image-layer layer-back">
+                            <img src="images/v6_crypto_proof.png" alt="Cryptographic Signature Validation">
                         </div>
-                        <div class="verification-status">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Verified via 3rd-Party Cryptographic Suite</span>
+                        <div class="image-layer layer-front">
+                            <img src="images/v6_forensic_audit.png" alt="Forensic Audit Trail">
+                        </div>
+                        <div class="floating-verified-badge">
+                            <div class="badge-content">
+                                <div class="badge-row">
+                                    <i class="fas fa-check"></i>
+                                    <span data-i18n="independent_demo_verified_p1">Verified via 3rd-Party Suite</span>
+                                </div>
+                                <div class="badge-row">
+                                    <i class="fas fa-check"></i>
+                                    <span data-i18n="independent_demo_verified_p2">Expert Validation Mode</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

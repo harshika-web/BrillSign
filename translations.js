@@ -103,7 +103,7 @@ const translations = {
         identity_impact_ops_p1: "Zero-friction repeat signing experience",
         identity_impact_ops_p2: "Instant verification workflows for relying parties",
         identity_impact_ops_p3: "Cross-border acceptance with standardized tokens",
-        identity_verify_ext_title: "Autonomous Identity Verification",
+        identity_verify_ext_title: "Autonomous Identity <span class='text-verification'>Verification</span>",
         identity_verify_ext_sub: "Identity tokens can be validated independently of the BrillSign platform.",
         identity_btn_verify_demo: "Try Identity Verification Flow",
         identity_comp_title: "Identity Proofing Comparison",
@@ -156,6 +156,9 @@ const translations = {
         independent_impact_legal_p1: "Forever-valid evidence independent of vendor status",
         independent_impact_legal_p2: "No vendor dependency for court admissibility",
         independent_impact_legal_p3: "Standardized export formats for legal discovery",
+        independent_impact_legal_p4: "Jurisdiction-agnostic digital signature validity",
+        independent_impact_legal_p5: "Full chain-of-custody metadata preservation",
+        independent_impact_legal_p6: "Zero-dependency audit trail availability",
         independent_impact_security: "Security Assurance",
         independent_impact_security_p1: "Mathematical independence from platform integrity",
         independent_impact_security_p2: "Standard cryptographic verification (OpenSSL/GPG)",
@@ -164,8 +167,10 @@ const translations = {
         independent_impact_ops_p1: "System-agnostic access to all signed records",
         independent_impact_ops_p2: "Long-term preservation compatible with archive standards",
         independent_impact_ops_p3: "Open-standard compliance (PDF/A, PAdES) built-in",
-        independent_demo_title: "Test Independent Validation",
-        independent_demo_sub: "Download a signed BrillSign document and verify it using any standard cryptographic toolset.",
+        independent_demo_verified_p1: "Verified via 3rd-Party Cryptographic Suite",
+        independent_demo_verified_p2: "Expert Validation Mode Activated",
+        independent_demo_title: "Experience Total<br><span class='text-accent'>Independence</span>",
+        independent_demo_sub: "Download any signed BrillSign document and verify its integrity using third-party cryptographic tools.",
         independent_btn_verify: "Get Verification Suite",
         independent_comp_title: "Verification Independence",
         independent_comp_platform: "Vendor-Closed eSign",
@@ -891,8 +896,8 @@ const translations = {
         independent_impact_security_sub: "Independencia del proveedor",
         independent_impact_ops: "Operaciones",
         independent_impact_ops_sub: "Accesibilidad continua",
-        independent_demo_title: "Probar Verificación Independiente",
-        independent_demo_sub: "Descargue un documento firmado y verifíquelo con una herramienta externa.",
+        independent_demo_title: "Experimente la Total<br><span class='text-accent'>Independencia</span>",
+        independent_demo_sub: "Descargue cualquier documento firmado por BrillSign y verifique su integridad utilizando herramientas criptográficas de terceros.",
         independent_btn_verify: "Obtener herramientas de verificación",
         independent_comp_title: "Comparativa de Verificación",
         independent_comp_platform: "Plataforma eSign",
@@ -1153,8 +1158,8 @@ const translations = {
         independent_impact_security_sub: "विक्रेता स्वतंत्रता",
         independent_impact_ops: "संचालन",
         independent_impact_ops_sub: "निरंतर पहुंच",
-        independent_demo_title: "स्वतंत्र सत्यापन आज़माएं",
-        independent_demo_sub: "हस्ताक्षरित दस्तावेज़ डाउनलोड करें और बाहरी टूल का उपयोग करके इसे सत्यापित करें।",
+        independent_demo_title: "अनुभव करें पूर्ण<br><span class='text-accent'>स्वतंत्रता</span>",
+        independent_demo_sub: "किसी भी हस्ताक्षरित ब्रिलसाइन दस्तावेज़ को डाउनलोड करें और तृतीय-पक्ष क्रिप्टोग्राफिक टूल का उपयोग करके इसकी अखंडता को सत्यापित करें।",
         independent_btn_verify: "सत्यापन टूल प्राप्त करें",
         independent_comp_title: "सत्यापन तुलना",
         independent_comp_platform: "प्लेटफ़ॉर्म eSign",
@@ -1386,7 +1391,7 @@ const translations = {
     }
 };
 
-function setLanguage(lang) {
+function updateLanguage(lang) {
     localStorage.setItem('selectedLanguage', lang);
     document.documentElement.lang = lang;
 
@@ -1424,9 +1429,14 @@ function setLanguage(lang) {
     }
 }
 
+// Keep setLanguage as alias for backward compatibility
+const setLanguage = updateLanguage;
+window.updateLanguage = updateLanguage;
+window.setLanguage = setLanguage;
+
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
-    setLanguage(savedLang);
+    updateLanguage(savedLang);
 
     // Toggle dropdown
     const langBtn = document.querySelector('.lang-btn');
