@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .monogram-part { fill: none; stroke-width: 1.5; stroke-linecap: square; }
+      #hexShp {
+        fill: rgba(26,115,232,0.07); stroke: rgba(26,115,232,0.5);
+        stroke-dasharray: 400; stroke-dashoffset: 400;
+        animation: drawPath 1.2s ease forwards;
+      }
+      .b-plane { fill: none; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
+      #b-left { 
+        stroke: #1A73E8; stroke-dasharray: 100; stroke-dashoffset: 100; 
+        animation: drawPath 0.8s ease 0.5s forwards; 
+      }
+      #b-right { 
+        stroke: #1A73E8; stroke-dasharray: 200; stroke-dashoffset: 200; 
+        animation: drawPath 0.8s ease 0.7s forwards; 
+      }
+      #b-seam { 
+        fill: #4DA6FF; opacity: 0; 
+        animation: fadeIn 0.4s ease 1.2s forwards;
+      }
+      .wordmark-elite {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 38px; font-weight: 700; letter-spacing: 8px;
+        fill: currentColor; opacity: 0;
+        animation: fadeIn 0.8s ease 1.0s forwards;
+      }
+      @keyframes drawPath { to { stroke-dashoffset: 0; } }
+      @keyframes fadeIn { to { opacity: 1; } }
+      
+      /* Dark mode adaptation via currentColor or explicit class */
+      .elite-logo-root { color: #000; }
+      @media (prefers-color-scheme: dark) {
+        .elite-logo-root { color: #fff; }
+        #b-left { stroke: #fff; }
+      }
+    </style>
+  </defs>
+  
+  <g class="elite-logo-root" transform="translate(10, 10)">
+    <!-- Icon part (scaled down) -->
+    <g transform="scale(0.8)">
+      <path id="hexShp" d="M50 5 L90 25 V75 L50 95 L10 75 V25 Z" fill="none" />
+      <path id="b-left" class="b-plane" d="M32 24 V80"/>
+      <path id="b-right" class="b-plane" d="M32 24 H55 C70 24 70 48 55 48 H32 M32 48 H60 C75 48 75 80 60 80 H32"/>
+      <circle id="b-seam" cx="32" cy="48" r="4"/>
+    </g>
+    
+    <!-- Text part -->
+    <text x="100" y="58" class="wordmark-elite">BRILLSIGN</text>
+  </g>
+</svg>

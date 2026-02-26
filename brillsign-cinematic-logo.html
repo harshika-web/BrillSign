@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrillSign — Cinematic Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Dancing+Script:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #030c18;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Varela Round', sans-serif
+        }
+
+        #stage {
+            position: relative;
+            width: min(900px, 100vw);
+            height: min(520px, 100vh);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden
+        }
+
+        /* ─── Background Grid ─── */
+        #grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(0, 210, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 210, 255, .04) 1px, transparent 1px);
+            background-size: 44px 44px;
+            opacity: 0;
+            animation: gridFade 4.5s ease .1s forwards;
+        }
+
+        @keyframes gridFade {
+            0% {
+                opacity: 0
+            }
+
+            15% {
+                opacity: 1
+            }
+
+            65% {
+                opacity: .5
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        /* Central ambient glow (appears with logo) */
+        #bgGlow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 520px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(26, 115, 232, .18) 0%, transparent 70%);
+            opacity: 0;
+            animation: fadeIn 1.2s ease 4.4s forwards;
+        }
+
+        /* ─── Canvas ─── */
+        #canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        /* ─── Drawing SVG ─── */
+        #drawSVG {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: visible
+        }
+
+        /* Document body path */
+        #docBody {
+            fill: rgba(0, 210, 255, .03);
+            stroke: #00d2ff;
+            stroke-width: 1.6;
+            stroke-dasharray: 1020;
+            stroke-dashoffset: 1020;
+            filter: drop-shadow(0 0 6px rgba(0, 210, 255, .7));
+            animation: drawPath 1.4s cubic-bezier(.4, 0, .2, 1) .9s forwards;
+        }
+
+        #docFold {
+            fill: rgba(0, 210, 255, .06);
+            stroke: #00d2ff;
+            stroke-width: 1.6;
+            stroke-dasharray: 65;
+            stroke-dashoffset: 65;
+            filter: drop-shadow(0 0 5px rgba(0, 210, 255, .7));
+            animation: drawPath .4s ease 1.9s forwards;
+        }
+
+        .dtl {
+            stroke: rgba(0, 210, 255, .32);
+            stroke-width: 1.3;
+            stroke-linecap: round;
+            fill: none
+        }
+
+        .dtl:nth-child(1) {
+            stroke-dasharray: 148;
+            stroke-dashoffset: 148;
+            animation: drawPath .45s ease 2.1s forwards
+        }
+
+        .dtl:nth-child(2) {
+            stroke-dasharray: 112;
+            stroke-dashoffset: 112;
+            animation: drawPath .4s ease 2.25s forwards
+        }
+
+        .dtl:nth-child(3) {
+            stroke-dasharray: 148;
+            stroke-dashoffset: 148;
+            animation: drawPath .4s ease 2.38s forwards
+        }
+
+        .dtl:nth-child(4) {
+            stroke-dasharray: 90;
+            stroke-dashoffset: 90;
+            animation: drawPath .35s ease 2.5s forwards
+        }
+
+        .dtl:nth-child(5) {
+            stroke-dasharray: 148;
+            stroke-dashoffset: 148;
+            animation: drawPath .4s ease 2.6s forwards
+        }
+
+        #sigPath {
+            fill: none;
+            stroke: #1A73E8;
+            stroke-width: 2.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 10px rgba(26, 115, 232, .9));
+            stroke-dasharray: 360;
+            stroke-dashoffset: 360;
+            animation: drawPath 1.1s cubic-bezier(.25, .46, .45, .94) 2.75s forwards;
+        }
+
+        #sigDot {
+            fill: #1A73E8;
+            filter: drop-shadow(0 0 7px rgba(26, 115, 232, .9));
+            opacity: 0;
+            animation: dotPop .4s cubic-bezier(.34, 1.56, .64, 1) 3.8s forwards
+        }
+
+        /* Verification tick (appears after signature) */
+        #verifyBadge {
+            opacity: 0;
+            animation: badgeIn .5s cubic-bezier(.34, 1.56, .64, 1) 3.6s forwards
+        }
+
+        @keyframes badgeIn {
+            from {
+                opacity: 0;
+                transform: scale(0) translateY(6px)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0)
+            }
+        }
+
+        /* Doc group dissolves */
+        #docGroup {
+            animation: groupOut .8s ease 4.0s forwards
+        }
+
+        @keyframes groupOut {
+            to {
+                opacity: 0;
+                filter: blur(5px) brightness(2)
+            }
+        }
+
+        @keyframes drawPath {
+            to {
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes dotPop {
+            0% {
+                opacity: 0;
+                r: 0
+            }
+
+            60% {
+                opacity: 1;
+                r: 5
+            }
+
+            100% {
+                opacity: 1;
+                r: 3.5
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1
+            }
+        }
+
+        /* ─── Final Logo ─── */
+        #logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0;
+            animation: logoIn .4s ease 4.3s forwards;
+        }
+
+        @keyframes logoIn {
+            to {
+                opacity: 1
+            }
+        }
+
+        #logoIcon {
+            width: 70px;
+            height: auto;
+            overflow: visible
+        }
+
+        /* SVG logo part animations — need transform-box for correct origin */
+        .ic-circle {
+            transform-box: fill-box;
+            transform-origin: 50% 50%;
+            transform: scale(0);
+            opacity: 0;
+            animation: icPop .55s cubic-bezier(.34, 1.56, .64, 1) 4.4s forwards
+        }
+
+        .ic-overlap {
+            transform-box: fill-box;
+            opacity: 0;
+            animation: icFade .3s ease 4.65s forwards
+        }
+
+        .ic-red {
+            transform-box: fill-box;
+            transform-origin: 0% 50%;
+            transform: scaleX(0);
+            opacity: 0;
+            animation: icSwipe .55s cubic-bezier(.34, 1.56, .64, 1) 4.52s forwards
+        }
+
+        .ic-stem {
+            transform-box: fill-box;
+            transform-origin: 50% 0%;
+            transform: scaleY(0);
+            opacity: 0;
+            animation: icDrop .5s cubic-bezier(.34, 1.56, .64, 1) 4.3s forwards
+        }
+
+        @keyframes icPop {
+            to {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes icFade {
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes icSwipe {
+            to {
+                transform: scaleX(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes icDrop {
+            to {
+                transform: scaleY(1);
+                opacity: 1
+            }
+        }
+
+        #wordmark {
+            font-family: 'Varela Round', sans-serif;
+            font-size: 54px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            color: #fff;
+            opacity: 0;
+            transform: translateX(-14px);
+            animation: wordIn .7s cubic-bezier(.22, 1, .36, 1) 4.75s forwards;
+            text-shadow: 0 2px 40px rgba(26, 115, 232, .3);
+        }
+
+        @keyframes wordIn {
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        /* Tagline */
+        #tagline {
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10.5px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .28);
+            white-space: nowrap;
+            opacity: 0;
+            animation: fadeIn 1.2s ease 5.4s forwards;
+        }
+
+        /* Replay */
+        #replay {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 9px 22px;
+            background: rgba(26, 115, 232, .12);
+            border: 1px solid rgba(26, 115, 232, .3);
+            color: #4da6ff;
+            border-radius: 30px;
+            font-family: 'Varela Round', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            opacity: 0;
+            transition: background .25s;
+            animation: fadeIn .5s ease 6.2s forwards;
+        }
+
+        #replay:hover {
+            background: rgba(26, 115, 232, .28)
+        }
+    </style>
+</head>
+
+<body>
+    <div id="stage">
+        <div id="grid"></div>
+        <div id="bgGlow"></div>
+        <canvas id="canvas"></canvas>
+
+        <!-- Document drawing overlay -->
+        <svg id="drawSVG" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="fDoc">
+                    <feGaussianBlur stdDeviation="3.5" result="b" />
+                    <feMerge>
+                        <feMergeNode in="b" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+                <filter id="fSig">
+                    <feGaussianBlur stdDeviation="4.5" result="b" />
+                    <feMerge>
+                        <feMergeNode in="b" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+                <filter id="fBadge">
+                    <feGaussianBlur stdDeviation="2" result="b" />
+                    <feMerge>
+                        <feMergeNode in="b" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+                <!-- Clip-path for BrillSign signature reveal -->
+                <clipPath id="sigClip">
+                    <rect id="sigRect" x="350" y="305" width="0" height="70" />
+                </clipPath>
+            </defs>
+
+            <g id="docGroup">
+                <!-- Document body -->
+                <path id="docBody" d="M340 90 H525 V95 L550 120 V420 H340 Z" filter="url(#fDoc)" />
+                <!-- Corner fold -->
+                <polyline id="docFold" points="525,90 525,120 550,120" fill="none" stroke="#00d2ff" stroke-width="1.6"
+                    filter="url(#fDoc)" />
+
+                <!-- Text lines -->
+                <g filter="url(#fDoc)">
+                    <line class="dtl" x1="362" y1="158" x2="510" y2="158" />
+                    <line class="dtl" x1="362" y1="182" x2="474" y2="182" />
+                    <line class="dtl" x1="362" y1="206" x2="510" y2="206" />
+                    <line class="dtl" x1="362" y1="230" x2="440" y2="230" />
+                    <line class="dtl" x1="362" y1="254" x2="510" y2="254" />
+                </g>
+
+                <!-- BrillSign signature — real text in Dancing Script, revealed by clip-path -->
+                <text id="sigText" font-family="'Dancing Script', cursive" font-size="44" font-weight="700"
+                    fill="#1A73E8" x="358" y="357" clip-path="url(#sigClip)" filter="url(#fSig)">BrillSign</text>
+                <circle id="sigDot" cx="516" cy="353" r="0" filter="url(#fSig)" />
+
+                <!-- Verification badge -->
+                <g id="verifyBadge" transform="translate(508,298)" filter="url(#fBadge)">
+                    <circle cx="0" cy="0" r="18" fill="rgba(26,115,232,.15)" stroke="#1A73E8" stroke-width="1.5" />
+                    <path d="M-8 0 L-2 7 L9 -6" fill="none" stroke="#4da6ff" stroke-width="2.2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </g>
+            </g>
+        </svg>
+
+        <!-- Final BrillSign Logo -->
+        <div id="logo">
+            <svg id="logoIcon" viewBox="0 0 60 100" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+                <defs>
+                    <radialGradient id="gBlue" cx="35%" cy="30%" r="65%">
+                        <stop offset="0%" stop-color="#4DA6FF" />
+                        <stop offset="100%" stop-color="#1A73E8" />
+                    </radialGradient>
+                    <radialGradient id="gRed" cx="30%" cy="30%" r="65%">
+                        <stop offset="0%" stop-color="#FF6B5B" />
+                        <stop offset="100%" stop-color="#EA4335" />
+                    </radialGradient>
+                    <filter id="fLogo">
+                        <feGaussianBlur stdDeviation="2.5" result="b" />
+                        <feMerge>
+                            <feMergeNode in="b" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <circle class="ic-circle" cx="30" cy="65" r="30" fill="url(#gBlue)" filter="url(#fLogo)" />
+                <path class="ic-overlap" d="M5 35 H30 C42 35 48 40 48 50 C48 60 42 65 30 65 H5 V35Z" fill="#1557B0" />
+                <path class="ic-red" d="M5 8 H30 C55 8 55 52 30 52 H5 V8Z" fill="url(#gRed)" opacity=".93"
+                    filter="url(#fLogo)" />
+                <rect class="ic-stem" x="0" y="8" width="5" height="84" rx="2.5" fill="#FBBC05" filter="url(#fLogo)" />
+            </svg>
+            <div id="wordmark">BrillSign</div>
+        </div>
+
+        <div id="tagline">Secure &nbsp;·&nbsp; Encrypted &nbsp;·&nbsp; Verifiable</div>
+    </div>
+    <button id="replay" onclick="location.reload()">↺ Replay</button>
+
+    <script>
+        // ── Canvas setup ──
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const stage = document.getElementById('stage');
+
+        canvas.width = stage.offsetWidth;
+        canvas.height = stage.offsetHeight;
+        const W = canvas.width, H = canvas.height;
+        const CX = W / 2, CY = H / 2;
+        const t0 = performance.now();
+
+        // ── Particle class ──
+        class Dot {
+            constructor() { this.spawn() }
+            spawn() {
+                this.x = Math.random() * W;
+                this.y = Math.random() * H;
+                this.vx = (Math.random() - .5) * .45;
+                this.vy = (Math.random() - .5) * .45;
+                this.r = .5 + Math.random() * 1.1;
+                this.base = .1 + Math.random() * .38;
+                this.a = 0;
+                this.age = 0;
+                this.life = 160 + Math.random() * 220;
+                this.hue = 195 + Math.random() * 30;
+            }
+            tick(t, phase) {
+                this.age++;
+                if (phase === 'converge') {
+                    const dx = CX - this.x, dy = CY - this.y, d = Math.hypot(dx, dy) || 1;
+                    const f = Math.min(.7, (t - 3.5) * .22);
+                    this.vx += (dx / d) * f * .065; this.vy += (dy / d) * f * .065;
+                    this.vx *= .92; this.vy *= .92;
+                }
+                if (phase === 'done') { this.a = Math.max(0, this.a - .009); }
+                else {
+                    const p = this.age / this.life;
+                    this.a = p < .12 ? p / .12 * this.base : p > .85 ? (1 - p) / .15 * this.base : this.base;
+                }
+                this.x += this.vx; this.y += this.vy;
+                if (this.age > this.life && phase !== 'done') this.spawn();
+            }
+            draw() {
+                if (this.a <= 0) return;
+                ctx.save();
+                ctx.shadowBlur = 8; ctx.shadowColor = `hsla(${this.hue},90%,65%,${this.a})`;
+                ctx.fillStyle = `hsla(${this.hue},90%,68%,${this.a})`;
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // ── Data-stream lines ──
+        class Stream {
+            constructor(delay) {
+                this.delay = delay; this.active = false; this.a = 0;
+                this._init();
+                setTimeout(() => this.active = true, delay);
+            }
+            _init() {
+                this.x = -120; this.y = 20 + Math.random() * (H - 40);
+                this.len = 55 + Math.random() * 110;
+                this.spd = .6 + Math.random() * .9;
+                this.target = .18 + Math.random() * .22;
+                this.col = Math.random() < .65 ? '0,210,255' : '26,115,232';
+            }
+            tick(phase) {
+                if (!this.active) return;
+                this.x += this.spd;
+                if (phase === 'converge' || phase === 'done') this.a = Math.max(0, this.a - .018);
+                else this.a = Math.min(this.target, this.a + .028);
+                if (this.x > W + 160 && phase !== 'done') this._init();
+            }
+            draw() {
+                if (!this.active || this.a <= 0) return;
+                const g = ctx.createLinearGradient(this.x - this.len, this.y, this.x, this.y);
+                g.addColorStop(0, `rgba(${this.col},0)`);
+                g.addColorStop(.45, `rgba(${this.col},${this.a})`);
+                g.addColorStop(1, `rgba(${this.col},0)`);
+                ctx.save();
+                ctx.strokeStyle = g; ctx.lineWidth = 1;
+                ctx.shadowBlur = 5; ctx.shadowColor = `rgba(${this.col},.6)`;
+                ctx.beginPath(); ctx.moveTo(this.x - this.len, this.y); ctx.lineTo(this.x, this.y); ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // ── Connections ──
+        function drawLinks(dots, maxD = 85) {
+            for (let i = 0; i < dots.length - 1; i++) {
+                for (let j = i + 1; j < dots.length; j++) {
+                    const dx = dots[i].x - dots[j].x, dy = dots[i].y - dots[j].y;
+                    const d = Math.hypot(dx, dy);
+                    if (d < maxD) {
+                        const a = (1 - d / maxD) * .065;
+                        ctx.save();
+                        ctx.strokeStyle = `rgba(0,180,255,${a})`; ctx.lineWidth = .5;
+                        ctx.beginPath(); ctx.moveTo(dots[i].x, dots[i].y); ctx.lineTo(dots[j].x, dots[j].y); ctx.stroke();
+                        ctx.restore();
+                    }
+                }
+            }
+        }
+
+        // ── Init ──
+        const dots = Array.from({ length: 68 }, () => { const d = new Dot(); d.age = Math.floor(Math.random() * 80); return d; });
+        const sample = dots.filter((_, i) => i % 2 === 0); // subset for connections
+        const streams = [0, 350, 700, 1050, 150, 500, 850, 1200, 250, 600, 950, 100].map(d => new Stream(d));
+
+        // ── Render loop ──
+        function render() {
+            const t = (performance.now() - t0) / 1000;
+            const phase = t < 3.5 ? 'drift' : t < 5.2 ? 'converge' : 'done';
+            ctx.clearRect(0, 0, W, H);
+            if (phase !== 'done') streams.forEach(s => { s.tick(phase); s.draw() });
+            drawLinks(sample, 90);
+            dots.forEach(d => { d.tick(t, phase); d.draw() });
+            requestAnimationFrame(render);
+        }
+        render();
+
+        // ── Animate document outline draw ──
+        window.addEventListener('load', () => {
+            const docEl = document.getElementById('docBody');
+            if (docEl && docEl.getTotalLength) {
+                const len = Math.ceil(docEl.getTotalLength());
+                docEl.style.strokeDasharray = len;
+                docEl.style.strokeDashoffset = len;
+                void docEl.getBoundingClientRect();
+                docEl.style.animation = 'drawPath 1.4s cubic-bezier(.4, 0, .2, 1) .9s forwards';
+            }
+            // ── Animate BrillSign signature reveal via clip-path ──
+            setTimeout(() => {
+                const rect = document.getElementById('sigRect');
+                if (!rect) return;
+                const TARGET = 165, DUR = 1150, t0sig = performance.now();
+                (function drawSig() {
+                    const t = Math.min(1, (performance.now() - t0sig) / DUR);
+                    const ease = 1 - Math.pow(1 - t, 3); // cubic ease-out
+                    rect.setAttribute('width', ease * TARGET);
+                    if (t < 1) requestAnimationFrame(drawSig);
+                })();
+            }, 2750);
+        });
+    </script>
+</body>
+
+</html>

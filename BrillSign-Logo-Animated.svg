@@ -1,0 +1,120 @@
+<svg width="260" height="60" viewBox="0 0 260 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* ===== INTRO ANIMATIONS ===== */
+
+      /* Yellow stem: slides down from top */
+      #bs-stem {
+        transform-origin: 50% 0%;
+        animation: stemDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+      }
+      @keyframes stemDrop {
+        from { transform: scaleY(0); opacity: 0; }
+        to   { transform: scaleY(1); opacity: 1; }
+      }
+
+      /* Blue circle: pops in from center */
+      #bs-circle {
+        transform-origin: 17px 39px;
+        animation: circlePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both;
+      }
+      @keyframes circlePop {
+        from { transform: scale(0); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+      }
+
+      /* Overlap area: fades in after blue */
+      #bs-overlap {
+        animation: fadeIn 0.3s ease 0.45s both;
+      }
+
+      /* Red top loop: sweeps in from left */
+      #bs-red {
+        transform-origin: 0% 50%;
+        animation: redSwipe 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both;
+      }
+      @keyframes redSwipe {
+        from { transform: scaleX(0); opacity: 0; }
+        to   { transform: scaleX(1); opacity: 1; }
+      }
+
+      /* Text: slides in from left + fades */
+      #bs-text {
+        animation: textSlide 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+      }
+      @keyframes textSlide {
+        from { transform: translateX(-12px); opacity: 0; }
+        to   { transform: translateX(0);     opacity: 1; }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      /* ===== CONTINUOUS ANIMATIONS ===== */
+
+      /* Gentle floating bob on the icon */
+      #bs-icon-group {
+        animation: iconFloat 4s ease-in-out 1.2s infinite;
+      }
+      @keyframes iconFloat {
+        0%, 100% { transform: translateY(0px);   }
+        50%       { transform: translateY(-2px);  }
+      }
+
+      /* Subtle shimmer on yellow stem */
+      #bs-stem {
+        animation: stemDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both,
+                   stemGlow 3s ease-in-out 1.5s infinite;
+      }
+      @keyframes stemGlow {
+        0%, 100% { filter: drop-shadow(0 0 0px #FBBC05); }
+        50%       { filter: drop-shadow(0 0 3px #FBBC05aa); }
+      }
+    </style>
+
+    <!-- Radial highlight for blue circle -->
+    <radialGradient id="blueGrad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#4DA6FF"/>
+      <stop offset="100%" stop-color="#1A73E8"/>
+    </radialGradient>
+    <!-- Radial highlight for red shape -->
+    <radialGradient id="redGrad" cx="30%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FF6B5B"/>
+      <stop offset="100%" stop-color="#EA4335"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ====== ICON ====== -->
+  <!-- Scaled to fit 60px height: original viewBox was ~100px tall, scale ≈ 0.52 -->
+  <g id="bs-icon-group" transform="translate(4, 2) scale(0.56)">
+
+    <!-- Blue Circle (Bottom Loop) -->
+    <circle id="bs-circle" cx="30" cy="65" r="30" fill="url(#blueGrad)"/>
+
+    <!-- Overlap Area -->
+    <path id="bs-overlap"
+      d="M5 35 H30 C42 35 48 40 48 50 C48 60 42 65 30 65 H5 V35Z"
+      fill="#1557B0"/>
+
+    <!-- Red Shape (Top Loop) -->
+    <path id="bs-red"
+      d="M5 8 H30 C55 8 55 52 30 52 H5 V8Z"
+      fill="url(#redGrad)" opacity="0.93"/>
+
+    <!-- Yellow Bar (Left Stem) -->
+    <rect id="bs-stem"
+      x="0" y="8" width="5" height="84" rx="2.5"
+      fill="#FBBC05"/>
+  </g>
+
+  <!-- ====== WORDMARK ====== -->
+  <text id="bs-text"
+    x="56" y="42"
+    font-family="'Varela Round', 'Quicksand', 'Inter', sans-serif"
+    font-size="34"
+    font-weight="700"
+    fill="#003755"
+    letter-spacing="-1">BrillSign</text>
+</svg>

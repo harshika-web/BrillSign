@@ -8,8 +8,97 @@
 const navbarHTML = `
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-text">BrillSign</span>
+            <a href="index.html" class="nav-logo elite-dark-box" aria-label="BrillSign Home" id="navLogo">
+                <svg class="nav-logo-svg" width="260" height="48" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <filter id="navSigF"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    <filter id="navHexGlow"><feGaussianBlur stdDeviation="1" result="b"/><feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    <filter id="navStampGlow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    <clipPath id="navSigClip"><rect id="navSigRect" x="20" y="70" width="0" height="40"/></clipPath>
+                    <style>
+                      @keyframes bsDraw { to { stroke-dashoffset: 0; } }
+                      @keyframes bsFade { to { opacity: 1; } }
+                      @keyframes bsOut  { to { opacity: 0; filter: blur(4px); } }
+                       @keyframes bsWord { to { opacity: 1; transform: translateY(0); } }
+                       @keyframes bsStamp { 
+                         0% { opacity: 0; transform: scale(3); }
+                         70% { opacity: 1; transform: scale(0.9); }
+                         100% { opacity: 1; transform: scale(1); }
+                       }
+                      
+                       #navDocGroup { animation: bsOut 0.5s ease 2.8s forwards; }
+                       #navFinalLogo { opacity: 0; animation: bsFade 0.5s ease 3.3s forwards; }
+                       
+                       .nav-stamp {
+                         opacity: 0;
+                         transform-origin: center;
+                         animation: bsStamp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.2s forwards;
+                         filter: url(#navStampGlow);
+                       }
+                      
+                      .nav-doc-line { stroke: #00d2ff; stroke-width: 1.5; fill: rgba(0,210,255,0.02); opacity:0; }
+                      .nav-dtl { stroke: rgba(0,180,255,0.3); stroke-width: 1.2; fill:none; stroke-dasharray: 100; stroke-dashoffset: 100; }
+                      
+                      #navSigText {
+                        font-family: 'Dancing Script', cursive; font-size: 28px; font-weight: 700;
+                        fill: #4da6ff; filter: url(#navSigF);
+                      }
+                      
+                      /* Final Logo Parts */
+                      #navHex { 
+                        stroke: rgba(0, 210, 255, 0.6); 
+                        fill: rgba(26, 115, 232, 0.05); 
+                         stroke-width: 1.5;
+                         filter: url(#navHexGlow);
+                         stroke-dasharray: 400; 
+                         stroke-dashoffset: 400; 
+                         animation: bsDraw 1.2s ease 2.8s forwards; 
+                       }
+                       .nav-b-plane { fill: none; stroke: currentColor; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 200; stroke-dashoffset: 200; }
+                       #navBLeft { stroke: #ffffff; animation: bsDraw 0.6s ease 3.2s forwards; }
+                       #navBRight { stroke: #1A73E8; animation: bsDraw 0.6s ease 3.4s forwards; }
+                       #navBSeam { fill: #4DA6FF; opacity: 0; animation: bsFade 0.4s ease 3.8s forwards; }
+                      .nav-wordmark {
+                         font-family: 'Rajdhani', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 5px;
+                         fill: #ffffff; opacity: 0; transform: translateY(8px);
+                         animation: bsWord 0.6s ease 3.8s forwards;
+                       }
+                       .nav-tagline {
+                         font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.5px;
+                         fill: #00d2ff; opacity: 0;
+                         animation: bsFade 0.6s ease 4.2s forwards;
+                         text-transform: uppercase;
+                       }
+                    </style>
+                  </defs>
+
+                  <!-- Phase 1: Mini Document -->
+                  <g id="navDocGroup" transform="translate(100, 7) scale(0.4)">
+                    <path id="navDocPath" class="nav-doc-line" d="M10 5 H180 V15 L200 35 V120 H10 Z" />
+                    <line class="nav-dtl" x1="30" y1="50" x2="160" y2="50" style="animation: bsDraw 0.4s ease 0.8s forwards" />
+                    <line class="nav-dtl" x1="30" y1="70" x2="140" y2="70" style="animation: bsDraw 0.4s ease 1.0s forwards" />
+                    <line class="nav-dtl" x1="30" y1="90" x2="160" y2="90" style="animation: bsDraw 0.4s ease 1.2s forwards" />
+                    <text id="navSigText" x="25" y="100" clip-path="url(#navSigClip)">BrillSign</text>
+                     <g transform="translate(145, 85)">
+                        <g class="nav-stamp">
+                           <circle r="12" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="2" />
+                           <path d="M-5 0 L-1 4 L5 -6" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        </g>
+                     </g>
+                  </g>
+
+                  <!-- Phase 2: Resolve to Logo -->
+                  <g id="navFinalLogo" transform="translate(10, 6.6)">
+                    <g transform="scale(0.52)">
+                      <path id="navHex" d="M50 5 L90 25 V75 L50 95 L10 75 V25 Z" />
+                      <path id="navBLeft" class="nav-b-plane" d="M32 24 V80" />
+                      <path id="navBRight" class="nav-b-plane" d="M32 24 H55 C70 24 70 48 55 48 H32 M32 48 H60 C75 48 75 80 60 80 H32" />
+                      <circle id="navBSeam" cx="32" cy="48" r="4" />
+                    </g>
+                    <text x="75" y="31" class="nav-wordmark">BRILLSIGN</text>
+                    <text x="75" y="45" class="nav-tagline">The Standard in Digital Trust</text>
+                  </g>
+                </svg>
             </a>
             <ul class="nav-links">
                 <li class="nav-item-with-dropdown">
@@ -28,12 +117,33 @@ const navbarHTML = `
                         </div>
                     </div>
                 </li>
-                <li><a href="index.html#solutions"><span data-i18n="nav_solutions">Solutions</span> <i
-                            class="fas fa-chevron-down nav-arrow"></i></a></li>
-                <li><a href="index.html#apis"><span data-i18n="nav_apis">APIs & Integrations</span> <i
-                            class="fas fa-chevron-down nav-arrow"></i></a></li>
-                <li><a href="index.html#resources"><span data-i18n="nav_resources">Resources</span> <i
-                            class="fas fa-chevron-down nav-arrow"></i></a></li>
+                <li class="nav-item-with-dropdown">
+                    <a href="index.html#solutions"><span data-i18n="nav_solutions">Solutions</span> <i
+                            class="fas fa-chevron-down nav-arrow"></i></a>
+                    <div class="solutions-dropdown">
+                        <div class="solutions-dropdown-content" id="solutionsDropdownContent">
+                            <!-- Solutions will be inserted here -->
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item-with-dropdown">
+                    <a href="index.html#apis"><span data-i18n="nav_apis">APIs & Integrations</span> <i
+                            class="fas fa-chevron-down nav-arrow"></i></a>
+                    <div class="api-dropdown">
+                        <div class="api-dropdown-content" id="apiDropdownContent">
+                            <!-- API content will be inserted here -->
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item-with-dropdown">
+                    <a href="index.html#resources"><span data-i18n="nav_resources">Resources</span> <i
+                            class="fas fa-chevron-down nav-arrow"></i></a>
+                    <div class="resources-dropdown">
+                        <div class="resources-dropdown-content" id="resourcesDropdownContent">
+                            <!-- Resources content will be inserted here -->
+                        </div>
+                    </div>
+                </li>
             </ul>
             <div class="nav-btns">
                 <button class="theme-btn" id="theme-toggle">
@@ -159,6 +269,360 @@ const featuresDropdownHTML = `
         →</a>
 `;
 
+// Solutions Dropdown Content
+const solutionsDropdownHTML = `
+    <div class="solutions-col">
+        <h4>By Role</h4>
+        <ul class="solutions-list">
+            <li>
+                <a href="legal-teams.html">
+                    <i class="fas fa-balance-scale"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Legal Teams</div>
+                        <div class="solutions-desc">Seamless contract management</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="compliance.html">
+                    <i class="fas fa-shield-halved"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Compliance</div>
+                        <div class="solutions-desc">Meet global standards</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-microchip"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Enterprise IT</div>
+                        <div class="solutions-desc">Secure infra integration</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Finance & Procurement</div>
+                        <div class="solutions-desc">Accelerated vendor cycles</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-users"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">HR & Operations</div>
+                        <div class="solutions-desc">Effortless employee onboarding</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-rocket"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Founders / SMBs</div>
+                        <div class="solutions-desc">Start fast, stay compliant</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="solutions-col">
+        <h4>By Industry</h4>
+        <ul class="solutions-list">
+            <li><a href="#">
+                <i class="fas fa-landmark"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Banking & Finance</div>
+                    <div class="solutions-desc">Secure wealth management</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-heartbeat"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Healthcare</div>
+                    <div class="solutions-desc">HIPAA-compliant document flow</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-building-columns"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Government</div>
+                    <div class="solutions-desc">Reg-tech for public sector</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-building"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Real Estate</div>
+                    <div class="solutions-desc">Accelerated closing cycles</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-laptop-code"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Technology</div>
+                    <div class="solutions-desc">API-first signing infra</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-handshake"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Consulting</div>
+                    <div class="solutions-desc">Trusted advisory agreements</div>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="solutions-col">
+        <h4>Use Case / Workflow</h4>
+        <ul class="solutions-list">
+            <li><a href="#">
+                <i class="fas fa-signature"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Contract Signing</div>
+                    <div class="solutions-desc">Legally binding B2B deals</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-file-contract"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Vendor Agreements</div>
+                    <div class="solutions-desc">Streamlined supply chain</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-check-double"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Audit & Compliance</div>
+                    <div class="solutions-desc">Tamper-proof record keeping</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-earth-americas"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Global Agreements</div>
+                    <div class="solutions-desc">Cross-border legal validity</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-file-circle-check"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Document Verification</div>
+                    <div class="solutions-desc">Independent proof of origin</div>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-history"></i>
+                <div class="solutions-text">
+                    <div class="solutions-title">Long-term Proof</div>
+                    <div class="solutions-desc">Decade-scale digital validity</div>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="solutions-col highlight-card-col">
+        <div class="solutions-highlight-card">
+            <div class="card-image">
+                <img src="solutions-dashboard-preview.png" alt="Enterprise Solutions Dashboard Preview">
+            </div>
+            <div class="card-content">
+                <div class="solutions-title">Encrypted eSign for Enterprises</div>
+                <div class="solutions-desc">Learn how top organizations eliminate platform dependency and secure their document lifecycle.</div>
+                <a href="index.html#waitlist" class="solutions-cta">See Enterprise Solution →</a>
+            </div>
+        </div>
+    </div>
+    <div class="solutions-footer">
+        <a href="index.html#solutions" class="footer-cta" style="padding: 12px 28px !important; color: #ffffff !important;">Explore All Solutions &rarr;</a>
+        <a href="index.html#demo" class="footer-cta secondary" style="padding: 12px 28px !important;">Book Demo &rarr;</a>
+    </div>
+`;
+
+// API & Integrations Dropdown Content
+const apiDropdownHTML = `
+    <div class="dev-highlight-strip" style="grid-column: 1 / -1;">
+        <div class="dev-highlight-message">
+            <i class="fas fa-bolt"></i>
+            <span>Build secure signing workflows in minutes</span>
+        </div>
+    </div>
+    <div class="solutions-col">
+        <h4>Build with BrillSign</h4>
+        <ul class="solutions-list">
+            <li>
+                <a href="#">
+                    <i class="fas fa-code"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">REST API</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-bell"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Webhooks</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-box-archive"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">SDKs</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-key"></i>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Authentication</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <a href="#" class="solutions-cta" style="margin-top: 20px;">View Docs →</a>
+    </div>
+    <div class="solutions-col">
+        <h4>Works With Your Stack</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <ul class="solutions-list">
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg" alt="Salesforce">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Salesforce</div>
+                    </div>
+                </a></li>
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Google</div>
+                    </div>
+                </a></li>
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" alt="Microsoft">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Microsoft</div>
+                    </div>
+                </a></li>
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/dropbox/dropbox-icon.svg" alt="Dropbox">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Dropbox</div>
+                    </div>
+                </a></li>
+            </ul>
+            <ul class="solutions-list">
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">AWS</div>
+                    </div>
+                </a></li>
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/sap/sap-icon.svg" alt="SAP">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">SAP</div>
+                    </div>
+                </a></li>
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg" alt="Oracle">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">Oracle</div>
+                    </div>
+                </a></li>
+                <li><a href="#">
+                    <div class="integration-icon-container">
+                        <img src="https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg" alt="HubSpot">
+                    </div>
+                    <div class="solutions-text">
+                        <div class="solutions-title">HubSpot</div>
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+        <a href="#" class="solutions-cta" style="margin-top: 20px;">View All →</a>
+    </div>
+`;
+
+// Resources Dropdown Content
+const resourcesDropdownHTML = `
+    <div class="solutions-col">
+        <h4>Learn</h4>
+        <ul class="solutions-list compact">
+            <li><a href="#"><i class="fas fa-book"></i> Docs</a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i> Tutorials</a></li>
+            <li><a href="#"><i class="fas fa-code"></i> API Guides</a></li>
+        </ul>
+    </div>
+    <div class="solutions-col">
+        <h4>Trust & Compliance</h4>
+        <ul class="solutions-list compact">
+            <li><a href="#"><i class="fas fa-user-shield"></i> Security Overview</a></li>
+            <li><a href="#"><i class="fas fa-certificate"></i> Certifications</a></li>
+            <li><a href="#"><i class="fas fa-gavel"></i> Legal Validity</a></li>
+        </ul>
+    </div>
+    <div class="solutions-col">
+        <h4>Insights</h4>
+        <ul class="solutions-list compact">
+            <li><a href="#"><i class="fas fa-rss"></i> Blog</a></li>
+            <li><a href="#"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
+            <li><a href="#"><i class="fas fa-file-pdf"></i> Whitepapers</a></li>
+        </ul>
+    </div>
+    <div class="solutions-col">
+        <h4>Support</h4>
+        <ul class="solutions-list compact">
+            <li><a href="#"><i class="fas fa-life-ring"></i> Help Center</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+            <li><a href="#"><i class="fas fa-server"></i> System Status</a></li>
+        </ul>
+    </div>
+    <div class="solutions-col featured-col">
+        <h4>Featured</h4>
+        <div class="solutions-highlight-card">
+            <div class="card-image">
+                <img src="assets/featured_resource_guide.png" alt="Featured Guide">
+            </div>
+            <div class="card-content">
+                <div class="solutions-title">The Future of Digital Trust</div>
+                <div class="solutions-desc">Explore decentralized document security for the next decade.</div>
+                <a href="#" class="solutions-cta">Read More →</a>
+            </div>
+        </div>
+    </div>
+    <div class="resources-dropdown-footer">
+        <div class="res-footer-group">
+            <span class="res-cta-label">Looking for something specific?</span>
+            <a href="#" class="btn-text-link">Browse all documents & guides <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="footer-contact">
+            <i class="fas fa-headset"></i>
+            <span>Need help? <a href="#">Contact Support</a></span>
+        </div>
+    </div>
+`;
+
 // Footer HTML
 const footerHTML = `
     <footer class="footer">
@@ -250,13 +714,75 @@ const footerHTML = `
 function loadNavbar() {
     const navPlaceholder = document.getElementById('navbar-placeholder');
     if (navPlaceholder) {
-        navPlaceholder.outerHTML = navbarHTML;
+        navPlaceholder.innerHTML = navbarHTML; // Use innerHTML instead of outerHTML to keep the container or just replace content
 
         // Inject features dropdown content
         const featuresDropdownContent = document.getElementById('featuresDropdownContent');
         if (featuresDropdownContent) {
             featuresDropdownContent.innerHTML = featuresDropdownHTML;
         }
+
+        // Inject solutions dropdown content
+        const solutionsDropdownContent = document.getElementById('solutionsDropdownContent');
+        if (solutionsDropdownContent) {
+            solutionsDropdownContent.innerHTML = solutionsDropdownHTML;
+        }
+
+        // Inject API dropdown content
+        const apiDropdownContent = document.getElementById('apiDropdownContent');
+        if (apiDropdownContent) {
+            apiDropdownContent.innerHTML = apiDropdownHTML;
+        }
+
+        // Inject resources dropdown content
+        const resourcesDropdownContent = document.getElementById('resourcesDropdownContent');
+        if (resourcesDropdownContent) {
+            resourcesDropdownContent.innerHTML = resourcesDropdownHTML;
+        }
+
+        // Initialize animations after injection
+        initSharedBehavior();
+    }
+}
+
+// Function to inject fonts
+function injectFonts() {
+    if (!document.getElementById('brillsign-fonts')) {
+        const link = document.createElement('link');
+        link.id = 'brillsign-fonts';
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Dancing+Script:wght@700&display=swap';
+        document.head.appendChild(link);
+    }
+}
+
+// Initialize standard features and logo animations
+function initSharedBehavior() {
+    injectFonts();
+
+    // Dynamic Path Lengths for Navbar Logo Animation
+    const docPath = document.getElementById('navDocPath');
+    if (docPath && docPath.getTotalLength) {
+        const len = Math.ceil(docPath.getTotalLength());
+        docPath.style.strokeDasharray = len;
+        docPath.style.strokeDashoffset = len;
+        docPath.style.opacity = 1;
+        void docPath.getBoundingClientRect();
+        docPath.style.animation = 'bsDraw 0.8s ease 0.2s forwards';
+    }
+
+    // Mini Signature Reveal
+    const sigRect = document.getElementById('navSigRect');
+    if (sigRect) {
+        setTimeout(() => {
+            const DUR = 1000, TARGET = 175, start = performance.now();
+            function drawSig() {
+                const p = Math.min(1, (performance.now() - start) / DUR);
+                sigRect.setAttribute('width', (1 - Math.pow(1 - p, 3)) * TARGET);
+                if (p < 1) requestAnimationFrame(drawSig);
+            }
+            drawSig();
+        }, 1200);
     }
 }
 
@@ -264,7 +790,7 @@ function loadNavbar() {
 function loadFooter() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-        footerPlaceholder.outerHTML = footerHTML;
+        footerPlaceholder.innerHTML = footerHTML;
     }
 }
 
