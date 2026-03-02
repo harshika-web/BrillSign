@@ -214,114 +214,154 @@
                     </h2>
                 </div>
 
-                <div class="integrity-steps-container">
-                    <!-- Step Block 1: Upload -->
-                    <div class="integrity-step-block reveal">
-                        <div class="step-text-side">
-                            <div class="flow-step">
-                                <div class="step-node">
-                                    <span class="step-number">01</span>
-                                    <i class="fas fa-file-upload"></i>
-                                </div>
-                                <div class="step-content">
-                                    <h4 data-i18n="integrity_step_1_title">Document uploaded</h4>
-                                    <p class="step-desc">Your contract is securely uploaded and ready for cryptographic
-                                        locking.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-visual-side">
+                <!-- Tab Navigation (Pill Style) -->
+                <div class="lifecycle-pills integrity-pills">
+                    <button class="pill-btn active" onclick="switchTab(0)">
+                        <i class="fas fa-file-upload"></i> Upload
+                        <div class="pill-progress"></div>
+                    </button>
+                    <button class="pill-btn" onclick="switchTab(1)">
+                        <i class="fas fa-fingerprint"></i> Fingerprint
+                        <div class="pill-progress"></div>
+                    </button>
+                    <button class="pill-btn" onclick="switchTab(2)">
+                        <i class="fas fa-link"></i> Registration
+                        <div class="pill-progress"></div>
+                    </button>
+                    <button class="pill-btn" onclick="switchTab(3)">
+                        <i class="fas fa-search"></i> Verification
+                        <div class="pill-progress"></div>
+                    </button>
+                </div>
+
+                <!-- Success Story Cards (Overlapping Layout) -->
+                <div class="success-card-container">
+                    <!-- Tab 1: Upload -->
+                    <div class="success-card active" id="card-0">
+                        <div class="card-visual-layer">
                             <div class="video-window-frame">
-                                <div class="video-controls-fake">
-                                    <span></span><span></span><span></span>
-                                </div>
                                 <img src="Screenshot 2026-02-20 180211.png" alt="BrillSign Document Upload Dashboard"
                                     class="integrity-dashboard-img">
-                                <div class="video-overlay-glow"></div>
                             </div>
+                            <div class="card-metric-badge">
+                                <span class="badge-num">Step 1</span>
+                                <span class="badge-lbl">Secure Intake</span>
+                            </div>
+                        </div>
+                        <div class="card-content-layer">
+                            <div class="card-header-tag">Process: Initialization</div>
+                            <div class="card-quote-large">
+                                Your contract is securely uploaded and ready for cryptographic locking.
+                            </div>
+                            <p class="card-desc">Every byte is inventoried at intake. BrillSign prepares the document
+                                for its unique digital identity, ensuring the foundation of trust is established before
+                                the first signature.</p>
                         </div>
                     </div>
 
-                    <!-- Step Block 2: Fingerprint -->
-                    <div class="integrity-step-block reveal" style="transition-delay: 0.2s">
-                        <div class="step-text-side">
-                            <div class="flow-step">
-                                <div class="step-node pulsing">
-                                    <span class="step-number">02</span>
-                                    <i class="fas fa-fingerprint"></i>
-                                </div>
-                                <div class="step-content">
-                                    <h4 data-i18n="integrity_step_2_title">Cryptographic fingerprint created</h4>
-                                    <p class="step-desc">A unique digital fingerprint is generated, ensuring any future
-                                        changes are instantly caught.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-visual-side">
+                    <!-- Tab 2: Fingerprint -->
+                    <div class="success-card" id="card-1">
+                        <div class="card-visual-layer">
                             <div class="video-window-frame">
-                                <div class="video-controls-fake">
-                                    <span></span><span></span><span></span>
-                                </div>
                                 <img src="Screenshot 2026-02-20 181331.png" alt="Cryptographic Fingerprint Generation"
                                     class="integrity-dashboard-img">
-                                <div class="video-overlay-glow"></div>
                             </div>
+                            <div class="card-metric-badge pulsing-badge">
+                                <span class="badge-num">Step 2</span>
+                                <span class="badge-lbl">Hash DNA</span>
+                            </div>
+                        </div>
+                        <div class="card-content-layer">
+                            <div class="card-header-tag">Process: Fingerprinting</div>
+                            <div class="card-quote-large">
+                                A unique digital fingerprint is generated, catching any future changes.
+                            </div>
+                            <p class="card-desc">Using SHA-256 protocols, BrillSign creates a immutable "DNA" of your
+                                document. If even a single comma changes, the fingerprint breaks instantly.</p>
                         </div>
                     </div>
 
-                    <!-- Step Block 3: Proof Layer Registration -->
-                    <div class="integrity-step-block reveal" style="transition-delay: 0.4s">
-                        <div class="step-text-side">
-                            <div class="flow-step">
-                                <div class="step-node pulsing">
-                                    <span class="step-number">03</span>
-                                    <i class="fas fa-link"></i>
-                                </div>
-                                <div class="step-content">
-                                    <h4 data-i18n="integrity_step_3_title">Fingerprint registered to proof layer</h4>
-                                    <p class="step-desc">The digital fingerprint is anchored to the BrillSign network,
-                                        creating an unalterable proof of original state.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-visual-side">
+                    <!-- Tab 3: Registration -->
+                    <div class="success-card" id="card-2">
+                        <div class="card-visual-layer">
                             <div class="video-window-frame">
-                                <div class="video-controls-fake">
-                                    <span></span><span></span><span></span>
-                                </div>
                                 <img src="Screenshot 2026-02-20 183314.png" alt="Proof Layer Registration"
                                     class="integrity-dashboard-img">
-                                <div class="video-overlay-glow"></div>
                             </div>
+                            <div class="card-metric-badge">
+                                <span class="badge-num">Step 3</span>
+                                <span class="badge-lbl">Proof Anchored</span>
+                            </div>
+                        </div>
+                        <div class="card-content-layer">
+                            <div class="card-header-tag">Process: Registration</div>
+                            <div class="card-quote-large">
+                                The fingerprint is anchored to the proof layer, creating unalterable proof.
+                            </div>
+                            <p class="card-desc">We register the hash to the BrillSign network. This creates a
+                                public-access, private-content receipt that proves original state without ever storing
+                                your document online.</p>
                         </div>
                     </div>
 
-                    <!-- Step Block 4: Future Detection -->
-                    <div class="integrity-step-block reveal" style="transition-delay: 0.6s">
-                        <div class="step-text-side">
-                            <div class="flow-step">
-                                <div class="step-node">
-                                    <span class="step-number">04</span>
-                                    <i class="fas fa-search"></i>
-                                </div>
-                                <div class="step-content">
-                                    <h4 data-i18n="integrity_step_4_title">Future versions instantly detectable</h4>
-                                    <p class="step-desc">Any future attempts to modify the document are instantly
-                                        detected by comparing with the registered proof.</p>
-                                </div>
+                    <!-- Tab 4: Verification -->
+                    <div class="success-card" id="card-3">
+                        <div class="card-visual-layer">
+                            <div class="video-window-frame">
+                                <img src="image.png" alt="Future Changes Detection" class="integrity-dashboard-img">
+                            </div>
+                            <div class="card-metric-badge theme-red">
+                                <span class="badge-num">Step 4</span>
+                                <span class="badge-lbl">Audit Check</span>
                             </div>
                         </div>
-                        <div class="step-visual-side">
-                            <div class="video-window-frame">
-                                <div class="video-controls-fake">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <img src="image.png" alt="Future Changes Detection" class="integrity-dashboard-img">
-                                <div class="video-overlay-glow"></div>
+                        <div class="card-content-layer">
+                            <div class="card-header-tag">Process: Detection</div>
+                            <div class="card-quote-large">
+                                Any future attempts to modify the document are instantly detected.
                             </div>
+                            <p class="card-desc">When you check a document, we re-hash it and compare it to the
+                                registered proof. Red flags appear instantly if there's a mismatch, giving you 100%
+                                certainty.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Tab Switching Script -->
+                <script>
+                    let tabInterval;
+                    let currentTab = 0;
+                    const TAB_DURATION = 5000; // 5 seconds
+
+                    function switchTab(index) {
+                        currentTab = index;
+                        const buttons = document.querySelectorAll('.pill-btn');
+                        const cards = document.querySelectorAll('.success-card');
+
+                        buttons.forEach(btn => btn.classList.remove('active'));
+                        cards.forEach(card => card.classList.remove('active'));
+
+                        buttons[index].classList.add('active');
+                        cards[index].classList.add('active');
+
+                        // Reset and start progression
+                        startProgression();
+                    }
+
+                    function startProgression() {
+                        if (tabInterval) clearInterval(tabInterval);
+
+                        tabInterval = setInterval(() => {
+                            currentTab = (currentTab + 1) % 4;
+                            switchTab(currentTab);
+                        }, TAB_DURATION);
+                    }
+
+                    // Initialize the first progression
+                    document.addEventListener('DOMContentLoaded', () => {
+                        startProgression();
+                    });
+                </script>
             </div>
         </section>
 

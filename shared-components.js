@@ -302,7 +302,7 @@ const solutionsDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="finance-procurement.html">
                     <i class="fas fa-file-invoice-dollar"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Finance & Procurement</div>
@@ -311,16 +311,16 @@ const solutionsDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="hr-operations.html">
                     <i class="fas fa-users"></i>
                     <div class="solutions-text">
-                        <div class="solutions-title">HR & Operations</div>
+                        <div class="solutions-title">HR &amp; Operations</div>
                         <div class="solutions-desc">Effortless employee onboarding</div>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="founders-smbs.html">
                     <i class="fas fa-rocket"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Founders / SMBs</div>
