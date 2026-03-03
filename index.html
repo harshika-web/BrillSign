@@ -59,21 +59,31 @@
                 <div class="icon audit-trail" style="top: 25%; left: 8%;" data-icon-id="audit-trail">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Document with solid fill -->
-                            <path d="M20 14 H38 L46 22 V50 H20 V14 Z" fill="#00ADEF" opacity="0.1" />
-                            <path d="M20 14 H38 L46 22 V50 H20 V14 Z" stroke="#00ADEF" stroke-width="2.5" fill="none"
-                                fill="none" />
-
-                            <!-- Solid Chain elements -->
-                            <circle cx="28" cy="24" r="3" fill="#8E2DE2" />
-                            <circle cx="28" cy="32" r="3" fill="#8E2DE2" />
-                            <circle cx="28" cy="40" r="3" fill="#8E2DE2" />
-                            <rect x="27" y="24" width="2" height="16" fill="#8E2DE2" />
-
-                            <!-- Verified Badge -->
-                            <circle cx="46" cy="46" r="9" fill="#8E2DE2" />
-                            <path d="M42 46 L45 49 L50 43" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round" fill="none" />
+                            <defs>
+                                <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4444" />
+                                    <stop offset="100%" stop-color="#ff0000" />
+                                </linearGradient>
+                                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- Immutable Audit Trail: Gradient Depth -->
+                            <rect x="14" y="8" width="36" height="48" rx="4" fill="url(#blueGrad)"
+                                filter="url(#shadow)" />
+                            <path d="M20 18H44 M20 28H44 M20 38H32" stroke="white" stroke-width="2" stroke-opacity="0.3"
+                                stroke-linecap="round" />
+                            <!-- 3D Red Shield -->
+                            <path
+                                d="M34 38 C34 34 42 30 42 30 C42 30 50 34 50 38 V48 C50 54 42 58 42 58 C42 58 34 54 34 48 V38 Z"
+                                fill="url(#redGrad)" filter="url(#shadow)" />
+                            <circle cx="42" cy="44" r="5" fill="#ffff00" />
+                            <path d="M38 44 L41 47 L46 41" stroke="#0033aa" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
@@ -82,17 +92,40 @@
                 <div class="icon crypto-sig" style="top: 12%; right: 10%;" data-icon-id="crypto-sig">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Pen Nib -->
-                            <path d="M44 12 L52 20 L32 40 L28 42 L26 38 L44 12 Z" fill="#8E2DE2" />
-                            <path d="M28 42 L24 46" stroke="#8E2DE2" stroke-width="2.5" fill="none" />
-
-                            <!-- Solid Curve/Sig -->
-                            <path d="M14 50 C14 50 20 44 26 48 C32 52 36 44 42 46 C48 48 50 42 50 42" stroke="#00ADEF"
-                                stroke-width="4" stroke-linecap="round" fill="none" />
-
-                            <!-- Key symbol -->
-                            <circle cx="48" cy="26" r="4" fill="#00ADEF" />
-                            <rect x="46" y="30" width="4" height="6" fill="#00ADEF" />
+                            <defs>
+                                <linearGradient id="blueGrad_crypto_v8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <linearGradient id="redGrad_crypto_v8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4444" />
+                                    <stop offset="100%" stop-color="#ff0000" />
+                                </linearGradient>
+                                <filter id="shadow_crypto_v8" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- Cryptographic Signature: High-Fidelity Fingerprint (Iteration 8) -->
+                            <g filter="url(#shadow_crypto_v8)">
+                                <path d="M32 44 C32 40 36 38 32 34 C28 30 32 26 32 26" stroke="url(#blueGrad_crypto_v8)"
+                                    stroke-width="2.5" stroke-linecap="round" fill="none" />
+                                <path d="M26 48 C26 36 38 36 38 48" stroke="url(#blueGrad_crypto_v8)" stroke-width="2.5"
+                                    stroke-linecap="round" fill="none" />
+                                <path d="M22 52 C22 30 42 30 42 52" stroke="url(#blueGrad_crypto_v8)" stroke-width="2.5"
+                                    stroke-linecap="round" fill="none" />
+                                <path d="M18 56 C18 24 46 24 46 56" stroke="url(#blueGrad_crypto_v8)" stroke-width="2.5"
+                                    stroke-linecap="round" fill="none" />
+                                <path d="M14 60 C14 18 50 18 50 60" stroke="url(#blueGrad_crypto_v8)" stroke-width="2.5"
+                                    stroke-linecap="round" fill="none" />
+                            </g>
+                            <!-- Red ID Scan Bar -->
+                            <rect x="10" y="34" width="44" height="4" rx="2" fill="url(#redGrad_crypto_v8)"
+                                filter="url(#shadow_crypto_v8)" />
+                            <rect x="10" y="33" width="44" height="1" fill="#ffcccc" fill-opacity="0.4" />
+                            <!-- Gold Verification Badge -->
+                            <circle cx="52" cy="18" r="7" fill="#ffff00" filter="url(#shadow_crypto_v8)" />
+                            <path d="M49 18 L51 20 L55 16" stroke="#0033aa" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
@@ -101,20 +134,23 @@
                 <div class="icon verify-id" style="top: 70%; left: 10%;" data-icon-id="verify-id">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Fingerprint -->
-                            <path d="M32 50 V46" stroke="#00ADEF" stroke-width="4" stroke-linecap="round" />
-                            <path d="M32 40 V36" stroke="#00ADEF" stroke-width="4" stroke-linecap="round" />
-                            <path d="M24 38 C24 28 40 28 40 38" stroke="#8E2DE2" stroke-width="4" stroke-linecap="round"
-                                fill="none" />
-                            <path d="M20 34 C20 22 44 22 44 34" stroke="#8E2DE2" stroke-width="4" stroke-linecap="round"
-                                fill="none" />
-                            <path d="M16 30 C16 14 48 14 48 30" stroke="#00ADEF" stroke-width="4" stroke-linecap="round"
-                                fill="none" />
-
-                            <!-- Solid Verify Badge -->
-                            <circle cx="48" cy="46" r="9" fill="#8E2DE2" />
-                            <path d="M44 46 L47 49 L52 43" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round" fill="none" />
+                            <defs>
+                                <linearGradient id="blueGrad_id_v6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <filter id="shadow_id_v6" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- Verifiable Identity: Elite Security Bust -->
+                            <circle cx="32" cy="27" r="8" fill="url(#blueGrad_id_v6)" filter="url(#shadow_id_v6)" />
+                            <path d="M18 48 C18 38 46 38 46 48" fill="url(#blueGrad_id_v6)"
+                                filter="url(#shadow_id_v6)" />
+                            <circle cx="32" cy="32" r="22" stroke="#ff0000" stroke-width="3" stroke-dasharray="6 4"
+                                stroke-opacity="0.6" />
+                            <circle cx="50" cy="42" r="7" fill="#ffff00" filter="url(#shadow_id_v6)" />
+                            <path d="M47 42 L49 44 L53 40" stroke="#0033aa" stroke-width="2.5" stroke-linecap="round" />
                         </svg>
                     </div>
                 </div>
@@ -123,12 +159,22 @@
                 <div class="icon no-tracking" style="top: 75%; right: 12%;" data-icon-id="no-tracking">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Eye with Slash -->
-                            <path
-                                d="M16 32 C16 32 24 20 32 20 C40 20 48 32 48 32 C48 32 40 44 32 44 C24 44 16 32 16 32 Z"
-                                stroke="#8E2DE2" stroke-width="4" fill="#8E2DE2" opacity="0.1" />
-                            <circle cx="32" cy="32" r="6" fill="#8E2DE2" />
-                            <path d="M12 48 L52 16" stroke="#00ADEF" stroke-width="5" stroke-linecap="round" />
+                            <defs>
+                                <linearGradient id="blueGrad_track_v6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <filter id="shadow_track_v6" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- No Behavioral Tracking: Privacy Dome Deflecting Pulse -->
+                            <path d="M12 44 C12 24 52 24 52 44" fill="url(#blueGrad_track_v6)"
+                                filter="url(#shadow_track_v6)" />
+                            <path d="M10 20 L20 30 L30 20 L40 30" stroke="#ff0000" stroke-width="4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="32" cy="32" r="6" fill="#ffff00" filter="url(#shadow_track_v6)" />
+                            <circle cx="32" cy="32" r="14" stroke="#ffff00" stroke-width="1.5" stroke-opacity="0.8" />
                         </svg>
                     </div>
                 </div>
@@ -137,17 +183,25 @@
                 <div class="icon zero-monetization" style="top: 42%; left: 10%;" data-icon-id="zero-monetization">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Database stack -->
-                            <path
-                                d="M44 40 C44 42.2 38.6 44 32 44 C25.4 44 20 42.2 20 40 V24 C20 21.8 25.4 20 32 20 C38.6 20 44 21.8 44 24 V40 Z"
-                                fill="#00ADEF" />
-                            <path d="M20 32 C20 34.2 25.4 36 32 36 C38.6 36 44 34.2 44 32" stroke="#ffffff"
-                                stroke-width="2" />
-
-                            <!-- Solid Coin with Slash -->
-                            <circle cx="46" cy="46" r="11" fill="#8E2DE2" />
-                            <path d="M46 42 V50 M44 44 H48 L44 48 H48" stroke="#ffffff" stroke-width="2" />
-                            <path d="M40 52 L52 40" stroke="#00ADEF" stroke-width="3" />
+                            <defs>
+                                <linearGradient id="blueGrad_mon_v5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <filter id="shadow_mon_v5" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- Zero Data Monetization: Data Pillar + Barrier -->
+                            <rect x="22" y="16" width="20" height="32" rx="2" fill="url(#blueGrad_mon_v5)"
+                                filter="url(#shadow_mon_v5)" />
+                            <circle cx="32" cy="32" r="16" stroke="#ff0000" stroke-width="4"
+                                filter="url(#shadow_mon_v5)" />
+                            <line x1="22" y1="22" x2="42" y2="42" stroke="#ff0000" stroke-width="4"
+                                stroke-linecap="round" />
+                            <circle cx="50" cy="18" r="7" fill="#ffff00" filter="url(#shadow_mon_v5)" />
+                            <path d="M50 14 V22 M47 16 H53 M47 20 H53" stroke="#0033aa" stroke-width="1.5"
+                                stroke-linecap="round" />
                         </svg>
                     </div>
                 </div>
@@ -156,13 +210,29 @@
                 <div class="icon vendor-neutral" style="top: 45%; right: 8%;" data-icon-id="vendor-neutral">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Platform -->
-                            <path d="M12 48 L32 56 L52 48 L32 40 L12 48 Z" fill="#00ADEF" />
-
-                            <!-- Solid Shapes on Platform -->
-                            <rect x="18" y="24" width="12" height="12" fill="#8E2DE2" />
-                            <circle cx="44" cy="28" r="8" fill="#00ADEF" stroke="#ffffff" stroke-width="2" />
-                            <path d="M32 12 L24 32 H40 L32 12 Z" fill="#ffffff" stroke="#00ADEF" stroke-width="2" />
+                            <defs>
+                                <linearGradient id="blueGrad_neut" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <linearGradient id="redGrad_neut" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4444" />
+                                    <stop offset="100%" stop-color="#ff0000" />
+                                </linearGradient>
+                                <filter id="shadow_neut" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- Vendor-Neutral Infrastructure: Gradient Depth -->
+                            <circle cx="32" cy="32" r="14" fill="url(#blueGrad_neut)" filter="url(#shadow_neut)" />
+                            <!-- Independent Bridges -->
+                            <path d="M32 12 V24 M32 40 V52 M12 32 H24 M40 32 H52" stroke="url(#redGrad_neut)"
+                                stroke-width="4" stroke-linecap="round" />
+                            <!-- Trust Nodes -->
+                            <circle cx="32" cy="10" r="4" fill="#ffff00" filter="url(#shadow_neut)" />
+                            <circle cx="32" cy="54" r="4" fill="#ffff00" filter="url(#shadow_neut)" />
+                            <circle cx="10" cy="32" r="4" fill="#ffff00" filter="url(#shadow_neut)" />
+                            <circle cx="54" cy="32" r="4" fill="#ffff00" filter="url(#shadow_neut)" />
                         </svg>
                     </div>
                 </div>
@@ -171,12 +241,35 @@
                 <div class="icon surveillance-free" style="top: 12%; left: 12%;" data-icon-id="surveillance-free">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Shield -->
-                            <path d="M32 54 C32 54 48 44 48 28 V16 L32 10 L16 16 V28 C16 44 32 54 32 54 Z"
-                                fill="#00ADEF" />
-                            <path d="M26 32 C26 28 38 28 38 32" stroke="#ffffff" stroke-width="4" stroke-linecap="round"
-                                fill="none" />
-                            <rect x="28" y="32" width="8" height="8" fill="#8E2DE2" />
+                            <defs>
+                                <linearGradient id="blueGrad_surv_v13" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <linearGradient id="goldGrad_surv_v15" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffff00" />
+                                    <stop offset="100%" stop-color="#ffcc00" />
+                                </linearGradient>
+                                <filter id="shadow_surv_v15" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- Surveillance-Free Signing: Shielded Anti-Lens (Iteration 15) -->
+                            <path d="M12 24 L32 14 L52 24 V44 L32 54 L12 44 Z" fill="url(#blueGrad_surv_v13)"
+                                filter="url(#shadow_surv_v15)" />
+                            <!-- Red Lens being blocked -->
+                            <rect x="22" y="24" width="20" height="12" rx="2" fill="#ff0000" fill-opacity="0.4" />
+                            <circle cx="32" cy="30" r="4" fill="#ff0000" />
+                            <line x1="20" y1="20" x2="44" y2="44" stroke="#ff0000" stroke-width="4"
+                                stroke-linecap="round" />
+                            <!-- Gold Gradient Luxury Nib (Safe) -->
+                            <g filter="url(#shadow_surv_v15)">
+                                <path d="M42 36 C44 38 54 48 52 50 C50 52 40 42 38 40 Z"
+                                    fill="url(#goldGrad_surv_v15)" />
+                                <path d="M38 40 C36 42 32 48 30 46 C28 44 34 38 38 40 Z"
+                                    fill="url(#goldGrad_surv_v15)" />
+                                <circle cx="33.5" cy="44.5" r="1.5" fill="#0033aa" />
+                            </g>
                         </svg>
                     </div>
                 </div>
@@ -185,11 +278,28 @@
                 <div class="icon user-metadata" style="top: 52%; left: 2%;" data-icon-id="user-metadata">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Hand and Data -->
-                            <path d="M22 46 Q32 54 42 46" stroke="#8E2DE2" stroke-width="5" fill="none"
-                                stroke-linecap="round" />
-                            <path d="M32 18 L42 24 V36 L32 42 L22 36 V24 L32 18 Z" fill="#00ADEF" />
-                            <ellipse cx="32" cy="12" rx="10" ry="4" fill="#00ADEF" />
+                            <defs>
+                                <linearGradient id="blueGrad_meta" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <linearGradient id="redGrad_meta" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4444" />
+                                    <stop offset="100%" stop-color="#ff0000" />
+                                </linearGradient>
+                                <filter id="shadow_meta" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- User-Owned Metadata: Gradient Depth -->
+                            <path d="M10 16 H30 L36 22 H54 V52 H10 Z" fill="url(#blueGrad_meta)"
+                                filter="url(#shadow_meta)" />
+                            <!-- User Silhouette -->
+                            <circle cx="32" cy="34" r="5" fill="url(#redGrad_meta)" filter="url(#shadow_meta)" />
+                            <path d="M24 46 C24 40 40 40 40 46" fill="url(#redGrad_meta)" />
+                            <!-- Metadata Hash (#) -->
+                            <path d="M44 14 H56 M42 22 H54 M48 10 L46 26 M54 10 L52 26" stroke="#ffff00"
+                                stroke-width="3" stroke-linecap="round" filter="url(#shadow_meta)" />
                         </svg>
                     </div>
                 </div>
@@ -198,13 +308,30 @@
                 <div class="icon decentralized-enc" style="top: 25%; right: 5%;" data-icon-id="decentralized-enc">
                     <div class="doc-card elite-card">
                         <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Solid Nodes + Lock -->
-                            <circle cx="20" cy="20" r="6" fill="#00ADEF" />
-                            <circle cx="44" cy="20" r="6" fill="#00ADEF" />
-                            <circle cx="32" cy="40" r="6" fill="#00ADEF" />
-                            <path d="M20 20 L32 40 L44 20" stroke="#00ADEF" stroke-width="4" />
-                            <rect x="26" y="24" width="12" height="12" fill="#8E2DE2" rx="2" />
-                            <path d="M29 24 V18 C29 16 35 16 35 18 V24" stroke="#8E2DE2" stroke-width="4" fill="none"
+                            <defs>
+                                <linearGradient id="blueGrad_stor" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff" />
+                                    <stop offset="100%" stop-color="#0033aa" />
+                                </linearGradient>
+                                <linearGradient id="redGrad_stor" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4444" />
+                                    <stop offset="100%" stop-color="#ff0000" />
+                                </linearGradient>
+                                <filter id="shadow_stor" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                                </filter>
+                            </defs>
+                            <!-- Decentralized Storage Encryption: Gradient Depth -->
+                            <path d="M32 10 L52 20 V44 L32 54 L12 44 V20 Z" fill="url(#blueGrad_stor)"
+                                filter="url(#shadow_stor)" />
+                            <!-- Encryption Rings -->
+                            <circle cx="32" cy="32" r="12" stroke="url(#redGrad_stor)" stroke-width="2"
+                                stroke-dasharray="4 2" />
+                            <circle cx="32" cy="32" r="18" stroke="url(#redGrad_stor)" stroke-width="1.5"
+                                stroke-opacity="0.3" />
+                            <!-- Core Lock -->
+                            <rect x="28" y="28" width="8" height="8" rx="1" fill="#ffff00" filter="url(#shadow_stor)" />
+                            <path d="M30 28 V24 C30 22 34 22 34 24 V28" stroke="#ffff00" stroke-width="2"
                                 stroke-linecap="round" />
                         </svg>
                     </div>
@@ -235,16 +362,31 @@
             <div class="int-card elite" data-target-id="audit-trail">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill Audit Trail -->
-                        <path d="M20 14 H38 L46 22 V50 H20 V14 Z" fill="#00ADEF" opacity="0.1" />
-                        <path d="M20 14 H38 L46 22 V50 H20 V14 Z" stroke="#00ADEF" stroke-width="2.5" fill="none" />
-                        <circle cx="28" cy="24" r="3" fill="#8E2DE2" />
-                        <circle cx="28" cy="32" r="3" fill="#8E2DE2" />
-                        <circle cx="28" cy="40" r="3" fill="#8E2DE2" />
-                        <rect x="27" y="24" width="2" height="16" fill="#8E2DE2" />
-                        <circle cx="46" cy="46" r="9" fill="#8E2DE2" />
-                        <path d="M42 46 L45 49 L50 43" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" fill="none" />
+                        <defs>
+                            <linearGradient id="blueGrad_audit_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <linearGradient id="redGrad_audit_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff4444" />
+                                <stop offset="100%" stop-color="#ff0000" />
+                            </linearGradient>
+                            <filter id="shadow_audit_grid" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- Immutable Audit Trail: Gradient Depth -->
+                        <rect x="14" y="8" width="36" height="48" rx="4" fill="url(#blueGrad_audit_grid)"
+                            filter="url(#shadow_audit_grid)" />
+                        <path d="M20 18H44 M20 28H44 M20 38H32" stroke="white" stroke-width="2" stroke-opacity="0.3"
+                            stroke-linecap="round" />
+                        <!-- 3D Red Shield -->
+                        <path
+                            d="M34 38 C34 34 42 30 42 30 C42 30 50 34 50 38 V48 C50 54 42 58 42 58 C42 58 34 54 34 48 V38 Z"
+                            fill="url(#redGrad_audit_grid)" filter="url(#shadow_audit_grid)" />
+                        <circle cx="42" cy="44" r="5" fill="#ffff00" />
+                        <path d="M38 44 L41 47 L46 41" stroke="#0033aa" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </div>
                 <span class="int-name">Immutable Audit Trail</span>
@@ -253,13 +395,40 @@
             <div class="int-card elite" data-target-id="crypto-sig">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill Crypto Signature -->
-                        <path d="M44 12 L52 20 L32 40 L28 42 L26 38 L44 12 Z" fill="#8E2DE2" />
-                        <path d="M28 42 L24 46" stroke="#8E2DE2" stroke-width="2.5" />
-                        <path d="M14 50 C14 50 20 44 26 48 C32 52 36 44 42 46 C48 48 50 42 50 42" stroke="#00ADEF"
-                            stroke-width="4" stroke-linecap="round" fill="none" />
-                        <circle cx="48" cy="26" r="4" fill="#00ADEF" />
-                        <rect x="46" y="30" width="4" height="6" fill="#00ADEF" />
+                        <defs>
+                            <linearGradient id="blueGrad_crypto_grid_v8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <linearGradient id="redGrad_crypto_grid_v8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff4444" />
+                                <stop offset="100%" stop-color="#ff0000" />
+                            </linearGradient>
+                            <filter id="shadow_crypto_grid_v8" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- Cryptographic Signature: High-Fidelity Fingerprint (Iteration 8) -->
+                        <g filter="url(#shadow_crypto_grid_v8)">
+                            <path d="M32 44 C32 40 36 38 32 34 C28 30 32 26 32 26"
+                                stroke="url(#blueGrad_crypto_grid_v8)" stroke-width="2.5" stroke-linecap="round"
+                                fill="none" />
+                            <path d="M26 48 C26 36 38 36 38 48" stroke="url(#blueGrad_crypto_grid_v8)"
+                                stroke-width="2.5" stroke-linecap="round" fill="none" />
+                            <path d="M22 52 C22 30 42 30 42 52" stroke="url(#blueGrad_crypto_grid_v8)"
+                                stroke-width="2.5" stroke-linecap="round" fill="none" />
+                            <path d="M18 56 C18 24 46 24 46 56" stroke="url(#blueGrad_crypto_grid_v8)"
+                                stroke-width="2.5" stroke-linecap="round" fill="none" />
+                            <path d="M14 60 C14 18 50 18 50 60" stroke="url(#blueGrad_crypto_grid_v8)"
+                                stroke-width="2.5" stroke-linecap="round" fill="none" />
+                        </g>
+                        <!-- Red ID Scan Bar -->
+                        <rect x="10" y="34" width="44" height="4" rx="2" fill="url(#redGrad_crypto_grid_v8)"
+                            filter="url(#shadow_crypto_grid_v8)" />
+                        <!-- Gold Verification Badge -->
+                        <circle cx="52" cy="18" r="7" fill="#ffff00" filter="url(#shadow_crypto_grid_v8)" />
+                        <path d="M49 18 L51 20 L55 16" stroke="#0033aa" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </div>
                 <span class="int-name">Cryptographic Signature</span>
@@ -268,18 +437,24 @@
             <div class="int-card elite" data-target-id="verify-id">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill Verifiable Identity -->
-                        <path d="M32 50 V46" stroke="#00ADEF" stroke-width="4" stroke-linecap="round" />
-                        <path d="M32 40 V36" stroke="#00ADEF" stroke-width="4" stroke-linecap="round" />
-                        <path d="M24 38 C24 28 40 28 40 38" stroke="#8E2DE2" stroke-width="4" stroke-linecap="round"
-                            fill="none" />
-                        <path d="M20 34 C20 22 44 22 44 34" stroke="#8E2DE2" stroke-width="4" stroke-linecap="round"
-                            fill="none" />
-                        <path d="M16 30 C16 14 48 14 48 30" stroke="#00ADEF" stroke-width="4" stroke-linecap="round"
-                            fill="none" />
-                        <circle cx="48" cy="46" r="9" fill="#8E2DE2" />
-                        <path d="M44 46 L47 49 L52 43" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round" fill="none" />
+                        <defs>
+                            <linearGradient id="blueGrad_id_grid_v6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <filter id="shadow_id_grid_v6" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- Verifiable Identity: Elite Security Bust -->
+                        <circle cx="32" cy="27" r="8" fill="url(#blueGrad_id_grid_v6)"
+                            filter="url(#shadow_id_grid_v6)" />
+                        <path d="M18 48 C18 38 46 38 46 48" fill="url(#blueGrad_id_grid_v6)"
+                            filter="url(#shadow_id_grid_v6)" />
+                        <circle cx="32" cy="32" r="22" stroke="#ff0000" stroke-width="3" stroke-dasharray="6 4"
+                            stroke-opacity="0.6" />
+                        <circle cx="50" cy="42" r="7" fill="#ffff00" filter="url(#shadow_id_grid_v6)" />
+                        <path d="M47 42 L49 44 L53 40" stroke="#0033aa" stroke-width="2.5" stroke-linecap="round" />
                     </svg>
                 </div>
                 <span class="int-name">Verifiable Identity</span>
@@ -288,11 +463,22 @@
             <div class="int-card elite" data-target-id="no-tracking">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill No Tracking -->
-                        <path d="M16 32 C16 32 24 20 32 20 C40 20 48 32 48 32 C48 32 40 44 32 44 C24 44 16 32 16 32 Z"
-                            stroke="#8E2DE2" stroke-width="4" fill="#8E2DE2" opacity="0.1" />
-                        <circle cx="32" cy="32" r="6" fill="#8E2DE2" />
-                        <path d="M12 48 L52 16" stroke="#00ADEF" stroke-width="5" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="blueGrad_track_grid_v6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <filter id="shadow_track_grid_v6" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- No Behavioral Tracking: Privacy Dome Deflecting Pulse -->
+                        <path d="M12 44 C12 24 52 24 52 44" fill="url(#blueGrad_track_grid_v6)"
+                            filter="url(#shadow_track_grid_v6)" />
+                        <path d="M10 20 L20 30 L30 20 L40 30" stroke="#ff0000" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="32" cy="32" r="6" fill="#ffff00" filter="url(#shadow_track_grid_v6)" />
+                        <circle cx="32" cy="32" r="14" stroke="#ffff00" stroke-width="1.5" stroke-opacity="0.8" />
                     </svg>
                 </div>
                 <span class="int-name">No Behavioral Tracking</span>
@@ -301,15 +487,25 @@
             <div class="int-card elite" data-target-id="zero-monetization">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill Zero Monetization -->
-                        <path
-                            d="M44 40 C44 42.2 38.6 44 32 44 C25.4 44 20 42.2 20 40 V24 C20 21.8 25.4 20 32 20 C38.6 20 44 21.8 44 24 V40 Z"
-                            fill="#00ADEF" />
-                        <path d="M20 32 C20 34.2 25.4 36 32 36 C38.6 36 44 34.2 44 32" stroke="#ffffff"
-                            stroke-width="2" />
-                        <circle cx="46" cy="46" r="11" fill="#8E2DE2" />
-                        <path d="M46 42 V50 M44 44 H48 L44 48 H48" stroke="#ffffff" stroke-width="2" />
-                        <path d="M40 52 L52 40" stroke="#00ADEF" stroke-width="3" />
+                        <defs>
+                            <linearGradient id="blueGrad_mon_grid_v5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <filter id="shadow_mon_grid_v5" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- Zero Data Monetization: Data Pillar + Barrier -->
+                        <rect x="22" y="16" width="20" height="32" rx="2" fill="url(#blueGrad_mon_grid_v5)"
+                            filter="url(#shadow_mon_grid_v5)" />
+                        <circle cx="32" cy="32" r="16" stroke="#ff0000" stroke-width="4"
+                            filter="url(#shadow_mon_grid_v5)" />
+                        <line x1="22" y1="22" x2="42" y2="42" stroke="#ff0000" stroke-width="4"
+                            stroke-linecap="round" />
+                        <circle cx="50" cy="18" r="7" fill="#ffff00" filter="url(#shadow_mon_grid_v5)" />
+                        <path d="M50 14 V22 M47 16 H53 M47 20 H53" stroke="#0033aa" stroke-width="1.5"
+                            stroke-linecap="round" />
                     </svg>
                 </div>
                 <span class="int-name">Zero Data Monetization</span>
@@ -319,11 +515,30 @@
             <div class="int-card elite" data-target-id="vendor-neutral">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill Vendor Neutral -->
-                        <path d="M12 48 L32 56 L52 48 L32 40 L12 48 Z" fill="#00ADEF" />
-                        <rect x="18" y="24" width="12" height="12" fill="#8E2DE2" />
-                        <circle cx="44" cy="28" r="8" fill="#00ADEF" stroke="#ffffff" stroke-width="2" />
-                        <path d="M32 12 L24 32 H40 L32 12 Z" fill="#ffffff" stroke="#00ADEF" stroke-width="2" />
+                        <defs>
+                            <linearGradient id="blueGrad_neut_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <linearGradient id="redGrad_neut_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff4444" />
+                                <stop offset="100%" stop-color="#ff0000" />
+                            </linearGradient>
+                            <filter id="shadow_neut_grid" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- Vendor-Neutral Infrastructure: Gradient Depth -->
+                        <circle cx="32" cy="32" r="14" fill="url(#blueGrad_neut_grid)"
+                            filter="url(#shadow_neut_grid)" />
+                        <!-- Independent Bridges -->
+                        <path d="M32 12 V24 M32 40 V52 M12 32 H24 M40 32 H52" stroke="url(#redGrad_neut_grid)"
+                            stroke-width="4" stroke-linecap="round" />
+                        <!-- Trust Nodes -->
+                        <circle cx="32" cy="10" r="4" fill="#ffff00" filter="url(#shadow_neut_grid)" />
+                        <circle cx="32" cy="54" r="4" fill="#ffff00" filter="url(#shadow_neut_grid)" />
+                        <circle cx="10" cy="32" r="4" fill="#ffff00" filter="url(#shadow_neut_grid)" />
+                        <circle cx="54" cy="32" r="4" fill="#ffff00" filter="url(#shadow_neut_grid)" />
                     </svg>
                 </div>
                 <span class="int-name">Vendor-neutral Infra</span>
@@ -333,11 +548,35 @@
             <div class="int-card elite" data-target-id="surveillance-free">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill Surveillance-Free -->
-                        <path d="M32 54 C32 54 48 44 48 28 V16 L32 10 L16 16 V28 C16 44 32 54 32 54 Z" fill="#00ADEF" />
-                        <path d="M26 32 C26 28 38 28 38 32" stroke="#ffffff" stroke-width="4" stroke-linecap="round"
-                            fill="none" />
-                        <rect x="28" y="32" width="8" height="8" fill="#8E2DE2" />
+                        <defs>
+                            <linearGradient id="blueGrad_surv_grid_v13" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <linearGradient id="goldGrad_surv_grid_v15" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ffff00" />
+                                <stop offset="100%" stop-color="#ffcc00" />
+                            </linearGradient>
+                            <filter id="shadow_surv_grid_v15" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- Surveillance-Free Signing: Shielded Anti-Lens (Iteration 15) -->
+                        <path d="M12 24 L32 14 L52 24 V44 L32 54 L12 44 Z" fill="url(#blueGrad_surv_grid_v13)"
+                            filter="url(#shadow_surv_grid_v15)" />
+                        <!-- Red Lens being blocked -->
+                        <rect x="22" y="24" width="20" height="12" rx="2" fill="#ff0000" fill-opacity="0.4" />
+                        <circle cx="32" cy="30" r="4" fill="#ff0000" />
+                        <line x1="20" y1="20" x2="44" y2="44" stroke="#ff0000" stroke-width="4"
+                            stroke-linecap="round" />
+                        <!-- Gold Gradient Luxury Nib (Safe) -->
+                        <g filter="url(#shadow_surv_grid_v15)">
+                            <path d="M42 36 C44 38 54 48 52 50 C50 52 40 42 38 40 Z"
+                                fill="url(#goldGrad_surv_grid_v15)" />
+                            <path d="M38 40 C36 42 32 48 30 46 C28 44 34 38 38 40 Z"
+                                fill="url(#goldGrad_surv_grid_v15)" />
+                            <circle cx="33.5" cy="44.5" r="1.5" fill="#0033aa" />
+                        </g>
                     </svg>
                 </div>
                 <span class="int-name">Surveillance-free Signing</span>
@@ -347,11 +586,28 @@
             <div class="int-card elite" data-target-id="user-metadata">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill User Metadata -->
-                        <path d="M22 46 Q32 54 42 46" stroke="#8E2DE2" stroke-width="5" fill="none"
-                            stroke-linecap="round" />
-                        <path d="M32 18 L42 24 V36 L32 42 L22 36 V24 L32 18 Z" fill="#00ADEF" />
-                        <ellipse cx="32" cy="12" rx="10" ry="4" fill="#00ADEF" />
+                        <defs>
+                            <linearGradient id="blueGrad_meta_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <linearGradient id="redGrad_meta_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff4444" />
+                                <stop offset="100%" stop-color="#ff0000" />
+                            </linearGradient>
+                            <filter id="shadow_meta_grid" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- User-Owned Metadata: Gradient Depth -->
+                        <path d="M10 16 H30 L36 22 H54 V52 H10 Z" fill="url(#blueGrad_meta_grid)"
+                            filter="url(#shadow_meta_grid)" />
+                        <!-- User Silhouette -->
+                        <circle cx="32" cy="34" r="5" fill="url(#redGrad_meta_grid)" filter="url(#shadow_meta_grid)" />
+                        <path d="M24 46 C24 40 40 40 40 46" fill="url(#redGrad_meta_grid)" />
+                        <!-- Metadata Hash (#) -->
+                        <path d="M44 14 H56 M42 22 H54 M48 10 L46 26 M54 10 L52 26" stroke="#ffff00" stroke-width="3"
+                            stroke-linecap="round" filter="url(#shadow_meta_grid)" />
                     </svg>
                 </div>
                 <span class="int-name">User-owned Metadata</span>
@@ -361,13 +617,31 @@
             <div class="int-card elite" data-target-id="decentralized-enc">
                 <div class="int-icon">
                     <svg class="elite-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Solid-fill Decentralized Encryption -->
-                        <circle cx="20" cy="20" r="6" fill="#00ADEF" />
-                        <circle cx="44" cy="20" r="6" fill="#00ADEF" />
-                        <circle cx="32" cy="40" r="6" fill="#00ADEF" />
-                        <path d="M20 20 L32 40 L44 20" stroke="#00ADEF" stroke-width="4" />
-                        <rect x="26" y="24" width="12" height="12" fill="#8E2DE2" rx="2" />
-                        <path d="M29 24 V18 C29 16 35 16 35 18 V24" stroke="#8E2DE2" stroke-width="4" fill="none"
+                        <defs>
+                            <linearGradient id="blueGrad_stor_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0066ff" />
+                                <stop offset="100%" stop-color="#0033aa" />
+                            </linearGradient>
+                            <linearGradient id="redGrad_stor_grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff4444" />
+                                <stop offset="100%" stop-color="#ff0000" />
+                            </linearGradient>
+                            <filter id="shadow_stor_grid" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3" />
+                            </filter>
+                        </defs>
+                        <!-- Decentralized Storage Encryption: Gradient Depth -->
+                        <path d="M32 10 L52 20 V44 L32 54 L12 44 V20 Z" fill="url(#blueGrad_stor_grid)"
+                            filter="url(#shadow_stor_grid)" />
+                        <!-- Encryption Rings -->
+                        <circle cx="32" cy="32" r="12" stroke="url(#redGrad_neut_grid)" stroke-width="2"
+                            stroke-dasharray="4 2" />
+                        <circle cx="32" cy="32" r="18" stroke="url(#redGrad_neut_grid)" stroke-width="1.5"
+                            stroke-opacity="0.3" />
+                        <!-- Core Lock -->
+                        <rect x="28" y="28" width="8" height="8" rx="1" fill="#ffff00"
+                            filter="url(#shadow_stor_grid)" />
+                        <path d="M30 28 V24 C30 22 34 22 34 24 V28" stroke="#ffff00" stroke-width="2"
                             stroke-linecap="round" />
                     </svg>
                 </div>

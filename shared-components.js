@@ -8,97 +8,11 @@
 const navbarHTML = `
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="nav-logo elite-dark-box" aria-label="BrillSign Home" id="navLogo">
-                <svg class="nav-logo-svg" width="260" height="48" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <filter id="navSigF"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                    <filter id="navHexGlow"><feGaussianBlur stdDeviation="1" result="b"/><feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                    <filter id="navStampGlow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                    <clipPath id="navSigClip"><rect id="navSigRect" x="20" y="70" width="0" height="40"/></clipPath>
-                    <style>
-                      @keyframes bsDraw { to { stroke-dashoffset: 0; } }
-                      @keyframes bsFade { to { opacity: 1; } }
-                      @keyframes bsOut  { to { opacity: 0; filter: blur(4px); } }
-                       @keyframes bsWord { to { opacity: 1; transform: translateY(0); } }
-                       @keyframes bsStamp { 
-                         0% { opacity: 0; transform: scale(3); }
-                         70% { opacity: 1; transform: scale(0.9); }
-                         100% { opacity: 1; transform: scale(1); }
-                       }
-                      
-                       #navDocGroup { animation: bsOut 0.5s ease 2.8s forwards; }
-                       #navFinalLogo { opacity: 0; animation: bsFade 0.5s ease 3.3s forwards; }
-                       
-                       .nav-stamp {
-                         opacity: 0;
-                         transform-origin: center;
-                         animation: bsStamp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.2s forwards;
-                         filter: url(#navStampGlow);
-                       }
-                      
-                      .nav-doc-line { stroke: #00d2ff; stroke-width: 1.5; fill: rgba(0,210,255,0.02); opacity:0; }
-                      .nav-dtl { stroke: rgba(0,180,255,0.3); stroke-width: 1.2; fill:none; stroke-dasharray: 100; stroke-dashoffset: 100; }
-                      
-                      #navSigText {
-                        font-family: 'Dancing Script', cursive; font-size: 28px; font-weight: 700;
-                        fill: #4da6ff; filter: url(#navSigF);
-                      }
-                      
-                      /* Final Logo Parts */
-                      #navHex { 
-                        stroke: rgba(0, 210, 255, 0.6); 
-                        fill: rgba(26, 115, 232, 0.05); 
-                         stroke-width: 1.5;
-                         filter: url(#navHexGlow);
-                         stroke-dasharray: 400; 
-                         stroke-dashoffset: 400; 
-                         animation: bsDraw 1.2s ease 2.8s forwards; 
-                       }
-                       .nav-b-plane { fill: none; stroke: currentColor; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 200; stroke-dashoffset: 200; }
-                       #navBLeft { stroke: #ffffff; animation: bsDraw 0.6s ease 3.2s forwards; }
-                       #navBRight { stroke: #1A73E8; animation: bsDraw 0.6s ease 3.4s forwards; }
-                       #navBSeam { fill: #4DA6FF; opacity: 0; animation: bsFade 0.4s ease 3.8s forwards; }
-                      .nav-wordmark {
-                         font-family: 'Rajdhani', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 5px;
-                         fill: #ffffff; opacity: 0; transform: translateY(8px);
-                         animation: bsWord 0.6s ease 3.8s forwards;
-                       }
-                       .nav-tagline {
-                         font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.5px;
-                         fill: #00d2ff; opacity: 0;
-                         animation: bsFade 0.6s ease 4.2s forwards;
-                         text-transform: uppercase;
-                       }
-                    </style>
-                  </defs>
-
-                  <!-- Phase 1: Mini Document -->
-                  <g id="navDocGroup" transform="translate(100, 7) scale(0.4)">
-                    <path id="navDocPath" class="nav-doc-line" d="M10 5 H180 V15 L200 35 V120 H10 Z" />
-                    <line class="nav-dtl" x1="30" y1="50" x2="160" y2="50" style="animation: bsDraw 0.4s ease 0.8s forwards" />
-                    <line class="nav-dtl" x1="30" y1="70" x2="140" y2="70" style="animation: bsDraw 0.4s ease 1.0s forwards" />
-                    <line class="nav-dtl" x1="30" y1="90" x2="160" y2="90" style="animation: bsDraw 0.4s ease 1.2s forwards" />
-                    <text id="navSigText" x="25" y="100" clip-path="url(#navSigClip)">BrillSign</text>
-                     <g transform="translate(145, 85)">
-                        <g class="nav-stamp">
-                           <circle r="12" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="2" />
-                           <path d="M-5 0 L-1 4 L5 -6" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                        </g>
-                     </g>
-                  </g>
-
-                  <!-- Phase 2: Resolve to Logo -->
-                  <g id="navFinalLogo" transform="translate(10, 6.6)">
-                    <g transform="scale(0.52)">
-                      <path id="navHex" d="M50 5 L90 25 V75 L50 95 L10 75 V25 Z" />
-                      <path id="navBLeft" class="nav-b-plane" d="M32 24 V80" />
-                      <path id="navBRight" class="nav-b-plane" d="M32 24 H55 C70 24 70 48 55 48 H32 M32 48 H60 C75 48 75 80 60 80 H32" />
-                      <circle id="navBSeam" cx="32" cy="48" r="4" />
-                    </g>
-                    <text x="75" y="31" class="nav-wordmark">BRILLSIGN</text>
-                    <text x="75" y="45" class="nav-tagline">The Standard in Digital Trust</text>
-                  </g>
-                </svg>
+            <a href="index.html" class="nav-logo" aria-label="BrillSign Home" id="navLogo">
+                <div class="logo-icon-wrapper">
+                    <img src="1111111 (1).png" class="logo-icon logo-layer-blue" alt="BrillSign Logo">
+                </div>
+                <span class="logo-text">BrillSign</span>
             </a>
             <ul class="nav-links">
                 <li class="nav-item-with-dropdown">
@@ -149,26 +63,7 @@ const navbarHTML = `
                 <button class="theme-btn" id="theme-toggle">
                     <i class="fas fa-sun"></i>
                 </button>
-                <div class="lang-selector">
-                    <button class="lang-btn" aria-label="Select Language">
-                        <i class="fas fa-globe"></i>
-                        <span class="current-lang">EN</span>
-                    </button>
-                    <div class="lang-dropdown">
-                        <div class="lang-option active" data-lang="en">
-                            <span>English</span>
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="lang-option" data-lang="es">
-                            <span>Español</span>
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="lang-option" data-lang="hi">
-                            <span>हिन्दी</span>
-                            <i class="fas fa-check"></i>
-                        </div>
-                    </div>
-                </div>
+
                 <a href="index.html#waitlist" class="btn-primary-v3">Join the Waitlist</a>
             </div>
         </div>
@@ -640,6 +535,12 @@ const footerHTML = `
 
             <div class="footer-grid">
                 <div class="footer-col branding" id="company">
+                    <a href="index.html" class="nav-logo" aria-label="BrillSign Home" style="margin-bottom: 20px;">
+                        <div class="logo-icon-wrapper">
+                            <img src="1111111 (1).png" class="logo-icon logo-layer-blue" alt="BrillSign Logo">
+                        </div>
+                        <span class="logo-text">BrillSign</span>
+                    </a>
                     <p>The most secure and easy-to-use digital signature platform for individuals and teams worldwide.
                     </p>
                     <div class="social-links">
@@ -684,17 +585,27 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Get the App</h4>
-                    <p>Manage documents on the go.</p>
-                    <div class="app-buttons">
-                        <a href="#" class="app-btn">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
-                                alt="App Store">
-                        </a>
-                        <a href="#" class="app-btn">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                                alt="Google Play">
-                        </a>
+                    <h4>Language</h4>
+                    <p>Select your preferred language.</p>
+                    <div class="lang-selector">
+                        <button class="lang-btn" aria-label="Select Language">
+                            <i class="fas fa-globe"></i>
+                            <span class="current-lang">EN</span>
+                        </button>
+                        <div class="lang-dropdown">
+                            <div class="lang-option active" data-lang="en">
+                                <span>English</span>
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="lang-option" data-lang="es">
+                                <span>Español</span>
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="lang-option" data-lang="hi">
+                                <span>हिन्दी</span>
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -740,8 +651,7 @@ function loadNavbar() {
             resourcesDropdownContent.innerHTML = resourcesDropdownHTML;
         }
 
-        // Initialize animations after injection
-        initSharedBehavior();
+        // Initialize features dropdown content is separate from general behavior
     }
 }
 
@@ -751,7 +661,7 @@ function injectFonts() {
         const link = document.createElement('link');
         link.id = 'brillsign-fonts';
         link.rel = 'stylesheet';
-        link.href = 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Dancing+Script:wght@700&display=swap';
+        link.href = 'https://fonts.googleapis.com/css2?family=Varela+Round&family=Rajdhani:wght@600;700&family=Dancing+Script:wght@700&display=swap';
         document.head.appendChild(link);
     }
 }
@@ -784,6 +694,40 @@ function initSharedBehavior() {
             drawSig();
         }, 1200);
     }
+
+    // Synchronized Language Selection (Delegated for Reliability)
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.lang-btn');
+        const option = e.target.closest('.lang-option');
+        const selector = e.target.closest('.lang-selector');
+
+        if (btn && selector) {
+            e.stopPropagation();
+            const drop = selector.querySelector('.lang-dropdown');
+            const wasActive = drop.classList.contains('active');
+
+            // Close all first
+            document.querySelectorAll('.lang-dropdown').forEach(d => d.classList.remove('active'));
+
+            // Toggle current if it wasn't active
+            if (!wasActive) drop.classList.add('active');
+        } else if (option) {
+            const lang = option.getAttribute('data-lang');
+            // Update all buttons
+            document.querySelectorAll('.current-lang').forEach(el => el.textContent = lang.toUpperCase());
+            // Update all options
+            document.querySelectorAll('.lang-option').forEach(el => {
+                el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+            });
+            // Trigger global change
+            if (window.changeLanguage) window.changeLanguage(lang);
+            // Close all
+            document.querySelectorAll('.lang-dropdown').forEach(d => d.classList.remove('active'));
+        } else {
+            // Outside click
+            document.querySelectorAll('.lang-dropdown').forEach(d => d.classList.remove('active'));
+        }
+    });
 }
 
 // Function to inject footer
@@ -794,8 +738,16 @@ function loadFooter() {
     }
 }
 
-// Auto-load components when DOM is ready
-document.addEventListener('DOMContentLoaded', function () {
+// Function to initialize everything
+function initAll() {
     loadNavbar();
     loadFooter();
-});
+    initSharedBehavior();
+}
+
+// Auto-load components
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+} else {
+    initAll();
+}

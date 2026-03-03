@@ -456,6 +456,9 @@ a {
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    cursor: pointer !important;
+    position: relative;
+    z-index: 2;
 }
 
 .lang-btn:hover {
@@ -505,9 +508,38 @@ a {
 }
 
 .lang-dropdown.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+    transform: translateY(0) !important;
+}
+
+/* Footer-Specific Language Selector Styling */
+.footer .lang-selector .lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+}
+
+.footer .lang-selector .lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer .lang-selector .lang-dropdown {
+    background: #001f2e;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    top: calc(100% + 10px);
+    bottom: auto;
+    z-index: 10001;
+}
+
+.footer .lang-selector .lang-option {
+    color: #ffffff;
+}
+
+.footer .lang-selector .lang-option:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .lang-option {
@@ -605,37 +637,67 @@ a {
 }
 
 /* --- Branded Logo Components --- */
-.logo-icon {
-    height: 2.2rem;
-    width: auto;
-    vertical-align: middle;
-    transform: translateY(-1.5px);
-    margin-right: -15px;
-    /* Tighter integration with the text */
-    z-index: 2;
-    transition: transform 0.3s ease;
-    filter: url(#remove-bg);
+/* --- Logo Icon Wrapper --- */
+.logo-icon-wrapper {
+    position: relative;
+    height: 4.2rem;
+    width: 4.2rem;
+    flex-shrink: 0;
+    /* No overflow:hidden — layers use opacity to hide instead */
 }
+
+/* Base style for both image layers */
+.logo-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* Full logo — fades + slides in from below */
+.logo-layer-blue {
+    animation: blueIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
+}
+
+@keyframes blueIn {
+    from {
+        opacity: 0;
+        transform: translateY(40%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .logo-text {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.65rem;
+    font-size: 1.75rem;
     font-weight: 800;
-    background: linear-gradient(to right, #ffffff 40%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(to right, #003755 40%, #0066ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -0.06em;
-    line-height: 1.3;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
     z-index: 1;
     transition: all 0.3s ease;
     display: inline-block;
+    margin-left: -12px;
+    padding-bottom: 4px;
+    /* Space for the descender of 'g' */
     overflow: visible;
-    padding: 3px 8px 3px 0;
 }
 
-[data-theme="light"] .logo-text {
-    background: linear-gradient(to right, #003755 40%, #0066ff 100%);
+[data-theme="dark"] .logo-text,
+.footer .logo-text {
+    background: linear-gradient(to right, #ffffff 40%, #00d2ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -643,49 +705,6 @@ a {
 
 .nav-logo:hover .logo-icon {
     transform: scale(1.1) rotate(-5deg);
-}
-
-/* Animated SVG Logo */
-.nav-logo-svg {
-    display: block;
-    overflow: visible;
-    transition: transform 0.3s ease;
-}
-
-.elite-dark-box {
-    background: linear-gradient(135deg, #001529 0%, #001f3f 100%);
-    padding: 2px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(26, 115, 232, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 210, 255, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none !important;
-    overflow: hidden;
-    width: 90px;
-    height: 48px;
-    box-sizing: border-box;
-    animation: eliteBoxExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) 2.8s forwards;
-}
-
-@keyframes eliteBoxExpand {
-    0% {
-        width: 90px;
-    }
-
-    100% {
-        width: 260px;
-    }
-}
-
-.nav-logo:hover.elite-dark-box {
-    border-color: rgba(0, 210, 255, 0.6);
-    transform: translateY(-1px) scale(1.02);
-}
-
-.nav-logo:hover .nav-logo-svg {
-    transform: scale(1.04);
 }
 
 .nav-spacer {
@@ -1025,7 +1044,11 @@ a {
     margin: 0 !important;
     padding: 0 !important;
     display: block !important;
-    background: none !important;
+    /* Refined Red and Yellow icon gradient for better visibility (20/80 split) */
+    background: linear-gradient(135deg, #ff0000 20%, #ffff00 80%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
     width: auto !important;
     height: auto !important;
 }
@@ -1033,8 +1056,13 @@ a {
 .features-dropdown .feature-item:hover .feature-icon {
     background: var(--primary-blue);
     border-color: var(--primary-blue);
-    color: #ffffff;
     transform: scale(1.05);
+}
+
+.features-dropdown .feature-item:hover .feature-icon i {
+    /* Maintain visibility on hover background */
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
 }
 
 .features-dropdown .feature-text {
@@ -1401,17 +1429,29 @@ a {
     display: grid !important;
     place-items: center !important;
     padding: 0 !important;
-    color: var(--primary-blue);
     font-size: 18px;
     transition: all 0.2s ease;
     margin-top: 0px;
-    /* Reset top margin since it's now a box */
+}
+
+.solutions-list li i::before {
+    /* Refined Red and Yellow icon gradient for better visibility (20/80 split) */
+    background: linear-gradient(135deg, #ff0000 20%, #ffff00 80%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: block;
 }
 
 .solutions-list li a:hover i {
-    background: rgba(0, 102, 255, 0.1);
-    border-color: rgba(0, 102, 255, 0.25);
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
     transform: scale(1.05);
+}
+
+.solutions-list li a:hover i::before {
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
 }
 
 .solutions-text {
@@ -1456,16 +1496,29 @@ a {
     display: grid !important;
     place-items: center !important;
     padding: 0 !important;
-    color: var(--primary-blue);
     font-size: 14px;
     transition: all 0.2s ease;
     margin-top: 0;
 }
 
+.solutions-list.compact li i::before {
+    /* Refined Red and Yellow icon gradient for better visibility (20/80 split) */
+    background: linear-gradient(135deg, #ff0000 20%, #ffff00 80%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: block;
+}
+
 .solutions-list.compact li a:hover i {
-    background: rgba(0, 102, 255, 0.08);
-    border-color: rgba(0, 102, 255, 0.2);
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
     transform: scale(1.05);
+}
+
+.solutions-list.compact li a:hover i::before {
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
 }
 
 /* Highlight Card */
@@ -4893,9 +4946,11 @@ a {
 
 /* Footer Enhancements */
 .footer {
-    padding: 100px 0 50px;
+    padding: 100px 0 120px;
     background: var(--footer-bg);
     color: var(--footer-text);
+    position: relative;
+    z-index: 100;
 }
 
 .footer p,
@@ -4947,7 +5002,7 @@ a {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1.2fr 1.2fr 2fr;
+    grid-template-columns: 2fr 1.2fr 1.2fr 1.5fr;
     gap: 40px;
     margin-bottom: 60px;
 }
@@ -5007,31 +5062,6 @@ a {
     transition: all 0.3s ease;
 }
 
-.social-icon:hover {
-    background: var(--primary-blue);
-    transform: translateY(-3px);
-}
-
-.app-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.app-btn {
-    height: 45px;
-    transition: transform 0.3s ease;
-}
-
-.app-btn:hover {
-    transform: scale(1.05);
-}
-
-.app-btn img {
-    height: 100%;
-    width: auto;
-}
 
 .footer-bottom {
     display: flex;
