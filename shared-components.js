@@ -585,7 +585,7 @@ const resourcesDropdownHTML = `
     <div class="solutions-col">
         <h4>Insights</h4>
         <ul class="solutions-list compact">
-            <li><a href="#"><i class="fas fa-rss"></i> Blog</a></li>
+            <li><a href="blog/docusign-anthropic-cowork.html"><i class="fas fa-rss"></i> Blog</a></li>
             <li><a href="#"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
             <li><a href="#"><i class="fas fa-file-pdf"></i> Whitepapers</a></li>
         </ul>
@@ -798,4 +798,36 @@ function loadFooter() {
 document.addEventListener('DOMContentLoaded', function () {
     loadNavbar();
     loadFooter();
+
+    // Fix relative links when page is in a subfolder (e.g., blog/)
+    const scriptTag = document.querySelector('script[src$="shared-components.js"]');
+    if (scriptTag) {
+        const src = scriptTag.getAttribute('src');
+        // If src starts with "../", the page is in a subfolder
+        if (src.startsWith('../')) {
+            const prefix = src.replace('shared-components.js', '');
+            const containers = [
+                document.getElementById('navbar-placeholder'),
+                document.getElementById('footer-placeholder')
+            ];
+            containers.forEach(container => {
+                if (!container) return;
+                // Fix anchor hrefs
+                container.querySelectorAll('a[href]').forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (!href || href.startsWith('http') || href.startsWith('#') ||
+                        href.startsWith('mailto:') || href.startsWith('../') ||
+                        href.startsWith('/')) return;
+                    link.setAttribute('href', prefix + href);
+                });
+                // Fix image srcs
+                container.querySelectorAll('img[src]').forEach(img => {
+                    const imgSrc = img.getAttribute('src');
+                    if (!imgSrc || imgSrc.startsWith('http') || imgSrc.startsWith('../') ||
+                        imgSrc.startsWith('/') || imgSrc.startsWith('data:')) return;
+                    img.setAttribute('src', prefix + imgSrc);
+                });
+            });
+        }
+    }
 });
