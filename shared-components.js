@@ -569,17 +569,15 @@ const resourcesDropdownHTML = `
     <div class="solutions-col">
         <h4>Learn</h4>
         <ul class="solutions-list compact">
-            <li><a href="#"><i class="fas fa-book"></i> Docs</a></li>
-            <li><a href="#"><i class="fas fa-graduation-cap"></i> Tutorials</a></li>
-            <li><a href="#"><i class="fas fa-code"></i> API Guides</a></li>
+            <li><a href="learn/tutorials.html"><i class="fas fa-graduation-cap"></i> Tutorials</a></li>
+            <li><a href="learn/api-guide.html"><i class="fas fa-code"></i> API Guides</a></li>
         </ul>
     </div>
     <div class="solutions-col">
         <h4>Trust & Compliance</h4>
         <ul class="solutions-list compact">
-            <li><a href="#"><i class="fas fa-user-shield"></i> Security Overview</a></li>
-            <li><a href="#"><i class="fas fa-certificate"></i> Certifications</a></li>
-            <li><a href="#"><i class="fas fa-gavel"></i> Legal Validity</a></li>
+            <li><a href="trust-compliance/security-overview.html"><i class="fas fa-user-shield"></i> Security Overview</a></li>
+            <li><a href="trust-compliance/certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
         </ul>
     </div>
     <div class="solutions-col">
@@ -587,15 +585,12 @@ const resourcesDropdownHTML = `
         <ul class="solutions-list compact">
             <li><a href="blog/docusign-anthropic-cowork.html"><i class="fas fa-rss"></i> Blog</a></li>
             <li><a href="case-studies/banking-finance.html"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
-            <li><a href="#"><i class="fas fa-file-pdf"></i> Whitepapers</a></li>
         </ul>
     </div>
     <div class="solutions-col">
         <h4>Support</h4>
         <ul class="solutions-list compact">
-            <li><a href="#"><i class="fas fa-life-ring"></i> Help Center</a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
-            <li><a href="#"><i class="fas fa-server"></i> System Status</a></li>
+            <li><a href="faq/faq.html"><i class="fas fa-life-ring"></i> Help Center</a></li>
         </ul>
     </div>
     <div class="solutions-col featured-col">

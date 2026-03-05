@@ -1,0 +1,789 @@
+/* ========================================
+   BrillSign — Tutorials Page
+   ======================================== */
+
+/* ---------- Hero ---------- */
+.tut-hero {
+    position: relative;
+    padding: 140px 24px 80px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 100%);
+}
+
+.tut-hero-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.tut-hero-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.1);
+    animation: tutFloat 10s ease-in-out infinite;
+}
+
+.tut-hero-particle:nth-child(1) {
+    width: 6px;
+    height: 6px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.tut-hero-particle:nth-child(2) {
+    width: 4px;
+    height: 4px;
+    top: 60%;
+    left: 85%;
+    animation-delay: 2s;
+}
+
+.tut-hero-particle:nth-child(3) {
+    width: 8px;
+    height: 8px;
+    top: 30%;
+    left: 70%;
+    animation-delay: 4s;
+}
+
+.tut-hero-particle:nth-child(4) {
+    width: 5px;
+    height: 5px;
+    top: 75%;
+    left: 25%;
+    animation-delay: 1s;
+}
+
+@keyframes tutFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: translate(10px, -20px);
+        opacity: 0.25;
+    }
+}
+
+.tut-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: white;
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    color: #0066ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 102, 255, 0.08);
+}
+
+/* Animated Book */
+.tut-book-wrap {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.tut-book-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.tut-book-cover {
+    fill: #0066ff;
+    opacity: 0;
+    animation: bookFadeIn 0.8s ease 0.3s forwards;
+}
+
+.tut-book-page {
+    fill: white;
+    stroke: #e2e8f0;
+    stroke-width: 1;
+    opacity: 0;
+    transform-origin: left center;
+}
+
+.tut-book-page-1 {
+    animation: pageFlip 0.6s ease 0.8s forwards;
+}
+
+.tut-book-page-2 {
+    animation: pageFlip 0.6s ease 1.2s forwards;
+}
+
+.tut-book-page-3 {
+    animation: pageFlip 0.6s ease 1.6s forwards;
+}
+
+.tut-book-cap {
+    fill: #0066ff;
+    opacity: 0;
+    animation: capDrop 0.5s ease 2s forwards;
+}
+
+@keyframes bookFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pageFlip {
+    0% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes capDrop {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tut-hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tut-hero-title .grad-text {
+    background: linear-gradient(135deg, #0066ff, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tut-hero-sub {
+    font-size: 1.15rem;
+    color: #475569;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ---------- Learning Paths ---------- */
+.tut-paths {
+    padding: 80px 24px;
+    background: #f8fafc;
+}
+
+.tut-section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+.tut-section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.tut-section-header p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.tut-paths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.tut-path-card {
+    border-radius: 20px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.tut-path-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tut-path-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.tut-path-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    transition: transform 0.5s ease;
+}
+
+.tut-path-card:hover::before {
+    transform: scale(1.8);
+}
+
+.path-beginner {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.path-intermediate {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.path-advanced {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.tut-path-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.tut-path-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.tut-path-card>p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+.tut-path-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.78rem;
+    opacity: 0.75;
+}
+
+.tut-path-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ---------- Tutorial Cards Grid ---------- */
+.tut-grid-section {
+    padding: 80px 24px;
+    background: white;
+}
+
+/* Filter tabs */
+.tut-filter-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.tut-filter-btn {
+    padding: 9px 20px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(0, 102, 255, 0.1);
+    background: white;
+    color: #475569;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tut-filter-btn:hover {
+    border-color: #0066ff;
+    color: #0066ff;
+}
+
+.tut-filter-btn.active {
+    background: #0066ff;
+    color: white;
+    border-color: #0066ff;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+}
+
+.tut-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.tut-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1px solid rgba(0, 102, 255, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(16px);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.tut-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tut-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 50px rgba(0, 102, 255, 0.08);
+    border-color: rgba(0, 102, 255, 0.15);
+}
+
+.tut-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.tut-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.tut-card-icon.tc-blue {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.tut-card-icon.tc-green {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.tut-card-icon.tc-purple {
+    background: #faf5ff;
+    color: #7c3aed;
+}
+
+.tut-card-icon.tc-amber {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.tut-card-icon.tc-cyan {
+    background: #ecfeff;
+    color: #0891b2;
+}
+
+.tut-card-icon.tc-rose {
+    background: #fff1f2;
+    color: #e11d48;
+}
+
+/* Progress ring */
+.tut-progress-ring {
+    width: 40px;
+    height: 40px;
+}
+
+.tut-ring-bg {
+    fill: none;
+    stroke: #f1f5f9;
+    stroke-width: 3;
+}
+
+.tut-ring-fill {
+    fill: none;
+    stroke: #0066ff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dashoffset 0.8s ease;
+}
+
+.tut-card:hover .tut-ring-fill {
+    stroke-dashoffset: var(--ring-offset, 60);
+}
+
+.tut-ring-text {
+    fill: #475569;
+    font-size: 8px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-anchor: middle;
+    dominant-baseline: central;
+}
+
+.tut-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.tut-card>p {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.tut-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tut-difficulty {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.diff-beginner {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.diff-intermediate {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.diff-advanced {
+    background: #faf5ff;
+    color: #7c3aed;
+}
+
+.tut-duration {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ---------- Interactive Stepper ---------- */
+.tut-stepper {
+    padding: 80px 24px;
+    background: #f8fafc;
+}
+
+.tut-stepper-flow {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Vertical line */
+.tut-stepper-flow::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #0066ff 0%, #8b5cf6 100%);
+    border-radius: 2px;
+    opacity: 0.15;
+}
+
+.tut-step {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+}
+
+.tut-step.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tut-step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #94a3b8;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.tut-step.active .tut-step-num {
+    background: linear-gradient(135deg, #0066ff, #6366f1);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
+}
+
+.tut-step-content {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(0, 102, 255, 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+    flex: 1;
+    transition: all 0.4s ease;
+}
+
+.tut-step.active .tut-step-content {
+    border-color: rgba(0, 102, 255, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 102, 255, 0.06);
+}
+
+.tut-step-content h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.tut-step-content p {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.tut-step-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #0066ff;
+    background: rgba(0, 102, 255, 0.06);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* ---------- Quick Start Checklist ---------- */
+.tut-checklist {
+    padding: 80px 24px;
+    background: white;
+}
+
+.tut-checklist-items {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tut-check-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 14px;
+    background: #fafbfd;
+    margin-bottom: 12px;
+    border: 1px solid rgba(0, 102, 255, 0.04);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateX(-16px);
+}
+
+.tut-check-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tut-check-item.checked {
+    background: #f0fdf4;
+    border-color: rgba(22, 163, 74, 0.15);
+}
+
+.tut-check-box {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+    color: transparent;
+    font-size: 0.8rem;
+}
+
+.tut-check-item.checked .tut-check-box {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: white;
+}
+
+.tut-check-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+    transition: all 0.3s ease;
+}
+
+.tut-check-item.checked .tut-check-text {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.tut-check-time {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    white-space: nowrap;
+}
+
+/* ---------- CTA ---------- */
+.tut-cta {
+    padding: 80px 24px;
+    background: linear-gradient(180deg, white 0%, #eef4ff 100%);
+    text-align: center;
+}
+
+.tut-cta-card {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 48px;
+    background: white;
+    border-radius: 28px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+}
+
+.tut-cta-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.tut-cta-card p {
+    color: #475569;
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.tut-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #0066ff, #6366f1);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.25);
+}
+
+.tut-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.35);
+}
+
+.tut-cta-primary i {
+    transition: transform 0.3s ease;
+}
+
+.tut-cta-primary:hover i {
+    transform: translateX(4px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .tut-paths-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .tut-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tut-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .tut-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .tut-stepper-flow::before {
+        left: 24px;
+    }
+}
