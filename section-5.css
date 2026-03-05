@@ -162,7 +162,7 @@
 }
 
 .trust-main-text strong {
-    background: linear-gradient(to right, #6366f1, #a855f7);
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-red));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -239,14 +239,14 @@
 .waitlist-btn {
     display: inline-block;
     padding: 18px 48px;
-    background: #4f46e5;
+    background: var(--primary-blue);
     color: #fff;
     font-weight: 700;
     font-size: 1.1rem;
     border-radius: 100px;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px -10px rgba(79, 70, 229, 0.5);
+    box-shadow: 0 10px 30px -10px rgba(0, 102, 255, 0.5);
     cursor: pointer;
 }
 
@@ -335,7 +335,7 @@
 }
 
 [data-theme="light"] .trust-main-text strong {
-    background: linear-gradient(to right, #0066ff, #ff0000);
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-red));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

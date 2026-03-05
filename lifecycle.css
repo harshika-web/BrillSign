@@ -151,7 +151,7 @@
     right: 15px;
     width: 32px;
     height: 32px;
-    background: linear-gradient(135deg, #0066ff, #00d2ff);
+    background: linear-gradient(135deg, var(--primary-blue), #00d2ff);
     color: white;
     border-radius: 50%;
     font-size: 16px;
@@ -166,7 +166,7 @@
 
 /* Step 4: Green number */
 .process-step[data-step="4"] .step-number {
-    background: linear-gradient(135deg, #16a34a, #22c55e);
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-yellow));
 }
 
 /* SVG Animations */
@@ -196,7 +196,7 @@
 }
 
 .process-step:hover .step-content h4 {
-    color: #00d2ff;
+    color: var(--primary-blue);
     transition: color 0.3s ease;
 }
 
@@ -212,7 +212,7 @@
 }
 
 [data-theme="light"] .lifecycle-main-title span {
-    color: #3b82f6 !important;
+    color: var(--primary-blue) !important;
     -webkit-text-fill-color: #3b82f6 !important;
     text-shadow: none !important;
 }
@@ -374,7 +374,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3b82f6;
+    color: var(--primary-blue);
     font-weight: 800;
     font-size: 0.9rem;
     flex-shrink: 0;
@@ -382,7 +382,7 @@
 }
 
 .process-step-v3:hover .step-num-badge {
-    background: #3b82f6;
+    background: var(--primary-blue);
     color: white;
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }

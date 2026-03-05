@@ -42,7 +42,8 @@
 .risk-card-v2 {
     width: 380px;
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    background: rgba(255, 0, 0, 0.02);
     border-radius: 24px;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -60,12 +61,12 @@
 
 .risk-card-v2:hover {
     transform: translateY(-12px);
-    border-color: rgba(142, 45, 226, 0.4);
+    border-color: rgba(255, 51, 51, 0.4);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] .risk-card-v2:hover {
-    box-shadow: 0 30px 60px rgba(142, 45, 226, 0.12);
+    box-shadow: 0 30px 60px rgba(255, 51, 51, 0.12);
 }
 
 .risk-image-box {
@@ -90,9 +91,9 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 0, 0, 0.1);
     backdrop-filter: blur(5px);
-    color: white;
+    color: var(--accent-red);
     padding: 6px 14px;
     border-radius: 50px;
     font-size: 0.7rem;
@@ -111,7 +112,7 @@
 .meta-tag {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--accent-purple);
+    color: var(--accent-red);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -134,7 +135,7 @@
 }
 
 [data-theme="light"] .risk-content-v2 h3 {
-    color: var(--text-primary);
+    color: var(--accent-yellow);
 }
 
 .risk-content-v2 p {
@@ -154,7 +155,7 @@
 }
 
 .risks-scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(142, 45, 226, 0.2);
+    background: rgba(255, 51, 51, 0.2);
     border-radius: 10px;
 }
 

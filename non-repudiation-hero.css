@@ -9,8 +9,16 @@
     text-shadow: 0 10px 30px rgba(0, 55, 85, 0.05);
 }
 
+.non-repudiation-variant h1 {
+    background: var(--hero-gradient-blue) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
 .non-repudiation-variant .highlight-text {
-    background: linear-gradient(135deg, #0066ff 0%, #00adef 50%, #8e2de2 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-red) 50%, var(--accent-yellow) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -27,7 +35,7 @@
     left: 0;
     width: 100%;
     height: 8px;
-    background: rgba(0, 173, 239, 0.1);
+    background: rgba(0, 102, 255, 0.1);
     z-index: -1;
     border-radius: 4px;
 }
@@ -50,8 +58,8 @@
     width: 120%;
     height: 120%;
     background-image:
-        linear-gradient(rgba(142, 45, 226, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(142, 45, 226, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(0, 102, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 102, 255, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     transform: rotateX(70deg) translateZ(-150px);
     opacity: 0.4;
@@ -78,7 +86,7 @@
     overflow: hidden;
     box-shadow:
         0 30px 60px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(0, 173, 239, 0.15);
+        0 0 40px rgba(0, 102, 255, 0.15);
     background: rgba(15, 23, 42, 0.4);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -128,9 +136,9 @@
     height: 300%;
     background: linear-gradient(to bottom,
             transparent 0%,
-            rgba(0, 173, 239, 0) 45%,
-            rgba(0, 173, 239, 0.2) 50%,
-            rgba(0, 173, 239, 0) 55%,
+            rgba(0, 102, 255, 0) 45%,
+            rgba(0, 102, 255, 0.2) 50%,
+            rgba(0, 102, 255, 0) 55%,
             transparent 100%);
     z-index: 2;
     pointer-events: none;
@@ -184,9 +192,9 @@
     position: absolute;
     width: 6px;
     height: 6px;
-    background: var(--accent-blue);
+    background: var(--primary-blue);
     border-radius: 50%;
-    box-shadow: 0 0 15px var(--accent-blue);
+    box-shadow: 0 0 15px var(--primary-blue);
     opacity: 0.6;
     z-index: 1;
 }
@@ -255,17 +263,17 @@
     width: 400px;
     height: 300px;
     background: rgba(15, 23, 42, 0.2);
-    border: 2px solid rgba(142, 45, 226, 0.2);
+    border: 2px solid rgba(0, 102, 255, 0.2);
     border-radius: 50%;
     transform: translateX(-50%) rotateX(90deg) translateZ(-50px);
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 100px rgba(142, 45, 226, 0.1);
+    box-shadow: 0 0 100px rgba(0, 102, 255, 0.1);
 }
 
 .base-glow {
     position: absolute;
     inset: -20px;
-    background: radial-gradient(circle, rgba(0, 173, 239, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     animation: basePulse 4s ease-in-out infinite;
 }
@@ -306,8 +314,8 @@
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    color: var(--accent-blue);
-    box-shadow: 0 0 50px rgba(0, 173, 239, 0.3), inset 0 0 20px rgba(0, 173, 239, 0.2);
+    color: var(--primary-blue);
+    box-shadow: 0 0 50px rgba(0, 102, 255, 0.3), inset 0 0 20px rgba(0, 102, 255, 0.2);
     animation: crystalFloat 4s ease-in-out infinite;
     z-index: 2;
 }
@@ -327,14 +335,14 @@
 .core-rings .ring {
     position: absolute;
     inset: -30px;
-    border: 1px solid rgba(142, 45, 226, 0.3);
+    border: 1px solid rgba(0, 102, 255, 0.3);
     border-radius: 50%;
     animation: ringSpin 10s linear infinite;
 }
 
 .ring.r2 {
     inset: -50px;
-    border-color: rgba(0, 173, 239, 0.2);
+    border-color: rgba(0, 102, 255, 0.2);
     animation-duration: 15s;
     animation-direction: reverse;
 }
@@ -383,7 +391,7 @@
 
 .sat-badge i {
     font-size: 1.5rem;
-    color: var(--accent-blue);
+    color: var(--primary-blue);
     margin-bottom: 5px;
 }
 
@@ -444,7 +452,7 @@
     left: 50%;
     width: 150px;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent-blue), transparent);
+    background: linear-gradient(90deg, var(--primary-blue), transparent);
     transform-origin: left;
     transform: rotateZ(180deg);
     opacity: 0.3;
@@ -494,10 +502,10 @@
     bottom: 40px;
     right: 40px;
     font-size: 4rem;
-    color: var(--accent-purple);
+    color: var(--accent-red);
     opacity: 0;
     transform: scale(3) rotate(-15deg);
-    filter: drop-shadow(0 0 15px rgba(142, 45, 226, 0.6));
+    filter: drop-shadow(0 0 15px rgba(255, 51, 51, 0.6));
     animation: sealStamp 5s ease-in-out infinite;
 }
 
@@ -526,9 +534,9 @@
     position: absolute;
     width: 4px;
     height: 4px;
-    background: var(--accent-blue);
+    background: var(--primary-blue);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-blue);
+    box-shadow: 0 0 10px var(--primary-blue);
     opacity: 0;
 }
 

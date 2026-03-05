@@ -29,9 +29,8 @@
 }
 
 .zk-risk-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    background: rgba(255, 0, 0, 0.02);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -43,7 +42,7 @@
 
 .zk-risk-card h3 {
     font-size: 1.25rem;
-    color: var(--text-primary);
+    color: var(--accent-yellow);
     margin-bottom: 10px;
     font-weight: 700;
 }

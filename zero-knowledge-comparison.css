@@ -22,8 +22,8 @@
 
 .zk-comp-table th {
     padding: 30px 40px;
-    background: rgba(139, 92, 246, 0.02);
-    color: #8b5cf6;
+    background: rgba(255, 0, 0, 0.02);
+    color: var(--accent-red);
     /* Royal Purple */
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
@@ -46,7 +46,7 @@
 }
 
 .zk-comp-table tr:hover td {
-    background: rgba(139, 92, 246, 0.01);
+    background: rgba(0, 102, 255, 0.01);
 }
 
 .zk-comp-table td:first-child {
@@ -58,7 +58,7 @@
 /* Highlight BrillSign Column */
 .zk-comp-table th:last-child,
 .zk-comp-table td:last-child {
-    background: rgba(139, 92, 246, 0.04);
+    background: rgba(0, 102, 255, 0.04);
     position: relative;
 }
 
@@ -70,8 +70,8 @@
     top: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, #8b5cf6, transparent);
-    opacity: 0.3;
+    background: linear-gradient(to bottom, transparent, var(--accent-red), var(--accent-yellow), transparent);
+    opacity: 0.6;
 }
 
 .comp-val {
@@ -94,12 +94,12 @@
 }
 
 .comp-val.premium {
-    color: #8b5cf6;
+    color: var(--accent-red);
 }
 
 .comp-val.premium i {
-    color: #8b5cf6;
-    filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.3));
+    color: var(--accent-red);
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
 }
 
 @media (max-width: 768px) {

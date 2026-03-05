@@ -26,7 +26,7 @@
 .hub-core {
     width: 100%;
     height: 100%;
-    background: var(--primary-blue);
+    background: var(--accent-red);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@
     color: #fff;
     z-index: 10;
     position: relative;
-    box-shadow: 0 0 50px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
     border: 4px solid #fff;
 }
 
@@ -65,11 +65,9 @@
 
 .spoke-line {
     width: 250px;
-    /* Increased from 150px */
     height: 2px;
-    background: linear-gradient(90deg, var(--primary-blue), rgba(79, 70, 229, 0.1));
+    background: linear-gradient(90deg, var(--accent-red), rgba(255, 0, 0, 0.1));
     flex-shrink: 0;
-    /* Prevent line from disappearing when content is wide */
 }
 
 .spoke-node {
@@ -151,12 +149,10 @@
 
 .spoke-node .node-label {
     font-size: 0.95rem;
-    /* Increased font size */
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--accent-yellow);
     line-height: 1.4;
     flex: 1;
-    /* Allow text to take remaining space */
 }
 
 /* Position Spikes */

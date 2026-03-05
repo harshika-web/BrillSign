@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Center | BrillSign - Learn & Support</title>
+    <meta name="description"
+        content="Access BrillSign documentation, tutorials, security whitepapers, and customer support. Everything you need to succeed with digital signatures.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cta-pages.css">
+    <style>
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+
+        .resource-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 102, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 55, 85, 0.08);
+            border-color: var(--cta-blue);
+        }
+
+        .resource-card i {
+            font-size: 2.2rem;
+            color: var(--cta-blue);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .resource-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--cta-navy);
+        }
+
+        .resource-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .resource-card .btn-text {
+            color: var(--cta-blue);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .resource-hero {
+            background: #f0f7ff;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .support-cta-box {
+            background: #fff;
+            padding: 60px;
+            border-radius: 32px;
+            text-align: center;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body class="cta-page-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="resource-hero">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; font-weight: 800; color: var(--cta-navy);">Modern Infrastructure <span
+                    style="color: var(--cta-blue);">Knowledge</span></h1>
+            <p style="font-size: 1.25rem; color: #64748b; max-width: 700px; margin: 25px auto 40px;">Deep dives,
+                technical documentation, and customer success stories. Everything you need to secure your digital
+                future.</p>
+        </div>
+    </section>
+
+    <!-- Resource Categories -->
+    <section class="resources-hub">
+        <div class="container">
+            <div class="resource-grid">
+
+                <!-- Documentation -->
+                <div class="resource-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Product Docs</h3>
+                    <p>Comprehensive guides for users, admins, and developers to master BrillSign.</p>
+                    <a href="#" class="btn-text">Browse Library <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Case Studies -->
+                <div class="resource-card">
+                    <i class="fas fa-file-invoice"></i>
+                    <h3>Case Studies</h3>
+                    <p>Learn how industry leaders are scaling security with BrillSign's architecture.</p>
+                    <a href="#" class="btn-text">Read Stories <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Security Center -->
+                <div class="resource-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Trust Center</h3>
+                    <p>Compliance certificates, security whitepapers, and real-time system status.</p>
+                    <a href="#" class="btn-text">View Security <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Blog -->
+                <div class="resource-card">
+                    <i class="fas fa-rss"></i>
+                    <h3>Insights Blog</h3>
+                    <p>The latest updates on digital signature law, technology, and security trends.</p>
+                    <a href="#" class="btn-text">Stay Updated <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Tutorials -->
+                <div class="resource-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Academy</h3>
+                    <p>Video tutorials and step-by-step guides to get the most out of BrillSign.</p>
+                    <a href="#" class="btn-text">Start Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Help Center -->
+                <div class="resource-card">
+                    <i class="fas fa-life-ring"></i>
+                    <h3>Help Center</h3>
+                    <p>Technical support, FAQs, and troubleshooting for common issues.</p>
+                    <a href="contact-support.html" class="btn-text">Get Help <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+            <!-- Support CTA -->
+            <div class="support-cta-box">
+                <i class="fas fa-headset"
+                    style="font-size: 3rem; color: var(--cta-blue); margin-bottom: 25px; display: block;"></i>
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Can't find what you're looking
+                    for?</h2>
+                <p style="font-size: 1.15rem; color: #64748b; max-width: 600px; margin: 0 auto 40px;">Our support team
+                    is available 24/7 to help you with any technical or account-related inquiries.</p>
+                <a href="contact-support.html" class="btn-primary"
+                    style="padding: 20px 45px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 12px; font-weight: 700; display: inline-block;">Contact
+                    Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+</body>
+
+</html>

@@ -18,8 +18,8 @@
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(circle at 10% 20%, rgba(0, 173, 239, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(76, 217, 100, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 184, 0, 0.05) 0%, transparent 40%);
     pointer-events: none;
 }
 
@@ -55,19 +55,19 @@
 }
 
 .btn-banner-primary {
-    background: var(--accent-blue);
+    background: var(--primary-blue);
     color: #fff;
     padding: 12px 30px;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 173, 239, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
 }
 
 .btn-banner-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 173, 239, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.4);
 }
 
 /* Standards Grid Side */
@@ -97,15 +97,15 @@
 .standard-card.featured {
     grid-column: span 2;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-    border-color: rgba(0, 173, 239, 0.2);
+    border-color: rgba(0, 102, 255, 0.2);
 }
 
 .std-tag {
     display: inline-block;
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--accent-blue);
-    background: rgba(0, 173, 239, 0.1);
+    color: var(--primary-blue);
+    background: rgba(0, 102, 255, 0.1);
     padding: 5px 12px;
     border-radius: 6px;
     margin-bottom: 12px;

@@ -55,12 +55,27 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    flex: 1;
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at top right, var(--persona-glow), transparent 70%);
     opacity: 0.1;
     transition: opacity 0.5s ease;
+}
+
+.impact-card-esign:nth-child(1) {
+    --accent-color: var(--primary-blue);
+    opacity: 1;
+}
+
+.impact-card-esign:nth-child(2) {
+    --accent-color: var(--accent-red);
+    opacity: 1;
+}
+
+.impact-card-esign:nth-child(3) {
+    --accent-color: var(--accent-yellow);
+    opacity: 1;
 }
 
 .persona-card:hover {
@@ -76,15 +91,15 @@
 
 /* Persona Categories */
 .persona-enterprise {
-    --persona-glow: #6366f1;
+    --persona-glow: var(--primary-blue);
 }
 
 .persona-smb {
-    --persona-glow: #10b981;
+    --persona-glow: var(--accent-yellow);
 }
 
 .persona-individual {
-    --persona-glow: #8b5cf6;
+    --persona-glow: var(--accent-red);
 }
 
 .persona-label {
@@ -143,15 +158,15 @@
 
 /* Helper RGB variables for icon bg */
 .persona-enterprise {
-    --persona-glow-rgb: 99, 102, 241;
+    --persona-glow-rgb: 0, 102, 255;
 }
 
 .persona-smb {
-    --persona-glow-rgb: 16, 185, 129;
+    --persona-glow-rgb: 255, 204, 0;
 }
 
 .persona-individual {
-    --persona-glow-rgb: 139, 92, 246;
+    --persona-glow-rgb: 255, 51, 51;
 }
 
 /* Staggered Animation Logic */
@@ -218,15 +233,15 @@
 }
 
 [data-theme="light"] .persona-enterprise {
-    --persona-glow: #0066ff;
+    --persona-glow: var(--primary-blue);
 }
 
 [data-theme="light"] .persona-smb {
-    --persona-glow: #10b981;
+    --persona-glow: var(--accent-yellow);
 }
 
 [data-theme="light"] .persona-individual {
-    --persona-glow: #8b5cf6;
+    --persona-glow: var(--accent-red);
 }
 
 [data-theme="light"] .persona-name {

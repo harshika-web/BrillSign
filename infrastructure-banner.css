@@ -15,7 +15,7 @@
     height: 120%;
     top: -10%;
     right: -10%;
-    background: linear-gradient(135deg, #0066ff 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #3b82f6 100%);
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
     opacity: 0.9;
     z-index: 1;
@@ -53,7 +53,7 @@
     top: 5%;
     left: 10%;
     /* Stronger solid yellow center fading out */
-    background: radial-gradient(circle, rgba(255, 220, 0, 0.8) 0%, rgba(255, 255, 0, 0.1) 70%);
+    background: radial-gradient(circle, rgba(255, 184, 0, 0.8) 0%, rgba(255, 184, 0, 0.1) 70%);
     border-radius: 50%;
     filter: blur(60px);
     /* Slightly reduced blur for definition */
@@ -150,7 +150,7 @@
 
 /* Dynamic highlight in title */
 .infra-banner-title span {
-    color: #0066ff;
+    color: var(--primary-blue);
     position: relative;
     display: inline-block;
 }
@@ -174,7 +174,7 @@
     align-items: center;
     gap: 12px;
     padding: 16px 36px;
-    background: #0066ff;
+    background: var(--primary-blue);
     /* Brand Blue */
     color: #ffffff;
     border-radius: 100px;

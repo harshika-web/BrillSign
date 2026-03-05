@@ -46,6 +46,14 @@
     }
 }
 
+.feature-hero.audit-variant h1 {
+    background: var(--hero-gradient-blue) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
 .audit-visual-premium {
     position: relative;
     width: 100%;
@@ -65,8 +73,8 @@
     overflow: hidden;
     box-shadow:
         0 60px 130px rgba(0, 0, 0, 0.4),
-        0 0 60px rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+        0 10px 40px -10px rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.2);
     transform-style: preserve-3d;
     transform: rotateY(-18deg) rotateX(12deg);
     transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -150,9 +158,9 @@
     height: 200px;
     background: linear-gradient(to bottom,
             transparent,
-            rgba(34, 197, 94, 0.02) 20%,
-            rgba(34, 197, 94, 0.12) 50%,
-            rgba(34, 197, 94, 0.02) 80%,
+            rgba(0, 102, 255, 0.05) 20%,
+            rgba(255, 0, 0, 0.15) 50%,
+            rgba(255, 255, 0, 0.05) 80%,
             transparent);
     animation: quantumScan 7s infinite cubic-bezier(0.4, 0, 0.2, 1);
     filter: blur(25px);
@@ -165,8 +173,8 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: rgba(34, 197, 94, 0.5);
-    box-shadow: 0 0 25px rgba(34, 197, 94, 0.8);
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-red), var(--accent-yellow));
+    box-shadow: 0 0 25px rgba(0, 102, 255, 0.8);
 }
 
 @keyframes quantumScan {

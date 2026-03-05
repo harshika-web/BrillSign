@@ -47,7 +47,7 @@
 
 .faq-item.active {
     background: rgba(30, 41, 59, 0.8);
-    border-color: rgba(99, 102, 241, 0.4);
+    border-color: rgba(0, 102, 255, 0.4);
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
@@ -110,7 +110,7 @@
 
 .faq-item.active .faq-toggle::before,
 .faq-item.active .faq-toggle::after {
-    background-color: #818cf8;
+    background-color: var(--primary-blue);
 }
 
 .faq-answer {

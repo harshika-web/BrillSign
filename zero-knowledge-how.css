@@ -56,7 +56,7 @@
 .tunnel-layer:hover {
     transform: translateY(-10px);
     background: #fff;
-    border-color: #8b5cf6;
+    border-color: var(--accent-red);
 }
 
 .tunnel-node {
@@ -67,19 +67,19 @@
 .tunnel-node .node-icon {
     width: 80px;
     height: 80px;
-    background: rgba(139, 92, 246, 0.1);
+    background: rgba(0, 102, 255, 0.1);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2.2rem;
-    color: #8b5cf6;
+    color: var(--primary-blue);
     margin: 0 auto 25px auto;
     transition: all 0.4s ease;
 }
 
 .tunnel-layer:hover .node-icon {
-    background: #8b5cf6;
+    background: var(--primary-blue);
     color: #fff;
     transform: rotate(15deg);
 }
@@ -100,7 +100,7 @@
 .tunnel-line {
     flex: 1;
     height: 4px;
-    background: linear-gradient(to right, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-red));
     position: relative;
     z-index: 1;
 }
@@ -109,7 +109,7 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #8b5cf6;
+    background: var(--primary-blue);
     border-radius: 50%;
     filter: blur(2px);
     top: -2px;
@@ -143,15 +143,15 @@
     justify-content: center;
     gap: 15px;
     margin-top: 60px;
-    background: rgba(139, 92, 246, 0.05);
+    background: rgba(255, 204, 0, 0.1);
     padding: 20px 40px;
     border-radius: 50px;
-    color: #8b5cf6;
+    color: var(--accent-yellow);
     font-weight: 700;
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    border: 1px dashed rgba(139, 92, 246, 0.2);
+    border: 1px dashed rgba(255, 204, 0, 0.4);
 }
 
 @media (max-width: 900px) {

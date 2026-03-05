@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Free Trial | BrillSign - Secure Digital Signatures</title>
+    <meta name="description"
+        content="Get 14 days of full access to BrillSign's secure digital signature platform. No credit card required.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cta-pages.css">
+</head>
+
+<body class="cta-page-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="cta-hero">
+        <div class="cta-hero-bg"
+            style="position: absolute; inset: 0; background: url('free_trial_visual.png') center/cover no-repeat; opacity: 0.15; z-index: 1;">
+        </div>
+        <div class="container" style="max-width: 900px;">
+            <h1>Start Your <span>14-Day Free Trial</span></h1>
+            <p>Experience the power of secure, decentralized digital signatures.
+                Get full access to all enterprise features. No credit card required.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="cta-form-section">
+        <div class="container">
+            <div class="cta-form-container" style="max-width: 600px;">
+                <form id="trial-form" action="javascript:void(0);">
+                    <div class="form-group">
+                        <label for="work-email">Work Email</label>
+                        <input type="email" id="work-email" placeholder="john@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Create Password</label>
+                        <input type="password" id="password" placeholder="Minimum 8 characters" required minlength="8">
+                    </div>
+                    <div class="form-group">
+                        <label for="workspace">Workspace Name</label>
+                        <input type="text" id="workspace" placeholder="e.g. Acme Marketing" required>
+                    </div>
+
+                    <div style="margin: 20px 0; font-size: 0.85rem; color: #64748b;">
+                        By signing up, you agree to our <a href="#" style="color: var(--cta-blue);">Terms of Service</a>
+                        and <a href="#" style="color: var(--cta-blue);">Privacy Policy</a>.
+                    </div>
+
+                    <button type="submit" class="btn-submit">Initialize My Workspace</button>
+                </form>
+
+                <div id="success-trial" class="success-message" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h2>Welcome Aboard!</h2>
+                    <p>Your secure workspace is being provisioned. Check your email to verify your account and get
+                        started.</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html'">Go to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section (Feature Hub) -->
+    <section class="cta-benefits">
+        <div class="feature-hub-container">
+            <!-- Visual Pillar (CSS Trial Dashboard) -->
+            <div class="hub-visual-column">
+                <div class="bs-dashboard">
+                    <div class="bs-topbar" style="background: linear-gradient(135deg, #0066ff, #00b4d8);">
+                        <span class="bs-brand">BrillSign</span>
+                        <span class="bs-live-badge"><i class="fas fa-circle"></i> Free Trial</span>
+                    </div>
+                    <div class="bs-stats-row">
+                        <div class="bs-stat">
+                            <span class="bs-stat-num" style="color: #00b4d8;">14</span>
+                            <span class="bs-stat-label">Days Free</span>
+                        </div>
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">∞</span>
+                            <span class="bs-stat-label">Doc Signings</span>
+                        </div>
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">5</span>
+                            <span class="bs-stat-label">Team Members</span>
+                        </div>
+                    </div>
+                    <div class="bs-chart-area" style="border-bottom: none;">
+                        <span class="bs-chart-title">Your Trial Includes</span>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div
+                                style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #1e293b;">
+                                <i class="fas fa-check-circle" style="color: #22c55e;"></i> Zero-Knowledge Encryption
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #1e293b;">
+                                <i class="fas fa-check-circle" style="color: #22c55e;"></i> Decentralized Storage
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #1e293b;">
+                                <i class="fas fa-check-circle" style="color: #22c55e;"></i> Full API Access
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #1e293b;">
+                                <i class="fas fa-check-circle" style="color: #22c55e;"></i> SOC2 Compliance Tools
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bs-signers"
+                        style="padding-top: 12px; border-top: 1px solid #f0f4ff; text-align: center;">
+                        <span style="font-size: 0.82rem; color: #94a3b8;"><i class="fas fa-lock"
+                                style="color: #0066ff; margin-right: 6px;"></i>No credit card required</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Pillar -->
+            <div class="hub-features-column">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <h2 style="font-size: 2.8rem; font-weight: 800; line-height: 1.3; text-align: left;">Everything You
+                        Need to <span
+                            style="color: var(--cta-blue); padding: 0.1em 0; margin: -0.1em 0; display: inline-block;">Start
+                            Signing</span></h2>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: #64748b; text-align: left;">Get full
+                        enterprise-grade access from day one — completely free.</p>
+                </div>
+                <div class="feature-strip blue">
+                    <div class="strip-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="strip-content">
+                        <h3>Full Feature Access</h3>
+                        <p>Experience every enterprise feature, from zero-knowledge handling to decentralized storage.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-strip red">
+                    <div class="strip-icon"><i class="fas fa-users"></i></div>
+                    <div class="strip-content">
+                        <h3>Team Collaboration</h3>
+                        <p>Invite up to 5 team members to your trial workspace and test collaborative workflows.</p>
+                    </div>
+                </div>
+                <div class="feature-strip yellow">
+                    <div class="strip-icon"><i class="fas fa-file-export"></i></div>
+                    <div class="strip-content">
+                        <h3>Unlimited Signings</h3>
+                        <p>Send and sign as many documents as you need during your 14-day trial period.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script>
+        // Form Interactivity
+        document.getElementById('trial-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('success-trial').style.display = 'block';
+
+            // Console log the "data"
+            const formData = {
+                email: document.getElementById('work-email').value,
+                workspace: document.getElementById('workspace').value
+            };
+            console.log('Trial Signup Data:', formData);
+        });
+    </script>
+</body>
+
+</html>

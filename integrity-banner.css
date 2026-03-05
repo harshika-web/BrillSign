@@ -30,7 +30,7 @@
 .blob-blue {
     width: 600px;
     height: 600px;
-    background: #0066ff;
+    background: var(--primary-blue);
     top: -100px;
     left: -100px;
 }
@@ -39,7 +39,7 @@
 .blob-red {
     width: 400px;
     height: 400px;
-    background: #ff0000;
+    background: var(--accent-red);
     bottom: -50px;
     right: -50px;
 }
@@ -48,7 +48,7 @@
 .blob-yellow {
     width: 250px;
     height: 250px;
-    background: #ffff00;
+    background: var(--accent-yellow);
     top: 20%;
     right: 15%;
 }
@@ -165,7 +165,7 @@
 .brand-v-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #ff0055, #ffaa00);
+    background: linear-gradient(135deg, var(--accent-red), var(--accent-yellow));
     color: #fff;
     display: flex;
     align-items: center;
@@ -186,7 +186,7 @@
 .banner-v2-title {
     font-size: 2.8rem;
     font-weight: 800;
-    color: #002222;
+    color: var(--primary-blue);
     line-height: 1.2;
     margin-bottom: 30px;
     max-width: 95%;
@@ -220,7 +220,7 @@
 }
 
 .banner-v2-btn:hover {
-    background: #004444;
+    background: #003755;
     transform: translateX(5px);
 }
 
@@ -246,7 +246,7 @@
 /* --- Right Side: Visual --- */
 .banner-v2-visual {
     position: relative;
-    background: #004444;
+    background: #003755;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -256,7 +256,7 @@
 .visual-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, #ffffff00, #004444cc);
+    background: linear-gradient(to right, #00375500, #003755cc);
     z-index: 2;
 }
 
@@ -291,7 +291,7 @@
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 15px solid #004444;
+    border-bottom: 15px solid #003755;
     opacity: 0.3;
 }
 
@@ -304,7 +304,7 @@
 .t-2 {
     bottom: 15%;
     right: 10%;
-    border-bottom-color: #00ffff;
+    border-bottom-color: var(--primary-blue);
 }
 
 

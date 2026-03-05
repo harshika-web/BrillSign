@@ -10,12 +10,12 @@
     /* Main Banner Card */
     position: relative;
     /* Gradient similar to reference but in BrillSign colors (Cyan/Blue) */
-    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0044bb 100%);
     border-radius: 30px;
     padding: 0;
     /* Removing padding here, will use inner containers */
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 102, 255, 0.3);
     min-height: 450px;
     display: flex;
     align-items: center;
@@ -110,7 +110,7 @@
     padding: 15px 40px;
     background: #ffffff;
     /* White button */
-    color: #0284c7;
+    color: var(--primary-blue);
     /* Blue text */
     border-radius: 50px;
     /* Pill shape */
@@ -127,7 +127,7 @@
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     background: #ffffff;
-    color: #0284c7;
+    color: var(--primary-blue);
 }
 
 .unified-btn i {
@@ -198,7 +198,7 @@
 .standard-tag {
     font-size: 1.2rem;
     font-weight: 800;
-    color: #0284c7;
+    color: var(--primary-blue);
     margin: 0;
     display: block;
 }

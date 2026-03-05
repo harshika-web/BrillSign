@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Demo | BrillSign - Secure Digital Signatures</title>
+    <meta name="description"
+        content="Schedule a personalized demo of BrillSign to see how our secure digital signatures can transform your document lifecycle.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cta-pages.css">
+</head>
+
+<body class="cta-page-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="cta-hero">
+        <div class="cta-hero-bg"
+            style="position: absolute; inset: 0; background: url('book_demo_visual.png') center/cover no-repeat; opacity: 0.15; z-index: 1;">
+        </div>
+        <div class="container">
+            <h1>See BrillSign in <span>Action</span></h1>
+            <p>Experience the future of secure, platform-independent digital signatures.
+                Schedule a personalized walkthrough with our solution experts.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="cta-form-section">
+        <div class="container">
+            <div class="cta-form-container">
+                <form id="demo-form" action="javascript:void(0);">
+                    <div class="cta-form-grid">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Doe" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" placeholder="john@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" placeholder="Acme Inc." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="volume">Monthly Document Volume</label>
+                            <select id="volume" required>
+                                <option value="" disabled selected>Select volume</option>
+                                <option value="1-100">1 - 100</option>
+                                <option value="101-500">101 - 500</option>
+                                <option value="501-2000">501 - 2,000</option>
+                                <option value="2000+">2,000+</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Anything specific you'd like to see?</label>
+                            <textarea id="message" rows="4" placeholder="Tell us about your use case..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Schedule My Demo</button>
+                </form>
+
+                <div id="success-message" class="success-message" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2>Demo Request Received!</h2>
+                    <p>One of our solution experts will reach out within 24 hours to schedule your personalized
+                        walkthrough.</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html'">Return Home</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section (Feature Hub) -->
+    <section class="cta-benefits">
+        <div class="feature-hub-container">
+            <!-- Visual Pillar (CSS Dashboard Mockup) -->
+            <div class="hub-visual-column">
+                <div class="bs-dashboard">
+                    <!-- Top Bar -->
+                    <div class="bs-topbar">
+                        <span class="bs-brand">BrillSign</span>
+                        <span class="bs-live-badge"><i class="fas fa-circle"></i> Live Demo</span>
+                    </div>
+                    <!-- Stats Row -->
+                    <div class="bs-stats-row">
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">1,284</span>
+                            <span class="bs-stat-label">Docs Signed</span>
+                        </div>
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">97.3%</span>
+                            <span class="bs-stat-label">Completion Rate</span>
+                        </div>
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">2.1s</span>
+                            <span class="bs-stat-label">Avg. Sign Time</span>
+                        </div>
+                    </div>
+                    <!-- Chart Area -->
+                    <div class="bs-chart-area">
+                        <span class="bs-chart-title">Signing Activity</span>
+                        <div class="bs-bars">
+                            <div class="bs-bar" style="--h:55%;"></div>
+                            <div class="bs-bar" style="--h:72%;"></div>
+                            <div class="bs-bar" style="--h:48%;"></div>
+                            <div class="bs-bar" style="--h:88%;"></div>
+                            <div class="bs-bar" style="--h:65%;"></div>
+                            <div class="bs-bar" style="--h:95%;"></div>
+                            <div class="bs-bar" style="--h:78%;"></div>
+                        </div>
+                    </div>
+                    <!-- Recent Signers -->
+                    <div class="bs-signers">
+                        <div class="bs-signer-row">
+                            <div class="bs-avatar" style="background:#e0eaff;">JD</div>
+                            <div class="bs-signer-info"><span>John Doe</span><small>NDA Agreement</small></div>
+                            <span class="bs-signed-badge">Signed</span>
+                        </div>
+                        <div class="bs-signer-row">
+                            <div class="bs-avatar" style="background:#ffe0e0;">AS</div>
+                            <div class="bs-signer-info"><span>Aria Shah</span><small>Service Contract</small></div>
+                            <span class="bs-pending-badge">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Pillar -->
+            <div class="hub-features-column">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <h2 style="font-size: 2.8rem; font-weight: 800; line-height: 1.3; text-align: left;">Why Book a
+                        <span
+                            style="color: var(--cta-blue); padding: 0.1em 0; margin: -0.1em 0; display: inline-block;">Demo?</span>
+                    </h2>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: #64748b; text-align: left;">
+                        Discover the infrastructure powering secure digital trust.</p>
+                </div>
+
+                <div class="feature-strip blue">
+                    <div class="strip-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="strip-content">
+                        <h3>Technical Deep Dive</h3>
+                        <p>Explore our decentralized storage and zero-knowledge architecture with a senior architect.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-strip red">
+                    <div class="strip-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="strip-content">
+                        <h3>Compliance Review</h3>
+                        <p>See how BrillSign maps to SOC2, GDPR, and regional regulations for your specific industry.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-strip yellow">
+                    <div class="strip-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <div class="strip-content">
+                        <h3>Integration Strategy</h3>
+                        <p>Discuss our API-first approach and how to embed secure signing into your existing workflows.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script>
+        // Form Interactivity
+        document.getElementById('demo-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+
+            // Console log the "data"
+            const formData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                volume: document.getElementById('volume').value,
+                message: document.getElementById('message').value
+            };
+            console.log('Demo Request Data:', formData);
+        });
+    </script>
+</body>
+
+</html>

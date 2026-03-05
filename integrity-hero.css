@@ -86,6 +86,27 @@
     }
 }
 
+.feature-hero.integrity-variant h1 {
+    background: var(--hero-gradient-blue) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.hero-main-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000c1d;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow:
+        0 60px 130px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(255, 0, 0, 0.15);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
 .doc-card-surface {
     position: relative;
     width: 350px;
@@ -400,7 +421,7 @@
 .shield-glass-model i {
     font-size: 2.5rem;
     /* Gradient Text for Icon */
-    background: linear-gradient(135deg, #0066ff 0%, #003755 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #003755 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

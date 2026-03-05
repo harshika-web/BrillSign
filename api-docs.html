@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Hub | BrillSign Documentation</title>
+    <meta name="description"
+        content="Build secure, automated signing workflows with BrillSign's API and SDKs. Developer-first infrastructure for digital trust.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cta-pages.css">
+    <style>
+        .code-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 30px;
+            border-radius: 16px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-block::before {
+            content: 'curl';
+            position: absolute;
+            top: 0;
+            right: 20px;
+            background: #1e293b;
+            padding: 4px 12px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #94a3b8;
+        }
+
+        .code-keyword {
+            color: #f472b6;
+        }
+
+        .code-string {
+            color: #34d399;
+        }
+
+        .code-comment {
+            color: #64748b;
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .api-resource-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 102, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .api-resource-card:hover {
+            border-color: var(--cta-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 55, 85, 0.05);
+        }
+
+        .api-resource-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sdk-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            justify-content: center;
+            opacity: 0.6;
+        }
+
+        .sdk-badges i {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body class="cta-page-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="cta-hero"
+        style="background: #f8fafc; color: var(--cta-navy); text-align: left; padding: 140px 0 100px;">
+        <div class="container" style="display: flex; gap: 80px; align-items: center;">
+            <div style="flex: 1;">
+                <span
+                    style="color: var(--cta-blue); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Developer
+                    Hub</span>
+                <h1 style="color: var(--cta-navy); margin-top: 15px; font-size: 3.8rem;">Build with <span
+                        style="color: var(--cta-blue);">BrillSign</span></h1>
+                <p style="color: #64748b; font-size: 1.2rem; margin-top: 25px;">Integrate secure, platform-independent
+                    signing into your application in minutes. Simple REST API, powerful SDKs, and webhooks for every
+                    event.</p>
+                <div style="display: flex; gap: 20px; margin-top: 40px;">
+                    <a href="#" class="btn-primary"
+                        style="padding: 16px 32px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 12px; font-weight: 700;">Get
+                        API Key</a>
+                    <a href="#"
+                        style="padding: 16px 32px; border: 2px solid #e2e8f0; color: var(--cta-navy); text-decoration: none; border-radius: 12px; font-weight: 700; transition: all 0.3s ease;">Explore
+                        Specs</a>
+                </div>
+            </div>
+            <div style="flex: 1;">
+                <div class="code-block">
+                    <div><span class="code-keyword">POST</span> /v1/documents</div>
+                    <div class="code-comment">// Create a new signing request</div>
+                    <div style="margin-top: 15px;">{</div>
+                    <div style="margin-left: 20px;"><span class="code-string">"title"</span>: <span
+                            class="code-string">"Service Agreement"</span>,</div>
+                    <div style="margin-left: 20px;"><span class="code-string">"files"</span>: [<span
+                            class="code-string">"base64_data..."</span>],</div>
+                    <div style="margin-left: 20px;"><span class="code-string">"signers"</span>: [</div>
+                    <div style="margin-left: 40px;">{ <span class="code-string">"email"</span>: <span
+                            class="code-string">"signer@client.com"</span> }</div>
+                    <div style="margin-left: 20px;">],</div>
+                    <div style="margin-left: 20px;"><span class="code-string">"security"</span>: <span
+                            class="code-string">"zero_knowledge"</span></div>
+                    <div>}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Overview -->
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 60px;">Every tool to
+                automate <span style="color: var(--cta-blue);">Trust</span></h2>
+
+            <div class="api-grid">
+                <div class="api-resource-card">
+                    <h4><i class="fas fa-plug" style="color:#0066ff;"></i> REST API</h4>
+                    <p style="color: #64748b; line-height: 1.6;">Full-featured RESTful API with Predictable URLs and
+                        JSON responses for seamless integration.</p>
+                </div>
+                <div class="api-resource-card">
+                    <h4><i class="fas fa-bell" style="color:#10b981;"></i> Webhooks</h4>
+                    <p style="color: #64748b; line-height: 1.6;">Real-time notifications for document status changes,
+                        signer activity, and verification events.</p>
+                </div>
+                <div class="api-resource-card">
+                    <h4><i class="fas fa-box-open" style="color:#f59e0b;"></i> SDKs</h4>
+                    <p style="color: #64748b; line-height: 1.6;">Official client libraries for Node.js, Python, Go, and
+                        Java to accelerate your development cycle.</p>
+                </div>
+                <div class="api-resource-card">
+                    <h4><i class="fas fa-key" style="color:#9333ea;"></i> Secure Auth</h4>
+                    <p style="color: #64748b; line-height: 1.6;">Industry-standard OAuth 2.0 and API Key authentication
+                        with granular scope permissions.</p>
+                </div>
+            </div>
+
+            <div class="sdk-badges">
+                <i class="fab fa-node-js"></i>
+                <i class="fab fa-python"></i>
+                <i class="fab fa-golang"></i>
+                <i class="fab fa-java"></i>
+                <i class="fab fa-php"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,13 @@
+.feature-hero.jurisdiction-variant h1 {
+    background: var(--hero-gradient-blue) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
 .feature-hero.jurisdiction-variant {
-    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, rgba(255, 0, 0, 0.05) 100%);
     position: relative;
     overflow: hidden;
     padding: 140px 0 80px;
@@ -160,9 +168,9 @@
     height: 180px;
     background: linear-gradient(to bottom,
             transparent,
-            rgba(34, 211, 238, 0.02) 20%,
-            rgba(34, 211, 238, 0.08) 50%,
-            rgba(34, 211, 238, 0.02) 80%,
+            rgba(0, 102, 255, 0.02) 20%,
+            rgba(0, 102, 255, 0.08) 50%,
+            rgba(0, 102, 255, 0.02) 80%,
             transparent);
     animation: scanMoveElite 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
     filter: blur(20px);
@@ -175,8 +183,8 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: rgba(34, 211, 238, 0.4);
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+    background: rgba(0, 102, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.8);
 }
 
 @keyframes scanMoveElite {

@@ -27,7 +27,7 @@
     margin-bottom: 20px;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #003755 0%, #0066ff 60%);
+    background: linear-gradient(135deg, #003755 0%, var(--primary-blue) 60%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -48,7 +48,7 @@
     justify-content: center;
     font-weight: 700;
     font-size: 1.1rem;
-    color: #0066ff;
+    color: var(--primary-blue);
     text-decoration: none;
     transition: all 0.3s ease;
 }

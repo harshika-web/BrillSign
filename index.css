@@ -4,8 +4,8 @@
     --primary-blue-hover: #0052cc;
     --accent-red: #ff0000;
     --accent-red-hover: #cc0000;
-    --accent-yellow: #ffff00;
-    --accent-yellow-hover: #e6e600;
+    --accent-yellow: #FFB800;
+    --accent-yellow-hover: #E5A600;
 
     /* Theme Colors (Light Default) */
     --bg-body: #FFFFFF;
@@ -62,12 +62,23 @@
     --deep-navy: #003755;
     --map-filter: grayscale(1) opacity(0.2);
 
+    /* Brand Text Colors */
+    --text-brand-blue: #0066ff;
+    --text-brand-red: #ff0000;
+    --text-brand-yellow: #A37F00;
+    /* Darker yellow for text accessibility */
+
     /* Reveal Animation Base */
     --bg-dark: #f1f5f9;
     --bg-deep: #ffffff;
     --accent-blue: #00adef;
     --accent-purple: #8e2de2;
     --text-light: #f8fafc;
+
+    /* Hero Gradients as Variables */
+    --hero-gradient-red: linear-gradient(135deg, #003755 20%, #ff0000 100%);
+    --hero-gradient-blue: linear-gradient(135deg, #003755 0%, #0066ff 100%);
+    --hero-gradient-yellow: linear-gradient(135deg, #003755 20%, #FFB800 100%);
 }
 
 .reveal {
@@ -259,8 +270,8 @@ h3.layer-value {
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
 }
 
-[data-theme="light"] .feature-title,
-[data-theme="light"] .premium-heading {
+[data-theme="light"] .feature-title:not(.feature-hero h1),
+[data-theme="light"] .premium-heading:not(.feature-hero h1) {
     color: #003755 !important;
     background: none !important;
     -webkit-text-fill-color: #003755 !important;
@@ -270,10 +281,41 @@ h3.layer-value {
     font-weight: 800;
 }
 
-/* Blended Hero Typography Gadients */
-.premium-heading .text-highlight,
-.premium-heading .text-blue {
-    background: linear-gradient(135deg, #003755 0%, #0066ff 50%, #00d2ff 100%) !important;
+
+/* --- ELITE BRAND TEXT UTILITIES (Phase 2) --- */
+.text-brand-blue {
+    color: var(--text-brand-blue) !important;
+}
+
+.text-brand-red {
+    color: var(--text-brand-red) !important;
+}
+
+.text-brand-yellow {
+    color: var(--text-brand-yellow) !important;
+}
+
+/* Distinct Hero Gradient for Feature Pages */
+.hero-gradient-red {
+    background: var(--hero-gradient-red) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800;
+}
+
+.hero-gradient-blue {
+    background: var(--hero-gradient-blue) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800;
+}
+
+.hero-gradient-yellow {
+    background: var(--hero-gradient-yellow) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     color: transparent !important;

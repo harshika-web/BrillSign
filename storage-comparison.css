@@ -64,11 +64,11 @@
 
 .header-brillsign {
     background: #fff;
-    color: #0066ff;
+    color: var(--accent-red);
     border-top-right-radius: 32px;
     position: relative;
     z-index: 2;
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.05);
 }
 
 .header-brillsign::after {
@@ -78,7 +78,7 @@
     left: 10%;
     width: 80%;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #0066ff, transparent);
+    background: linear-gradient(90deg, transparent, var(--accent-red), var(--accent-yellow), transparent);
     border-radius: 2px;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .row-brillsign i {
-    color: #0066ff;
+    color: var(--accent-red);
 }
 
 .row-brillsign:last-child {

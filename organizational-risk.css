@@ -15,8 +15,8 @@
     width: 120%;
     height: 120%;
     background:
-        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(45, 212, 191, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 10% 20%, rgba(255, 51, 51, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.03) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.02) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
@@ -37,13 +37,13 @@
 .risk-glow-1 {
     top: -200px;
     right: -100px;
-    background: radial-gradient(circle, #6366f1, transparent 70%);
+    background: radial-gradient(circle, var(--accent-red), transparent 70%);
 }
 
 .risk-glow-2 {
     bottom: -200px;
     left: -100px;
-    background: radial-gradient(circle, #2dd4bf, transparent 70%);
+    background: radial-gradient(circle, var(--accent-yellow), transparent 70%);
 }
 
 .organizational-risk-section .container {
@@ -135,15 +135,15 @@
 
 /* Accent Modifiers */
 .stakeholder-card.legal-accent::before {
-    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
 }
 
 .stakeholder-card.security-accent::before {
-    background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
 }
 
 .stakeholder-card.ops-accent::before {
-    background: linear-gradient(90deg, transparent, #14b8a6, transparent);
+    background: linear-gradient(90deg, transparent, var(--accent-yellow), transparent);
 }
 
 .stakeholder-card:hover {
@@ -172,18 +172,18 @@
 
 /* Icon Accents */
 .legal-accent .stakeholder-icon {
-    background: rgba(139, 92, 246, 0.1);
-    color: #8b5cf6;
+    background: rgba(255, 51, 51, 0.1);
+    color: var(--accent-red);
 }
 
 .security-accent .stakeholder-icon {
-    background: rgba(14, 165, 233, 0.1);
-    color: #0ea5e9;
+    background: rgba(0, 102, 255, 0.1);
+    color: var(--primary-blue);
 }
 
 .ops-accent .stakeholder-icon {
-    background: rgba(20, 184, 166, 0.1);
-    color: #14b8a6;
+    background: rgba(255, 204, 0, 0.1);
+    color: var(--accent-yellow);
 }
 
 .stakeholder-card:hover .stakeholder-icon {
@@ -222,15 +222,15 @@
 
 /* Item Icon Accents */
 .legal-accent .stakeholder-item i {
-    color: #8b5cf6;
+    color: var(--accent-red);
 }
 
 .security-accent .stakeholder-item i {
-    color: #0ea5e9;
+    color: var(--primary-blue);
 }
 
 .ops-accent .stakeholder-item i {
-    color: #14b8a6;
+    color: var(--accent-yellow);
 }
 
 /* Animation Delays for Staggered Reveal */

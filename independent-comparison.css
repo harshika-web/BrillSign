@@ -14,7 +14,7 @@
     left: -10%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 173, 239, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.05) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
@@ -61,7 +61,7 @@
 }
 
 .comp-table th {
-    background: rgba(0, 173, 239, 0.05);
+    background: rgba(0, 102, 255, 0.05);
     color: #fff;
     font-size: 1.1rem;
     font-weight: 700;
@@ -97,17 +97,17 @@
 
 /* BrillSign Column (Highlight) */
 .comp-table td:nth-child(3) {
-    color: var(--accent-blue);
+    color: var(--accent-red);
     font-weight: 700;
     font-size: 1.05rem;
-    background: rgba(0, 173, 239, 0.03);
+    background: rgba(255, 0, 0, 0.03);
     /* Subtle column highlight */
     position: relative;
 }
 
 .comp-table th:nth-child(3) {
-    color: var(--accent-blue);
-    background: rgba(0, 173, 239, 0.08);
+    color: var(--accent-red);
+    background: rgba(255, 0, 0, 0.08);
 }
 
 /* Row Hover Effect */
@@ -116,7 +116,7 @@
 }
 
 .comp-table tbody tr:hover td:nth-child(3) {
-    background: rgba(0, 173, 239, 0.06);
+    background: rgba(255, 0, 0, 0.06);
 }
 
 [data-theme="light"] .comp-table tbody tr:hover td {

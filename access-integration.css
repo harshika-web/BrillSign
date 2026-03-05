@@ -1,6 +1,6 @@
 .access-integration {
-    padding: 70px 0;
-    background: linear-gradient(135deg, #091a44 0%, #01040d 100%);
+    padding: 60px 0;
+    background: linear-gradient(135deg, #001f3f 0%, #000c1d 100%);
     color: #fff;
     margin: 80px 20px;
     border-radius: 50px;
@@ -19,7 +19,7 @@
     height: 150%;
     background-image:
         linear-gradient(rgba(33, 150, 243, 0.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(33, 150, 243, 0.2) 1px, transparent 1px);
+        radial-gradient(circle, rgba(0, 102, 255, 0.2) 0%, transparent 70%);
     background-size: 60px 60px;
     z-index: 1;
     transform: rotateX(60deg);
@@ -113,14 +113,14 @@
 .hub-center {
     width: 130px;
     height: 130px;
-    background: #2196f3;
+    background: var(--primary-blue);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
     color: #fff;
-    box-shadow: 0 0 80px rgba(33, 150, 243, 0.8);
+    box-shadow: 0 0 30px rgba(0, 102, 255, 0.4);
     z-index: 5;
     animation: hubPulse 3s infinite ease-in-out;
 }
@@ -143,9 +143,9 @@
     position: absolute;
     width: 80px;
     height: 80px;
-    background: rgba(25, 45, 100, 0.7);
+    background: rgba(0, 102, 255, 0.1);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(33, 150, 243, 0.5);
+    border: 1px solid rgba(0, 102, 255, 0.3);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -234,7 +234,7 @@
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 15px 35px rgba(33, 150, 243, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.4);
     white-space: nowrap;
 }
 

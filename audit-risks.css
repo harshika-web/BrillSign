@@ -25,20 +25,21 @@
 
 .audit-risk-card:hover {
     transform: translateY(-10px);
-    background: #fff;
-    border-color: var(--primary-blue);
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--accent-red);
 }
 
 .audit-risk-icon {
     width: 60px;
     height: 60px;
-    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    background: rgba(255, 0, 0, 0.02);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
-    color: #ef4444;
+    color: var(--accent-red);
     flex-shrink: 0;
 }
 

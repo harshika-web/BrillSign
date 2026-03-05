@@ -22,8 +22,8 @@
 
 .access-comp-table th {
     padding: 30px 40px;
-    background: rgba(79, 70, 229, 0.02);
-    color: #4f46e5;
+    background: rgba(255, 0, 0, 0.02);
+    color: var(--accent-red);
     /* Indigo */
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
@@ -46,7 +46,7 @@
 }
 
 .access-comp-table tr:hover td {
-    background: rgba(79, 70, 229, 0.01);
+    background: rgba(0, 102, 255, 0.01);
 }
 
 .access-comp-table td:first-child {
@@ -58,7 +58,7 @@
 /* Highlight BrillSign Column */
 .access-comp-table th:last-child,
 .access-comp-table td:last-child {
-    background: rgba(79, 70, 229, 0.04);
+    background: rgba(0, 102, 255, 0.04);
     position: relative;
 }
 
@@ -70,8 +70,8 @@
     top: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, #4f46e5, transparent);
-    opacity: 0.3;
+    background: linear-gradient(to bottom, transparent, var(--accent-red), var(--accent-yellow), transparent);
+    opacity: 0.6;
 }
 
 .comp-val {
@@ -94,12 +94,12 @@
 }
 
 .comp-val.premium {
-    color: #4f46e5;
+    color: var(--accent-red);
 }
 
 .comp-val.premium i {
-    color: #4f46e5;
-    filter: drop-shadow(0 0 5px rgba(79, 70, 229, 0.3));
+    color: var(--accent-red);
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
 }
 
 @media (max-width: 768px) {

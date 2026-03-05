@@ -27,7 +27,7 @@
     transform: translate(-50%, -50%);
     width: 1000px;
     height: 1000px;
-    background: radial-gradient(circle, rgba(0, 102, 255, 0.18) 0%, transparent 75%);
+    background: linear-gradient(135deg, rgba(0, 55, 85, 0.1) 0%, rgba(255, 0, 0, 0.05) 100%);
     z-index: 0;
     pointer-events: none;
     filter: blur(40px);
@@ -49,11 +49,24 @@
 .jurisdiction-impact .container {
     position: relative;
     z-index: 1;
+    flex: 1;
+}
+
+.impact-grid-jurisdiction>div:nth-child(1) {
+    --accent-color: var(--primary-blue);
+}
+
+.impact-grid-jurisdiction>div:nth-child(2) {
+    --accent-color: var(--accent-red);
+}
+
+.impact-grid-jurisdiction>div:nth-child(3) {
+    --accent-color: var(--accent-yellow);
 }
 
 /* Page Signature: Deep Blue */
 .impact-grid {
-    --accent-color: #0066ff;
+    --accent-color: var(--primary-blue);
     --accent-rgb: 0, 102, 255;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -70,6 +83,21 @@
     box-shadow: var(--card-shadow);
     position: relative;
     overflow: hidden;
+}
+
+.impact-col:nth-child(1) {
+    --accent-color: var(--primary-blue);
+    --accent-rgb: 0, 102, 255;
+}
+
+.impact-col:nth-child(2) {
+    --accent-color: var(--accent-red);
+    --accent-rgb: 255, 51, 51;
+}
+
+.impact-col:nth-child(3) {
+    --accent-color: var(--accent-yellow);
+    --accent-rgb: 255, 204, 0;
 }
 
 /* Color Coding & Unique Hover Effects */

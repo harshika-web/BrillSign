@@ -22,8 +22,8 @@
 
 .comp-table th {
     padding: 30px 40px;
-    background: rgba(0, 102, 255, 0.02);
-    color: var(--primary-blue);
+    background: rgba(255, 0, 0, 0.02);
+    color: var(--accent-red);
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
     font-size: 0.85rem;
@@ -69,8 +69,8 @@
     top: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, var(--primary-blue), transparent);
-    opacity: 0.3;
+    background: linear-gradient(to bottom, transparent, var(--accent-red), var(--accent-yellow), transparent);
+    opacity: 0.6;
 }
 
 .comp-val {
@@ -93,12 +93,12 @@
 }
 
 .comp-val.premium {
-    color: var(--primary-blue);
+    color: var(--accent-red);
 }
 
 .comp-val.premium i {
-    color: var(--primary-blue);
-    filter: drop-shadow(0 0 5px rgba(0, 102, 255, 0.3));
+    color: var(--accent-red);
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
 }
 
 @media (max-width: 768px) {

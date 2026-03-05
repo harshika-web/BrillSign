@@ -30,7 +30,7 @@
 
 .upload-icon {
     font-size: 2.5rem;
-    color: #3b82f6;
+    color: var(--primary-blue);
     margin-bottom: 12px;
 }
 
@@ -50,7 +50,7 @@
 .progress-bar {
     width: 100%;
     height: 100%;
-    background: #3b82f6;
+    background: var(--accent-red);
 }
 
 .status-label {
@@ -90,7 +90,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.1), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.1), transparent);
     animation: scanline 3s linear infinite;
 }
 
@@ -115,7 +115,7 @@
     font-family: 'Courier New', monospace;
     font-size: 0.75rem;
     word-break: break-all;
-    color: #3b82f6;
+    color: var(--primary-blue);
     line-height: 1.2;
 }
 
@@ -129,13 +129,13 @@
     position: absolute;
     top: 10px;
     right: 15px;
-    background: rgba(16, 185, 129, 0.15);
-    color: #10b981;
+    background: rgba(255, 204, 0, 0.15);
+    color: var(--accent-yellow);
     padding: 2px 8px;
     border-radius: 20px;
     font-size: 0.65rem;
     font-weight: 800;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(255, 204, 0, 0.3);
     display: flex;
     align-items: center;
     gap: 4px;
@@ -175,8 +175,8 @@
 .node-dot {
     width: 32px;
     height: 32px;
-    background: rgba(59, 130, 246, 0.05);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.2);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -347,7 +347,7 @@
 
 /* Current processing step glow - Blue Flowy Feel */
 .process-step.processing .progress-ring {
-    filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.9));
+    filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.9));
     animation: ringGlowPulse 2s ease-in-out infinite;
 }
 
@@ -355,19 +355,18 @@
 
     0%,
     100% {
-        filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+        filter: drop-shadow(0 0 8px rgba(0, 102, 255, 0.6));
     }
 
     50% {
-        filter: drop_shadow(0 0 16px rgba(0, 210, 255, 1));
+        filter: drop-shadow(0 0 16px rgba(0, 102, 255, 1));
     }
 }
 
 .progress-ring__circle {
     stroke-dasharray: 94;
-    /* 2 * PI * 15 = 94.2 */
     stroke-dashoffset: 94;
-    stroke: #00d2ff;
+    stroke: var(--accent-red);
     stroke-linecap: round;
     transition: stroke-dashoffset 2s linear;
 }

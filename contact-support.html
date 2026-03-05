@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support | BrillSign Help</title>
+    <meta name="description"
+        content="Reach out to BrillSign's support team for technical assistance, account inquiries, or general help with our digital signature platform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cta-pages.css">
+</head>
+
+<body class="cta-page-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="cta-hero">
+        <div class="container">
+            <h1>How Can We <span>Help?</span></h1>
+            <p>Our support team is standing by to help you solve technical issues, answer security questions, or upgrade
+                your account.</p>
+        </div>
+    </section>
+
+    <!-- Support Form Section -->
+    <section class="cta-form-section" style="padding-bottom: 120px;">
+        <div class="container">
+            <div class="cta-form-container">
+                <form id="support-form" action="javascript:void(0);">
+                    <div class="cta-form-grid">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Doe" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" placeholder="john@company.com" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="What do you need help with?" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Description</label>
+                            <textarea id="message" rows="6" placeholder="Provide as much detail as possible..."
+                                required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+
+                <div id="success-message" class="success-message" style="display: none;">
+                    <div class="success-icon" style="background: #10b981;">
+                        <i class="fas fa-check" style="color: #fff;"></i>
+                    </div>
+                    <h2>Message Sent!</h2>
+                    <p>Thank you for reaching out. A member of our support team will get back to you shortly (usually
+                        within 2 hours).</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html'">Return Home</button>
+                </div>
+            </div>
+
+            <!-- Contact Options -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 80px;">
+                <div
+                    style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                    <i class="fas fa-envelope"
+                        style="font-size: 2rem; color: var(--cta-blue); margin-bottom: 20px;"></i>
+                    <h4 style="margin-bottom: 10px;">Email Us</h4>
+                    <p style="color: #64748b; font-size: 0.9rem;">support@brillsign.com</p>
+                </div>
+                <div
+                    style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                    <i class="fas fa-comments" style="font-size: 2rem; color: #10b981; margin-bottom: 20px;"></i>
+                    <h4 style="margin-bottom: 10px;">Live Chat</h4>
+                    <p style="color: #64748b; font-size: 0.9rem;">Available 24/7 for Enterprise</p>
+                </div>
+                <div
+                    style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: #9333ea; margin-bottom: 20px;"></i>
+                    <h4 style="margin-bottom: 10px;">Phone Support</h4>
+                    <p style="color: #64748b; font-size: 0.9rem;">+1 (800) BRILL-SIGN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script>
+        document.getElementById('support-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

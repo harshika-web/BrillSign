@@ -25,19 +25,19 @@
 .exit-risk-card:hover {
     transform: translateY(-10px);
     background: #fff;
-    border-color: #f59e0b;
+    border-color: var(--accent-red);
 }
 
 .exit-risk-icon {
     width: 60px;
     height: 60px;
-    background: rgba(245, 158, 11, 0.1);
+    background: rgba(255, 0, 0, 0.1);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
-    color: #f59e0b;
+    color: var(--accent-red);
     flex-shrink: 0;
 }
 

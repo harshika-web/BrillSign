@@ -105,9 +105,9 @@
     /* Aligned with visual centers */
     width: 2px;
     background: linear-gradient(180deg,
-            rgba(6, 182, 212, 0.05),
-            rgba(6, 182, 212, 0.3) 50%,
-            rgba(6, 182, 212, 0.05));
+            rgba(0, 102, 255, 0.05),
+            rgba(0, 102, 255, 0.3) 50%,
+            rgba(0, 102, 255, 0.05));
     z-index: 1;
 }
 
@@ -163,8 +163,8 @@
 .stack-layer:hover {
     transform: translateY(-5px) !important;
     z-index: 20;
-    border-color: #06b6d4;
-    box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15);
+    border-color: var(--primary-blue);
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
 }
 
 .layer-visual {
@@ -186,7 +186,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 8px 20px rgba(6, 182, 212, 0.25));
+    filter: drop-shadow(0 8px 20px rgba(0, 102, 255, 0.25));
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -203,7 +203,7 @@
     font-size: 0.75rem;
     font-weight: 800;
     text-transform: uppercase;
-    color: #06b6d4;
+    color: var(--primary-blue);
     letter-spacing: 2px;
     display: block;
     margin-bottom: 6px;

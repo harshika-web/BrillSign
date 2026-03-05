@@ -65,8 +65,8 @@
 }
 
 .comp-table td:nth-child(3) {
-    color: var(--accent-blue);
-    font-weight: 600;
+    color: var(--accent-red);
+    font-weight: 700;
 }
 
 .comp-table tr:last-child td {
@@ -105,8 +105,8 @@
 .api-btn {
     padding: 18px 40px;
     background: transparent;
-    border: 2px solid var(--accent-blue);
-    color: var(--accent-blue);
+    border: 2px solid var(--accent-red);
+    color: var(--accent-red);
     border-radius: 50px;
     font-weight: 700;
     text-decoration: none;
@@ -115,9 +115,9 @@
 }
 
 .api-btn:hover {
-    background: var(--accent-blue);
-    color: #000;
-    box-shadow: 0 0 30px rgba(0, 173, 239, 0.4);
+    background: var(--accent-red);
+    color: #fff;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {

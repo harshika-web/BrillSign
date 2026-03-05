@@ -64,7 +64,7 @@ const navbarHTML = `
                     <i class="fas fa-sun"></i>
                 </button>
 
-                <a href="index.html#waitlist" class="btn-primary-v3">Join the Waitlist</a>
+                <a href="join-waitlist.html" class="btn-primary-v3">Join the Waitlist</a>
             </div>
         </div>
     </nav>
@@ -160,7 +160,7 @@ const featuresDropdownHTML = `
             <p data-i18n="feat_access_sub">Role-based organizational permissions</p>
         </div>
     </div>
-    <a href="index.html#features" class="explore-all" data-i18n="feat_explore_all">Explore all features
+    <a href="all-features.html" class="explore-all" data-i18n="feat_explore_all">Explore all features
         →</a>
 `;
 
@@ -228,42 +228,42 @@ const solutionsDropdownHTML = `
     <div class="solutions-col">
         <h4>By Industry</h4>
         <ul class="solutions-list">
-            <li><a href="#">
+            <li><a href="banking-finance.html">
                 <i class="fas fa-landmark"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Banking & Finance</div>
                     <div class="solutions-desc">Secure wealth management</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="healthcare.html">
                 <i class="fas fa-heartbeat"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Healthcare</div>
                     <div class="solutions-desc">HIPAA-compliant document flow</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="government.html">
                 <i class="fas fa-building-columns"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Government</div>
                     <div class="solutions-desc">Reg-tech for public sector</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="real-estate.html">
                 <i class="fas fa-building"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Real Estate</div>
                     <div class="solutions-desc">Accelerated closing cycles</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="technology.html">
                 <i class="fas fa-laptop-code"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Technology</div>
                     <div class="solutions-desc">API-first signing infra</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="consulting.html">
                 <i class="fas fa-handshake"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Consulting</div>
@@ -275,42 +275,42 @@ const solutionsDropdownHTML = `
     <div class="solutions-col">
         <h4>Use Case / Workflow</h4>
         <ul class="solutions-list">
-            <li><a href="#">
+            <li><a href="contract-signing.html">
                 <i class="fas fa-signature"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Contract Signing</div>
                     <div class="solutions-desc">Legally binding B2B deals</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="vendor-agreements.html">
                 <i class="fas fa-file-contract"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Vendor Agreements</div>
                     <div class="solutions-desc">Streamlined supply chain</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="audit-compliance.html">
                 <i class="fas fa-check-double"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Audit & Compliance</div>
                     <div class="solutions-desc">Tamper-proof record keeping</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="global-agreements.html">
                 <i class="fas fa-earth-americas"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Global Agreements</div>
                     <div class="solutions-desc">Cross-border legal validity</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="document-verification.html">
                 <i class="fas fa-file-circle-check"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Document Verification</div>
                     <div class="solutions-desc">Independent proof of origin</div>
                 </div>
             </a></li>
-            <li><a href="#">
+            <li><a href="long-term-proof.html">
                 <i class="fas fa-history"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Long-term Proof</div>
@@ -327,13 +327,13 @@ const solutionsDropdownHTML = `
             <div class="card-content">
                 <div class="solutions-title">Encrypted eSign for Enterprises</div>
                 <div class="solutions-desc">Learn how top organizations eliminate platform dependency and secure their document lifecycle.</div>
-                <a href="index.html#waitlist" class="solutions-cta">See Enterprise Solution →</a>
+                <a href="enterprise-solutions.html" class="solutions-cta">See Enterprise Solution →</a>
             </div>
         </div>
     </div>
     <div class="solutions-footer">
-        <a href="index.html#solutions" class="footer-cta" style="padding: 12px 28px !important; color: #ffffff !important;">Explore All Solutions &rarr;</a>
-        <a href="index.html#demo" class="footer-cta secondary" style="padding: 12px 28px !important;">Book Demo &rarr;</a>
+        <a href="all-solutions.html" class="footer-cta" style="padding: 12px 28px !important; color: #ffffff !important;">Explore All Solutions &rarr;</a>
+        <a href="book-a-demo.html" class="footer-cta secondary" style="padding: 12px 28px !important;">Book Demo &rarr;</a>
     </div>
 `;
 
@@ -381,7 +381,7 @@ const apiDropdownHTML = `
                 </a>
             </li>
         </ul>
-        <a href="#" class="solutions-cta" style="margin-top: 20px;">View Docs →</a>
+        <a href="api-docs.html" class="solutions-cta" style="margin-top: 20px;">View Docs →</a>
     </div>
     <div class="solutions-col">
         <h4>Works With Your Stack</h4>
@@ -455,7 +455,7 @@ const apiDropdownHTML = `
                 </a></li>
             </ul>
         </div>
-        <a href="#" class="solutions-cta" style="margin-top: 20px;">View All →</a>
+        <a href="api-docs.html" class="solutions-cta" style="margin-top: 20px;">View All →</a>
     </div>
 `;
 
@@ -502,18 +502,18 @@ const resourcesDropdownHTML = `
             <div class="card-content">
                 <div class="solutions-title">The Future of Digital Trust</div>
                 <div class="solutions-desc">Explore decentralized document security for the next decade.</div>
-                <a href="#" class="solutions-cta">Read More →</a>
+                <a href="resource-center.html" class="solutions-cta">Read More →</a>
             </div>
         </div>
     </div>
     <div class="resources-dropdown-footer">
         <div class="res-footer-group">
             <span class="res-cta-label">Looking for something specific?</span>
-            <a href="#" class="btn-text-link">Browse all documents & guides <i class="fas fa-arrow-right"></i></a>
+            <a href="resource-center.html" class="btn-text-link">Browse all documents & guides <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="footer-contact">
             <i class="fas fa-headset"></i>
-            <span>Need help? <a href="#">Contact Support</a></span>
+            <span>Need help? <a href="contact-support.html">Contact Support</a></span>
         </div>
     </div>
 `;

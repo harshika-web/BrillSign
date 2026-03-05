@@ -108,7 +108,7 @@
 
 .faq-item.active .faq-toggle::before,
 .faq-item.active .faq-toggle::after {
-    background-color: #0066ff;
+    background-color: var(--primary-blue);
 }
 
 .faq-answer {
@@ -155,7 +155,7 @@
 }
 
 [data-theme="light"] .faq-item.active .question-text {
-    color: #0066ff;
+    color: var(--primary-blue);
 }
 
 [data-theme="light"] .faq-answer-inner {

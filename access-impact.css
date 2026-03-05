@@ -13,7 +13,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at 2px 2px, rgba(79, 70, 229, 0.12) 1.5px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgba(0, 102, 255, 0.12) 1.5px, transparent 0);
     background-size: 40px 40px;
     opacity: 1;
     z-index: 0;
@@ -27,7 +27,7 @@
     transform: translate(-50%, -50%);
     width: 1000px;
     height: 1000px;
-    background: radial-gradient(circle, rgba(79, 70, 229, 0.18) 0%, transparent 75%);
+    background: linear-gradient(135deg, rgba(0, 55, 85, 0.1) 0%, rgba(255, 0, 0, 0.05) 100%);
     z-index: 0;
     pointer-events: none;
     filter: blur(40px);
@@ -36,7 +36,19 @@
 
 .access-impact .container {
     position: relative;
-    z-index: 1;
+    flex: 1;
+}
+
+.impact-grid-access>div:nth-child(1) {
+    --accent-color: var(--primary-blue);
+}
+
+.impact-grid-access>div:nth-child(2) {
+    --accent-color: var(--accent-red);
+}
+
+.impact-grid-access>div:nth-child(3) {
+    --accent-color: var(--accent-yellow);
 }
 
 @keyframes glowPulse {
@@ -53,8 +65,8 @@
 
 /* Page Signature: Indigo */
 .impact-grid-access {
-    --accent-color: #4f46e5;
-    --accent-rgb: 79, 70, 229;
+    --accent-color: var(--primary-blue);
+    --accent-rgb: 0, 102, 255;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -70,6 +82,21 @@
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
+}
+
+.access-impact-col:nth-child(1) {
+    --accent-color: var(--primary-blue);
+    --accent-rgb: 0, 102, 255;
+}
+
+.access-impact-col:nth-child(2) {
+    --accent-color: var(--accent-red);
+    --accent-rgb: 255, 51, 51;
+}
+
+.access-impact-col:nth-child(3) {
+    --accent-color: var(--accent-yellow);
+    --accent-rgb: 255, 204, 0;
 }
 
 /* Color Coding & Unique Hover Effects */
