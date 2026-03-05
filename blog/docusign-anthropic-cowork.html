@@ -61,6 +61,201 @@
         </div>
     </section>
 
+    <div class="blog-hero-image blog-partnership-bridge">
+        <svg class="bp-svg" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <!-- Gradients -->
+                <linearGradient id="bpArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#0066ff" stop-opacity="0.8" />
+                    <stop offset="50%" stop-color="#8E2DE2" stop-opacity="0.9" />
+                    <stop offset="100%" stop-color="#f39c12" stop-opacity="0.8" />
+                </linearGradient>
+                <linearGradient id="bpArcGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#f39c12" stop-opacity="0.6" />
+                    <stop offset="50%" stop-color="#8E2DE2" stop-opacity="0.7" />
+                    <stop offset="100%" stop-color="#0066ff" stop-opacity="0.6" />
+                </linearGradient>
+                <!-- Filters -->
+                <filter id="bpGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="6" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+                <filter id="bpSoftGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" />
+                </filter>
+                <filter id="bpBigGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="10" />
+                </filter>
+                <!-- Node gradients -->
+                <radialGradient id="bpBrillGrad" cx="50%" cy="35%" r="55%">
+                    <stop offset="0%" stop-color="#4d9aff" />
+                    <stop offset="60%" stop-color="#1a6dff" />
+                    <stop offset="100%" stop-color="#003cc0" />
+                </radialGradient>
+                <radialGradient id="bpAnthGrad" cx="50%" cy="35%" r="55%">
+                    <stop offset="0%" stop-color="#ffc857" />
+                    <stop offset="60%" stop-color="#f5a623" />
+                    <stop offset="100%" stop-color="#c07b08" />
+                </radialGradient>
+                <radialGradient id="bpCenterGrad" cx="50%" cy="35%" r="55%">
+                    <stop offset="0%" stop-color="#b06aef" />
+                    <stop offset="60%" stop-color="#8E2DE2" />
+                    <stop offset="100%" stop-color="#5a1ba0" />
+                </radialGradient>
+                <!-- Dot-grid pattern -->
+                <pattern id="bpDotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <circle cx="15" cy="15" r="0.6" fill="rgba(255,255,255,0.08)" />
+                </pattern>
+                <!-- Arc paths -->
+                <path id="bpArcTop" d="M 150 190 Q 450 50 750 190" fill="none" />
+                <path id="bpArcTopRev" d="M 750 190 Q 450 50 150 190" fill="none" />
+                <path id="bpArcBottom" d="M 150 190 Q 450 310 750 190" fill="none" />
+                <path id="bpArcBottomRev" d="M 750 190 Q 450 310 150 190" fill="none" />
+            </defs>
+
+            <!-- Dot-grid background -->
+            <rect width="900" height="360" fill="url(#bpDotGrid)" />
+
+            <!-- Ambient glow blobs -->
+            <circle cx="150" cy="190" r="90" fill="#0066ff" opacity="0.04" filter="url(#bpBigGlow)" />
+            <circle cx="750" cy="190" r="90" fill="#f39c12" opacity="0.04" filter="url(#bpBigGlow)" />
+            <circle cx="450" cy="120" r="70" fill="#8E2DE2" opacity="0.05" filter="url(#bpBigGlow)" />
+
+            <!-- Top arc (main) -->
+            <path d="M 150 190 Q 450 50 750 190" fill="none" stroke="url(#bpArcGrad)" stroke-width="1.5"
+                opacity="0.4" />
+            <path d="M 150 190 Q 450 50 750 190" fill="none" stroke="url(#bpArcGrad)" stroke-width="8" opacity="0.06"
+                filter="url(#bpSoftGlow)" />
+
+            <!-- Bottom arc (secondary, dashed) -->
+            <path d="M 150 190 Q 450 310 750 190" fill="none" stroke="url(#bpArcGrad2)" stroke-width="1" opacity="0.2"
+                stroke-dasharray="6 8" />
+
+            <!-- TOP ARC — Particles left→right (blue data) -->
+            <circle r="4.5" fill="#0066ff" filter="url(#bpGlow)" opacity="0.9">
+                <animateMotion dur="3s" repeatCount="indefinite">
+                    <mpath href="#bpArcTop" />
+                </animateMotion>
+            </circle>
+            <circle r="3" fill="#3399ff" filter="url(#bpSoftGlow)" opacity="0.7">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
+                    <mpath href="#bpArcTop" />
+                </animateMotion>
+            </circle>
+            <circle r="2" fill="#66bbff" opacity="0.5">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="2s">
+                    <mpath href="#bpArcTop" />
+                </animateMotion>
+            </circle>
+
+            <!-- TOP ARC — Particles right→left (orange data) -->
+            <circle r="4.5" fill="#f39c12" filter="url(#bpGlow)" opacity="0.9">
+                <animateMotion dur="3.4s" repeatCount="indefinite" begin="0.3s">
+                    <mpath href="#bpArcTopRev" />
+                </animateMotion>
+            </circle>
+            <circle r="3" fill="#f5b041" filter="url(#bpSoftGlow)" opacity="0.7">
+                <animateMotion dur="3.4s" repeatCount="indefinite" begin="1.5s">
+                    <mpath href="#bpArcTopRev" />
+                </animateMotion>
+            </circle>
+            <circle r="2" fill="#f7dc8e" opacity="0.5">
+                <animateMotion dur="3.4s" repeatCount="indefinite" begin="2.7s">
+                    <mpath href="#bpArcTopRev" />
+                </animateMotion>
+            </circle>
+
+            <!-- BOTTOM ARC — Purple data both ways -->
+            <circle r="3" fill="#8E2DE2" filter="url(#bpSoftGlow)" opacity="0.7">
+                <animateMotion dur="4s" repeatCount="indefinite" begin="0.5s">
+                    <mpath href="#bpArcBottom" />
+                </animateMotion>
+            </circle>
+            <circle r="2.5" fill="#a855f7" opacity="0.5">
+                <animateMotion dur="4.2s" repeatCount="indefinite" begin="2s">
+                    <mpath href="#bpArcBottomRev" />
+                </animateMotion>
+            </circle>
+
+            <!-- Floating workflow tags along the arc -->
+            <g class="bp-tag bp-tag-1" opacity="0.7">
+                <rect x="260" y="90" width="72" height="22" rx="11" fill="rgba(0,102,255,0.12)"
+                    stroke="rgba(0,102,255,0.25)" stroke-width="0.5" />
+                <text x="296" y="104" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">Draft NDA</text>
+            </g>
+            <g class="bp-tag bp-tag-2" opacity="0.7">
+                <rect x="375" y="60" width="72" height="22" rx="11" fill="rgba(142,45,226,0.12)"
+                    stroke="rgba(142,45,226,0.25)" stroke-width="0.5" />
+                <text x="411" y="74" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">AI Review</text>
+            </g>
+            <g class="bp-tag bp-tag-3" opacity="0.7">
+                <rect x="510" y="72" width="60" height="22" rx="11" fill="rgba(142,45,226,0.12)"
+                    stroke="rgba(142,45,226,0.25)" stroke-width="0.5" />
+                <text x="540" y="86" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">e-Sign</text>
+            </g>
+            <g class="bp-tag bp-tag-4" opacity="0.7">
+                <rect x="600" y="100" width="68" height="22" rx="11" fill="rgba(243,156,18,0.12)"
+                    stroke="rgba(243,156,18,0.25)" stroke-width="0.5" />
+                <text x="634" y="114" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">Encrypt</text>
+            </g>
+
+            <!-- LEFT NODE: BrillSign -->
+            <g class="bp-node bp-node-left">
+                <circle cx="150" cy="190" r="58" fill="none" stroke="rgba(0,102,255,0.08)" stroke-width="1"
+                    class="bp-ring-outer" />
+                <circle cx="150" cy="190" r="48" fill="none" stroke="rgba(0,102,255,0.2)" stroke-width="1.5"
+                    class="bp-ring" />
+                <circle cx="150" cy="190" r="38" fill="url(#bpBrillGrad)" filter="url(#bpGlow)" />
+                <text x="150" y="196" text-anchor="middle" fill="white" font-family="'Font Awesome 6 Free'"
+                    font-weight="900" font-size="24">&#xf3ed;</text>
+                <text x="150" y="255" text-anchor="middle" fill="rgba(255,255,255,0.9)"
+                    font-family="Poppins, sans-serif" font-size="14" font-weight="700">BrillSign</text>
+                <text x="150" y="272" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="Inter, sans-serif"
+                    font-size="8" letter-spacing="1.5">SECURE AGREEMENTS</text>
+            </g>
+
+            <!-- RIGHT NODE: Anthropic -->
+            <g class="bp-node bp-node-right">
+                <circle cx="750" cy="190" r="58" fill="none" stroke="rgba(243,156,18,0.08)" stroke-width="1"
+                    class="bp-ring-outer" />
+                <circle cx="750" cy="190" r="48" fill="none" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"
+                    class="bp-ring" />
+                <circle cx="750" cy="190" r="38" fill="url(#bpAnthGrad)" filter="url(#bpGlow)" />
+                <text x="750" y="196" text-anchor="middle" fill="white" font-family="'Font Awesome 6 Free'"
+                    font-weight="900" font-size="24">&#xf5dc;</text>
+                <text x="750" y="255" text-anchor="middle" fill="rgba(255,255,255,0.9)"
+                    font-family="Poppins, sans-serif" font-size="14" font-weight="700">Anthropic</text>
+                <text x="750" y="272" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="Inter, sans-serif"
+                    font-size="8" letter-spacing="1.5">CLAUDE COWORK</text>
+            </g>
+
+            <!-- CENTER NODE: Handshake -->
+            <g class="bp-node bp-center">
+                <circle cx="450" cy="120" r="42" fill="none" stroke="rgba(142,45,226,0.1)" stroke-width="1"
+                    class="bp-ring-outer" />
+                <circle cx="450" cy="120" r="33" fill="none" stroke="rgba(142,45,226,0.25)" stroke-width="1.5"
+                    class="bp-ring bp-center-ring" />
+                <circle cx="450" cy="120" r="26" fill="url(#bpCenterGrad)" filter="url(#bpGlow)"
+                    class="bp-center-core" />
+                <text x="450" y="127" text-anchor="middle" fill="white" font-family="'Font Awesome 6 Free'"
+                    font-weight="900" font-size="17">&#xf2b5;</text>
+            </g>
+
+            <!-- Bottom labels -->
+            <text x="350" y="325" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter, sans-serif"
+                font-size="8" letter-spacing="2">CREATE · REVIEW · SIGN</text>
+            <text x="550" y="325" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter, sans-serif"
+                font-size="8" letter-spacing="2">ENCRYPT · MANAGE · AUDIT</text>
+        </svg>
+    </div>
+
     <!-- ============================================
          ARTICLE BODY
     ============================================ -->

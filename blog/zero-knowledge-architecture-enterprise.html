@@ -49,6 +49,168 @@
         </div>
     </section>
 
+    <!-- Hero Animation: Traditional vs. Zero-Knowledge Data Flow -->
+    <div class="blog-hero-image blog-zk-comparison">
+        <div class="zk-compare-container">
+            <svg class="zk-svg" viewBox="0 0 900 340" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <!-- Filters -->
+                    <filter id="zkShadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)" />
+                    </filter>
+                    <filter id="zkGlow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="4" result="blur" />
+                        <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                    <!-- Paths -->
+                    <path id="zkTraditionalPath" d="M 135 170 Q 225 110 315 170" fill="none" />
+                    <path id="zkZkDocPath" d="M 565 170 Q 620 115 675 170" fill="none" />
+                    <path id="zkZkServerPath" d="M 675 170 Q 730 115 785 170" fill="none" />
+                </defs>
+
+                <!-- ===== DIVIDER LINE ===== -->
+                <line x1="450" y1="30" x2="450" y2="310" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6 6" />
+                <text x="450" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#94a3b8"
+                    letter-spacing="2">VS</text>
+
+                <!-- ===== LEFT SIDE: TRADITIONAL ===== -->
+                <!-- Background panel -->
+                <rect x="20" y="25" width="410" height="290" rx="16" fill="#fef2f2" stroke="#fecaca" stroke-width="1" />
+                <text x="225" y="58" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11"
+                    font-weight="700" fill="#dc2626" letter-spacing="1.5">TRADITIONAL PLATFORM</text>
+
+                <!-- Arc path -->
+                <path d="M 135 170 Q 225 110 315 170" fill="none" stroke="#fca5a5" stroke-width="1.5" opacity="0.5" />
+
+                <!-- Particles (red data flowing exposed) -->
+                <circle r="4" fill="#ef4444" opacity="0.8">
+                    <animateMotion dur="2.5s" repeatCount="indefinite">
+                        <mpath href="#zkTraditionalPath" />
+                    </animateMotion>
+                </circle>
+                <circle r="3" fill="#f87171" opacity="0.6">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s">
+                        <mpath href="#zkTraditionalPath" />
+                    </animateMotion>
+                </circle>
+                <circle r="2" fill="#fca5a5" opacity="0.4">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" begin="1.6s">
+                        <mpath href="#zkTraditionalPath" />
+                    </animateMotion>
+                </circle>
+
+                <!-- Document Node -->
+                <g class="zk-node" filter="url(#zkShadow)">
+                    <circle cx="135" cy="170" r="32" fill="white" stroke="#fca5a5" stroke-width="2" />
+                    <text x="135" y="176" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900"
+                        font-size="18" fill="#ef4444">&#xf15c;</text>
+                </g>
+                <text x="135" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="10"
+                    font-weight="600" fill="#64748b">Your Document</text>
+                <text x="135" y="234" text-anchor="middle" font-family="Inter, sans-serif" font-size="8"
+                    fill="#94a3b8">(Readable)</text>
+
+                <!-- Server Node (with eye — exposed) -->
+                <g class="zk-node" filter="url(#zkShadow)">
+                    <circle cx="315" cy="170" r="32" fill="white" stroke="#fca5a5" stroke-width="2" />
+                    <text x="315" y="176" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900"
+                        font-size="18" fill="#ef4444">&#xf06e;</text>
+                </g>
+                <text x="315" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="10"
+                    font-weight="600" fill="#64748b">Vendor Server</text>
+                <text x="315" y="234" text-anchor="middle" font-family="Inter, sans-serif" font-size="8"
+                    fill="#dc2626">⚠ Can read your data</text>
+
+                <!-- Warning badge -->
+                <g class="zk-badge-warn">
+                    <rect x="170" y="260" width="110" height="26" rx="13" fill="#fef2f2" stroke="#fca5a5"
+                        stroke-width="1" />
+                    <text x="225" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="9"
+                        font-weight="600" fill="#dc2626">⚠ Data Exposed</text>
+                </g>
+
+                <!-- ===== RIGHT SIDE: ZERO-KNOWLEDGE ===== -->
+                <!-- Background panel -->
+                <rect x="470" y="25" width="410" height="290" rx="16" fill="#f0fdf4" stroke="#bbf7d0"
+                    stroke-width="1" />
+                <text x="675" y="58" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11"
+                    font-weight="700" fill="#16a34a" letter-spacing="1.5">ZERO-KNOWLEDGE (BRILLSIGN)</text>
+
+                <!-- Arc paths -->
+                <path d="M 565 170 Q 620 115 675 170" fill="none" stroke="#86efac" stroke-width="1.5" opacity="0.5" />
+                <path d="M 675 170 Q 730 115 785 170" fill="none" stroke="#86efac" stroke-width="1.5" opacity="0.5" />
+
+                <!-- Particles (blue data → green encrypted) -->
+                <circle r="4" fill="#3b82f6" opacity="0.8">
+                    <animateMotion dur="2s" repeatCount="indefinite">
+                        <mpath href="#zkZkDocPath" />
+                    </animateMotion>
+                </circle>
+                <circle r="3" fill="#60a5fa" opacity="0.6">
+                    <animateMotion dur="2s" repeatCount="indefinite" begin="0.7s">
+                        <mpath href="#zkZkDocPath" />
+                    </animateMotion>
+                </circle>
+                <!-- Encrypted particles (green after lock) -->
+                <circle r="4" fill="#22c55e" opacity="0.8">
+                    <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.3s">
+                        <mpath href="#zkZkServerPath" />
+                    </animateMotion>
+                </circle>
+                <circle r="3" fill="#4ade80" opacity="0.6">
+                    <animateMotion dur="2.2s" repeatCount="indefinite" begin="1.2s">
+                        <mpath href="#zkZkServerPath" />
+                    </animateMotion>
+                </circle>
+
+                <!-- Document Node -->
+                <g class="zk-node" filter="url(#zkShadow)">
+                    <circle cx="565" cy="170" r="32" fill="white" stroke="#86efac" stroke-width="2" />
+                    <text x="565" y="176" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900"
+                        font-size="18" fill="#3b82f6">&#xf15c;</text>
+                </g>
+                <text x="565" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="10"
+                    font-weight="600" fill="#64748b">Your Document</text>
+                <text x="565" y="234" text-anchor="middle" font-family="Inter, sans-serif" font-size="8"
+                    fill="#94a3b8">(Readable)</text>
+
+                <!-- Encrypt / Lock Node (center) -->
+                <g class="zk-node zk-lock-node" filter="url(#zkShadow)">
+                    <circle cx="675" cy="170" r="28" fill="#dcfce7" stroke="#22c55e" stroke-width="2"
+                        class="zk-lock-ring" />
+                    <text x="675" y="176" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900"
+                        font-size="16" fill="#16a34a">&#xf023;</text>
+                </g>
+                <text x="675" y="214" text-anchor="middle" font-family="Inter, sans-serif" font-size="9"
+                    font-weight="600" fill="#16a34a">Encrypt</text>
+                <text x="675" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="7"
+                    fill="#94a3b8">Client-Side</text>
+
+                <!-- Server Node (with shield — sealed) -->
+                <g class="zk-node" filter="url(#zkShadow)">
+                    <circle cx="785" cy="170" r="32" fill="white" stroke="#86efac" stroke-width="2" />
+                    <text x="785" y="176" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900"
+                        font-size="18" fill="#22c55e">&#xf3ed;</text>
+                </g>
+                <text x="785" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="10"
+                    font-weight="600" fill="#64748b">BrillSign Server</text>
+                <text x="785" y="234" text-anchor="middle" font-family="Inter, sans-serif" font-size="8"
+                    fill="#16a34a">✓ Zero access to data</text>
+
+                <!-- Success badge -->
+                <g class="zk-badge-ok">
+                    <rect x="620" y="260" width="110" height="26" rx="13" fill="#f0fdf4" stroke="#86efac"
+                        stroke-width="1" />
+                    <text x="675" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="9"
+                        font-weight="600" fill="#16a34a">✓ Data Sealed</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+
     <!-- ARTICLE BODY -->
     <div class="blog-article-wrapper">
         <aside class="blog-article-sidebar">

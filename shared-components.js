@@ -586,7 +586,7 @@ const resourcesDropdownHTML = `
         <h4>Insights</h4>
         <ul class="solutions-list compact">
             <li><a href="blog/docusign-anthropic-cowork.html"><i class="fas fa-rss"></i> Blog</a></li>
-            <li><a href="#"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
+            <li><a href="case-studies/banking-finance.html"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
             <li><a href="#"><i class="fas fa-file-pdf"></i> Whitepapers</a></li>
         </ul>
     </div>
