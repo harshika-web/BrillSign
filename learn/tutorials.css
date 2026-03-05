@@ -293,8 +293,10 @@
 .tut-path-card>p {
     font-size: 0.88rem;
     line-height: 1.6;
-    opacity: 0.85;
+    opacity: 1;
+    color: #ffffff;
     margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .tut-path-meta {
