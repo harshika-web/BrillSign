@@ -23,8 +23,8 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Elite Hero Section -->
-    <section class="cta-hero"
-        style="padding: 160px 0 100px; background: radial-gradient(circle at top right, #001a33, #020617);">
+    <section class="cta-hero features-hero-bg" style="padding: 160px 0 100px; position: relative;">
+
         <div class="container">
             <span class="feature-tag-new"
                 style="margin: 0 auto 20px; background: rgba(0, 102, 255, 0.2); color: #60a5fa;">The BrillSign
@@ -80,6 +80,33 @@
                         </div>
                         <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 10px; font-weight: 700;">ACTIVE
                             MONITORING: 99.9999% Integrity</p>
+
+                        <!-- High-Fidelity Integrity Dashboard -->
+                        <div class="integrity-dashboard">
+                            <div class="id-main">
+                                <span class="id-label">NETWORK_INTEGRITY</span>
+                                <div class="id-counter">99.99<span class="id-decimal">999</span><span
+                                        class="id-percent">%</span></div>
+                                <div class="id-status">
+                                    <span class="id-dot"></span>
+                                    <span>SYSTEM_NOMINAL</span>
+                                </div>
+                            </div>
+                            <div class="id-footer">
+                                <div class="id-stat-unit">
+                                    <small>LATENCY</small>
+                                    <span>0.12ms</span>
+                                </div>
+                                <div class="id-stat-unit">
+                                    <small>REDUNDANCY</small>
+                                    <span>TIER-1</span>
+                                </div>
+                            </div>
+                            <div class="id-waves">
+                                <div class="id-wave"></div>
+                                <div class="id-wave"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -134,6 +161,87 @@
                     </p>
                 </div>
 
+                <!-- Live Signing Pipeline - Full Width Animated Card -->
+                <div class="bento-card span-12" id="signing-pipeline-card">
+                    <span class="feature-tag-new" style="background: rgba(0,102,255,0.08); color:#0066ff;">Live
+                        Animation</span>
+                    <h3 class="bento-title">Real-Time Signing Pipeline</h3>
+                    <p class="bento-desc" style="margin-bottom: 32px;">Watch BrillSign process a document end-to-end —
+                        from upload through cryptographic hashing, multi-party signing, ZK-proof verification, and
+                        immutable ledger anchoring — all in milliseconds.</p>
+
+                    <div class="pipeline-stage-container">
+                        <!-- Stages -->
+                        <div class="pipeline-stages">
+                            <div class="pipeline-node" id="pn-upload">
+                                <div class="pn-icon-wrap" style="background: linear-gradient(135deg,#0066ff,#60a5fa);">
+                                    <i class="fas fa-file-arrow-up"></i>
+                                </div>
+                                <span class="pn-label">Document Upload</span>
+                                <div class="pn-status" id="pns-upload">Waiting…</div>
+                            </div>
+                            <div class="pipeline-connector">
+                                <div class="pc-track">
+                                    <div class="pc-packet" id="pkt-1"></div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-node" id="pn-hash">
+                                <div class="pn-icon-wrap" style="background: linear-gradient(135deg,#7c3aed,#a78bfa);">
+                                    <i class="fas fa-hashtag"></i>
+                                </div>
+                                <span class="pn-label">SHA-3 Hash</span>
+                                <div class="pn-status" id="pns-hash">Waiting…</div>
+                            </div>
+                            <div class="pipeline-connector">
+                                <div class="pc-track">
+                                    <div class="pc-packet" id="pkt-2"></div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-node" id="pn-sign">
+                                <div class="pn-icon-wrap" style="background: linear-gradient(135deg,#f59e0b,#fbbf24);">
+                                    <i class="fas fa-pen-nib"></i>
+                                </div>
+                                <span class="pn-label">ZK-Sign</span>
+                                <div class="pn-status" id="pns-sign">Waiting…</div>
+                            </div>
+                            <div class="pipeline-connector">
+                                <div class="pc-track">
+                                    <div class="pc-packet" id="pkt-3"></div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-node" id="pn-verify">
+                                <div class="pn-icon-wrap" style="background: linear-gradient(135deg,#10b981,#34d399);">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <span class="pn-label">Verify</span>
+                                <div class="pn-status" id="pns-verify">Waiting…</div>
+                            </div>
+                            <div class="pipeline-connector">
+                                <div class="pc-track">
+                                    <div class="pc-packet" id="pkt-4"></div>
+                                </div>
+                            </div>
+
+                            <div class="pipeline-node" id="pn-ledger">
+                                <div class="pn-icon-wrap" style="background: linear-gradient(135deg,#ef4444,#f87171);">
+                                    <i class="fas fa-link"></i>
+                                </div>
+                                <span class="pn-label">Ledger</span>
+                                <div class="pn-status" id="pns-ledger">Waiting…</div>
+                            </div>
+                        </div>
+
+                        <!-- Activity Log -->
+                        <div class="pipeline-log" id="pipeline-log">
+                            <div class="pl-header"><span class="pl-dot"></span> System Log — Live</div>
+                            <div class="pl-entries" id="pl-entries"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -173,23 +281,78 @@
 
                     </div>
                     <div class="protocol-visual-side">
-                        <!-- Abstract Tech Visual -->
-                        <div
-                            style="position: relative; width: 100%; height: 500px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <div
-                                style="width: 200px; height: 200px; border: 2px solid #0066ff; border-radius: 50%; opacity: 0.3; animation: pulse-ring 4s infinite linear;">
+                        <!-- Security Layers Stack Animation -->
+                        <div class="sec-stack-wrap" id="sec-stack">
+                            <div class="sec-stack-inner">
+
+                                <div class="sec-layer" id="sl-0" data-icon="fa-display" data-color="#0066ff">
+                                    <div class="sl-icon"><i class="fas fa-display"></i></div>
+                                    <div class="sl-info">
+                                        <span class="sl-name">Application Layer</span>
+                                        <span class="sl-desc">API, UI, SDK integrations</span>
+                                    </div>
+                                    <div class="sl-check" id="slc-0"><i class="fas fa-check"></i></div>
+                                    <div class="sl-shimmer"></div>
+                                </div>
+
+                                <div class="sl-arrow"><i class="fas fa-chevron-down"></i>
+                                    <div class="sl-packet" id="slp-0"></div>
+                                </div>
+
+                                <div class="sec-layer" id="sl-1" data-color="#7c3aed">
+                                    <div class="sl-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><i
+                                            class="fas fa-key"></i></div>
+                                    <div class="sl-info">
+                                        <span class="sl-name">Cryptography Layer</span>
+                                        <span class="sl-desc">ZK-Proof · Dilithium-3 · SHA-3</span>
+                                    </div>
+                                    <div class="sl-check" id="slc-1"><i class="fas fa-check"></i></div>
+                                    <div class="sl-shimmer"></div>
+                                </div>
+
+                                <div class="sl-arrow"><i class="fas fa-chevron-down"></i>
+                                    <div class="sl-packet" id="slp-1"></div>
+                                </div>
+
+                                <div class="sec-layer" id="sl-2" data-color="#10b981">
+                                    <div class="sl-icon" style="background:linear-gradient(135deg,#10b981,#34d399)"><i
+                                            class="fas fa-circle-nodes"></i></div>
+                                    <div class="sl-info">
+                                        <span class="sl-name">Consensus Layer</span>
+                                        <span class="sl-desc">47-node tiered validation</span>
+                                    </div>
+                                    <div class="sl-check" id="slc-2"><i class="fas fa-check"></i></div>
+                                    <div class="sl-shimmer"></div>
+                                </div>
+
+                                <div class="sl-arrow"><i class="fas fa-chevron-down"></i>
+                                    <div class="sl-packet" id="slp-2"></div>
+                                </div>
+
+                                <div class="sec-layer" id="sl-3" data-color="#f59e0b">
+                                    <div class="sl-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)"><i
+                                            class="fas fa-database"></i></div>
+                                    <div class="sl-info">
+                                        <span class="sl-name">IPFS Storage Layer</span>
+                                        <span class="sl-desc">Sharded · Encrypted · Distributed</span>
+                                    </div>
+                                    <div class="sl-check" id="slc-3"><i class="fas fa-check"></i></div>
+                                    <div class="sl-shimmer"></div>
+                                </div>
+
                             </div>
-                            <div
-                                style="width: 150px; height: 150px; border: 2px solid #0066ff; border-radius: 50%; opacity: 0.5; position: absolute; animation: pulse-ring 4s infinite linear 1s;">
+
+                            <!-- Processing badge -->
+                            <div class="sec-stack-badge" id="stack-badge">
+                                <span class="ssb-dot"></span>
+                                <span id="stack-badge-text">Initialising…</span>
                             </div>
-                            <i class="fas fa-shield-halved"
-                                style="font-size: 6rem; color: #0066ff; position: relative; z-index: 2;"></i>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+
     </section>
+
+
 
     <!-- Final CTA -->
     <!-- Universal Trust Framework (Replacing Final CTA) -->
@@ -272,6 +435,195 @@
     </style>
 
     <script src="shared-components.js"></script>
+
+    <script>
+        /* ── Live Signing Pipeline Animation ── */
+        (function () {
+            const stages = [
+                {
+                    nodeId: 'pn-upload', statusId: 'pns-upload', pktId: 'pkt-1', activeMsg: 'Processing…', doneMsg: 'Uploaded ✓',
+                    logs: ['[00:00.001] Document received: contract_v2.pdf (2.4 MB)', '[00:00.003] Integrity pre-check passed']
+                },
+                {
+                    nodeId: 'pn-hash', statusId: 'pns-hash', pktId: 'pkt-2', activeMsg: 'Hashing…', doneMsg: 'Hash OK ✓',
+                    logs: ['[00:00.021] SHA-3 (512-bit) digest computed', '[00:00.022] hash: 3f9a1b2c…d84f']
+                },
+                {
+                    nodeId: 'pn-sign', statusId: 'pns-sign', pktId: 'pkt-3', activeMsg: 'Signing…', doneMsg: 'Signed ✓',
+                    logs: ['[00:00.110] ZK-Proof key pair loaded', '[00:00.178] Dilithium-3 signature applied'], type: 'warn'
+                },
+                {
+                    nodeId: 'pn-verify', statusId: 'pns-verify', pktId: 'pkt-4', activeMsg: 'Verifying…', doneMsg: 'Valid ✓',
+                    logs: ['[00:00.230] Decentralized witness queried (47 nodes)', '[00:00.241] Consensus: 47/47 — VALID'], type: 'success'
+                },
+                {
+                    nodeId: 'pn-ledger', statusId: 'pns-ledger', pktId: null, activeMsg: 'Anchoring…', doneMsg: 'Anchored ✓',
+                    logs: ['[00:00.260] Block #1832944 — TX submitted', '[00:00.280] ✅ Immutable seal confirmed'], type: 'success'
+                }
+            ];
+
+            const logEl = document.getElementById('pl-entries');
+            const STEP_DUR = 1300; // ms per stage
+
+            function resetAll() {
+                stages.forEach(s => {
+                    const n = document.getElementById(s.nodeId);
+                    const st = document.getElementById(s.statusId);
+                    n.classList.remove('active', 'done');
+                    st.textContent = 'Waiting…';
+                });
+                if (logEl) logEl.innerHTML = '';
+            }
+
+            function addLog(text, type) {
+                if (!logEl) return;
+                const div = document.createElement('div');
+                div.className = 'pl-entry' + (type ? ' ' + type : '');
+                div.textContent = text;
+                logEl.appendChild(div);
+            }
+
+            function firePacket(pktId) {
+                if (!pktId) return;
+                const pkt = document.getElementById(pktId);
+                if (!pkt) return;
+                pkt.classList.remove('traveling');
+                void pkt.offsetWidth; // reflow
+                pkt.classList.add('traveling');
+                pkt.addEventListener('animationend', () => pkt.classList.remove('traveling'), { once: true });
+            }
+
+            function runStage(idx) {
+                if (idx >= stages.length) {
+                    // Pause then restart
+                    setTimeout(() => { resetAll(); runStage(0); }, 2200);
+                    return;
+                }
+                const s = stages[idx];
+                const nodeEl = document.getElementById(s.nodeId);
+                const statusEl = document.getElementById(s.statusId);
+
+                // Mark previous stage done
+                if (idx > 0) {
+                    const prev = stages[idx - 1];
+                    document.getElementById(prev.nodeId).classList.replace('active', 'done');
+                }
+
+                nodeEl.classList.add('active');
+                statusEl.textContent = s.activeMsg;
+                firePacket(s.pktId);
+
+                // Log lines staggered
+                s.logs.forEach((line, i) => {
+                    setTimeout(() => addLog(line, s.type || ''), i * 320);
+                });
+
+                setTimeout(() => {
+                    statusEl.textContent = s.doneMsg;
+                    runStage(idx + 1);
+                }, STEP_DUR);
+            }
+
+            // Only start when card is in view
+            const card = document.getElementById('signing-pipeline-card');
+            if (card && 'IntersectionObserver' in window) {
+                let started = false;
+                const obs = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting && !started) {
+                        started = true;
+                        runStage(0);
+                    }
+                }, { threshold: 0.3 });
+                obs.observe(card);
+            } else if (card) {
+                runStage(0);
+            }
+        })();
+
+        /* ── Security Layers Stack Animation ── */
+        (function () {
+            const layers = [
+                { id: 'sl-0', pktId: 'slp-0', msg: 'Request received — routing to crypto engine…' },
+                { id: 'sl-1', pktId: 'slp-1', msg: 'ZK-Proof generated — Dilithium-3 signed…' },
+                { id: 'sl-2', pktId: 'slp-2', msg: 'Consensus reached — 47/47 validators agree…' },
+                { id: 'sl-3', pktId: null, msg: '✅ Document anchored to decentralised ledger' }
+            ];
+            const badgeText = document.getElementById('stack-badge-text');
+            const STEP = 1400;
+
+            function getEl(id) { return document.getElementById(id); }
+
+            function resetLayers() {
+                layers.forEach(l => {
+                    const el = getEl(l.id);
+                    el.classList.remove('sl-active', 'sl-done');
+                });
+                if (badgeText) badgeText.textContent = 'Processing document…';
+            }
+
+            function firePacket(pktId) {
+                if (!pktId) return;
+                const p = getEl(pktId);
+                if (!p) return;
+                p.classList.remove('traveling');
+                void p.offsetWidth;
+                p.classList.add('traveling');
+                p.addEventListener('animationend', () => p.classList.remove('traveling'), { once: true });
+            }
+
+            function runLayer(idx) {
+                if (idx >= layers.length) {
+                    setTimeout(() => { resetLayers(); runLayer(0); }, 2000);
+                    return;
+                }
+                const l = layers[idx];
+                // Mark previous done
+                if (idx > 0) {
+                    const prev = layers[idx - 1];
+                    const prevEl = getEl(prev.id);
+                    prevEl.classList.remove('sl-active');
+                    prevEl.classList.add('sl-done');
+                }
+                const el = getEl(l.id);
+                el.classList.add('sl-active');
+                firePacket(l.pktId);
+                if (badgeText) badgeText.textContent = l.msg;
+
+                setTimeout(() => {
+                    if (idx === layers.length - 1) {
+                        el.classList.remove('sl-active');
+                        el.classList.add('sl-done');
+                        if (badgeText) badgeText.textContent = '✅ Signature complete';
+                    }
+                    runLayer(idx + 1);
+                }, STEP);
+            }
+
+            function initSlide() {
+                layers.forEach((l, i) => {
+                    setTimeout(() => {
+                        const el = getEl(l.id);
+                        if (el) el.classList.add('sl-visible');
+                    }, i * 160);
+                });
+                setTimeout(() => runLayer(0), layers.length * 160 + 300);
+            }
+
+            const wrap = document.getElementById('sec-stack');
+            if (wrap && 'IntersectionObserver' in window) {
+                let started = false;
+                const obs = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting && !started) {
+                        started = true;
+                        initSlide();
+                    }
+                }, { threshold: 0.25 });
+                obs.observe(wrap);
+            } else if (wrap) {
+                initSlide();
+            }
+        })();
+    </script>
 </body>
 
 </html>

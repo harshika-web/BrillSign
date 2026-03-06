@@ -455,7 +455,7 @@ const apiDropdownHTML = `
                 </a></li>
             </ul>
         </div>
-        <a href="api-docs.html" class="solutions-cta" style="margin-top: 20px;">View All →</a>
+        <a href="api-docs.html#ecosystem" class="solutions-cta" style="margin-top: 20px;">View All →</a>
     </div>
 `;
 

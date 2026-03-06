@@ -95,6 +95,72 @@
         .sdk-badges i {
             font-size: 2rem;
         }
+
+        /* Ecosystem Section Styles */
+        .ecosystem-section {
+            padding: 120px 0;
+            background: #f8fafc;
+            border-top: 1px solid rgba(0, 102, 255, 0.05);
+        }
+
+        .integrations-marquee {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .integration-logocard {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .integration-logocard:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 102, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 55, 85, 0.08);
+        }
+
+        .integration-logocard img {
+            max-width: 120px;
+            filter: grayscale(1) opacity(0.6);
+            transition: all 0.4s ease;
+        }
+
+        .integration-logocard:hover img {
+            filter: grayscale(0) opacity(1);
+        }
+
+        .integration-logocard::after {
+            content: 'VIEW INTEGRATION';
+            position: absolute;
+            bottom: -20px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #0066ff;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+
+        .integration-logocard:hover::after {
+            bottom: 12px;
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            .integrations-marquee {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 
@@ -173,6 +239,16 @@
                     <p style="color: #64748b; line-height: 1.6;">Industry-standard OAuth 2.0 and API Key authentication
                         with granular scope permissions.</p>
                 </div>
+                <div class="api-resource-card">
+                    <h4><i class="fas fa-terminal" style="color:#64748b;"></i> CLI Tool</h4>
+                    <p style="color: #64748b; line-height: 1.6;">Powerful command-line interface for rapid prototyping,
+                        CI/CD integration, and automated testing.</p>
+                </div>
+                <div class="api-resource-card">
+                    <h4><i class="fas fa-vial" style="color:#ec4899;"></i> Sandbox</h4>
+                    <p style="color: #64748b; line-height: 1.6;">A safe, isolated environment for testing your
+                        integrations with mock data before going live.</p>
+                </div>
             </div>
 
             <div class="sdk-badges">
@@ -181,6 +257,54 @@
                 <i class="fab fa-golang"></i>
                 <i class="fab fa-java"></i>
                 <i class="fab fa-php"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Integrations -->
+    <section class="ecosystem-section" id="ecosystem">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px;">
+                <span
+                    style="color: #0066ff; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">Global
+                    Connectivity</span>
+                <h2 style="font-size: 2.8rem; font-weight: 900; margin-top: 15px; color: #0f172a;">Third-Party Ecosystem
+                </h2>
+                <p style="color: #64748b; font-size: 1.15rem; margin-top: 20px;">Seamlessly connect BrillSign with your
+                    existing tech stack through our pre-built enterprise integrations.</p>
+            </div>
+
+            <div class="integrations-marquee">
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg" alt="Salesforce">
+                </div>
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google">
+                </div>
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" alt="Microsoft">
+                </div>
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/dropbox/dropbox-icon.svg" alt="Dropbox">
+                </div>
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS">
+                </div>
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/sap/sap-icon.svg" alt="SAP">
+                </div>
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg" alt="Oracle">
+                </div>
+                <div class="integration-logocard">
+                    <img src="https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg" alt="HubSpot">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="color: #94a3b8; font-weight: 600;">Don't see your tool? <a href="request-integration.html"
+                        style="color: #0066ff; text-decoration: none; border-bottom: 2px solid rgba(0, 102, 255, 0.2);">Request
+                        an Integration →</a></p>
             </div>
         </div>
     </section>
