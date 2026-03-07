@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Integrity Whitepaper | BrillSign</title>
+    <meta name="description"
+        content="Technical whitepaper on BrillSign's cryptographic document integrity system — SHA-256 fingerprinting, immutable proof anchoring, and tamper detection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="intro-animation.css">
+    <style>
+        /* --- Advanced Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.observed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-zoom {
+            transform: scale(0.9);
+            transition: all 1s ease-out;
+        }
+
+        .animate-zoom.observed {
+            transform: scale(1);
+        }
+
+        .animate-slide-left {
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-left.observed {
+            transform: translateX(0);
+        }
+
+        .animate-slide-right {
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-right.observed {
+            transform: translateX(0);
+        }
+
+        :root {
+            --blue: #0066ff;
+            --blue-l: #3385ff;
+            --red: #ff0000;
+            --navy: #0f172a;
+            --muted: #64748b;
+            --bg: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #0f172a;
+        }
+
+        .wp-hero {
+            background: linear-gradient(135deg, #020c1b 0%, #031a40 60%, #021233 100%);
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wp-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -60px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 255, .18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .h-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .wp-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(0, 102, 255, .4);
+            border-radius: 100px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+            background: rgba(0, 102, 255, .09);
+            margin-bottom: 20px;
+        }
+
+        .wp-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .wp-hero h1 span {
+            color: #7cb4ff;
+        }
+
+        .wp-hero p {
+            color: rgba(255, 255, 255, .7);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .wp-meta-item {
+            font-size: .83rem;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .wp-meta-item strong {
+            display: block;
+            color: rgba(255, 255, 255, .85);
+            font-weight: 600;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .bt {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bt:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .bg {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bg:hover {
+            border-color: rgba(255, 255, 255, .5);
+            background: rgba(255, 255, 255, .05);
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, .5);
+        }
+
+        .s-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .eyebrow {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .h2-lg {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .h2-lg span {
+            color: var(--blue);
+        }
+
+        /* Problem */
+        .problem-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .prob-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .prob-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 4px solid var(--red);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+        }
+
+        .prob-card i {
+            font-size: 1.6rem;
+            color: var(--red);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .prob-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .prob-card p {
+            font-size: .87rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* Method */
+        .method-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .ms-steps {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ms-step {
+            display: grid;
+            grid-template-columns: 72px 1fr 1fr;
+            gap: 40px;
+            padding: 44px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ms-step:last-child {
+            border-bottom: none;
+        }
+
+        .snum {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #e2e8f0;
+            line-height: 1;
+        }
+
+        .ms-text h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .ms-text p {
+            font-size: .87rem;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .code-box {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 22px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-lbl {
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .code-line {
+            font-size: .78rem;
+            color: #334155;
+            margin-bottom: 5px;
+        }
+
+        .c-ok {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .c-err {
+            color: var(--red);
+        }
+
+        /* Comparison */
+        .comp-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .comp-wrap {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .06);
+            margin-top: 60px;
+        }
+
+        .comp-tbl {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comp-tbl thead {
+            background: var(--navy);
+        }
+
+        .comp-tbl thead th {
+            padding: 20px 26px;
+            text-align: left;
+            font-size: .88rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .65);
+        }
+
+        .comp-tbl thead th.bs-h {
+            color: var(--blue-l);
+        }
+
+        .comp-tbl tbody tr {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comp-tbl tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .comp-tbl td {
+            padding: 18px 26px;
+            font-size: .88rem;
+        }
+
+        .td-feat {
+            color: var(--muted);
+            font-weight: 500;
+            width: 28%;
+        }
+
+        .td-trad {
+            color: var(--red);
+        }
+
+        .td-bs {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        /* Use cases */
+        .uc-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .uc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .uc-card {
+            border-radius: 16px;
+            padding: 32px 26px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .uc-1::before {
+            background: linear-gradient(90deg, var(--teal), var(--teal-l));
+        }
+
+        .uc-2::before {
+            background: linear-gradient(90deg, #0066ff, #60a5fa);
+        }
+
+        .uc-3::before {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+
+        .uc-card i {
+            font-size: 1.8rem;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .uc-1 i {
+            color: var(--teal);
+        }
+
+        .uc-2 i {
+            color: #0066ff;
+        }
+
+        .uc-3 i {
+            color: #10b981;
+        }
+
+        .uc-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .uc-card p {
+            font-size: .85rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .wp-cta {
+            padding: 100px 0;
+            background: var(--navy);
+            text-align: center;
+        }
+
+        .wp-cta h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .wp-cta p {
+            color: rgba(255, 255, 255, .6);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ct {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .ct:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .cb {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1.5px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .cb:hover {
+            border-color: rgba(255, 255, 255, .5);
+            background: rgba(255, 255, 255, .05);
+        }
+
+        @media(max-width:900px) {
+
+            .h-inner,
+            .prob-grid,
+            .uc-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .ms-step {
+                grid-template-columns: 56px 1fr;
+            }
+
+            .ms-step .code-box {
+                display: none;
+            }
+
+            .wp-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+        <section class="wp-hero">
+            <div class="h-inner">
+                <div>
+                    <span class="wp-tag"><i class="fas fa-file-pdf"></i> Technical Whitepaper</span>
+                    <h1>Cryptographic integrity — <span>mathematically guaranteed</span></h1>
+                    <p>How SHA-256 fingerprinting, immutable proof anchoring, and continuous tamper detection work
+                        together to make document alterations permanently detectable — anywhere, anytime.</p>
+                    <div class="wp-meta reveal">
+                        <div class="wp-meta-item reveal"><strong>Version</strong>4.1 — 2026</div>
+                        <div class="wp-meta-item reveal"><strong>Audience</strong>CISOs, Legal, DevOps</div>
+                        <div class="wp-meta-item reveal"><strong>Read time</strong>~12 min</div>
+                    </div>
+                    <div class="btn-row">
+                        <a href="document-integrity.html" class="bt"><i class="fas fa-arrow-left"></i> Back to
+                            Integrity</a>
+                        <a href="join-waitlist.html" class="bg"><i class="fas fa-envelope"></i> Join Waitlist</a>
+                    </div>
+                </div>
+                <div class="animate-zoom"><img src="integrity_whitepaper_hero.png" alt="Document Integrity Verification"
+                        class="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem -->
+        <section class="problem-section reveal">
+            <div class="s-inner">
+                <p class="eyebrow">The Core Problem</p>
+                <h2 class="h2-lg">Why traditional storage <span>cannot guarantee integrity</span></h2>
+                <div class="prob-grid">
+                    <div class="prob-card reveal"><i class="fas fa-user-secret"></i>
+                        <h4>Silent Modification Attacks</h4>
+                        <p>Documents stored in standard file systems can be altered byte-by-byte by privileged
+                            administrators or attackers without any automatic alert or visible trace.</p>
+                    </div>
+                    <div class="prob-card reveal"><i class="fas fa-copy"></i>
+                        <h4>Version Ambiguity</h4>
+                        <p>When multiple copies exist across systems, there is no cryptographic way to determine which
+                            represents the authoritative original without an external proof record.</p>
+                    </div>
+                    <div class="prob-card reveal"><i class="fas fa-server"></i>
+                        <h4>Migration Corruption Risk</h4>
+                        <p>Data migrations between storage systems routinely introduce errors that may silently corrupt
+                            documents without triggering traditional integrity checks.</p>
+                    </div>
+                    <div class="prob-card reveal"><i class="fas fa-gavel"></i>
+                        <h4>Undisprovable Legal Disputes</h4>
+                        <p>Without an independent, immutable record of the original state, legal disputes about contract
+                            terms become extremely difficult to resolve with certainty.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method -->
+        <section class="method-section reveal">
+            <div class="s-inner">
+                <p class="eyebrow">Technical Methodology</p>
+                <h2 class="h2-lg">How BrillSign's integrity system works</h2>
+                <div class="ms-steps">
+                    <div class="ms-step reveal">
+                        <div class="snum animate-slide-left">01</div>
+                        <div class="ms-text">
+                            <h3>Cryptographic Fingerprinting at Intake</h3>
+                            <p>When a document is uploaded, BrillSign computes a SHA-256 hash of the complete binary
+                                content. This fingerprint is unique to the exact byte sequence — any subsequent change
+                                produces a completely different hash.</p>
+                        </div>
+                        <div class="code-box animate-slide-right">
+                            <div class="code-lbl">SHA-256 Fingerprint</div>
+                            <div class="code-line">INPUT: contract_v3.pdf (847,234 bytes)</div>
+                            <div class="code-line c-ok">HASH: sha256: 7f3a9b2c...d84f</div>
+                            <div class="code-line">TIMESTAMP: 2026-03-07T13:41:22Z</div>
+                            <div class="code-line c-ok">STATUS: FINGERPRINT_LOCKED</div>
+                        </div>
+                    </div>
+                    <div class="ms-step reveal">
+                        <div class="snum animate-slide-left">02</div>
+                        <div class="ms-text">
+                            <h3>Immutable Proof Anchoring to Decentralized Ledger</h3>
+                            <p>The fingerprint hash is anchored to BrillSign's decentralized proof ledger — a publicly
+                                verifiable, permanent record that no party (including BrillSign) can retroactively
+                                alter.</p>
+                        </div>
+                        <div class="code-box animate-slide-right">
+                            <div class="code-lbl">Ledger Anchoring</div>
+                            <div class="code-line">PROOF_ID: BS-2026-9921-X</div>
+                            <div class="code-line c-ok">LEDGER_TX: block #4,832,944</div>
+                            <div class="code-line">ANCHOR_TIME: 0.280s</div>
+                            <div class="code-line c-ok">IMMUTABLE: true</div>
+                        </div>
+                    </div>
+                    <div class="ms-step reveal">
+                        <div class="snum animate-slide-left">03</div>
+                        <div class="ms-text">
+                            <h3>Continuous Tamper Detection on Verification</h3>
+                            <p>When a document is verified, BrillSign recomputes the SHA-256 hash in real time and
+                                compares it to the anchored proof. A mismatch — even one bit — is immediately flagged
+                                with full forensic detail.</p>
+                        </div>
+                        <div class="code-box animate-slide-right">
+                            <div class="code-lbl">Tamper Detection</div>
+                            <div class="code-line">CURRENT_HASH: 7f3a9b2c...d84f</div>
+                            <div class="code-line">ANCHORED_HASH: 7f3a9b2c...d84f</div>
+                            <div class="code-line c-ok">RESULT: MATCH — UNTAMPERED</div>
+                            <div class="code-line c-err">⚠ If altered: HASH_MISMATCH</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comp-section reveal">
+            <div class="s-inner">
+                <p class="eyebrow">Comparative Analysis</p>
+                <h2 class="h2-lg">Traditional storage vs. <span>BrillSign integrity</span></h2>
+                <div class="comp-wrap animate-zoom">
+                    <table class="comp-tbl">
+                        <thead>
+                            <tr>
+                                <th>Scenario</th>
+                                <th>Traditional File Storage</th>
+                                <th class="bs-h">BrillSign Integrity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="reveal">
+                                <td class="td-feat">Detecting silent edits</td>
+                                <td class="td-trad">No automatic detection</td>
+                                <td class="td-bs">Immediate hash mismatch alert</td>
+                            </tr>
+                            <tr class="reveal">
+                                <td class="td-feat">Proof of original version</td>
+                                <td class="td-trad">Relies on deletable version history</td>
+                                <td class="td-bs">Immutable ledger record</td>
+                            </tr>
+                            <tr class="reveal">
+                                <td class="td-feat">Admin tampering protection</td>
+                                <td class="td-trad">None — admins have full write access</td>
+                                <td class="td-bs">Math-based proof, not admin-controlled</td>
+                            </tr>
+                            <tr class="reveal">
+                                <td class="td-feat">Legal admissibility</td>
+                                <td class="td-trad">Platform testimony required</td>
+                                <td class="td-bs">Self-contained cryptographic proof</td>
+                            </tr>
+                            <tr class="reveal">
+                                <td class="td-feat">Long-term validity</td>
+                                <td class="td-trad">Depends on storage vendor</td>
+                                <td class="td-bs">Permanent — embedded in decentralized proof</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="uc-section reveal">
+            <div class="s-inner">
+                <p class="eyebrow">Industry Applications</p>
+                <h2 class="h2-lg">Where integrity is <span>mission-critical</span></h2>
+                <div class="uc-grid">
+                    <div class="uc-card uc-1 reveal"><i class="fas fa-balance-scale-left"></i>
+                        <h4>Legal & Contract Management</h4>
+                        <p>Litigation teams require absolute certainty that the contract presented in court is identical
+                            to what was originally signed. BrillSign's proof provides court-admissible cryptographic
+                            confirmation.</p>
+                    </div>
+                    <div class="uc-card uc-2 reveal"><i class="fas fa-chart-line"></i>
+                        <h4>Finance & Audit Compliance</h4>
+                        <p>SOX, Basel III, and MiFID II require immutable audit trails for financial agreements.
+                            Cryptographic integrity proofs satisfy these requirements with independently verifiable
+                            evidence.</p>
+                    </div>
+                    <div class="uc-card uc-3 reveal"><i class="fas fa-hospital"></i>
+                        <h4>Healthcare Records</h4>
+                        <p>HIPAA and FDA mandates require that clinical trial agreements and patient consent forms
+                            remain unaltered. BrillSign adds tamper-evidence without changing existing workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="wp-cta reveal">
+            <div class="s-inner">
+                <h2>Protect every contract with mathematical certainty</h2>
+                <p>BrillSign's integrity layer adds cryptographic protection to your existing workflows — no migration
+                    required.</p>
+                <div class="cta-row">
+                    <a href="join-waitlist.html" class="ct"><i class="fas fa-envelope"></i> Join the Waitlist</a>
+                    <a href="document-integrity.html" class="cb"><i class="fas fa-arrow-left"></i> Explore Integrity
+                        Features</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="shared-components.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>

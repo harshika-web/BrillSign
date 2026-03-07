@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Tools | BrillSign</title>
+    <meta name="description"
+        content="Developer tools for independent BrillSign signature verification — CLI, API, browser extension, and OpenPGP/OpenSSL command-line tools.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --blue: #0066ff;
+            --blue-l: #3385ff;
+            --red: #ff0000;
+            --navy: #0f172a;
+            --muted: #64748b;
+            --bg: #f8fafc;
+            --code-bg: #0d1117;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #0f172a;
+        }
+
+        .vt-hero {
+            background: linear-gradient(135deg, #020c1b, #031a40 60%, #011029);
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vt-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -60px;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(0, 102, 255, .18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .h-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .vt-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(0, 102, 255, .4);
+            border-radius: 100px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+            background: rgba(0, 102, 255, .09);
+            margin-bottom: 20px;
+        }
+
+        .vt-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .vt-hero h1 span {
+            color: #7cb4ff;
+        }
+
+        .vt-hero p {
+            color: rgba(255, 255, 255, .7);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .bpg {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bpg:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .bog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bog:hover {
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, .5);
+        }
+
+        .s-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .ey {
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .h2t {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .h2t span {
+            color: var(--blue);
+        }
+
+        /* Tools overview */
+        .tools-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            margin-top: 60px;
+        }
+
+        .tool-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 36px 32px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+        }
+
+        .tool-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .tc-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .ti-g {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .ti-b {
+            background: rgba(0, 102, 255, .12);
+            color: var(--blue);
+        }
+
+        .ti-p {
+            background: rgba(255, 0, 0, .1);
+            color: var(--red);
+        }
+
+        .ti-a {
+            background: rgba(255, 255, 0, .12);
+            color: #cccc00;
+        }
+
+        .tool-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: .65rem;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .tb-stable {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .tb-beta {
+            background: rgba(255, 0, 0, .1);
+            color: var(--red);
+        }
+
+        .tb-preview {
+            background: rgba(255, 255, 0, .1);
+            color: #cccc00;
+        }
+
+        .tool-card p {
+            font-size: .87rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tool-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tool-features li {
+            font-size: .82rem;
+            color: #334155;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .tool-features li::before {
+            content: "→";
+            color: var(--blue);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* CLI Demo */
+        .cli-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .cli-desc {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 680px;
+            margin-bottom: 60px;
+        }
+
+        .terminal {
+            background: var(--code-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .4);
+        }
+
+        .term-bar {
+            background: #1c1c1e;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .d-r {
+            background: #ff5f57;
+        }
+
+        .d-y {
+            background: #ffbd2e;
+        }
+
+        .d-g {
+            background: #28ca41;
+        }
+
+        .term-title {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: .75rem;
+            color: rgba(255, 255, 255, .35);
+        }
+
+        .term-body {
+            padding: 28px 32px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cli-line {
+            font-size: .85rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .cli-prompt {
+            color: var(--blue);
+        }
+
+        .cli-cmd {
+            color: #f8fafc;
+        }
+
+        .cli-comment {
+            color: rgba(255, 255, 255, .3);
+            font-size: .78rem;
+        }
+
+        .cli-out {
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .cli-ok {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .cli-key {
+            color: #818cf8;
+        }
+
+        .cli-val {
+            color: #fbbf24;
+        }
+
+        .cli-err {
+            color: #f87171;
+        }
+
+        /* API Reference */
+        .api-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+            align-items: start;
+        }
+
+        .api-endpoints {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .api-ep {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .ep-method {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: .72rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .m-get {
+            background: rgba(0, 102, 255, .12);
+            color: var(--blue);
+        }
+
+        .m-post {
+            background: rgba(0, 102, 255, .12);
+            color: #0066ff;
+        }
+
+        .ep-path {
+            font-family: 'Courier New', monospace;
+            font-size: .82rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .ep-desc {
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        .api-response {
+            background: var(--code-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+        }
+
+        .ar-label {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .ar-line {
+            font-family: 'Courier New', monospace;
+            font-size: .78rem;
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .ar-k {
+            color: #818cf8;
+        }
+
+        .ar-v {
+            color: #fbbf24;
+        }
+
+        .ar-ok {
+            color: var(--blue);
+        }
+
+        /* Checksum section */
+        .cs-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .cs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .cs-card {
+            border-radius: 16px;
+            padding: 32px;
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+        }
+
+        .cs-card i {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .cs-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .cs-card code {
+            display: block !important;
+            background: #0d1117 !important;
+            color: #e2e8f0 !important;
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: .73rem;
+            font-family: 'Courier New', monospace;
+            margin: 12px 0;
+            word-break: break-all;
+            line-height: 1.5;
+        }
+
+        .cs-card p {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        /* CTA */
+        .vt-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #020c1b, #031a40);
+            text-align: center;
+        }
+
+        .vt-cta h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .vt-cta p {
+            color: rgba(255, 255, 255, .6);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+        }
+
+        .vc-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .vc-p {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .vc-p:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .vc-b {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1.5px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .vc-b:hover {
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        @media(max-width:900px) {
+
+            .h-in,
+            .tools-grid,
+            .api-grid,
+            .cs-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .vt-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+        <section class="vt-hero">
+            <div class="h-in">
+                <div>
+                    <span class="vt-tag"><i class="fas fa-terminal"></i> Developer Verification Suite</span>
+                    <h1>Verify any BrillSign document <span>without the platform</span></h1>
+                    <p>A complete suite of tools — CLI, API, browser extension, and open-standard commands — that let
+                        anyone verify a BrillSign document's authenticity, integrity, and signer identity independently
+                        and permanently.</p>
+                    <div class="btn-row">
+                        <a href="independent-verification.html" class="bpg"><i class="fas fa-arrow-left"></i> Back to
+                            Verification</a>
+                        <a href="join-waitlist.html" class="bog"><i class="fas fa-envelope"></i> Join Waitlist</a>
+                    </div>
+                </div>
+                <div><img src="verification_tools_hero.png" alt="CLI Verification Tools" class="hero-img"></div>
+            </div>
+        </section>
+
+        <!-- Tools Overview -->
+        <section class="tools-section">
+            <div class="s-in">
+                <p class="ey">Verification Suite</p>
+                <h2 class="h2t">Four ways to verify <span>independently</span></h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <div class="tc-icon ti-g"><i class="fas fa-terminal"></i></div>
+                            <div>
+                                <h3>CLI Tool</h3>
+                                <span class="tool-badge tb-stable">Stable v2.4</span>
+                            </div>
+                        </div>
+                        <p>A cross-platform command-line interface for verifying document signatures in scripts, CI/CD
+                            pipelines, and batch processing. Supports JSON output for programmatic parsing.</p>
+                        <ul class="tool-features">
+                            <li>Windows, macOS, Linux — single binary</li>
+                            <li>Offline verification mode available</li>
+                            <li>Batch verification for multiple documents</li>
+                            <li>Machine-readable JSON output flag</li>
+                        </ul>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <div class="tc-icon ti-b"><i class="fas fa-plug"></i></div>
+                            <div>
+                                <h3>REST API</h3>
+                                <span class="tool-badge tb-stable">v3 — OpenAPI 3.1</span>
+                            </div>
+                        </div>
+                        <p>Full REST API with OpenAPI 3.1 specification for integrating verification into existing
+                            applications, portals, or automated workflows. Rate-limited programmatic access.</p>
+                        <ul class="tool-features">
+                            <li>OpenAPI 3.1 specification with Swagger UI</li>
+                            <li>Webhook support for async verification events</li>
+                            <li>SDK libraries for Node.js, Python, Go, Java</li>
+                            <li>Enterprise API keys with rate-limit controls</li>
+                        </ul>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <div class="tc-icon ti-p"><i class="fas fa-puzzle-piece"></i></div>
+                            <div>
+                                <h3>Browser Extension</h3>
+                                <span class="tool-badge tb-beta">Beta</span>
+                            </div>
+                        </div>
+                        <p>Chrome and Firefox extension for one-click verification of BrillSign documents directly in
+                            your browser, without uploading files to any server. All verification runs locally.</p>
+                        <ul class="tool-features">
+                            <li>Chrome Manifest V3 certified</li>
+                            <li>Local verification — no file upload needed</li>
+                            <li>Visual inline verification badge on PDFs</li>
+                            <li>History of verified documents (local storage)</li>
+                        </ul>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <div class="tc-icon ti-a"><i class="fas fa-key"></i></div>
+                            <div>
+                                <h3>OpenPGP / OpenSSL Verification</h3>
+                                <span class="tool-badge tb-stable">Open Standard</span>
+                            </div>
+                        </div>
+                        <p>Every BrillSign proof package is verifiable using standard open-source tools — no proprietary
+                            software required. Pure cryptographic verification with public keys.</p>
+                        <ul class="tool-features">
+                            <li>Compatible with GPG / GnuPG toolchain</li>
+                            <li>OpenSSL PKCS#7 / CMS signature validation</li>
+                            <li>Public key registry for identity lookup</li>
+                            <li>Zero dependency on BrillSign infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLI Demo -->
+        <section class="cli-section">
+            <div class="s-in">
+                <p class="ey">CLI Quick Start</p>
+                <h2 class="h2t">Verify in one command — <span>zero dependencies</span></h2>
+                <p class="cli-desc">Install the BrillSign CLI and run a single verification command. The tool checks
+                    document integrity, signer identity, timestamp, and ledger anchor — all locally, with no account
+                    required.</p>
+                <div class="terminal">
+                    <div class="term-bar">
+                        <span class="dot d-r"></span>
+                        <span class="dot d-y"></span>
+                        <span class="dot d-g"></span>
+                        <span class="term-title">Terminal — bash</span>
+                    </div>
+                    <div class="term-body">
+                        <div class="cli-line"><span class="cli-comment"># Install the BrillSign CLI</span></div>
+                        <div class="cli-line"><span class="cli-prompt">$ </span><span class="cli-cmd">npm install -g
+                                @brillsign/cli</span></div>
+                        <div class="cli-line">&nbsp;</div>
+                        <div class="cli-line"><span class="cli-comment"># Verify a document signature</span></div>
+                        <div class="cli-line"><span class="cli-prompt">$ </span><span class="cli-cmd">brillsign verify
+                                ./contract_signed.pdf</span></div>
+                        <div class="cli-line">&nbsp;</div>
+                        <div class="cli-line"><span class="cli-out">Checking document integrity...</span></div>
+                        <div class="cli-line"><span class="cli-ok">✓ </span><span class="cli-key">HASH:</span> <span
+                                class="cli-out">sha256: 7f3a9b2c...d84f1e09</span></div>
+                        <div class="cli-line"><span class="cli-ok">✓ </span><span class="cli-key">HASH MATCH:</span>
+                            <span class="cli-ok">VERIFIED — document untampered</span>
+                        </div>
+                        <div class="cli-line">&nbsp;</div>
+                        <div class="cli-line"><span class="cli-out">Checking signer identity...</span></div>
+                        <div class="cli-line"><span class="cli-ok">✓ </span><span class="cli-key">IDENTITY:</span> <span
+                                class="cli-val">john.doe@company.com</span></div>
+                        <div class="cli-line"><span class="cli-ok">✓ </span><span class="cli-key">ASSURANCE:</span>
+                            <span class="cli-out">eIDAS QES (HIGH)</span>
+                        </div>
+                        <div class="cli-line">&nbsp;</div>
+                        <div class="cli-line"><span class="cli-out">Checking ledger anchor...</span></div>
+                        <div class="cli-line"><span class="cli-ok">✓ </span><span class="cli-key">TIMESTAMP:</span>
+                            <span class="cli-out">2026-03-07T13:41:22Z (RFC 3161)</span>
+                        </div>
+                        <div class="cli-line"><span class="cli-ok">✓ </span><span class="cli-key">LEDGER TX:</span>
+                            <span class="cli-out">Block #4,832,944 — IMMUTABLE</span>
+                        </div>
+                        <div class="cli-line">&nbsp;</div>
+                        <div class="cli-line"><span class="cli-ok">✅ RESULT: SIGNATURE VALID — NON-REPUDIABLE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="api-section">
+            <div class="s-in">
+                <p class="ey">REST API Reference</p>
+                <h2 class="h2t">Integrate verification into <span>any system</span></h2>
+                <div class="api-grid">
+                    <div class="api-endpoints">
+                        <div class="api-ep">
+                            <span class="ep-method m-get">GET</span>
+                            <div>
+                                <div class="ep-path">/v3/verify/{document_id}</div>
+                                <div class="ep-desc">Verify a document by its BrillSign ID. Returns full proof status,
+                                    signer identity, and timestamp.</div>
+                            </div>
+                        </div>
+                        <div class="api-ep">
+                            <span class="ep-method m-get">GET</span>
+                            <div>
+                                <div class="ep-path">/v3/verify/hash/{sha256}</div>
+                                <div class="ep-desc">Check document integrity by submitting a hash. Works without
+                                    platform access.</div>
+                            </div>
+                        </div>
+                        <div class="api-ep">
+                            <span class="ep-method"
+                                style="background:rgba(0,102,255,.12);color:#0066ff;padding:4px 10px;border-radius:6px;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:2px;">POST</span>
+                            <div>
+                                <div class="ep-path">/v3/verify/upload</div>
+                                <div class="ep-desc">Upload a document file directly. Computes hash server-side and
+                                    returns the full verification result.</div>
+                            </div>
+                        </div>
+                        <div class="api-ep">
+                            <span class="ep-method m-get">GET</span>
+                            <div>
+                                <div class="ep-path">/v3/proof/{proof_id}</div>
+                                <div class="ep-desc">Retrieve a complete non-repudiation proof package including all
+                                    binding artifacts.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="api-response">
+                        <div class="ar-label">Sample Response — GET /v3/verify/{id}</div>
+                        <div class="ar-line">{</div>
+                        <div class="ar-line">&nbsp;&nbsp;<span class="ar-k">"status"</span>: <span
+                                class="ar-ok">"VALID"</span>,</div>
+                        <div class="ar-line">&nbsp;&nbsp;<span class="ar-k">"document_hash"</span>: <span
+                                class="ar-v">"7f3a9b2c...d84f"</span>,</div>
+                        <div class="ar-line">&nbsp;&nbsp;<span class="ar-k">"hash_match"</span>: <span
+                                class="ar-ok">true</span>,</div>
+                        <div class="ar-line">&nbsp;&nbsp;<span class="ar-k">"signer"</span>: {</div>
+                        <div class="ar-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ar-k">"identity_proof"</span>: <span
+                                class="ar-v">"ZKP-3f9a...d84f"</span>,</div>
+                        <div class="ar-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ar-k">"assurance_level"</span>: <span
+                                class="ar-v">"HIGH"</span></div>
+                        <div class="ar-line">&nbsp;&nbsp;},</div>
+                        <div class="ar-line">&nbsp;&nbsp;<span class="ar-k">"timestamp"</span>: <span
+                                class="ar-v">"2026-03-07T13:41:22Z"</span>,</div>
+                        <div class="ar-line">&nbsp;&nbsp;<span class="ar-k">"ledger_tx"</span>: <span
+                                class="ar-v">"block-4832944"</span>,</div>
+                        <div class="ar-line">&nbsp;&nbsp;<span class="ar-k">"non_repudiable"</span>: <span
+                                class="ar-ok">true</span></div>
+                        <div class="ar-line">}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Standard Commands -->
+        <section class="cs-section">
+            <div class="s-in">
+                <p class="ey">Open Standard Verification</p>
+                <h2 class="h2t">Verify with <span>no proprietary tools</span></h2>
+                <div class="cs-grid">
+                    <div class="cs-card">
+                        <i class="fas fa-terminal" style="color:var(--blue)"></i>
+                        <h4>OpenSSL — PKCS#7 Signature</h4>
+                        <code>openssl cms -verify \<br>  -in proof.p7s \<br>  -inform PEM \<br>  -CAfile brillsign-ca.pem</code>
+                        <p>Validate the CMS/PKCS#7 signature using the BrillSign public CA certificate. No account
+                            required.</p>
+                    </div>
+                    <div class="cs-card">
+                        <i class="fas fa-lock" style="color:var(--red)"></i>
+                        <h4>GnuPG — Public Key Verify</h4>
+                        <code>gpg --verify \<br>  proof.sig \<br>  contract.pdf</code>
+                        <p>Use GnuPG to verify the detached signature against the document and BrillSign's public key
+                            from the public keyserver.</p>
+                    </div>
+                    <div class="cs-card">
+                        <i class="fas fa-fingerprint" style="color:#0066ff"></i>
+                        <h4>SHA-256 Hash Check</h4>
+                        <code>sha256sum contract.pdf<br>  # Compare to anchored hash<br>  # from proof package JSON</code>
+                        <p>Manually compute the document hash and compare it to the anchored proof hash. Completely
+                            offline, zero dependencies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="vt-cta">
+            <div class="s-in">
+                <h2>Start verifying documents independently today</h2>
+                <p>Join the waitlist and get early access to the BrillSign verification CLI, API, and browser extension.
+                </p>
+                <div class="vc-row">
+                    <a href="join-waitlist.html" class="vc-p"><i class="fas fa-envelope"></i> Join the Waitlist</a>
+                    <a href="independent-verification.html" class="vc-b"><i class="fas fa-arrow-left"></i> Back to
+                        Verification</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="shared-components.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>

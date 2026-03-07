@@ -1,0 +1,211 @@
+/* How It Works Page Styles */
+.how-hero {
+    padding: 160px 0 100px;
+    background: radial-gradient(circle at top right, rgba(0, 102, 255, 0.15), transparent 60%),
+        linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.how-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure all text inside dark hero is white */
+.how-hero .container * {
+    color: inherit;
+}
+
+.how-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #fff !important;
+}
+
+.how-hero .text-highlight {
+    background: linear-gradient(135deg, #0066ff, #00d2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent !important;
+}
+
+.how-hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.75) !important;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Process Timeline */
+.process-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 60px auto 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: #f1f5f9;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    width: 42%;
+    padding: 30px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 55, 85, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 102, 255, 0.2);
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: #0066ff;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 10px rgba(0, 102, 255, 0.05);
+}
+
+.timeline-icon {
+    font-size: 1.5rem;
+    color: #0066ff;
+    margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #020617;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+/* Comparison Section */
+.how-comparison {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.comp-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 55, 85, 0.05);
+}
+
+.comp-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.comp-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comp-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.comp-card.traditional .comp-tag {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.comp-card.brillsign {
+    border: 2px solid #0066ff;
+}
+
+.comp-card.brillsign .comp-tag {
+    background: #dcfce7;
+    color: #166534;
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+}

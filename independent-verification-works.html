@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Independent Verification Works | BrillSign</title>
+    <meta name="description"
+        content="Learn how BrillSign enables independent verification: self-contained PDF proofs, universal tool compatibility, and long-term validity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --blue: #0066ff;
+            --blue-l: #3385ff;
+            --red: #ff0000;
+            --yellow: #ffff00;
+            --navy: #0f172a;
+            --bg-dark: #020c1b;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #334155;
+        }
+
+        /* ── Hero ── */
+        .ind-hero {
+            background: linear-gradient(135deg, #020c1b 0%, #031a40 50%, #011029 100%);
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .ind-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 0, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .h-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .h-txt h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .h-txt h1 span {
+            color: var(--yellow);
+        }
+
+        .h-txt p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ── Section 1: Self-Contained ── */
+        .self-section {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+
+        .s-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .self-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .self-vis img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .self-txt h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .self-txt h2 span {
+            color: var(--blue);
+        }
+
+        .self-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            border-right: 4px solid var(--red);
+        }
+
+        .self-item i {
+            font-size: 1.5rem;
+            color: var(--red);
+            margin-top: 4px;
+        }
+
+        .self-item h4 {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .self-item p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ── Section 2: Universal Tooling ── */
+        .tool-section {
+            padding: 100px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .tool-head h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .tool-head p {
+            color: #64748b;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .tool-card {
+            padding: 40px;
+            background: #f8fafc;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .tool-card i {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 24px;
+        }
+
+        .tool-card h4 {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .tool-card p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        /* ── Section 3: Continuity ── */
+        .cont-section {
+            padding: 120px 0;
+            background: #0a1628;
+            color: #fff;
+        }
+
+        .cont-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .cont-txt h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .cont-txt h2 span {
+            color: var(--yellow);
+        }
+
+        .cont-vis img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(255, 255, 0, 0.1);
+        }
+
+        .cont-stat {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border-bottom: 2px solid var(--red);
+        }
+
+        .stat-box .num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--red);
+            display: block;
+        }
+
+        .stat-box .lbl {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 968px) {
+
+            .h-in,
+            .self-grid,
+            .tool-grid,
+            .cont-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="ind-hero">
+            <div class="h-in">
+                <div class="h-txt">
+                    <div class="tag"
+                        style="display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--red); border-radius: 100px; padding: 6px 16px; font-size: 0.72rem; font-weight: 700; color: var(--red); margin-bottom: 24px; background: rgba(255, 0, 0, 0.08);">
+                        <i class="fas fa-microscope"></i> Neutral Verification
+                    </div>
+                    <h1>Verification for the <span>Next 50 Years</span></h1>
+                    <p>BrillSign agreements are built on open cryptographic standards. No proprietary software, no
+                        logins, no vendor lock-in. Just pure, portable proof.</p>
+                    <a href="independent-verification.html" class="tag"
+                        style="background: var(--blue); color: #fff; border: none; padding: 12px 24px; text-decoration: none;">Back
+                        to Feature</a>
+                </div>
+                <div class="h-vis">
+                    <img src="independent_verification_hero_realistic_1772473857204.png"
+                        alt="Forensic Verification Desk" class="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Self-Contained PDF -->
+        <section class="self-section">
+            <div class="s-in">
+                <div class="self-grid">
+                    <div class="self-vis">
+                        <img src="audit-step4.png" alt="PDF Proof Layers">
+                    </div>
+                    <div class="self-txt">
+                        <h2>The <span>Self-Contained</span> PDF</h2>
+                        <p>A BrillSign agreement is its own evidence locker. All metadata, certificates, and timestamps
+                            are embedded directly inside the file.</p>
+
+                        <div class="self-item">
+                            <i class="fas fa-layer-group"></i>
+                            <div class="self-info">
+                                <h4>Encapsulated Trust</h4>
+                                <p>No need to query a central database to prove a signature. The file carries the proof
+                                    wherever it goes.</p>
+                            </div>
+                        </div>
+
+                        <div class="self-item">
+                            <i class="fas fa-file-shield"></i>
+                            <div class="self-info">
+                                <h4>Hash-Linked Metadata</h4>
+                                <p>Metadata is cryptographically bound to the document bytes, ensuring it cannot be
+                                    detached or altered.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Universal Tooling -->
+        <section class="tool-section">
+            <div class="s-in">
+                <div class="tool-head">
+                    <h2>Universal Tooling Support</h2>
+                    <p>Verify your document using any industry-standard cryptographic or PDF software.</p>
+                </div>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-terminal"></i>
+                        <h4>OpenSSL</h4>
+                        <p>Extract and verify raw hashes using the world's most trusted crypto library.</p>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h4>Adobe Acrobat</h4>
+                        <p>Native PAdES support ensures verification in every PDF reader worldwide.</p>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-key"></i>
+                        <h4>GPG / PGP</h4>
+                        <p>Cross-validate identity markers against public key infrastructure easily.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Continuity -->
+        <section class="cont-section">
+            <div class="s-in">
+                <div class="cont-layout">
+                    <div class="cont-txt">
+                        <h2>50-Year <span>Continuity</span></h2>
+                        <p>BrillSign is built to outlast the company itself. Your signatures remain valid as long as the
+                            laws of mathematics hold.</p>
+
+                        <div class="cont-stat">
+                            <div class="stat-box">
+                                <span class="num">100%</span>
+                                <span class="lbl">Platform Independent</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="num">ZERO</span>
+                                <span class="lbl">Vendor Dependencies</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-vis">
+                        <img src="scenario_zero_knowledge.png" alt="Long-term storage proof">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="shared-components.js"></script>
+</body>
+
+</html>

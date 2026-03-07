@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Repudiation Demo | BrillSign</title>
+    <meta name="description"
+        content="Step-by-step walkthrough of BrillSign's Non-Repudiation evidence chain — how identity, timestamp, and fingerprint get cryptographically bound into permanent proof.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --blue: #0066ff;
+            --blue-l: #3385ff;
+            --red: #ff0000;
+            --navy: #0f172a;
+            --muted: #64748b;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #0f172a;
+        }
+
+        .nr-hero {
+            background: linear-gradient(135deg, #020c1b 0%, #031a40 60%, #011029 100%);
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nr-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 255, .18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .h-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .nr-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(0, 102, 255, .4);
+            border-radius: 100px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+            background: rgba(0, 102, 255, .09);
+            margin-bottom: 20px;
+        }
+
+        .nr-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .nr-hero h1 span {
+            color: #7cb4ff;
+        }
+
+        .nr-hero p {
+            color: rgba(255, 255, 255, .7);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .b-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .bp {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bp:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .bo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bo:hover {
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, .5);
+        }
+
+        /* ── Image wrapper with floating badge ── */
+        .img-wrap {
+            position: relative;
+        }
+
+        .img-badge-float {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 102, 255, 0.4);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.3;
+        }
+
+        .img-badge-float i {
+            color: var(--blue);
+            font-size: 1rem;
+        }
+
+        .img-caption {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 10px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* ── Section Images ── */
+        .section-img {
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ── Reveal Animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.slide-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal.slide-right {
+            transform: translateX(50px);
+        }
+
+        .reveal.zoom-in {
+            transform: scale(0.92);
+        }
+
+        .reveal.observed {
+            opacity: 1;
+            transform: none;
+        }
+
+        .s-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .ey {
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .h2t {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .h2t span {
+            color: var(--blue);
+        }
+
+        /* Chain section */
+        .chain-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .chain-desc {
+            color: var(--muted);
+            font-size: 1.02rem;
+            line-height: 1.7;
+            max-width: 680px;
+            margin-bottom: 60px;
+        }
+
+        .chain-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .chain-step {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .chain-step.reverse {
+            direction: rtl;
+        }
+
+        .chain-step.reverse>* {
+            direction: ltr;
+        }
+
+        .cs-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+        }
+
+        .cs-num {
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .cs-icon {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+        }
+
+        .cs-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .cs-card p {
+            font-size: .86rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .cs-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--blue);
+            font-size: 1.5rem;
+            padding: 16px 0;
+        }
+
+        .cs-connector {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, var(--blue), transparent);
+            margin: 8px 0;
+        }
+
+        /* Proof anatomy */
+        .anatomy-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .anatomy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .anatomy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .anat-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            border-radius: 14px;
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+        }
+
+        .anat-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .ai-p {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .ai-g {
+            background: rgba(255, 0, 0, .1);
+            color: var(--red);
+        }
+
+        .ai-b {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .anat-item h4 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .anat-item p {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        .proof-card {
+            background: var(--navy);
+            border-radius: 18px;
+            padding: 36px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .3);
+        }
+
+        .pc-header {
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .pc-live {
+            color: var(--blue);
+        }
+
+        .proof-row {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .proof-row:last-child {
+            border-bottom: none;
+        }
+
+        .pr-label {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 4px;
+        }
+
+        .pr-val {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .85);
+            font-family: 'Courier New', monospace;
+        }
+
+        .pr-val.ok {
+            color: var(--blue);
+        }
+
+        /* Legal section */
+        .legal-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .legal-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .legal-col {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .le-icon {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .legal-col h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .legal-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .legal-col li {
+            font-size: .85rem;
+            color: var(--muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .legal-col li::before {
+            content: "✓";
+            color: var(--blue);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* CTA */
+        .nr-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #020c1b 0%, #031a40 100%);
+            text-align: center;
+        }
+
+        .nr-cta h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .nr-cta p {
+            color: rgba(255, 255, 255, .6);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+        }
+
+        .nc-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nc-p {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--purple);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .nc-p:hover {
+            background: var(--purple-l);
+            transform: translateY(-2px);
+        }
+
+        .nc-b {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1.5px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .nc-b:hover {
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        @media(max-width:900px) {
+
+            .h-in,
+            .anatomy-grid,
+            .legal-cols {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .chain-step {
+                grid-template-columns: 1fr;
+            }
+
+            .chain-step .cs-arrow {
+                display: none;
+            }
+
+            .chain-step.reverse {
+                direction: ltr;
+            }
+
+            .nr-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+        <section class="nr-hero">
+            <div class="h-in">
+                <div>
+                    <span class="nr-tag"><i class="fas fa-file-shield"></i> Interactive Demo Walkthrough</span>
+                    <h1>Signatures that <span>cannot be denied</span> — see the proof</h1>
+                    <p>A step-by-step walkthrough of BrillSign's Non-Repudiation evidence chain: how signer identity,
+                        document fingerprint, and timestamp are cryptographically bound into a single, permanent proof
+                        that no one can later dispute.</p>
+                    <div class="b-row">
+                        <a href="strong-non-repudiation.html" class="bp"><i class="fas fa-arrow-left"></i> Back to
+                            Non-Repudiation</a>
+                        <a href="join-waitlist.html" class="bo"><i class="fas fa-envelope"></i> Join Waitlist</a>
+                    </div>
+                </div>
+                <div class="img-wrap reveal zoom-in">
+                    <img src="nr_works_hero_realistic.png"
+                        alt="Attorney at desk reviewing cryptographic contract verification dashboard" class="hero-img">
+                    <div class="img-badge-float">
+                        <i class="fas fa-file-shield"></i>
+                        <span>Non-repudiation evidence active</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evidence Chain -->
+        <section class="chain-section">
+            <div class="s-in">
+                <p class="ey reveal">Evidence Chain Walkthrough</p>
+                <h2 class="h2t reveal">Four phases of <span>permanent proof creation</span></h2>
+                <p class="chain-desc reveal">Every BrillSign signature passes through four cryptographic phases. Each
+                    phase
+                    produces an immutable artifact — together they form an evidence package that remains legally valid
+                    decades later, independent of any platform.</p>
+
+                <!-- Image added above chain steps -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:60px;">
+                    <div class="img-wrap reveal slide-left">
+                        <img src="nr_demo_chain_office.png"
+                            alt="Professional reviewing multi-phase cryptographic chain of custody on workstation"
+                            style="width:100%;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.12);object-fit:cover;">
+                        <div class="img-badge-float">
+                            <i class="fas fa-link"></i>
+                            <span>4-phase cryptographic chain</span>
+                        </div>
+                    </div>
+                    <div class="reveal slide-right">
+                        <h3 style="font-size:1.6rem;font-weight:800;color:var(--navy);margin-bottom:16px;">End-to-End
+                            Cryptographic Trail</h3>
+                        <p style="color:var(--muted);line-height:1.8;margin-bottom:20px;">Each phase generates an
+                            artifact that is cryptographically linked to the next. No single component can be altered
+                            without breaking the entire chain — giving courts an unbroken, machine-verifiable chain of
+                            custody.</p>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-shield-halved"
+                                    style="color:var(--blue);margin-right:8px;"></i>Phase-locked cryptographic
+                                binding</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-link"
+                                    style="color:var(--red);margin-right:8px;"></i>Immutable ledger anchoring</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-clock"
+                                    style="color:var(--blue);margin-right:8px;"></i>RFC 3161 certified timestamps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chain-steps">
+                    <div class="chain-step">
+                        <div class="cs-card">
+                            <div class="cs-num">Phase 01 — Identification</div>
+                            <i class="fas fa-id-card-clip cs-icon" style="color:#0066ff"></i>
+                            <h3>Signer Identity Verified</h3>
+                            <p>The signer is authenticated using high-assurance methods: OIDC/SAML single-sign-on,
+                                hardware-backed MFA, or external KYC provider. A cryptographic identity assertion is
+                                generated and tied to this session only.</p>
+                        </div>
+                        <div class="cs-arrow"><i class="fas fa-chevron-right"></i>
+                            <div class="cs-connector"></div>
+                        </div>
+                        <div class="cs-card" style="background:rgba(0,102,255,.04); border-color:rgba(0,102,255,.2);">
+                            <div class="cs-num" style="color:#334155">Proof artifact generated</div>
+                            <p style="font-size:.82rem; color:var(--muted); font-family:'Courier New',monospace;">
+                                identity_proof: ZKP-3f9a...d84f<br>method: eIDAS-G2 QES<br>assurance: HIGH</p>
+                        </div>
+                    </div>
+                    <div class="chain-step reverse" style="margin-top:24px;">
+                        <div class="cs-card">
+                            <div class="cs-num">Phase 02 — Cryptography</div>
+                            <i class="fas fa-fingerprint cs-icon" style="color:#0066ff"></i>
+                            <h3>Document Fingerprint Created</h3>
+                            <p>A SHA-256 cryptographic hash of the document's exact binary content is computed. This
+                                fingerprint is unique to this version of this document — any future alteration would
+                                produce a completely different hash.</p>
+                        </div>
+                        <div class="cs-arrow"><i class="fas fa-chevron-left"></i>
+                            <div class="cs-connector"></div>
+                        </div>
+                        <div class="cs-card" style="background:rgba(255,0,0,.04); border-color:rgba(255,0,0,.2);">
+                            <div class="cs-num" style="color:#334155">Fingerprint locked</div>
+                            <p style="font-size:.82rem; color:var(--muted); font-family:'Courier New',monospace;">
+                                doc_hash: sha256:7f3a...1e09<br>algorithm: SHA-256<br>state: IMMUTABLE</p>
+                        </div>
+                    </div>
+                    <div class="chain-step" style="margin-top:24px;">
+                        <div class="cs-card">
+                            <div class="cs-num">Phase 03 — Binding</div>
+                            <i class="fas fa-link cs-icon" style="color:#ff0000"></i>
+                            <h3>Signature Cryptographically Bound</h3>
+                            <p>The identity proof, document fingerprint, and a certified timestamp from a trusted Time
+                                Stamp Authority (TSA) are cryptographically merged into a single atomic record. No
+                                component can be changed without breaking the entire proof.</p>
+                        </div>
+                        <div class="cs-arrow"><i class="fas fa-chevron-right"></i>
+                            <div class="cs-connector"></div>
+                        </div>
+                        <div class="cs-card" style="background:rgba(0,102,255,.04); border-color:rgba(0,102,255,.15);">
+                            <div class="cs-num" style="color:#334155">Atomic binding sealed</div>
+                            <p style="font-size:.82rem; color:var(--muted); font-family:'Courier New',monospace;">
+                                binding: trustchain™ v4<br>timestamp: RFC 3161 TSA<br>protocol: Dilithium-3</p>
+                        </div>
+                    </div>
+                    <div class="chain-step reverse" style="margin-top:24px;">
+                        <div class="cs-card">
+                            <div class="cs-num">Phase 04 — Anchoring</div>
+                            <i class="fas fa-database cs-icon" style="color:#cccc00"></i>
+                            <h3>Proof Permanently Anchored</h3>
+                            <p>The complete evidence package is anchored to BrillSign's decentralized ledger. This
+                                creates an immutable, publicly verifiable record that remains valid for decades —
+                                completely independent of the BrillSign platform's operational status.</p>
+                        </div>
+                        <div class="cs-arrow"><i class="fas fa-chevron-left"></i>
+                            <div class="cs-connector"></div>
+                        </div>
+                        <div class="cs-card" style="background:rgba(255,255,0,.04); border-color:rgba(255,255,0,.18);">
+                            <div class="cs-num" style="color:#334155">Ledger confirmed</div>
+                            <p style="font-size:.82rem; color:var(--muted); font-family:'Courier New',monospace;">tx:
+                                block #4,832,944<br>validity: PERMANENT<br>status: ✅ ANCHORED</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proof Anatomy -->
+        <section class="anatomy-section">
+            <div class="s-in">
+                <p class="ey reveal">Proof Package Anatomy</p>
+                <h2 class="h2t reveal">What's inside a <span>non-repudiation proof</span></h2>
+                <!-- Proof anatomy image row -->
+                <div style="margin:40px 0;position:relative;">
+                    <img src="nr_works_forensic_bundle.png"
+                        alt="Secure forensic document package with sealed evidence and hash verification"
+                        style="width:100%;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.1);object-fit:cover;max-height:320px;"
+                        class="reveal">
+                    <div
+                        style="position:absolute;top:20px;right:20px;background:#0066ff;color:#fff;padding:8px 16px;border-radius:8px;font-size:0.75rem;font-weight:700;">
+                        <i class="fas fa-lock" style="margin-right:6px;"></i>Proof Package</div>
+                </div>
+                <div class="anatomy-grid">
+                    <div class="anatomy-list">
+                        <div class="anat-item">
+                            <div class="anat-icon ai-p"><i class="fas fa-id-card"></i></div>
+                            <div>
+                                <h4>Identity Assertion</h4>
+                                <p>Cryptographic proof of who the signer is, without storing raw PII. Generated from
+                                    authentication method and bound to this signing session only.</p>
+                            </div>
+                        </div>
+                        <div class="anat-item">
+                            <div class="anat-icon ai-b"><i class="fas fa-file-code"></i></div>
+                            <div>
+                                <h4>Document Fingerprint</h4>
+                                <p>SHA-256 hash of the exact binary content at signature time — any byte-level change
+                                    produces a different fingerprint, making alterations instantly detectable.</p>
+                            </div>
+                        </div>
+                        <div class="anat-item">
+                            <div class="anat-icon ai-g"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h4>RFC 3161 Timestamp</h4>
+                                <p>Certified timestamp from a trusted Time Stamp Authority, proving the exact moment of
+                                    signing in a way that cannot be backdated or disputed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proof-card">
+                        <div class="pc-header"><span>BRILLSIGN NON-REPUDIATION PROOF</span><span class="pc-live">●
+                                VALID</span></div>
+                        <div class="proof-row">
+                            <div class="pr-label">Proof ID</div>
+                            <div class="pr-val">BS-NR-2026-492847-X</div>
+                        </div>
+                        <div class="proof-row">
+                            <div class="pr-label">Signer Identity Hash</div>
+                            <div class="pr-val">ZKP: 3f9a1b2c...d84f (eIDAS G2)</div>
+                        </div>
+                        <div class="proof-row">
+                            <div class="pr-label">Document Hash</div>
+                            <div class="pr-val">sha256: 7f3a9b2c...1e09</div>
+                        </div>
+                        <div class="proof-row">
+                            <div class="pr-label">Timestamp (RFC 3161)</div>
+                            <div class="pr-val">2026-03-07T13:41:22.831Z</div>
+                        </div>
+                        <div class="proof-row">
+                            <div class="pr-label">Binding Protocol</div>
+                            <div class="pr-val">trustchain™ v4 / Dilithium-3</div>
+                        </div>
+                        <div class="proof-row">
+                            <div class="pr-label">Ledger TX</div>
+                            <div class="pr-val">Block #4,832,944</div>
+                        </div>
+                        <div class="proof-row">
+                            <div class="pr-label">Verification Status</div>
+                            <div class="pr-val ok">✅ NON-REPUDIABLE — PERMANENTLY VALID</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Defensibility -->
+        <section class="legal-section">
+            <div class="s-in">
+                <p class="ey reveal">Legal Defensibility</p>
+                <h2 class="h2t reveal">Why this proof <span>holds up in court</span></h2>
+                <!-- Legal image -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:60px;">
+                    <div class="reveal slide-left">
+                        <h3 style="font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:16px;">Built for the
+                            Courtroom</h3>
+                        <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;">BrillSign's non-repudiation
+                            proof is specifically designed to meet the evidentiary standards of courts across EU, USA,
+                            and international jurisdictions — combining cryptographic certainty with human-readable
+                            audit trails.</p>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-gavel"
+                                    style="color:var(--blue);margin-right:8px;"></i>eIDAS Qualified Electronic
+                                Signatures (EU)</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-scale-balanced"
+                                    style="color:var(--red);margin-right:8px;"></i>ESIGN Act / UETA compliant
+                                (USA)</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-file-contract"
+                                    style="color:var(--blue);margin-right:8px;"></i>ISO 32000 PAdES-LTA certified</span>
+                        </div>
+                    </div>
+                    <div class="img-wrap reveal slide-right">
+                        <img src="nr_works_timebinding.png"
+                            alt="Data center with RFC 3161 timestamp servers for legal evidence timestamping"
+                            style="width:100%;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.12);object-fit:cover;">
+                        <div class="img-badge-float">
+                            <i class="fas fa-clock"></i>
+                            <span>RFC 3161 TSA verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="legal-cols">
+                    <div class="legal-col">
+                        <i class="fas fa-gavel le-icon" style="color:#0066ff"></i>
+                        <h4>Cryptographic Non-Repudiation</h4>
+                        <ul>
+                            <li>Signer cannot deny the action — identity is cryptographically bound</li>
+                            <li>Timestamp cannot be backdated — RFC 3161 TSA certified</li>
+                            <li>Content cannot be disputed — SHA-256 fingerprint proves exact version</li>
+                        </ul>
+                    </div>
+                    <div class="legal-col">
+                        <i class="fas fa-scale-balanced le-icon" style="color:#ff0000"></i>
+                        <h4>Jurisdiction Compliance</h4>
+                        <ul>
+                            <li>eIDAS Qualified Electronic Signatures (EU)</li>
+                            <li>ESIGN Act / UETA compliant (USA)</li>
+                            <li>ISO 32000 PAdES-LTA for long-term archival</li>
+                        </ul>
+                    </div>
+                    <div class="legal-col">
+                        <i class="fas fa-user-shield le-icon" style="color:#cccc00"></i>
+                        <h4>Independent Verifiability</h4>
+                        <ul>
+                            <li>No platform access required to verify the proof</li>
+                            <li>Third-party auditors can validate using open standards</li>
+                            <li>Proof remains valid even if BrillSign ceases operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="nr-cta">
+            <div class="s-in">
+                <h2>Ready to create signatures that cannot be denied?</h2>
+                <p>Join organizations using BrillSign's non-repudiation infrastructure for their highest-stakes
+                    agreements.</p>
+                <div class="nc-row">
+                    <a href="join-waitlist.html" class="nc-p"><i class="fas fa-envelope"></i> Join the Waitlist</a>
+                    <a href="strong-non-repudiation.html" class="nc-b"><i class="fas fa-arrow-left"></i> Back to
+                        Non-Repudiation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="shared-components.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        const els = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('observed'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        els.forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>

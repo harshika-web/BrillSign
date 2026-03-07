@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Security Overview | BrillSign</title>
+    <meta name="description"
+        content="How BrillSign's zero-knowledge identity layer works — cryptographic trust tokens, biometric binding, and eIDAS/GDPR compliance for signer authentication.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --blue: #0066ff;
+            --blue-l: #3385ff;
+            --red: #ff0000;
+            --navy: #0f172a;
+            --muted: #64748b;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #0f172a;
+        }
+
+        .id-hero {
+            background: linear-gradient(135deg, #020c1b, #031a40 60%, #011029);
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .id-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -60px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 255, .18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .h-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .id-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(0, 102, 255, .4);
+            border-radius: 100px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+            background: rgba(0, 102, 255, .09);
+            margin-bottom: 20px;
+        }
+
+        .id-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .id-hero h1 span {
+            color: #7cb4ff;
+        }
+
+        .id-hero p {
+            color: rgba(255, 255, 255, .7);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .bpi {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bpi:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .bgi {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .bgi:hover {
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, .5);
+        }
+
+        /* ── Image wrapper with floating badge ── */
+        .img-wrap {
+            position: relative;
+        }
+
+        .img-badge-float {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 102, 255, 0.4);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .img-badge-float i {
+            color: var(--blue);
+            font-size: 0.95rem;
+        }
+
+        /* ── Section Images ── */
+        .section-img {
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ── Reveal Animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.slide-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal.slide-right {
+            transform: translateX(50px);
+        }
+
+        .reveal.zoom-in {
+            transform: scale(0.92);
+        }
+
+        .reveal.fade {
+            transform: translateY(20px);
+        }
+
+        .reveal.observed {
+            opacity: 1;
+            transform: none;
+        }
+
+        .s-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .ey {
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .h2t {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .h2t span {
+            color: var(--blue);
+        }
+
+        /* ZK flow */
+        .zk-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .flow-desc {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 680px;
+            margin-bottom: 60px;
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .flow-node {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 20px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            position: relative;
+        }
+
+        .flow-node::after {
+            content: '→';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 1;
+        }
+
+        .flow-node:last-child::after {
+            display: none;
+        }
+
+        .fn-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin: 0 auto 16px;
+        }
+
+        .fi-1 {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .fi-2 {
+            background: rgba(255, 0, 0, .1);
+            color: var(--red);
+        }
+
+        .fi-3 {
+            background: rgba(255, 255, 0, .12);
+            color: #cccc00;
+        }
+
+        .fi-4 {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .flow-node h4 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .flow-node p {
+            font-size: .78rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Auth methods */
+        .auth-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .auth-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .auth-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .auth-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .auth-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .ai-in {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .ai-gr {
+            background: rgba(255, 0, 0, .1);
+            color: var(--red);
+        }
+
+        .ai-bl {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .auth-item h4 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .auth-item p {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        .auth-badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: .65rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        .badge-qes {
+            background: rgba(0, 102, 255, .1);
+            color: var(--blue);
+        }
+
+        .badge-aes {
+            background: rgba(255, 0, 0, .1);
+            color: var(--red);
+        }
+
+        .trust-token {
+            background: var(--navy);
+            border-radius: 18px;
+            padding: 36px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .3);
+        }
+
+        .tt-header {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .tt-row {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .tt-row:last-child {
+            border-bottom: none;
+        }
+
+        .tt-label {
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 4px;
+        }
+
+        .tt-val {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .85);
+            font-family: 'Courier New', monospace;
+        }
+
+        .tt-val.ok {
+            color: var(--blue);
+        }
+
+        .tt-val.indigo {
+            color: var(--blue-l);
+        }
+
+        /* Compliance */
+        .comp-section {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .comp-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .cp {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .cp-icon {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .cp h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .cp ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cp li {
+            font-size: .84rem;
+            color: var(--muted);
+            padding: 6px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+        }
+
+        .cp li:last-child {
+            border-bottom: none;
+        }
+
+        .cp li::before {
+            content: "✓";
+            color: var(--blue);
+            font-weight: 700;
+            font-size: .8rem;
+            flex-shrink: 0;
+        }
+
+        /* CTA */
+        .id-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #020c1b, #031a40);
+            text-align: center;
+        }
+
+        .id-cta h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .id-cta p {
+            color: rgba(255, 255, 255, .6);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+        }
+
+        .id-cta-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ic-p {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .ic-p:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .ic-b {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1.5px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .ic-b:hover {
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        @media(max-width:900px) {
+
+            .h-in,
+            .auth-grid,
+            .comp-pillars,
+            .flow-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .id-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .flow-node::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+        <section class="id-hero">
+            <div class="h-in">
+                <div>
+                    <span class="id-tag"><i class="fas fa-id-card-clip"></i> Identity Security Overview</span>
+                    <h1>Know exactly <span>who signed</span> — with cryptographic certainty</h1>
+                    <p>BrillSign's identity layer doesn't just validate who you are at login — it cryptographically
+                        embeds your verified identity into every signature, creating proof of authorship that cannot be
+                        spoofed, delegated, or denied.</p>
+                    <div class="btn-row">
+                        <a href="signer-identity.html" class="bpi"><i class="fas fa-arrow-left"></i> Back to Signer
+                            Identity</a>
+                        <a href="join-waitlist.html" class="bgi"><i class="fas fa-envelope"></i> Join Waitlist</a>
+                    </div>
+                </div>
+                <div class="img-wrap reveal zoom-in">
+                    <img src="identity_layer_hero_biometric.png"
+                        alt="Identity verification with biometric passport scan and cryptographic authentication"
+                        class="hero-img">
+                    <div class="img-badge-float">
+                        <i class="fas fa-id-card-clip"></i>
+                        <span>Cryptographic identity sealed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ZK Identity Flow -->
+        <section class="zk-section">
+            <div class="s-in">
+                <p class="ey reveal">Zero-Knowledge Identity Flow</p>
+                <h2 class="h2t reveal">From biometric to <span>cryptographic proof</span></h2>
+                <p class="flow-desc reveal">BrillSign verifies identity through a four-stage pipeline. The result is a
+                    zero-knowledge proof token — a cryptographic assertion that proves identity without ever exposing
+                    the underlying personal data to BrillSign or any third party.</p>
+
+                <!-- Image visual before the flow nodes -->
+                <div
+                    style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;margin-bottom:60px;">
+                    <div class="img-wrap reveal slide-left">
+                        <img src="identity_layer_hero_biometric.png"
+                            alt="Passport and government ID biometric scan for identity verification"
+                            class="section-img" style="max-height:300px;">
+                        <div class="img-badge-float">
+                            <i class="fas fa-id-badge"></i>
+                            <span>Government ID verified</span>
+                        </div>
+                    </div>
+                    <div class="reveal slide-right">
+                        <h3 style="font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:16px;">
+                            Zero-Knowledge Privacy Guarantee</h3>
+                        <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;">We never store raw biometric
+                            data. The identity verification pipeline generates a tamper-proof ZK proof — which
+                            cryptographically proves who you are without retaining any sensitive personal information.
+                        </p>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-eye-slash"
+                                    style="color:var(--blue);margin-right:8px;"></i>No PII stored on BrillSign
+                                servers</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-user-shield"
+                                    style="color:var(--red);margin-right:8px;"></i>GDPR Article 89 — compliant by
+                                design</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-fingerprint"
+                                    style="color:var(--blue);margin-right:8px;"></i>Local device verification
+                                only</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-grid">
+                    <div class="flow-node">
+                        <div class="fn-icon fi-1"><i class="fas fa-camera"></i></div>
+                        <h4>Biometric Capture</h4>
+                        <p>Face scan, fingerprint, or government ID verification through a certified identity provider
+                            (KYC/AML).</p>
+                    </div>
+                    <div class="flow-node">
+                        <div class="fn-icon fi-2"><i class="fas fa-microchip"></i></div>
+                        <h4>ZK Proof Generation</h4>
+                        <p>A zero-knowledge proof is derived from the identity data — proving authenticity without
+                            revealing the raw PII.</p>
+                    </div>
+                    <div class="flow-node">
+                        <div class="fn-icon fi-3"><i class="fas fa-certificate"></i></div>
+                        <h4>Trust Token Issued</h4>
+                        <p>A cryptographic trust token is issued for this session only — it cannot be reused,
+                            transferred, or spoofed.</p>
+                    </div>
+                    <div class="flow-node">
+                        <div class="fn-icon fi-4"><i class="fas fa-link"></i></div>
+                        <h4>Signature Binding</h4>
+                        <p>The token is permanently bound to the signature — becoming an unalterable proof of who signed
+                            what, and when.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Authentication Methods -->
+        <section class="auth-section">
+            <div class="s-in">
+                <p class="ey reveal">Authentication Methods</p>
+                <h2 class="h2t reveal">Multi-factor identity assurance <span>at every level</span></h2>
+                <!-- Image row -->
+                <div style="margin:40px 0;position:relative;">
+                    <div class="img-wrap">
+                        <img src="nr_demo_chain_office.png"
+                            alt="Professional configuring multi-factor identity authentication system at workstation"
+                            class="section-img reveal" style="max-height:300px;border-radius:16px;">
+                        <div class="img-badge-float">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>MFA assurance: HIGH</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-grid">
+                    <div class="auth-methods">
+                        <div class="auth-item">
+                            <div class="auth-icon ai-in"><i class="fas fa-passport"></i></div>
+                            <div>
+                                <h4>eIDAS Qualified Electronic Signature (QES)</h4>
+                                <p>Highest legal assurance level under EU eIDAS regulation. Requires government-issued
+                                    identity verification and a Qualified Trust Service Provider (QTSP).</p>
+                                <span class="auth-badge badge-qes">Level: HIGH</span>
+                            </div>
+                        </div>
+                        <div class="auth-item">
+                            <div class="auth-icon ai-gr"><i class="fas fa-fingerprint"></i></div>
+                            <div>
+                                <h4>Biometric + Hardware Token (MFA)</h4>
+                                <p>Combines biometric verification (face or fingerprint) with a hardware security key
+                                    (FIDO2/WebAuthn) for strong two-factor authentication.</p>
+                                <span class="auth-badge badge-aes">Level: SUBSTANTIAL</span>
+                            </div>
+                        </div>
+                        <div class="auth-item">
+                            <div class="auth-icon ai-bl"><i class="fas fa-building"></i></div>
+                            <div>
+                                <h4>Enterprise SAML / OIDC Integration</h4>
+                                <p>Integrates with your existing identity provider (Okta, Azure AD, Google Workspace) to
+                                    bind corporate identity assertions to every signature event.</p>
+                                <span class="auth-badge badge-aes">Level: SUBSTANTIAL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trust-token">
+                        <div class="tt-header">TRUST TOKEN RECORD</div>
+                        <div class="tt-row">
+                            <div class="tt-label">Token ID</div>
+                            <div class="tt-val indigo">TT-BS-2026-X-482794</div>
+                        </div>
+                        <div class="tt-row">
+                            <div class="tt-label">Identity Method</div>
+                            <div class="tt-val">eIDAS QES / QTSP-Verified</div>
+                        </div>
+                        <div class="tt-row">
+                            <div class="tt-label">ZK Proof Hash</div>
+                            <div class="tt-val">zkp: 3f9a1b2c...d84f</div>
+                        </div>
+                        <div class="tt-row">
+                            <div class="tt-label">Assurance Level</div>
+                            <div class="tt-val ok">HIGH — EU eIDAS</div>
+                        </div>
+                        <div class="tt-row">
+                            <div class="tt-label">Token Scope</div>
+                            <div class="tt-val">Session-locked, single-use</div>
+                        </div>
+                        <div class="tt-row">
+                            <div class="tt-label">PII Exposure</div>
+                            <div class="tt-val ok">ZERO — ZK Proof Only</div>
+                        </div>
+                        <div class="tt-row">
+                            <div class="tt-label">GDPR Compliance</div>
+                            <div class="tt-val ok">✅ COMPLIANT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance -->
+        <section class="comp-section">
+            <div class="s-in">
+                <p class="ey reveal">Regulatory Compliance</p>
+                <h2 class="h2t reveal">Identity standards <span>we comply with</span></h2>
+                <!-- Compliance image -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:60px;">
+                    <div class="img-wrap reveal slide-left">
+                        <img src="nr_works_hero_realistic.png"
+                            alt="Compliance officer reviewing global regulatory standards for digital identity on laptop"
+                            class="section-img" style="max-height:280px;">
+                        <div class="img-badge-float">
+                            <i class="fas fa-flag"></i>
+                            <span>eIDAS QES compliant</span>
+                        </div>
+                    </div>
+                    <div class="reveal slide-right">
+                        <h3 style="font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:16px;">Global
+                            Regulatory Alignment</h3>
+                        <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;">Our identity layer is built on
+                            top of the world's most rigorous digital identity standards — ensuring that every signature
+                            we produce is legally recognized across the EU, USA, and international jurisdictions.</p>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-flag"
+                                    style="color:var(--blue);margin-right:8px;"></i>EU eIDAS Qualified Signatures
+                                (QES)</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-shield-halved"
+                                    style="color:var(--red);margin-right:8px;"></i>GDPR & Privacy-by-Design</span>
+                            <span style="font-size:0.85rem;color:#334155;"><i class="fas fa-lock"
+                                    style="color:var(--blue);margin-right:8px;"></i>FIDO2 / WebAuthn / W3C
+                                Certified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comp-pillars">
+                    <div class="cp">
+                        <i class="fas fa-flag cp-icon" style="color:var(--indigo)"></i>
+                        <h4>EU eIDAS Regulation</h4>
+                        <ul>
+                            <li>Qualified Electronic Signatures (QES)</li>
+                            <li>Advanced Electronic Signatures (AES)</li>
+                            <li>QTSP-approved identity verification chain</li>
+                            <li>Cross-border EU legal recognition</li>
+                        </ul>
+                    </div>
+                    <div class="cp">
+                        <i class="fas fa-shield-halved cp-icon" style="color:#10b981"></i>
+                        <h4>GDPR & Privacy</h4>
+                        <ul>
+                            <li>No raw biometric data stored by BrillSign</li>
+                            <li>Zero-knowledge proofs replace PII references</li>
+                            <li>Right to erasure fully supported</li>
+                            <li>Data residency controls per jurisdiction</li>
+                        </ul>
+                    </div>
+                    <div class="cp">
+                        <i class="fas fa-lock cp-icon" style="color:#0066ff"></i>
+                        <h4>FIDO2 / WebAuthn</h4>
+                        <ul>
+                            <li>Phishing-resistant hardware key authentication</li>
+                            <li>Biometric local verification (device-bound)</li>
+                            <li>No shared secrets or passwords in the signing flow</li>
+                            <li>W3C and FIDO Alliance certified protocol</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="id-cta">
+            <div class="s-in">
+                <h2>Know exactly who signed — every single time</h2>
+                <p>Join organizations where signer identity is a cryptographic fact, not an assumption.</p>
+                <div class="id-cta-row">
+                    <a href="join-waitlist.html" class="ic-p"><i class="fas fa-envelope"></i> Join the Waitlist</a>
+                    <a href="signer-identity.html" class="ic-b"><i class="fas fa-arrow-left"></i> Explore Signer
+                        Identity</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="shared-components.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        const els = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('observed'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        els.forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>

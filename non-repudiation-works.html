@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Non-Repudiation Works | BrillSign</title>
+    <meta name="description"
+        content="Understand the mechanisms of BrillSign's non-repudiation: Intent evidence, RFC 3161 trusted time, and the complete forensic proof package.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="intro-animation.css">
+    <style>
+        :root {
+            --blue: #0066ff;
+            --blue-l: #3385ff;
+            --red: #ff0000;
+            --yellow: #ffff00;
+            --navy: #0a1628;
+            --bg-light: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #1e293b;
+        }
+
+        /* ── Reveal Animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.slide-left {
+            transform: translateX(-60px);
+        }
+
+        .reveal.slide-right {
+            transform: translateX(60px);
+        }
+
+        .reveal.zoom-in {
+            transform: scale(0.9);
+        }
+
+        .reveal.fade-up {
+            transform: translateY(30px);
+        }
+
+        .reveal.observed {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ── Hero ── */
+        .nr-hero {
+            background: linear-gradient(135deg, #020c1b 0%, #021433 60%, #011029 100%);
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .nr-hero::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -50px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 0, 0.12), transparent 70%);
+            pointer-events: none;
+        }
+
+        .h-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid var(--red);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--red);
+            background: rgba(255, 0, 0, 0.08);
+            margin-bottom: 24px;
+        }
+
+        .nr-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .nr-hero h1 span {
+            color: var(--yellow);
+        }
+
+        .nr-hero p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .hero-v {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Image float badge */
+        .img-wrapper {
+            position: relative;
+        }
+
+        .img-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 0, 0.3);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .img-badge i {
+            color: var(--yellow);
+        }
+
+        /* ── Section Images ── */
+        .section-img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+            display: block;
+        }
+
+        .section-img.dark-shadow {
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* ── Section 1: Intent Evidence ── */
+        .intent-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .s-in {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .s-head {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .s-head h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .s-head p {
+            color: #64748b;
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .intent-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .ig-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .ig-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .ig-row:last-child {
+            border-bottom: none;
+        }
+
+        .ig-ico {
+            font-size: 1.4rem;
+            color: var(--blue);
+            width: 40px;
+        }
+
+        .ig-lbl {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            width: 140px;
+        }
+
+        .ig-val {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .ig-val.yellow {
+            color: #b29600;
+            background: rgba(255, 255, 0, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .ig-txt h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .ig-feat {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .if-ico {
+            width: 40px;
+            height: 40px;
+            background: var(--yellow);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        .if-txt h4 {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .if-txt p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #64748b;
+        }
+
+        /* ── Section: Visual Callout Banner ── */
+        .visual-banner {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .vb-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .vb-img {
+            position: relative;
+        }
+
+        .vb-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .vb-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #0066ff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .vb-txt h3 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .vb-txt h3 span {
+            color: var(--blue);
+        }
+
+        .vb-txt p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+
+        .vb-stat {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-box {
+            background: var(--bg-light);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--blue);
+            display: block;
+        }
+
+        .stat-lbl {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* ── Section 2: Time-Binding ── */
+        .time-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .time-img-wrap {
+            position: relative;
+        }
+
+        .time-img-wrap img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .time-overlay {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            background: #0a1628;
+            color: white;
+            padding: 20px 24px;
+            border-radius: 14px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .time-overlay .tol-label {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .time-overlay .tol-val {
+            color: #ffff00;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* ── Section 3: The Bundle ── */
+        .bundle-section {
+            padding: 120px 0;
+            background: #0a1628;
+            color: #fff;
+        }
+
+        .bundle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .bg-vis img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .bg-txt h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .bg-txt h2 span {
+            color: var(--yellow);
+        }
+
+        .bg-txt>p {
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .bundle-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border-left: 4px solid var(--red);
+            transition: 0.3s;
+        }
+
+        .bundle-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.02);
+        }
+
+        .bi-ico {
+            font-size: 2rem;
+            color: var(--yellow);
+            opacity: 0.8;
+        }
+
+        .bi-txt h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .bi-txt p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        /* ── Final CTA Banner ── */
+        .nr-final-cta {
+            padding: 90px 0;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .nr-final-cta h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .nr-final-cta p {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 36px;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-prim {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-btn-prim:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-sec {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-btn-sec:hover {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        @media (max-width: 968px) {
+
+            .h-in,
+            .intent-grid,
+            .bundle-grid,
+            .vb-grid,
+            .time-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="nr-hero">
+            <div class="h-in">
+                <div class="h-txt">
+                    <div class="tag"><i class="fas fa-gavel"></i> Legal Certainty</div>
+                    <h1>Evidence the Signer <span>Cannot Deny</span></h1>
+                    <p>BrillSign establishes an unbreakable link between the human signer, the historical moment, and
+                        the document fingerprint. No ambiguity, just proof.</p>
+                    <a href="strong-non-repudiation.html" class="tag"
+                        style="background: var(--blue); color: #fff; border: none; padding: 12px 24px; text-decoration:none;">Back
+                        to
+                        Feature</a>
+                </div>
+                <div class="h-vis reveal zoom-in">
+                    <div class="img-wrapper">
+                        <img src="nr_works_hero_realistic.png"
+                            alt="Attorney reviewing signed legal contract with digital verification" class="hero-v">
+                        <div class="img-badge">
+                            <i class="fas fa-shield-halved"></i>
+                            Cryptographic proof active
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Intent Evidence -->
+        <section class="intent-section">
+            <div class="s-in">
+                <div class="s-head reveal">
+                    <h2>Intent-to-Sign Genesis</h2>
+                    <p>Every signature capture includes a silent but comprehensive forensic metadata package that proves
+                        the context of the act.</p>
+                </div>
+
+                <div class="intent-grid">
+                    <div class="ig-card reveal slide-left">
+                        <div class="ig-row">
+                            <i class="fas fa-network-wired ig-ico"></i>
+                            <div class="ig-lbl">IP ADDRESS</div>
+                            <div class="ig-val">192.168.1.104</div>
+                        </div>
+                        <div class="ig-row">
+                            <i class="fas fa-mobile-screen ig-ico"></i>
+                            <div class="ig-lbl">DEVICE ID</div>
+                            <div class="ig-val">BR-8829-XJ-01</div>
+                        </div>
+                        <div class="ig-row">
+                            <i class="fas fa-location-dot ig-ico"></i>
+                            <div class="ig-lbl">LOCATION</div>
+                            <div class="ig-val">London, UK (+51.5, -0.12)</div>
+                        </div>
+                        <div class="ig-row">
+                            <i class="fas fa-id-card-clip ig-ico"></i>
+                            <div class="ig-lbl">ID TOKEN</div>
+                            <div class="ig-val yellow">VERIFIED-TOKEN-A821</div>
+                        </div>
+                        <div class="ig-row">
+                            <i class="fas fa-clock ig-ico"></i>
+                            <div class="ig-lbl">LOCAL TIME</div>
+                            <div class="ig-val">2026-03-07 14:12:44 GMT</div>
+                        </div>
+                    </div>
+
+                    <div class="ig-txt reveal slide-right">
+                        <h3>Multifactor Proof</h3>
+                        <div class="ig-feat">
+                            <div class="if-ico"><i class="fas fa-shield-halved"></i></div>
+                            <div class="if-txt">
+                                <h4>Cryptographic Binding</h4>
+                                <p>Metadata is bound to the signature hash so it cannot be swapped or edited.</p>
+                            </div>
+                        </div>
+                        <div class="ig-feat">
+                            <div class="if-ico" style="background: var(--blue); color: #fff;"><i
+                                    class="fas fa-user-check"></i></div>
+                            <div class="if-txt">
+                                <h4>Signer Affirmation</h4>
+                                <p>The exact wording the user agreed to is recorded as part of the evidence chain.</p>
+                            </div>
+                        </div>
+                        <div class="ig-feat">
+                            <div class="if-ico" style="background: var(--red); color: #fff;"><i
+                                    class="fas fa-clock"></i></div>
+                            <div class="if-txt">
+                                <h4>Temporal Lock</h4>
+                                <p>Signing moment is cemented via RFC 3161 timestamp from an independent authority.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Callout: Why it Matters -->
+        <section class="visual-banner">
+            <div class="s-in">
+                <div class="vb-grid">
+                    <div class="vb-img reveal slide-left">
+                        <img src="nr_works_forensic_bundle.png"
+                            alt="Secure document vault with forensic legal evidence package">
+                        <div class="vb-badge"><i class="fas fa-lock" style="margin-right:6px;"></i> Vault-Grade Security
+                        </div>
+                    </div>
+                    <div class="vb-txt reveal slide-right">
+                        <h3>Why Non-Repudiation <span>Matters in Court</span></h3>
+                        <p>Without cryptographic proof, a signer can claim they never signed — or that the document was
+                            altered afterwards. BrillSign's evidence package eliminates all such challenges before they
+                            can begin.</p>
+                        <div class="vb-stat">
+                            <div class="stat-box">
+                                <span class="stat-num">100%</span>
+                                <div class="stat-lbl">Tamper detection rate</div>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-num">eIDAS</span>
+                                <div class="stat-lbl">QES compliant</div>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-num">RFC 3161</span>
+                                <div class="stat-lbl">Trusted timestamps</div>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-num">SHA-256</span>
+                                <div class="stat-lbl">Document fingerprint</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Time-Binding -->
+        <section class="time-section">
+            <div class="s-in">
+                <div class="s-head reveal">
+                    <h2>RFC 3161 Trusted Time-Binding</h2>
+                    <p>BrillSign doesn't rely on local system clocks. We use external Time Stamping
+                        Authorities (TSAs) to bind every signature to universal standards.</p>
+                </div>
+                <div class="time-grid">
+                    <div class="time-img-wrap reveal slide-left">
+                        <img src="nr_works_timebinding.png"
+                            alt="Data center server racks with synchronized atomic clock timing infrastructure">
+                        <div class="time-overlay">
+                            <div class="tol-label">RFC 3161 TSA</div>
+                            <div class="tol-val">UTC 14:22:44.831Z</div>
+                        </div>
+                    </div>
+                    <div class="reveal slide-right">
+                        <h3 style="font-size:1.6rem;font-weight:800;color:var(--navy);margin-bottom:20px;">External
+                            Timestamp Authorities</h3>
+                        <p style="color:#64748b;line-height:1.8;margin-bottom:20px;">We connect to globally distributed
+                            RFC 3161-compliant Time Stamp Authorities that operate independently of BrillSign's
+                            infrastructure. The timestamp is sealed into the signature — making backdating
+                            mathematically impossible.</p>
+                        <div style="display:flex;flex-direction:column;gap:14px;">
+                            <div
+                                style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8fafc;border-radius:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--blue);font-size:1.1rem;"></i><span
+                                    style="font-size:0.9rem;color:#334155;font-weight:500;">DigiCert TSA — Globally
+                                    trusted
+                                    authority</span></div>
+                            <div
+                                style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8fafc;border-radius:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--red);font-size:1.1rem;"></i><span
+                                    style="font-size:0.9rem;color:#334155;font-weight:500;">Timestamp bound to UTC — No
+                                    local clock
+                                    dependency</span></div>
+                            <div
+                                style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8fafc;border-radius:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--blue);font-size:1.1rem;"></i><span
+                                    style="font-size:0.9rem;color:#334155;font-weight:500;">Cryptographically sealed —
+                                    Cannot be
+                                    backdated</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Bundle -->
+        <section class="bundle-section">
+            <div class="s-in">
+                <div class="bundle-grid">
+                    <div class="bg-txt reveal slide-left">
+                        <h2>The <span>Forensic</span> Bundle</h2>
+                        <p>What a completed BrillSign agreement looks like under the hood — a permanent, court-ready
+                            evidence package.</p>
+
+                        <div class="bundle-item">
+                            <i class="fas fa-file-contract bi-ico"></i>
+                            <div class="bi-txt">
+                                <h4>The Core Document</h4>
+                                <p>The original PDF content as signed by the user, with byte-level integrity protection.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bundle-item">
+                            <i class="fas fa-key bi-ico" style="color: var(--blue);"></i>
+                            <div class="bi-txt">
+                                <h4>Public Key Artifact</h4>
+                                <p>Ensures that only the valid signer's certificate can verify the signature.</p>
+                            </div>
+                        </div>
+
+                        <div class="bundle-item">
+                            <i class="fas fa-rectangle-list bi-ico" style="color: var(--red);"></i>
+                            <div class="bi-txt">
+                                <h4>The Permanent Audit Trail</h4>
+                                <p>A human-readable and machine-verifiable record of the entire signing ceremony.</p>
+                            </div>
+                        </div>
+
+                        <div class="bundle-item">
+                            <i class="fas fa-clock bi-ico" style="color: var(--yellow);"></i>
+                            <div class="bi-txt">
+                                <h4>RFC 3161 Timestamp Token</h4>
+                                <p>Independent timestamp from a globally trusted TSA — sealed and unforgeable.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-vis reveal slide-right">
+                        <img src="nr_works_forensic_bundle.png"
+                            alt="Forensic audit document package and legal evidence sealed vault"
+                            class="section-img dark-shadow" style="border-radius:20px;">
+                        <div
+                            style="margin-top:24px;padding:24px;background:rgba(255,255,255,0.04);border-radius:16px;border:1px solid rgba(255,255,255,0.08);">
+                            <div
+                                style="font-size:0.7rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">
+                                Bundle Verification Status</div>
+                            <div style="display:flex;flex-direction:column;gap:10px;">
+                                <div
+                                    style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                                    <span style="font-size:0.82rem;color:rgba(255,255,255,0.6);">Document Hash</span>
+                                    <span style="font-family:monospace;font-size:0.78rem;color:#7cb4ff;">sha256:
+                                        7f3a...1e09</span>
+                                </div>
+                                <div
+                                    style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+                                    <span style="font-size:0.82rem;color:rgba(255,255,255,0.6);">TSA Verified</span>
+                                    <span style="font-size:0.82rem;color:#4ade80;font-weight:700;">✅ VALID</span>
+                                </div>
+                                <div
+                                    style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+                                    <span style="font-size:0.82rem;color:rgba(255,255,255,0.6);">Ledger Anchored</span>
+                                    <span style="font-size:0.82rem;color:#4ade80;font-weight:700;">✅ PERMANENT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="nr-final-cta">
+            <div class="s-in">
+                <div class="reveal">
+                    <h2>Ready to explore the full Non-Repudiation demo?</h2>
+                    <p>Walk through each phase of the evidence chain and see how it holds up in court.</p>
+                    <div class="cta-btns">
+                        <a href="non-repudiation-demo.html" class="cta-btn-prim"><i class="fas fa-play-circle"></i> See
+                            Interactive Demo</a>
+                        <a href="strong-non-repudiation.html" class="cta-btn-sec"><i class="fas fa-arrow-left"></i> Back
+                            to Feature</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="shared-components.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // Scroll Reveal Observer
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('observed'); observer.unobserve(e.target); }
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
