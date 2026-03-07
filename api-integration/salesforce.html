@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce Integration | BrillSign</title>
+    <meta name="description"
+        content="Sign contracts directly from Salesforce Opportunity records. BrillSign's native Salesforce integration with zero-knowledge security.">
+    <style>
+        :root {
+            --pi-color: #0176D3;
+            --pi-glow: rgba(1, 118, 211, 0.2);
+            --pi-color-mid: rgba(1, 118, 211, 0.12);
+            --pi-icon-bg: rgba(1, 118, 211, 0.1);
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../faq-section.css">
+    <link rel="stylesheet" href="platform-integration.css">
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+
+        <!-- HERO -->
+        <section class="pi-hero">
+            <div class="pi-hero-grid"></div>
+            <div class="pi-blob-1 glow-blob"></div>
+            <div class="pi-blob-2 glow-blob"></div>
+            <div class="container">
+                <div class="pi-hero-layout">
+                    <div class="pi-hero-content animate-up">
+                        <div class="pi-hero-badge"><i class="fas fa-cloud" style="color:#0176D3"></i> Salesforce
+                            Integration · Native CRM</div>
+                        <h1 class="pi-hero-title premium-heading">Sign Contracts Without <span
+                                class="text-highlight">Leaving Salesforce.</span></h1>
+                        <p class="pi-hero-sub">BrillSign's native Salesforce integration lets your team send, track, and
+                            receive signed contracts directly from Opportunity records — zero platform-switching, zero
+                            lost context.</p>
+                        <div class="pi-hero-ctas feature-ctas">
+                            <a href="../index.html#waitlist" class="btn-primary"><span>Connect Salesforce</span><i
+                                    class="fas fa-arrow-right"></i></a>
+                            <a href="#how" class="btn-outline"><i class="fas fa-play"></i><span>See How It
+                                    Works</span></a>
+                        </div>
+                    </div>
+                    <div class="pi-hero-diagram animate-right">
+                        <div class="pi-pipe-diagram">
+                            <div class="pi-logo-node">
+                                <div class="pi-logo-circle pi-logo-bs"><i class="fas fa-shield-halved"></i></div>
+                                <span class="pi-logo-label">BrillSign</span>
+                            </div>
+                            <div class="pi-pipe">
+                                <div class="pi-pipe-labels">
+                                    <span class="pi-pipe-tag">ZK-signed</span>
+                                    <span class="pi-pipe-tag">document.signed</span>
+                                </div>
+                                <div class="pi-pipe-dot"></div>
+                                <div class="pi-pipe-dot"></div>
+                                <div class="pi-pipe-dot"></div>
+                                <div class="pi-pipe-status">
+                                    <div class="pi-pipe-status-dot"></div> Live Sync
+                                </div>
+                            </div>
+                            <div class="pi-logo-node">
+                                <div class="pi-logo-circle pi-logo-platform"><i class="fas fa-cloud"></i></div>
+                                <span class="pi-logo-label">Salesforce</span>
+                            </div>
+                        </div>
+                        <div class="pi-hero-stats">
+                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">1-click</span><span
+                                    class="pi-hero-stat-label">Send from Opp.</span></div>
+                            <div class="pi-stat-div"></div>
+                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">Real-time</span><span
+                                    class="pi-hero-stat-label">Status sync</span></div>
+                            <div class="pi-stat-div"></div>
+                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">Auto</span><span
+                                    class="pi-hero-stat-label">Record attach</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="pi-features">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">Key Features</div>
+                    <h2 class="premium-heading">CRM-Native Signing. <span class="text-highlight">Zero Workflow
+                            Disruption.</span></h2>
+                    <p>Every signing action lives inside Salesforce — no context switching means faster closes and
+                        better adoption across your team.</p>
+                </div>
+                <div class="pi-features-grid">
+                    <div class="pi-feature-card animate-up" style="transition-delay:0.05s">
+                        <div class="pi-feature-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="pi-feature-stat">1-click</div>
+                        <div class="pi-feature-stat-label">Send from Opportunity</div>
+                        <h3>Send from Any Opportunity Record</h3>
+                        <p>A BrillSign button appears on every Opportunity record. Click once to choose a template, add
+                            signers, and send — all without leaving Salesforce.</p>
+                    </div>
+                    <div class="pi-feature-card animate-up" style="transition-delay:0.12s">
+                        <div class="pi-feature-icon"><i class="fas fa-paperclip"></i></div>
+                        <div class="pi-feature-stat">Auto</div>
+                        <div class="pi-feature-stat-label">Record Attachment</div>
+                        <h3>Signed Docs Auto-Attach to Records</h3>
+                        <p>Once signed, the document and cryptographic proof automatically attach to the parent
+                            Salesforce record. No manual uploads, no lost files.</p>
+                    </div>
+                    <div class="pi-feature-card animate-up" style="transition-delay:0.20s">
+                        <div class="pi-feature-icon"><i class="fas fa-rotate"></i></div>
+                        <div class="pi-feature-stat">Real-time</div>
+                        <div class="pi-feature-stat-label">Bi-directional Sync</div>
+                        <h3>Signing Status Syncs to Custom Fields</h3>
+                        <p>Custom Salesforce fields update in real time as signers view, sign, or decline. Trigger
+                            Salesforce flows and automations based on signing events.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="pi-how" id="how">
+            <div class="pi-how-bg"></div>
+            <div class="container">
+                <div class="pi-section-header pi-section-header-dark animate-up">
+                    <div class="pi-section-label pi-label-dark">How It Works</div>
+                    <h2 class="premium-heading" style="color:#fff;">From Opportunity to Signed Contract in <span
+                            class="text-highlight">3 Steps.</span></h2>
+                </div>
+                <div class="pi-flow animate-up">
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">1</div>
+                        <div class="pi-flow-icon"><i class="fas fa-file-circle-plus"></i></div>
+                        <h4>Open Opportunity</h4>
+                        <p>Click the BrillSign button on any Salesforce Opportunity or custom object record.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">2</div>
+                        <div class="pi-flow-icon"><i class="fas fa-pen-nib"></i></div>
+                        <h4>Signers Receive & Sign</h4>
+                        <p>Signers get a branded email. They sign on any device — no account needed. ZK-encrypted
+                            throughout.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">3</div>
+                        <div class="pi-flow-icon"><i class="fas fa-check-double"></i></div>
+                        <h4>Salesforce Instantly Updated</h4>
+                        <p>Record fields update, document attaches, Salesforce flows trigger — all automatically on
+                            completion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETUP -->
+        <section class="pi-setup">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">Quick Setup</div>
+                    <h2 class="premium-heading">Live in Your Salesforce Org in <span class="text-highlight">Under 10
+                            Minutes.</span></h2>
+                </div>
+                <div class="pi-setup-grid animate-up">
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">1</div>
+                        <h4>Install the Managed Package</h4>
+                        <p>Install BrillSign from the Salesforce AppExchange. No code required — click-to-install in any
+                            org.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">2</div>
+                        <h4>Connect Your API Key</h4>
+                        <p>In BrillSign Setup, paste your API key. The integration connects and syncs your team
+                            automatically.</p>
+                        <div class="pi-setup-code">BS__API_Key__c = 'sk_live_...'<button
+                                class="pi-setup-copy">Copy</button></div>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">3</div>
+                        <h4>Add BrillSign to Page Layouts</h4>
+                        <p>Drag the BrillSign Lightning component to Opportunity, Contract, or custom object page
+                            layouts.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">4</div>
+                        <h4>Map Status Fields</h4>
+                        <p>Configure which Salesforce fields receive signing status updates. Create Salesforce Flows
+                            triggered on signing events.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section pi-faq">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">FAQ</div>
+                    <h2 class="premium-heading">Salesforce Integration <span class="text-highlight">Questions</span>
+                    </h2>
+                </div>
+                <div class="faq-container animate-up">
+                    <div class="faq-item"><button class="faq-question"><span>Does this work with Salesforce
+                                CPQ?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. BrillSign integrates with Salesforce CPQ, pulling quote PDFs automatically and
+                                    routing them through signing workflows. Signed quotes attach to the quote record and
+                                    update CPQ status fields.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Which Salesforce editions are
+                                supported?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Professional, Enterprise, Unlimited, and Developer editions are all supported. The
+                                    managed package is available on the Salesforce AppExchange and works in both Classic
+                                    and Lightning Experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Can signers sign without a Salesforce or
+                                BrillSign account?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. Signers receive an email link and can sign on any device — desktop or mobile —
+                                    without any account. Identity verification (SMS OTP, email OTP, or ID check) is
+                                    optional and configurable per request.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Is the integration GDPR and data residency
+                                compliant?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. BrillSign's zero-knowledge architecture means document content is never stored
+                                    on BrillSign servers in plaintext. Only cryptographic proofs and metadata are synced
+                                    back to Salesforce. GDPR, CCPA, eIDAS, and HIPAA compliance are all maintained.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="pi-cta">
+            <div class="pi-cta-glow"></div>
+            <div class="container">
+                <div class="pi-cta-layout animate-up">
+                    <div class="pi-cta-text">
+                        <h2 class="premium-heading" style="color:#fff;">Ready to Sign from <span
+                                class="text-highlight">Salesforce?</span></h2>
+                        <p>Install the package from AppExchange and connect your API key in minutes.</p>
+                    </div>
+                    <div class="pi-cta-actions"><a href="../index.html#waitlist" class="btn-primary"><span>Get Started
+                                Free</span><i class="fas fa-arrow-right"></i></a><a href="integrations-hub.html"
+                            class="pi-cta-secondary"><i class="fas fa-grid-2"></i><span>All Integrations</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../shared-components.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../animations.js"></script>
+    <script src="platform-integration.js"></script>
+</body>
+
+</html>

@@ -454,7 +454,7 @@ const apiDropdownHTML = `
         <h4>Build with BrillSign</h4>
         <ul class="solutions-list">
             <li>
-                <a href="#">
+                <a href="api-integration/rest-api.html">
                     <i class="fas fa-code"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">REST API</div>
@@ -462,7 +462,7 @@ const apiDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="api-integration/webhooks.html">
                     <i class="fas fa-bell"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Webhooks</div>
@@ -470,7 +470,7 @@ const apiDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="api-integration/sdks.html">
                     <i class="fas fa-box-archive"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">SDKs</div>
@@ -478,8 +478,8 @@ const apiDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-key"></i>
+                <a href="api-integration/authentication.html">
+                    <i class="fas fa-lock"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Authentication</div>
                     </div>
@@ -492,7 +492,7 @@ const apiDropdownHTML = `
         <h4>Works With Your Stack</h4>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
             <ul class="solutions-list">
-                <li><a href="#">
+                <li><a href="api-integration/salesforce.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg" alt="Salesforce">
                     </div>
@@ -500,7 +500,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Salesforce</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/google.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google">
                     </div>
@@ -508,7 +508,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Google</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/microsoft.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" alt="Microsoft">
                     </div>
@@ -516,7 +516,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Microsoft</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/dropbox.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/dropbox/dropbox-icon.svg" alt="Dropbox">
                     </div>
@@ -526,7 +526,7 @@ const apiDropdownHTML = `
                 </a></li>
             </ul>
             <ul class="solutions-list">
-                <li><a href="#">
+                <li><a href="api-integration/aws.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS">
                     </div>
@@ -534,7 +534,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">AWS</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/sap.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/sap/sap-icon.svg" alt="SAP">
                     </div>
@@ -542,7 +542,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">SAP</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/oracle.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg" alt="Oracle">
                     </div>
@@ -550,7 +550,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Oracle</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/hubspot.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg" alt="HubSpot">
                     </div>
@@ -560,7 +560,7 @@ const apiDropdownHTML = `
                 </a></li>
             </ul>
         </div>
-        <a href="#" class="solutions-cta" style="margin-top: 20px;">View All →</a>
+        <a href="api-integration/integrations-hub.html" class="solutions-cta" style="margin-top: 20px;">View All →</a>
     </div>
 `;
 
@@ -583,7 +583,7 @@ const resourcesDropdownHTML = `
     <div class="solutions-col">
         <h4>Insights</h4>
         <ul class="solutions-list compact">
-            <li><a href="blog/docusign-anthropic-cowork.html"><i class="fas fa-rss"></i> Blog</a></li>
+            <li><a href="blog/zero-knowledge-architecture-enterprise.html"><i class="fas fa-rss"></i> Blog</a></li>
             <li><a href="case-studies/banking-finance.html"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
         </ul>
     </div>
@@ -674,7 +674,7 @@ const footerHTML = `
                         <li><a href="#">Help Center</a></li>
                         <li><a href="#">Success Stories</a></li>
                         <li><a href="#">Trust Center</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="blog/zero-knowledge-architecture-enterprise.html">Blog</a></li>
                         <li><a href="#">Legal Knowledge Base</a></li>
                     </ul>
                 </div>

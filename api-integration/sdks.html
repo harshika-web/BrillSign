@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDKs | BrillSign Developer Portal</title>
+    <meta name="description"
+        content="Official BrillSign SDKs for Python, Node.js, Java, Go, Ruby, and .NET — install once, ship secure document signing in minutes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../faq-section.css">
+    <link rel="stylesheet" href="sdks.css">
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <!-- ===== SECTION 1: HERO ===== -->
+        <section class="sdk-hero">
+            <div class="sdk-hero-grid"></div>
+            <div class="glow-blob sdk-blob-1"></div>
+            <div class="glow-blob sdk-blob-2"></div>
+            <div class="glow-blob sdk-blob-3"></div>
+
+            <div class="container">
+                <div class="sdk-hero-layout">
+
+                    <!-- Left: Content -->
+                    <div class="sdk-hero-content animate-up">
+                        <div class="sdk-hero-badge">
+                            <i class="fas fa-box-archive"></i>
+                            <span>Official SDKs · 6 Languages</span>
+                        </div>
+
+                        <h1 class="sdk-hero-title premium-heading">
+                            One Install.
+                            <span class="text-highlight">Zero Complexity.</span>
+                            Infinite Trust.
+                        </h1>
+
+                        <p class="sdk-hero-sub">
+                            Official BrillSign SDKs abstract away the cryptography, authentication, and API plumbing —
+                            so your team ships secure document signing, not infrastructure.
+                        </p>
+
+                        <div class="sdk-hero-langs">
+                            <div class="sdk-lang-pill sdk-pill-python"><i class="fab fa-python"></i> Python</div>
+                            <div class="sdk-lang-pill sdk-pill-node"><i class="fab fa-node-js"></i> Node.js</div>
+                            <div class="sdk-lang-pill sdk-pill-java"><i class="fab fa-java"></i> Java</div>
+                            <div class="sdk-lang-pill sdk-pill-go"><i class="fas fa-cube"></i> Go</div>
+                            <div class="sdk-lang-pill sdk-pill-ruby"><i class="fas fa-gem"></i> Ruby</div>
+                            <div class="sdk-lang-pill sdk-pill-dotnet"><i class="fas fa-microsoft"></i> .NET</div>
+                        </div>
+
+                        <div class="sdk-hero-ctas feature-ctas">
+                            <a href="#sdks" class="btn-primary">
+                                <span>Choose Your SDK</span>
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+                            <a href="https://github.com/brillsign" target="_blank" rel="noopener" class="btn-outline">
+                                <i class="fab fa-github"></i>
+                                <span>View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Animated Terminal -->
+                    <div class="sdk-hero-terminal animate-right">
+                        <div class="sdk-terminal-panel">
+                            <div class="sdk-terminal-bar">
+                                <div class="sdk-term-dots">
+                                    <span class="dot-red"></span>
+                                    <span class="dot-yellow"></span>
+                                    <span class="dot-green"></span>
+                                </div>
+                                <span class="sdk-term-title">Terminal</span>
+                                <span class="sdk-term-ver" id="sdkTermVer">v1.2.0</span>
+                            </div>
+                            <div class="sdk-term-body" id="sdkTermBody">
+                                <!-- JS injects animated install lines -->
+                            </div>
+                        </div>
+
+                        <!-- Floating version badges -->
+                        <div class="sdk-float-badge sdk-fb-1">
+                            <i class="fab fa-python"></i>
+                            <span>pip v1.2.0</span>
+                            <span class="sdk-fb-stable">stable</span>
+                        </div>
+                        <div class="sdk-float-badge sdk-fb-2">
+                            <i class="fab fa-node-js"></i>
+                            <span>npm v1.2.0</span>
+                            <span class="sdk-fb-stable">stable</span>
+                        </div>
+                        <div class="sdk-float-badge sdk-fb-3">
+                            <i class="fas fa-cube"></i>
+                            <span>go v1.1.0</span>
+                            <span class="sdk-fb-stable">stable</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2: SDK LANGUAGE CARDS ===== -->
+        <section class="sdk-cards-section" id="sdks">
+            <div class="container">
+                <div class="sdk-section-header animate-up">
+                    <div class="sdk-section-label">Official Libraries</div>
+                    <h2 class="premium-heading">Pick Your Language.
+                        <span class="text-highlight">We've Done the Heavy Lifting.</span>
+                    </h2>
+                    <p>Every SDK wraps the full BrillSign REST API with idiomatic code, auto-retry logic, and type-safe
+                        request/response objects. Production-ready out of the box.</p>
+                </div>
+
+                <div class="sdk-grid" id="sdkGrid">
+
+                    <!-- Python -->
+                    <div class="sdk-card animate-up"
+                        style="--sdk-color:#3b82f6; --sdk-glow:rgba(59,130,246,0.2); transition-delay:0.04s;">
+                        <div class="sdk-card-top">
+                            <div class="sdk-card-icon sdk-icon-python">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="sdk-card-meta">
+                                <div class="sdk-card-name">Python</div>
+                                <div class="sdk-card-version">v1.2.0</div>
+                            </div>
+                            <div class="sdk-card-stars"><i class="fas fa-star"></i> 1.2k</div>
+                        </div>
+                        <div class="sdk-install-box">
+                            <code class="sdk-install-cmd" id="py-cmd">pip install brillsign</code>
+                            <button class="sdk-copy-btn" data-target="py-cmd" title="Copy"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="sdk-card-tags">
+                            <span class="sdk-tag">Async/Await</span>
+                            <span class="sdk-tag">Type hints</span>
+                            <span class="sdk-tag">Auto-retry</span>
+                        </div>
+                        <div class="sdk-card-whats-new">
+                            <span class="sdk-new-badge">New in v1.2</span>
+                            <span>Webhook listener helper</span>
+                        </div>
+                        <a href="#demo" class="sdk-card-cta">Quickstart <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Node.js -->
+                    <div class="sdk-card animate-up"
+                        style="--sdk-color:#22c55e; --sdk-glow:rgba(34,197,94,0.2); transition-delay:0.09s;">
+                        <div class="sdk-card-top">
+                            <div class="sdk-card-icon sdk-icon-node">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <div class="sdk-card-meta">
+                                <div class="sdk-card-name">Node.js</div>
+                                <div class="sdk-card-version">v1.2.0</div>
+                            </div>
+                            <div class="sdk-card-stars"><i class="fas fa-star"></i> 2.1k</div>
+                        </div>
+                        <div class="sdk-install-box">
+                            <code class="sdk-install-cmd" id="node-cmd">npm install @brillsign/sdk</code>
+                            <button class="sdk-copy-btn" data-target="node-cmd" title="Copy"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="sdk-card-tags">
+                            <span class="sdk-tag">TypeScript</span>
+                            <span class="sdk-tag">ESM + CJS</span>
+                            <span class="sdk-tag">Auto-retry</span>
+                        </div>
+                        <div class="sdk-card-whats-new">
+                            <span class="sdk-new-badge">New in v1.2</span>
+                            <span>Streaming uploads</span>
+                        </div>
+                        <a href="#demo" class="sdk-card-cta">Quickstart <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Java -->
+                    <div class="sdk-card animate-up"
+                        style="--sdk-color:#f59e0b; --sdk-glow:rgba(245,158,11,0.2); transition-delay:0.14s;">
+                        <div class="sdk-card-top">
+                            <div class="sdk-card-icon sdk-icon-java">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="sdk-card-meta">
+                                <div class="sdk-card-name">Java</div>
+                                <div class="sdk-card-version">v1.1.0</div>
+                            </div>
+                            <div class="sdk-card-stars"><i class="fas fa-star"></i> 847</div>
+                        </div>
+                        <div class="sdk-install-box">
+                            <code class="sdk-install-cmd" id="java-cmd">com.brillsign:sdk:1.1.0</code>
+                            <button class="sdk-copy-btn" data-target="java-cmd" title="Copy"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="sdk-card-tags">
+                            <span class="sdk-tag">Maven</span>
+                            <span class="sdk-tag">Gradle</span>
+                            <span class="sdk-tag">CompletableFuture</span>
+                        </div>
+                        <div class="sdk-card-whats-new">
+                            <span class="sdk-new-badge">New in v1.1</span>
+                            <span>Spring Boot starter</span>
+                        </div>
+                        <a href="#demo" class="sdk-card-cta">Quickstart <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Go -->
+                    <div class="sdk-card animate-up"
+                        style="--sdk-color:#06b6d4; --sdk-glow:rgba(6,182,212,0.2); transition-delay:0.19s;">
+                        <div class="sdk-card-top">
+                            <div class="sdk-card-icon sdk-icon-go">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="sdk-card-meta">
+                                <div class="sdk-card-name">Go</div>
+                                <div class="sdk-card-version">v1.1.0</div>
+                            </div>
+                            <div class="sdk-card-stars"><i class="fas fa-star"></i> 634</div>
+                        </div>
+                        <div class="sdk-install-box">
+                            <code class="sdk-install-cmd" id="go-cmd">go get github.com/brillsign/go-sdk</code>
+                            <button class="sdk-copy-btn" data-target="go-cmd" title="Copy"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="sdk-card-tags">
+                            <span class="sdk-tag">Context support</span>
+                            <span class="sdk-tag">Zero alloc</span>
+                            <span class="sdk-tag">Auto-retry</span>
+                        </div>
+                        <div class="sdk-card-whats-new">
+                            <span class="sdk-new-badge">New in v1.1</span>
+                            <span>Generic response types</span>
+                        </div>
+                        <a href="#demo" class="sdk-card-cta">Quickstart <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Ruby -->
+                    <div class="sdk-card animate-up"
+                        style="--sdk-color:#ef4444; --sdk-glow:rgba(239,68,68,0.2); transition-delay:0.24s;">
+                        <div class="sdk-card-top">
+                            <div class="sdk-card-icon sdk-icon-ruby">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="sdk-card-meta">
+                                <div class="sdk-card-name">Ruby</div>
+                                <div class="sdk-card-version">v1.0.1</div>
+                            </div>
+                            <div class="sdk-card-stars"><i class="fas fa-star"></i> 412</div>
+                        </div>
+                        <div class="sdk-install-box">
+                            <code class="sdk-install-cmd" id="ruby-cmd">gem install brillsign</code>
+                            <button class="sdk-copy-btn" data-target="ruby-cmd" title="Copy"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="sdk-card-tags">
+                            <span class="sdk-tag">Rails-ready</span>
+                            <span class="sdk-tag">Faraday</span>
+                            <span class="sdk-tag">Minitest</span>
+                        </div>
+                        <div class="sdk-card-whats-new">
+                            <span class="sdk-new-badge">New in v1.0.1</span>
+                            <span>Rails generator</span>
+                        </div>
+                        <a href="#demo" class="sdk-card-cta">Quickstart <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- .NET -->
+                    <div class="sdk-card animate-up"
+                        style="--sdk-color:#8b5cf6; --sdk-glow:rgba(139,92,246,0.2); transition-delay:0.29s;">
+                        <div class="sdk-card-top">
+                            <div class="sdk-card-icon sdk-icon-dotnet">
+                                <i class="fas fa-microsoft"></i>
+                            </div>
+                            <div class="sdk-card-meta">
+                                <div class="sdk-card-name">.NET / C#</div>
+                                <div class="sdk-card-version">v1.1.0</div>
+                            </div>
+                            <div class="sdk-card-stars"><i class="fas fa-star"></i> 593</div>
+                        </div>
+                        <div class="sdk-install-box">
+                            <code class="sdk-install-cmd" id="dotnet-cmd">dotnet add package BrillSign.SDK</code>
+                            <button class="sdk-copy-btn" data-target="dotnet-cmd" title="Copy"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="sdk-card-tags">
+                            <span class="sdk-tag">async/await</span>
+                            <span class="sdk-tag">NuGet</span>
+                            <span class="sdk-tag">Nullable</span>
+                        </div>
+                        <div class="sdk-card-whats-new">
+                            <span class="sdk-new-badge">New in v1.1</span>
+                            <span>Minimal API helpers</span>
+                        </div>
+                        <a href="#demo" class="sdk-card-cta">Quickstart <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 3: CODE DEMO ===== -->
+        <section class="sdk-demo" id="demo">
+            <div class="sdk-demo-bg"></div>
+            <div class="container">
+                <div class="sdk-section-header sdk-section-header-dark animate-up">
+                    <div class="sdk-section-label sdk-label-dark">Quick Integration</div>
+                    <h2 class="premium-heading" style="color:#fff;">From Zero to Signed
+                        <span class="text-highlight">in 5 Lines.</span>
+                    </h2>
+                    <p style="color:#94a3b8;">Every SDK uses the same clean, predictable interface. Pick a scenario and
+                        a language — the SDK handles the rest.</p>
+                </div>
+
+                <!-- Scenario Tabs -->
+                <div class="sdk-scenario-tabs animate-up">
+                    <button class="sdk-scenario-btn active" data-scenario="upload">
+                        <i class="fas fa-upload"></i> Upload Document
+                    </button>
+                    <button class="sdk-scenario-btn" data-scenario="sign">
+                        <i class="fas fa-signature"></i> Send for Signing
+                    </button>
+                    <button class="sdk-scenario-btn" data-scenario="verify">
+                        <i class="fas fa-shield-check"></i> Verify Proof
+                    </button>
+                </div>
+
+                <!-- Language Tabs -->
+                <div class="sdk-lang-tab-row animate-up">
+                    <button class="sdk-lang-tab active" data-lang="python"><i class="fab fa-python"></i> Python</button>
+                    <button class="sdk-lang-tab" data-lang="node"><i class="fab fa-node-js"></i> Node.js</button>
+                    <button class="sdk-lang-tab" data-lang="java"><i class="fab fa-java"></i> Java</button>
+                    <button class="sdk-lang-tab" data-lang="go"><i class="fas fa-cube"></i> Go</button>
+                    <button class="sdk-lang-tab" data-lang="ruby"><i class="fas fa-gem"></i> Ruby</button>
+                    <button class="sdk-lang-tab" data-lang="dotnet"><i class="fas fa-microsoft"></i> .NET</button>
+                </div>
+
+                <!-- Code Window -->
+                <div class="sdk-code-window animate-up">
+                    <div class="sdk-code-bar">
+                        <div class="sdk-code-dots">
+                            <span class="dot-red"></span>
+                            <span class="dot-yellow"></span>
+                            <span class="dot-green"></span>
+                        </div>
+                        <span class="sdk-code-filename" id="demoFilename">upload_document.py</span>
+                        <button class="sdk-copy-code-btn" id="demoCopyBtn"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+
+                    <div class="sdk-code-content" id="demoCodeContent">
+
+                        <!-- UPLOAD: Python -->
+                        <pre class="sdk-code-block active" data-scenario="upload" data-lang="python"><span class="sc-kw">import</span> brillsign
+
+<span class="sc-comment"># Initialize the client</span>
+client = brillsign.<span class="sc-fn">BrillSign</span>(api_key=<span class="sc-str">"sk_live_..."</span>)
+
+<span class="sc-comment"># Upload a document for signing</span>
+document = client.documents.<span class="sc-fn">upload</span>(
+    file=<span class="sc-fn">open</span>(<span class="sc-str">"contract.pdf"</span>, <span class="sc-str">"rb"</span>),
+    name=<span class="sc-str">"Q4 Partner Agreement"</span>,
+    expires_in=<span class="sc-num">7</span>,  <span class="sc-comment"># days</span>
+)
+
+<span class="sc-fn">print</span>(document.id)       <span class="sc-comment"># doc_abc123</span>
+<span class="sc-fn">print</span>(document.status)   <span class="sc-comment"># 'ready'</span>
+<span class="sc-fn">print</span>(document.proof_hash)  <span class="sc-comment"># sha256:f3d9...</span></pre>
+
+                        <!-- UPLOAD: Node.js -->
+                        <pre class="sdk-code-block" data-scenario="upload" data-lang="node"><span class="sc-kw">import</span> { BrillSign } <span class="sc-kw">from</span> <span class="sc-str">'@brillsign/sdk'</span>;
+<span class="sc-kw">import</span> { createReadStream } <span class="sc-kw">from</span> <span class="sc-str">'fs'</span>;
+
+<span class="sc-kw">const</span> client = <span class="sc-kw">new</span> <span class="sc-fn">BrillSign</span>({ apiKey: <span class="sc-str">'sk_live_...'</span> });
+
+<span class="sc-kw">const</span> document = <span class="sc-kw">await</span> client.documents.<span class="sc-fn">upload</span>({
+  file: <span class="sc-fn">createReadStream</span>(<span class="sc-str">'contract.pdf'</span>),
+  name: <span class="sc-str">'Q4 Partner Agreement'</span>,
+  expiresIn: <span class="sc-num">7</span>,  <span class="sc-comment">// days</span>
+});
+
+console.<span class="sc-fn">log</span>(document.id);        <span class="sc-comment">// doc_abc123</span>
+console.<span class="sc-fn">log</span>(document.status);    <span class="sc-comment">// 'ready'</span>
+console.<span class="sc-fn">log</span>(document.proofHash); <span class="sc-comment">// sha256:f3d9...</span></pre>
+
+                        <!-- UPLOAD: Java -->
+                        <pre class="sdk-code-block" data-scenario="upload"
+                            data-lang="java"><span class="sc-kw">import</span> com.brillsign.BrillSign;
+<span class="sc-kw">import</span> com.brillsign.model.Document;
+
+BrillSign client = BrillSign.<span class="sc-fn">builder</span>()
+    .<span class="sc-fn">apiKey</span>(<span class="sc-str">"sk_live_..."</span>)
+    .<span class="sc-fn">build</span>();
+
+Document document = client.documents().<span class="sc-fn">upload</span>(
+    <span class="sc-kw">new</span> <span class="sc-fn">UploadRequest</span>()
+        .<span class="sc-fn">file</span>(<span class="sc-kw">new</span> File(<span class="sc-str">"contract.pdf"</span>))
+        .<span class="sc-fn">name</span>(<span class="sc-str">"Q4 Partner Agreement"</span>)
+        .<span class="sc-fn">expiresIn</span>(<span class="sc-num">7</span>)
+);
+
+System.out.<span class="sc-fn">println</span>(document.<span class="sc-fn">getId</span>());       <span class="sc-comment">// doc_abc123</span>
+System.out.<span class="sc-fn">println</span>(document.<span class="sc-fn">getStatus</span>());   <span class="sc-comment">// ready</span></pre>
+
+                        <!-- UPLOAD: Go -->
+                        <pre class="sdk-code-block" data-scenario="upload" data-lang="go"><span class="sc-kw">package</span> main
+
+<span class="sc-kw">import</span> (
+    brillsign <span class="sc-str">"github.com/brillsign/go-sdk"</span>
+    <span class="sc-str">"os"</span>
+)
+
+client := brillsign.<span class="sc-fn">NewClient</span>(<span class="sc-str">"sk_live_..."</span>)
+
+f, _ := os.<span class="sc-fn">Open</span>(<span class="sc-str">"contract.pdf"</span>)
+<span class="sc-kw">defer</span> f.<span class="sc-fn">Close</span>()
+
+doc, err := client.Documents.<span class="sc-fn">Upload</span>(ctx, &amp;brillsign.UploadRequest{
+    File:      f,
+    Name:      <span class="sc-str">"Q4 Partner Agreement"</span>,
+    ExpiresIn: <span class="sc-num">7</span>,
+})
+
+fmt.<span class="sc-fn">Println</span>(doc.ID)        <span class="sc-comment">// doc_abc123</span>
+fmt.<span class="sc-fn">Println</span>(doc.ProofHash)  <span class="sc-comment">// sha256:f3d9...</span></pre>
+
+                        <!-- UPLOAD: Ruby -->
+                        <pre class="sdk-code-block" data-scenario="upload" data-lang="ruby"><span class="sc-kw">require</span> <span class="sc-str">'brillsign'</span>
+
+client = Brillsign::<span class="sc-fn">Client</span>.<span class="sc-fn">new</span>(api_key: <span class="sc-str">'sk_live_...'</span>)
+
+document = client.documents.<span class="sc-fn">upload</span>(
+  file: File.<span class="sc-fn">open</span>(<span class="sc-str">'contract.pdf'</span>),
+  name: <span class="sc-str">'Q4 Partner Agreement'</span>,
+  expires_in: <span class="sc-num">7</span>
+)
+
+<span class="sc-fn">puts</span> document.id         <span class="sc-comment"># doc_abc123</span>
+<span class="sc-fn">puts</span> document.status     <span class="sc-comment"># ready</span>
+<span class="sc-fn">puts</span> document.proof_hash <span class="sc-comment"># sha256:f3d9...</span></pre>
+
+                        <!-- UPLOAD: .NET -->
+                        <pre class="sdk-code-block" data-scenario="upload"
+                            data-lang="dotnet"><span class="sc-kw">using</span> BrillSign;
+
+<span class="sc-kw">var</span> client = <span class="sc-kw">new</span> <span class="sc-fn">BrillSignClient</span>(<span class="sc-str">"sk_live_..."</span>);
+
+<span class="sc-kw">await using var</span> file = File.<span class="sc-fn">OpenRead</span>(<span class="sc-str">"contract.pdf"</span>);
+
+<span class="sc-kw">var</span> document = <span class="sc-kw">await</span> client.Documents.<span class="sc-fn">UploadAsync</span>(<span class="sc-kw">new</span> <span class="sc-fn">UploadRequest</span>
+{
+    File      = file,
+    Name      = <span class="sc-str">"Q4 Partner Agreement"</span>,
+    ExpiresIn = <span class="sc-num">7</span>
+});
+
+Console.<span class="sc-fn">WriteLine</span>(document.Id);        <span class="sc-comment">// doc_abc123</span>
+Console.<span class="sc-fn">WriteLine</span>(document.ProofHash);  <span class="sc-comment">// sha256:f3d9...</span></pre>
+
+                        <!-- SIGN: Python -->
+                        <pre class="sdk-code-block" data-scenario="sign" data-lang="python"><span class="sc-kw">import</span> brillsign
+
+client = brillsign.<span class="sc-fn">BrillSign</span>(api_key=<span class="sc-str">"sk_live_..."</span>)
+
+<span class="sc-comment"># Send document for signing with multiple signers</span>
+request = client.signing.<span class="sc-fn">create</span>(
+    document_id=<span class="sc-str">"doc_abc123"</span>,
+    signers=[
+        { <span class="sc-str">"email"</span>: <span class="sc-str">"ceo@acme.com"</span>, <span class="sc-str">"role"</span>: <span class="sc-str">"CEO"</span> },
+        { <span class="sc-str">"email"</span>: <span class="sc-str">"legal@acme.com"</span>, <span class="sc-str">"role"</span>: <span class="sc-str">"Legal"</span> },
+    ],
+    message=<span class="sc-str">"Please review and sign."</span>,
+    redirect_url=<span class="sc-str">"https://app.yourco.com/signed"</span>,
+)
+
+<span class="sc-fn">print</span>(request.id)         <span class="sc-comment"># req_xyz789</span>
+<span class="sc-fn">print</span>(request.status)     <span class="sc-comment"># 'pending'</span>
+<span class="sc-fn">print</span>(request.signing_url) <span class="sc-comment"># Share with signers</span></pre>
+
+                        <!-- SIGN: Node.js -->
+                        <pre class="sdk-code-block" data-scenario="sign"
+                            data-lang="node"><span class="sc-kw">const</span> request = <span class="sc-kw">await</span> client.signing.<span class="sc-fn">create</span>({
+  documentId: <span class="sc-str">'doc_abc123'</span>,
+  signers: [
+    { email: <span class="sc-str">'ceo@acme.com'</span>,   role: <span class="sc-str">'CEO'</span>   },
+    { email: <span class="sc-str">'legal@acme.com'</span>, role: <span class="sc-str">'Legal'</span> },
+  ],
+  message:     <span class="sc-str">'Please review and sign.'</span>,
+  redirectUrl: <span class="sc-str">'https://app.yourco.com/signed'</span>,
+});
+
+console.<span class="sc-fn">log</span>(request.id);         <span class="sc-comment">// req_xyz789</span>
+console.<span class="sc-fn">log</span>(request.status);     <span class="sc-comment">// 'pending'</span>
+console.<span class="sc-fn">log</span>(request.signingUrl);  <span class="sc-comment">// share with signers</span></pre>
+
+                        <!-- SIGN: Java -->
+                        <pre class="sdk-code-block" data-scenario="sign" data-lang="java">SigningRequest request = client.signing().<span class="sc-fn">create</span>(
+    <span class="sc-kw">new</span> <span class="sc-fn">CreateSigningRequest</span>()
+        .<span class="sc-fn">documentId</span>(<span class="sc-str">"doc_abc123"</span>)
+        .<span class="sc-fn">addSigner</span>(<span class="sc-str">"ceo@acme.com"</span>, <span class="sc-str">"CEO"</span>)
+        .<span class="sc-fn">addSigner</span>(<span class="sc-str">"legal@acme.com"</span>, <span class="sc-str">"Legal"</span>)
+        .<span class="sc-fn">message</span>(<span class="sc-str">"Please review and sign."</span>)
+);
+
+System.out.<span class="sc-fn">println</span>(request.<span class="sc-fn">getId</span>());
+System.out.<span class="sc-fn">println</span>(request.<span class="sc-fn">getSigningUrl</span>());</pre>
+
+                        <!-- SIGN: Go -->
+                        <pre class="sdk-code-block" data-scenario="sign" data-lang="go">req, err := client.Signing.<span class="sc-fn">Create</span>(ctx, &amp;brillsign.CreateSigningRequest{
+    DocumentID: <span class="sc-str">"doc_abc123"</span>,
+    Signers: []brillsign.Signer{
+        {Email: <span class="sc-str">"ceo@acme.com"</span>,   Role: <span class="sc-str">"CEO"</span>},
+        {Email: <span class="sc-str">"legal@acme.com"</span>, Role: <span class="sc-str">"Legal"</span>},
+    },
+    Message: <span class="sc-str">"Please review and sign."</span>,
+})
+
+fmt.<span class="sc-fn">Println</span>(req.ID)
+fmt.<span class="sc-fn">Println</span>(req.SigningURL)</pre>
+
+                        <!-- SIGN: Ruby -->
+                        <pre class="sdk-code-block" data-scenario="sign" data-lang="ruby">request = client.signing.<span class="sc-fn">create</span>(
+  document_id: <span class="sc-str">'doc_abc123'</span>,
+  signers: [
+    { email: <span class="sc-str">'ceo@acme.com'</span>,   role: <span class="sc-str">'CEO'</span>   },
+    { email: <span class="sc-str">'legal@acme.com'</span>, role: <span class="sc-str">'Legal'</span> }
+  ],
+  message: <span class="sc-str">'Please review and sign.'</span>
+)
+
+<span class="sc-fn">puts</span> request.id
+<span class="sc-fn">puts</span> request.signing_url</pre>
+
+                        <!-- SIGN: .NET -->
+                        <pre class="sdk-code-block" data-scenario="sign" data-lang="dotnet"><span class="sc-kw">var</span> request = <span class="sc-kw">await</span> client.Signing.<span class="sc-fn">CreateAsync</span>(<span class="sc-kw">new</span> <span class="sc-fn">CreateSigningRequest</span>
+{
+    DocumentId = <span class="sc-str">"doc_abc123"</span>,
+    Signers    = <span class="sc-kw">new</span>[] {
+        <span class="sc-kw">new</span> <span class="sc-fn">Signer</span>(<span class="sc-str">"ceo@acme.com"</span>,   <span class="sc-str">"CEO"</span>),
+        <span class="sc-kw">new</span> <span class="sc-fn">Signer</span>(<span class="sc-str">"legal@acme.com"</span>, <span class="sc-str">"Legal"</span>),
+    },
+    Message    = <span class="sc-str">"Please review and sign."</span>
+});
+
+Console.<span class="sc-fn">WriteLine</span>(request.Id);
+Console.<span class="sc-fn">WriteLine</span>(request.SigningUrl);</pre>
+
+                        <!-- VERIFY: Python -->
+                        <pre class="sdk-code-block" data-scenario="verify"
+                            data-lang="python"><span class="sc-kw">import</span> brillsign
+
+client = brillsign.<span class="sc-fn">BrillSign</span>(api_key=<span class="sc-str">"sk_live_..."</span>)
+
+<span class="sc-comment"># Verify cryptographic proof — no BrillSign account needed!</span>
+result = client.verification.<span class="sc-fn">verify</span>(
+    document_id=<span class="sc-str">"doc_abc123"</span>,
+    proof_hash=<span class="sc-str">"sha256:f3d9e1..."</span>,
+)
+
+<span class="sc-fn">print</span>(result.valid)          <span class="sc-comment"># True</span>
+<span class="sc-fn">print</span>(result.tamper_detected)  <span class="sc-comment"># False</span>
+<span class="sc-fn">print</span>(result.signed_at)      <span class="sc-comment"># 2026-03-07T18:31:00Z</span>
+<span class="sc-fn">print</span>(result.signers)        <span class="sc-comment"># [{"email": "ceo@acme.com", ...}]</span></pre>
+
+                        <!-- VERIFY: Node.js -->
+                        <pre class="sdk-code-block" data-scenario="verify"
+                            data-lang="node"><span class="sc-kw">const</span> result = <span class="sc-kw">await</span> client.verification.<span class="sc-fn">verify</span>({
+  documentId: <span class="sc-str">'doc_abc123'</span>,
+  proofHash:  <span class="sc-str">'sha256:f3d9e1...'</span>,
+});
+
+console.<span class="sc-fn">log</span>(result.valid);          <span class="sc-comment">// true</span>
+console.<span class="sc-fn">log</span>(result.tamperDetected); <span class="sc-comment">// false</span>
+console.<span class="sc-fn">log</span>(result.signedAt);       <span class="sc-comment">// 2026-03-07T18:31:00Z</span>
+console.<span class="sc-fn">log</span>(result.signers);        <span class="sc-comment">// [{ email: 'ceo@...' }]</span></pre>
+
+                        <!-- VERIFY: Java -->
+                        <pre class="sdk-code-block" data-scenario="verify" data-lang="java">VerificationResult result = client.verification().<span class="sc-fn">verify</span>(
+    <span class="sc-kw">new</span> <span class="sc-fn">VerifyRequest</span>()
+        .<span class="sc-fn">documentId</span>(<span class="sc-str">"doc_abc123"</span>)
+        .<span class="sc-fn">proofHash</span>(<span class="sc-str">"sha256:f3d9e1..."</span>)
+);
+
+System.out.<span class="sc-fn">println</span>(result.<span class="sc-fn">isValid</span>());
+System.out.<span class="sc-fn">println</span>(result.<span class="sc-fn">isTamperDetected</span>());
+System.out.<span class="sc-fn">println</span>(result.<span class="sc-fn">getSignedAt</span>());</pre>
+
+                        <!-- VERIFY: Go -->
+                        <pre class="sdk-code-block" data-scenario="verify" data-lang="go">result, err := client.Verification.<span class="sc-fn">Verify</span>(ctx, &amp;brillsign.VerifyRequest{
+    DocumentID: <span class="sc-str">"doc_abc123"</span>,
+    ProofHash:  <span class="sc-str">"sha256:f3d9e1..."</span>,
+})
+
+fmt.<span class="sc-fn">Println</span>(result.Valid)
+fmt.<span class="sc-fn">Println</span>(result.TamperDetected)
+fmt.<span class="sc-fn">Println</span>(result.SignedAt)</pre>
+
+                        <!-- VERIFY: Ruby -->
+                        <pre class="sdk-code-block" data-scenario="verify" data-lang="ruby">result = client.verification.<span class="sc-fn">verify</span>(
+  document_id: <span class="sc-str">'doc_abc123'</span>,
+  proof_hash:  <span class="sc-str">'sha256:f3d9e1...'</span>
+)
+
+<span class="sc-fn">puts</span> result.valid           <span class="sc-comment"># true</span>
+<span class="sc-fn">puts</span> result.tamper_detected <span class="sc-comment"># false</span>
+<span class="sc-fn">puts</span> result.signed_at</pre>
+
+                        <!-- VERIFY: .NET -->
+                        <pre class="sdk-code-block" data-scenario="verify" data-lang="dotnet"><span class="sc-kw">var</span> result = <span class="sc-kw">await</span> client.Verification.<span class="sc-fn">VerifyAsync</span>(<span class="sc-kw">new</span> <span class="sc-fn">VerifyRequest</span>
+{
+    DocumentId = <span class="sc-str">"doc_abc123"</span>,
+    ProofHash  = <span class="sc-str">"sha256:f3d9e1..."</span>
+});
+
+Console.<span class="sc-fn">WriteLine</span>(result.Valid);
+Console.<span class="sc-fn">WriteLine</span>(result.TamperDetected);
+Console.<span class="sc-fn">WriteLine</span>(result.SignedAt);</pre>
+
+                    </div><!-- /demoCodeContent -->
+                </div><!-- /sdk-code-window -->
+            </div>
+        </section>
+
+        <!-- ===== SECTION 4: FEATURE MATRIX ===== -->
+        <section class="sdk-matrix">
+            <div class="container">
+                <div class="sdk-section-header animate-up">
+                    <div class="sdk-section-label">Capability Matrix</div>
+                    <h2 class="premium-heading">What's Included
+                        <span class="text-highlight">in Every SDK.</span>
+                    </h2>
+                    <p>All SDKs ship with the core feature set. Advanced helpers are rolling out across languages —
+                        check back for updates.</p>
+                </div>
+
+                <div class="sdk-matrix-wrap animate-up">
+                    <table class="sdk-matrix-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th><i class="fab fa-python"></i> Python</th>
+                                <th><i class="fab fa-node-js"></i> Node</th>
+                                <th><i class="fab fa-java"></i> Java</th>
+                                <th><i class="fas fa-cube"></i> Go</th>
+                                <th><i class="fas fa-gem"></i> Ruby</th>
+                                <th><i class="fas fa-microsoft"></i> .NET</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Document CRUD</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Signing Flows</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>ZK Verification</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Auto-retry logic</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="soon"><i class="fas fa-clock"></i> Soon</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Webhook listener helper</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="soon"><i class="fas fa-clock"></i> Soon</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="soon"><i class="fas fa-clock"></i> Soon</td>
+                                <td class="soon"><i class="fas fa-clock"></i> Soon</td>
+                            </tr>
+                            <tr>
+                                <td>Async / await</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="no"><i class="fas fa-times"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Full type definitions</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="no"><i class="fas fa-times"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Pagination helpers</td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                                <td class="yes"><i class="fas fa-check"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 5: COMMUNITY & GITHUB ===== -->
+        <section class="sdk-community">
+            <div class="sdk-community-bg"></div>
+            <div class="container">
+                <div class="sdk-section-header sdk-section-header-dark animate-up">
+                    <div class="sdk-section-label sdk-label-dark">Open Source</div>
+                    <h2 class="premium-heading" style="color:#fff;">Built in the Open.
+                        <span class="text-highlight">Improved Together.</span>
+                    </h2>
+                    <p style="color:#94a3b8; max-width:620px; margin: 14px auto 0;">Every SDK is open source and MIT
+                        licensed. Report bugs, suggest features, or submit PRs — 70% of SDK features were shipped from
+                        community requests.</p>
+                </div>
+
+                <div class="sdk-community-cards animate-up">
+                    <a href="https://github.com/brillsign" target="_blank" rel="noopener" class="sdk-community-card">
+                        <div class="sdk-cc-icon"><i class="fab fa-github"></i></div>
+                        <div class="sdk-cc-body">
+                            <strong>GitHub Repository</strong>
+                            <span>Browse source, open issues, submit PRs</span>
+                        </div>
+                        <i class="fas fa-arrow-right sdk-cc-arrow"></i>
+                    </a>
+                    <a href="#" class="sdk-community-card">
+                        <div class="sdk-cc-icon sdk-cc-amber"><i class="fas fa-list-check"></i></div>
+                        <div class="sdk-cc-body">
+                            <strong>Changelog</strong>
+                            <span>What's new in each release, migration guides</span>
+                        </div>
+                        <i class="fas fa-arrow-right sdk-cc-arrow"></i>
+                    </a>
+                    <a href="#" class="sdk-community-card">
+                        <div class="sdk-cc-icon sdk-cc-green"><i class="fas fa-code-pull-request"></i></div>
+                        <div class="sdk-cc-body">
+                            <strong>Contributing Guide</strong>
+                            <span>Standards, testing, PR review process</span>
+                        </div>
+                        <i class="fas fa-arrow-right sdk-cc-arrow"></i>
+                    </a>
+                </div>
+
+                <div class="sdk-community-quote animate-up">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"70% of our SDK features were shipped as a direct result of community requests. Open an issue —
+                        we read every single one."</p>
+                    <span>— BrillSign SDK Team</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 6: CTA BANNER ===== -->
+        <section class="sdk-cta">
+            <div class="sdk-cta-glow"></div>
+            <div class="container">
+                <div class="sdk-cta-layout animate-up">
+                    <div class="sdk-cta-text">
+                        <h2 class="premium-heading" style="color:#fff;">Ready to
+                            <span class="text-highlight">Ship Signing?</span>
+                        </h2>
+                        <p>Pick your SDK, grab your API key, and have secure document signing running in production
+                            today. No infrastructure required.</p>
+                    </div>
+                    <div class="sdk-cta-actions">
+                        <a href="../index.html#waitlist" class="btn-primary">
+                            <span>Get Your API Key</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="rest-api.html" class="sdk-cta-secondary">
+                            <i class="fas fa-code"></i>
+                            <span>Explore REST API</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 7: FAQ ===== -->
+        <section class="faq-section sdk-faq">
+            <div class="container">
+                <div class="sdk-section-header animate-up">
+                    <div class="sdk-section-label">FAQ</div>
+                    <h2 class="premium-heading">Common <span class="text-highlight">Questions</span></h2>
+                </div>
+                <div class="faq-container animate-up">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Are the SDKs officially supported by BrillSign?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. All 6 SDKs are maintained by the BrillSign engineering team and receive regular
+                                    updates aligned with API version releases. Python and Node.js are our tier-1
+                                    priority SDKs and receive features first. Java, Go, .NET are tier-2, and Ruby is
+                                    tier-3 (community-assisted but BrillSign-maintained).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Which SDK should I choose for a new project?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>For new projects, <strong>Python</strong> or <strong>Node.js</strong> are recommended
+                                    — they receive the most frequent updates, have full feature parity, and have the
+                                    largest community. For enterprise Java or .NET shops, those SDKs are
+                                    production-ready with full type safety. Go is excellent for high-performance
+                                    services.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I use the SDK without a BrillSign account for verification?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes — the <code>verification.verify()</code> method works with just a
+                                    <code>proof_hash</code> and doesn't require authentication. This means your
+                                    recipients can independently verify document authenticity without ever creating a
+                                    BrillSign account. This is by design — cryptographic proof is yours forever.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do the SDKs handle retries automatically?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Python, Node.js, Java, Go, and .NET SDKs all include automatic exponential-backoff
+                                    retry logic for transient network errors and 429/503 rate-limit responses. Ruby
+                                    currently requires manual retry handling but a built-in retry module is planned for
+                                    v1.1.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I contribute a bug fix or feature?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Open a GitHub issue first to discuss the change. For bugs, include a minimal
+                                    reproducible example. For features, explain the use case. Once aligned, fork the
+                                    repo, branch from <code>main</code>, write tests, and open a PR. All PRs are
+                                    reviewed within 5 business days by the BrillSign SDK team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../shared-components.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../animations.js"></script>
+    <script src="sdks.js"></script>
+</body>
+
+</html>
