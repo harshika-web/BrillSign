@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrillSign and Anthropic: Intelligent Agreement Workflows in Claude Cowork — BrillSign Blog</title>
+    <meta name="description"
+        content="BrillSign partners with Anthropic to bring Intelligent Agreement Management into Claude Cowork. Create, review, send, and manage agreements securely through natural language.">
+    <meta property="og:title" content="BrillSign and Anthropic: Intelligent Agreement Workflows in Claude Cowork">
+    <meta property="og:description"
+        content="BrillSign partners with Anthropic to bring encrypted, enterprise-grade agreement management directly into Claude Cowork.">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body class="blog-page">
+
+    <!-- Reading Progress Bar -->
+    <div class="blog-progress-bar" id="readingProgress" style="width: 0%;"></div>
+
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- ============================================
+         BLOG HERO
+    ============================================ -->
+    <section class="blog-hero">
+        <div class="blog-hero-inner">
+            <div class="blog-category">
+                <i class="fas fa-bolt"></i> Partnership Announcement
+            </div>
+            <h1>BrillSign and Anthropic: Bringing <span class="accent-text">Intelligent Agreement Workflows</span> to
+                Cowork</h1>
+            <p class="blog-hero-subtitle">
+                We're excited to announce BrillSign's partnership with Anthropic to bring encrypted, enterprise-grade
+                agreement management directly into Claude Cowork — enabling teams to create, review, send, and manage
+                agreements through natural language.
+            </p>
+            <div class="blog-meta">
+                <div class="blog-author-avatar">LJ</div>
+                <div class="blog-meta-text">
+                    <span class="blog-author-name">Larry Jin</span>
+                    <div class="blog-meta-details">
+                        <span><i class="fas fa-calendar-alt"></i> Mar 3, 2026</span>
+                        <div class="blog-meta-divider"></div>
+                        <span><i class="fas fa-clock"></i> 5 min read</span>
+                        <div class="blog-meta-divider"></div>
+                        <span><i class="fas fa-tag"></i> Partnerships</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="blog-hero-image blog-partnership-bridge">
+        <svg class="bp-svg" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <!-- Gradients -->
+                <linearGradient id="bpArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#0066ff" stop-opacity="0.8" />
+                    <stop offset="50%" stop-color="#8E2DE2" stop-opacity="0.9" />
+                    <stop offset="100%" stop-color="#f39c12" stop-opacity="0.8" />
+                </linearGradient>
+                <linearGradient id="bpArcGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#f39c12" stop-opacity="0.6" />
+                    <stop offset="50%" stop-color="#8E2DE2" stop-opacity="0.7" />
+                    <stop offset="100%" stop-color="#0066ff" stop-opacity="0.6" />
+                </linearGradient>
+                <!-- Filters -->
+                <filter id="bpGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="6" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+                <filter id="bpSoftGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" />
+                </filter>
+                <filter id="bpBigGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="10" />
+                </filter>
+                <!-- Node gradients -->
+                <radialGradient id="bpBrillGrad" cx="50%" cy="35%" r="55%">
+                    <stop offset="0%" stop-color="#4d9aff" />
+                    <stop offset="60%" stop-color="#1a6dff" />
+                    <stop offset="100%" stop-color="#003cc0" />
+                </radialGradient>
+                <radialGradient id="bpAnthGrad" cx="50%" cy="35%" r="55%">
+                    <stop offset="0%" stop-color="#ffc857" />
+                    <stop offset="60%" stop-color="#f5a623" />
+                    <stop offset="100%" stop-color="#c07b08" />
+                </radialGradient>
+                <radialGradient id="bpCenterGrad" cx="50%" cy="35%" r="55%">
+                    <stop offset="0%" stop-color="#b06aef" />
+                    <stop offset="60%" stop-color="#8E2DE2" />
+                    <stop offset="100%" stop-color="#5a1ba0" />
+                </radialGradient>
+                <!-- Dot-grid pattern -->
+                <pattern id="bpDotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <circle cx="15" cy="15" r="0.6" fill="rgba(255,255,255,0.08)" />
+                </pattern>
+                <!-- Arc paths -->
+                <path id="bpArcTop" d="M 150 190 Q 450 50 750 190" fill="none" />
+                <path id="bpArcTopRev" d="M 750 190 Q 450 50 150 190" fill="none" />
+                <path id="bpArcBottom" d="M 150 190 Q 450 310 750 190" fill="none" />
+                <path id="bpArcBottomRev" d="M 750 190 Q 450 310 150 190" fill="none" />
+            </defs>
+
+            <!-- Dot-grid background -->
+            <rect width="900" height="360" fill="url(#bpDotGrid)" />
+
+            <!-- Ambient glow blobs -->
+            <circle cx="150" cy="190" r="90" fill="#0066ff" opacity="0.04" filter="url(#bpBigGlow)" />
+            <circle cx="750" cy="190" r="90" fill="#f39c12" opacity="0.04" filter="url(#bpBigGlow)" />
+            <circle cx="450" cy="120" r="70" fill="#8E2DE2" opacity="0.05" filter="url(#bpBigGlow)" />
+
+            <!-- Top arc (main) -->
+            <path d="M 150 190 Q 450 50 750 190" fill="none" stroke="url(#bpArcGrad)" stroke-width="1.5"
+                opacity="0.4" />
+            <path d="M 150 190 Q 450 50 750 190" fill="none" stroke="url(#bpArcGrad)" stroke-width="8" opacity="0.06"
+                filter="url(#bpSoftGlow)" />
+
+            <!-- Bottom arc (secondary, dashed) -->
+            <path d="M 150 190 Q 450 310 750 190" fill="none" stroke="url(#bpArcGrad2)" stroke-width="1" opacity="0.2"
+                stroke-dasharray="6 8" />
+
+            <!-- TOP ARC — Particles left→right (blue data) -->
+            <circle r="4.5" fill="#0066ff" filter="url(#bpGlow)" opacity="0.9">
+                <animateMotion dur="3s" repeatCount="indefinite">
+                    <mpath href="#bpArcTop" />
+                </animateMotion>
+            </circle>
+            <circle r="3" fill="#3399ff" filter="url(#bpSoftGlow)" opacity="0.7">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
+                    <mpath href="#bpArcTop" />
+                </animateMotion>
+            </circle>
+            <circle r="2" fill="#66bbff" opacity="0.5">
+                <animateMotion dur="3s" repeatCount="indefinite" begin="2s">
+                    <mpath href="#bpArcTop" />
+                </animateMotion>
+            </circle>
+
+            <!-- TOP ARC — Particles right→left (orange data) -->
+            <circle r="4.5" fill="#f39c12" filter="url(#bpGlow)" opacity="0.9">
+                <animateMotion dur="3.4s" repeatCount="indefinite" begin="0.3s">
+                    <mpath href="#bpArcTopRev" />
+                </animateMotion>
+            </circle>
+            <circle r="3" fill="#f5b041" filter="url(#bpSoftGlow)" opacity="0.7">
+                <animateMotion dur="3.4s" repeatCount="indefinite" begin="1.5s">
+                    <mpath href="#bpArcTopRev" />
+                </animateMotion>
+            </circle>
+            <circle r="2" fill="#f7dc8e" opacity="0.5">
+                <animateMotion dur="3.4s" repeatCount="indefinite" begin="2.7s">
+                    <mpath href="#bpArcTopRev" />
+                </animateMotion>
+            </circle>
+
+            <!-- BOTTOM ARC — Purple data both ways -->
+            <circle r="3" fill="#8E2DE2" filter="url(#bpSoftGlow)" opacity="0.7">
+                <animateMotion dur="4s" repeatCount="indefinite" begin="0.5s">
+                    <mpath href="#bpArcBottom" />
+                </animateMotion>
+            </circle>
+            <circle r="2.5" fill="#a855f7" opacity="0.5">
+                <animateMotion dur="4.2s" repeatCount="indefinite" begin="2s">
+                    <mpath href="#bpArcBottomRev" />
+                </animateMotion>
+            </circle>
+
+            <!-- Floating workflow tags along the arc -->
+            <g class="bp-tag bp-tag-1" opacity="0.7">
+                <rect x="260" y="90" width="72" height="22" rx="11" fill="rgba(0,102,255,0.12)"
+                    stroke="rgba(0,102,255,0.25)" stroke-width="0.5" />
+                <text x="296" y="104" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">Draft NDA</text>
+            </g>
+            <g class="bp-tag bp-tag-2" opacity="0.7">
+                <rect x="375" y="60" width="72" height="22" rx="11" fill="rgba(142,45,226,0.12)"
+                    stroke="rgba(142,45,226,0.25)" stroke-width="0.5" />
+                <text x="411" y="74" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">AI Review</text>
+            </g>
+            <g class="bp-tag bp-tag-3" opacity="0.7">
+                <rect x="510" y="72" width="60" height="22" rx="11" fill="rgba(142,45,226,0.12)"
+                    stroke="rgba(142,45,226,0.25)" stroke-width="0.5" />
+                <text x="540" y="86" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">e-Sign</text>
+            </g>
+            <g class="bp-tag bp-tag-4" opacity="0.7">
+                <rect x="600" y="100" width="68" height="22" rx="11" fill="rgba(243,156,18,0.12)"
+                    stroke="rgba(243,156,18,0.25)" stroke-width="0.5" />
+                <text x="634" y="114" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, sans-serif"
+                    font-size="8" font-weight="600">Encrypt</text>
+            </g>
+
+            <!-- LEFT NODE: BrillSign -->
+            <g class="bp-node bp-node-left">
+                <circle cx="150" cy="190" r="58" fill="none" stroke="rgba(0,102,255,0.08)" stroke-width="1"
+                    class="bp-ring-outer" />
+                <circle cx="150" cy="190" r="48" fill="none" stroke="rgba(0,102,255,0.2)" stroke-width="1.5"
+                    class="bp-ring" />
+                <circle cx="150" cy="190" r="38" fill="url(#bpBrillGrad)" filter="url(#bpGlow)" />
+                <text x="150" y="196" text-anchor="middle" fill="white" font-family="'Font Awesome 6 Free'"
+                    font-weight="900" font-size="24">&#xf3ed;</text>
+                <text x="150" y="255" text-anchor="middle" fill="rgba(255,255,255,0.9)"
+                    font-family="Poppins, sans-serif" font-size="14" font-weight="700">BrillSign</text>
+                <text x="150" y="272" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="Inter, sans-serif"
+                    font-size="8" letter-spacing="1.5">SECURE AGREEMENTS</text>
+            </g>
+
+            <!-- RIGHT NODE: Anthropic -->
+            <g class="bp-node bp-node-right">
+                <circle cx="750" cy="190" r="58" fill="none" stroke="rgba(243,156,18,0.08)" stroke-width="1"
+                    class="bp-ring-outer" />
+                <circle cx="750" cy="190" r="48" fill="none" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"
+                    class="bp-ring" />
+                <circle cx="750" cy="190" r="38" fill="url(#bpAnthGrad)" filter="url(#bpGlow)" />
+                <text x="750" y="196" text-anchor="middle" fill="white" font-family="'Font Awesome 6 Free'"
+                    font-weight="900" font-size="24">&#xf5dc;</text>
+                <text x="750" y="255" text-anchor="middle" fill="rgba(255,255,255,0.9)"
+                    font-family="Poppins, sans-serif" font-size="14" font-weight="700">Anthropic</text>
+                <text x="750" y="272" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="Inter, sans-serif"
+                    font-size="8" letter-spacing="1.5">CLAUDE COWORK</text>
+            </g>
+
+            <!-- CENTER NODE: Handshake -->
+            <g class="bp-node bp-center">
+                <circle cx="450" cy="120" r="42" fill="none" stroke="rgba(142,45,226,0.1)" stroke-width="1"
+                    class="bp-ring-outer" />
+                <circle cx="450" cy="120" r="33" fill="none" stroke="rgba(142,45,226,0.25)" stroke-width="1.5"
+                    class="bp-ring bp-center-ring" />
+                <circle cx="450" cy="120" r="26" fill="url(#bpCenterGrad)" filter="url(#bpGlow)"
+                    class="bp-center-core" />
+                <text x="450" y="127" text-anchor="middle" fill="white" font-family="'Font Awesome 6 Free'"
+                    font-weight="900" font-size="17">&#xf2b5;</text>
+            </g>
+
+            <!-- Bottom labels -->
+            <text x="350" y="325" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter, sans-serif"
+                font-size="8" letter-spacing="2">CREATE · REVIEW · SIGN</text>
+            <text x="550" y="325" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter, sans-serif"
+                font-size="8" letter-spacing="2">ENCRYPT · MANAGE · AUDIT</text>
+        </svg>
+    </div>
+
+    <!-- ============================================
+         ARTICLE BODY
+    ============================================ -->
+    <div class="blog-article-wrapper">
+
+        <!-- Left Sidebar: Table of Contents (desktop only) -->
+        <aside class="blog-article-sidebar">
+            <nav class="blog-toc">
+                <div class="blog-toc-title">On This Page</div>
+                <ul class="blog-toc-list">
+                    <li><a href="#what-teams-can-do" id="toc-1">What Teams Can Accomplish</a></li>
+                    <li><a href="#manage-agreements" id="toc-2">Manage Agreements Where Work Happens</a></li>
+                    <li><a href="#enterprise-trust" id="toc-3">Built for Enterprise Trust</a></li>
+                    <li><a href="#availability" id="toc-4">Availability</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Article -->
+        <article class="blog-article">
+            <div class="blog-content">
+
+                <p>
+                    Agreement management is essential to how businesses operate, yet much of the process still relies on
+                    manual, repetitive work spread across systems and teams. Today, organizations are turning to
+                    <strong>agentic AI</strong> that not only answers questions but takes action — automating agreement
+                    workflows that once required hours of human effort.
+                </p>
+
+                <p>
+                    We're excited to announce BrillSign's partnership with Anthropic to bring
+                    <strong>Intelligent Agreement Management (IAM)</strong> into
+                    <a href="#">Claude Cowork</a>. By connecting to BrillSign in Cowork, businesses can securely
+                    create, review, send, and manage agreements from start to finish — all through natural language
+                    prompts in Claude.
+                </p>
+
+                <p>
+                    With this connector, teams can move directly from a prompt to a workflow. AI goes beyond summaries
+                    and suggestions to <strong>trigger real-time actions</strong> across legal, sales, procurement, HR,
+                    and finance.
+                </p>
+
+                <!-- ---- Section: What Teams Can Do ---- -->
+                <h2 id="what-teams-can-do">What teams can accomplish</h2>
+
+                <p>Here are just a few examples of what teams can accomplish with BrillSign's intelligent agreement
+                    workflows:</p>
+
+                <ul>
+                    <li>Create a contract from a BrillSign-provided Master Service Agreement template, populate business
+                        details, and route it to Legal</li>
+                    <li>Send a customer intake packet and receive notification when identity verification is complete
+                    </li>
+                    <li>Review AI-suggested redlines to a service contract and initiate a vendor review aligned to
+                        company policy</li>
+                    <li>Search for customer contracts expiring in the next 90 days that include a price increase clause
+                    </li>
+                    <li>Find all active contracts containing a "data protection" clause and export a summary report</li>
+                </ul>
+
+                <p>
+                    Each action is backed by BrillSign's IAM platform, ensuring workflows follow defined rules,
+                    permissions, and compliance requirements — all with <strong>end-to-end encryption</strong> and
+                    <strong>zero-knowledge architecture</strong> at the core.
+                </p>
+
+                <!-- Feature Cards -->
+                <div class="blog-feature-grid">
+                    <div class="blog-feature-card">
+                        <i class="fas fa-file-signature"></i>
+                        <h4>Contract Creation</h4>
+                        <p>Generate and populate contracts from templates using natural language prompts.</p>
+                    </div>
+                    <div class="blog-feature-card">
+                        <i class="fas fa-search-dollar"></i>
+                        <h4>Smart Contract Search</h4>
+                        <p>Query across your entire agreement portfolio with plain-language filters.</p>
+                    </div>
+                    <div class="blog-feature-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <h4>Identity Verification</h4>
+                        <p>Automated KYC and signer verification without surveillance or tracking.</p>
+                    </div>
+                    <div class="blog-feature-card">
+                        <i class="fas fa-pen-nib"></i>
+                        <h4>AI Redline Review</h4>
+                        <p>Get AI-suggested edits aligned to your company's negotiation policies.</p>
+                    </div>
+                </div>
+
+                <!-- ---- Section: Manage Agreements ---- -->
+                <h2 id="manage-agreements">Manage agreements where work happens</h2>
+
+                <p>
+                    Teams increasingly embrace AI tools to plan, analyze, and coordinate work. But agreement execution
+                    happens outside of AI tools that organizations are using — forcing people to switch tools or
+                    manually
+                    hand off next steps.
+                </p>
+
+                <p>
+                    By integrating BrillSign directly into Cowork, teams can run agreement workflows without leaving
+                    their AI workspace. The result is <strong>faster execution, fewer handoffs, and less operational
+                        friction</strong>.
+                </p>
+
+                <blockquote>
+                    <p>"We stopped thinking about signatures as a workflow and started treating them as evidence.
+                        BrillSign gave us confidence that every signed document would still hold up months or years
+                        later."</p>
+                </blockquote>
+
+                <!-- Inline CTA -->
+                <div class="blog-inline-cta">
+                    <h3>Ready to experience intelligent agreements?</h3>
+                    <p>See how BrillSign's encrypted e-signature platform integrates with your existing workflows.</p>
+                    <a href="../index.html#waitlist" class="blog-cta-btn">
+                        Join the Waitlist <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- ---- Section: Enterprise Trust ---- -->
+                <h2 id="enterprise-trust">Built for enterprise trust</h2>
+
+                <p>
+                    The BrillSign connector for Cowork is built on the <strong>Model Context Protocol (MCP)</strong> and
+                    uses BrillSign's trusted security and access controls. Customers must be licensed and authenticated,
+                    access is permission-based, and agreement data remains private and under the user's control.
+                </p>
+
+                <p>
+                    Unlike traditional e-signature vendors, BrillSign's architecture ensures that <strong>no one — not
+                        even BrillSign — can access your document contents</strong>. Our zero-knowledge design means
+                    your sensitive agreements are cryptographically sealed from everyone, including us.
+                </p>
+
+                <div class="blog-feature-grid">
+                    <div class="blog-feature-card">
+                        <i class="fas fa-lock"></i>
+                        <h4>Zero-Knowledge Architecture</h4>
+                        <p>We're architecturally incapable of reading your documents — by design, not policy.</p>
+                    </div>
+                    <div class="blog-feature-card">
+                        <i class="fas fa-key"></i>
+                        <h4>MCP-Based Security</h4>
+                        <p>Built on Model Context Protocol with enterprise-grade access controls.</p>
+                    </div>
+                </div>
+
+                <!-- ---- Section: Availability ---- -->
+                <h2 id="availability">Availability</h2>
+
+                <p>
+                    The BrillSign MCP connector is available in beta today through Anthropic's Connectors Directory for
+                    BrillSign customers. To learn more about how your team can use the BrillSign MCP Connector to build
+                    tailored integrations and automate complex agreement workflows, visit our
+                    <a href="#">detailed developer guide</a>.
+                </p>
+
+                <p>
+                    Have questions about connecting Claude Cowork to BrillSign? Join the discussion in the
+                    <a href="#">BrillSign Community</a> to get advice from the product team and share ideas with peers.
+                </p>
+
+                <!-- Divider -->
+                <hr class="blog-divider">
+
+                <!-- Tags -->
+                <div class="blog-tags">
+                    <a href="#" class="blog-tag">Partnership</a>
+                    <a href="#" class="blog-tag">AI Integration</a>
+                    <a href="#" class="blog-tag">Anthropic</a>
+                    <a href="#" class="blog-tag">MCP</a>
+                    <a href="#" class="blog-tag">Contract Management</a>
+                    <a href="#" class="blog-tag">Enterprise</a>
+                </div>
+
+                <!-- Share -->
+                <div class="blog-share-bar">
+                    <span class="blog-share-label">Share</span>
+                    <a href="#" class="blog-share-btn" aria-label="Share on LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="blog-share-btn" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="blog-share-btn" aria-label="Share on Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="blog-share-btn" aria-label="Copy link"><i class="fas fa-link"></i></a>
+                </div>
+
+                <!-- Author Card -->
+                <div class="blog-author-card">
+                    <div class="blog-author-card-avatar">LJ</div>
+                    <div class="blog-author-card-info">
+                        <h4>Larry Jin</h4>
+                        <div class="role">Head of Builders & Partners at BrillSign</div>
+                        <p>Larry leads the Builders & Partners product organization at BrillSign, responsible for the
+                            developer platform, no-code workflow capabilities, and ecosystem of partner integrations.
+                        </p>
+                        <div class="blog-author-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+        <!-- Right sidebar (empty, for layout balance) -->
+        <aside class="blog-article-sidebar"></aside>
+    </div>
+
+    <!-- ============================================
+         RELATED POSTS
+    ============================================ -->
+    <section class="blog-related">
+        <div class="blog-related-header">
+            <h2>Related Posts</h2>
+            <a href="#">View all posts <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="blog-related-grid">
+            <!-- Card 1 -->
+            <a href="zero-knowledge-architecture-enterprise.html" class="blog-related-card">
+                <div class="blog-related-card-img">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="blog-related-card-body">
+                    <div class="blog-related-card-tag">Security</div>
+                    <h3>Why Zero-Knowledge Architecture Changes Everything for Enterprise Signing</h3>
+                    <p>How BrillSign's cryptographic approach eliminates vendor trust dependencies entirely.</p>
+                </div>
+                <div class="blog-related-card-footer">
+                    <span>6 min read</span>
+                    <span class="read-more">Read <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="jurisdiction-aware-signing-global.html" class="blog-related-card">
+                <div class="blog-related-card-img">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="blog-related-card-body">
+                    <div class="blog-related-card-tag">Compliance</div>
+                    <h3>Jurisdiction-Aware Signing: Navigating Global Regulatory Complexity</h3>
+                    <p>Automatically adapt signing workflows to meet regional requirements across borders.</p>
+                </div>
+                <div class="blog-related-card-footer">
+                    <span>7 min read</span>
+                    <span class="read-more">Read <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <!-- Card 3 -->
+            <a href="exit-safe-architecture-vendor-freedom.html" class="blog-related-card">
+                <div class="blog-related-card-img">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                <div class="blog-related-card-body">
+                    <div class="blog-related-card-tag">Product</div>
+                    <h3>Exit-Safe Architecture: Your Documents Outlive Any Vendor Relationship</h3>
+                    <p>Signatures remain independently verifiable, even if you migrate platforms.</p>
+                </div>
+                <div class="blog-related-card-footer">
+                    <span>5 min read</span>
+                    <span class="read-more">Read <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BOTTOM CTA
+    ============================================ -->
+    <section class="blog-bottom-cta">
+        <h2>Ready to take control of your agreements?</h2>
+        <p>Join the enterprises already using BrillSign's encrypted, decentralized signing platform to protect their
+            most critical documents.</p>
+        <a href="../index.html#waitlist" class="blog-cta-btn">
+            Join the Waitlist <i class="fas fa-arrow-right"></i>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../shared-components.js"></script>
+    <script src="../animations.js"></script>
+    <script src="../translations.js"></script>
+
+    <!-- Reading Progress Bar Script -->
+    <script>
+        (function () {
+            const progressBar = document.getElementById('readingProgress');
+            if (!progressBar) return;
+            window.addEventListener('scroll', function () {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+                progressBar.style.width = scrolled + '%';
+            }, { passive: true });
+        })();
+
+        // TOC active state
+        (function () {
+            const sections = document.querySelectorAll('.blog-content h2[id]');
+            const tocLinks = document.querySelectorAll('.blog-toc-list a');
+            if (!sections.length || !tocLinks.length) return;
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        tocLinks.forEach(l => l.classList.remove('active'));
+                        const active = document.querySelector(`.blog-toc-list a[href="#${entry.target.id}"]`);
+                        if (active) active.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+            sections.forEach(s => observer.observe(s));
+        })();
+    </script>
+
+</body>
+
+</html>

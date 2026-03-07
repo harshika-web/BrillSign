@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhooks | BrillSign Developer Portal</title>
+    <meta name="description"
+        content="BrillSign Webhooks — Real-time, cryptographically signed event payloads delivered to your endpoint the instant something happens. Never poll again.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../faq-section.css">
+    <link rel="stylesheet" href="webhooks.css">
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <!-- ===== SECTION 1: HERO ===== -->
+        <section class="wh-hero">
+            <div class="wh-hero-grid-bg"></div>
+            <div class="glow-blob wh-blob-1"></div>
+            <div class="glow-blob wh-blob-2"></div>
+            <div class="glow-blob wh-blob-3"></div>
+
+            <div class="container">
+                <div class="wh-hero-layout">
+
+                    <!-- Left: Content -->
+                    <div class="wh-hero-content animate-up">
+                        <div class="wh-hero-badge">
+                            <i class="fas fa-bell"></i>
+                            <span>Webhooks · Event-Driven</span>
+                            <span class="wh-live-dot"></span>
+                            <span class="wh-live-label">Live</span>
+                        </div>
+
+                        <h1 class="wh-hero-title premium-heading">
+                            Know the Instant a Document is Signed —
+                            <span class="text-highlight">Not When You Remember to Check</span>
+                        </h1>
+
+                        <p class="wh-hero-sub">
+                            BrillSign Webhooks push cryptographically signed event payloads to your endpoint
+                            the moment something happens. Zero polling. Zero guessing. Zero missed events.
+                        </p>
+
+                        <div class="wh-hero-stats">
+                            <div class="wh-stat">
+                                <span class="wh-stat-num">&lt;500ms</span>
+                                <span class="wh-stat-label">Avg delivery</span>
+                            </div>
+                            <div class="wh-stat-divider"></div>
+                            <div class="wh-stat">
+                                <span class="wh-stat-num">25+</span>
+                                <span class="wh-stat-label">Event types</span>
+                            </div>
+                            <div class="wh-stat-divider"></div>
+                            <div class="wh-stat">
+                                <span class="wh-stat-num">5x</span>
+                                <span class="wh-stat-label">Auto retry</span>
+                            </div>
+                        </div>
+
+                        <div class="wh-hero-ctas feature-ctas">
+                            <a href="../index.html#waitlist" class="btn-primary">
+                                <span>Register Your First Webhook</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#events" class="btn-outline">
+                                <i class="fas fa-list"></i>
+                                <span>See Event Catalog</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Live Event Stream -->
+                    <div class="wh-hero-stream animate-right">
+                        <div class="wh-stream-panel">
+                            <div class="wh-stream-header">
+                                <div class="wh-stream-dots">
+                                    <span class="wh-dot dot-red"></span>
+                                    <span class="wh-dot dot-yellow"></span>
+                                    <span class="wh-dot dot-green"></span>
+                                </div>
+                                <span class="wh-stream-title">Event Stream</span>
+                                <div class="wh-stream-live-badge">
+                                    <span class="wh-live-pulse"></span>
+                                    LIVE
+                                </div>
+                            </div>
+
+                            <div class="wh-stream-body" id="eventStream">
+                                <!-- Events injected by JS -->
+                            </div>
+
+                            <div class="wh-stream-footer">
+                                <span class="wh-stream-endpoint">POST https://yourapp.com/webhooks/brillsign</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2: EVENT CATALOG ===== -->
+        <section class="wh-events" id="events">
+            <div class="container">
+                <div class="wh-section-header animate-up">
+                    <div class="wh-section-label">Event Catalog</div>
+                    <h2 class="premium-heading">25+ Event Types. Every Critical Moment in a
+                        <span class="text-highlight">Document's Lifecycle.</span>
+                    </h2>
+                    <p>Subscribe only to what matters. Every event delivers a complete, self-contained payload
+                        with cryptographic proof you can verify independently.</p>
+                </div>
+
+                <div class="wh-events-grid animate-up">
+
+                    <!-- Document Events -->
+                    <div class="wh-event-group">
+                        <div class="wh-event-group-header wh-group-doc">
+                            <div class="wh-event-group-icon"><i class="fas fa-file-lines"></i></div>
+                            <div>
+                                <div class="wh-event-group-name">Document Events</div>
+                                <div class="wh-event-group-count">8 events</div>
+                            </div>
+                        </div>
+                        <div class="wh-chips">
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="A document has been uploaded and is ready for signing">document.uploaded</span>
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="All required signers have completed signing">document.signed</span>
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="A previously active document has been voided">document.voided</span>
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="A signing request has expired without completion">document.expired</span>
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="A signed document has been downloaded">document.downloaded</span>
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="A document has been sent for signing">document.sent</span>
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="Document has been archived in storage">document.archived</span>
+                            <span class="wh-chip wh-chip-doc"
+                                data-desc="Document metadata has been updated">document.updated</span>
+                        </div>
+                    </div>
+
+                    <!-- Signer Events -->
+                    <div class="wh-event-group">
+                        <div class="wh-event-group-header wh-group-signer">
+                            <div class="wh-event-group-icon wh-icon-purple"><i class="fas fa-user-pen"></i></div>
+                            <div>
+                                <div class="wh-event-group-name">Signer Events</div>
+                                <div class="wh-event-group-count">9 events</div>
+                            </div>
+                        </div>
+                        <div class="wh-chips">
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="A signer has been sent an invitation to sign">signer.invited</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer opened the document for the first time">signer.viewed</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer has completed their signing action">signer.signed</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer has explicitly declined to sign">signer.declined</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer email bounced, delivery failed">signer.bounced</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer has been reminded to complete signing">signer.reminded</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer identity has been verified">signer.identity_verified</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer has requested an extension">signer.extension_requested</span>
+                            <span class="wh-chip wh-chip-signer"
+                                data-desc="Signer delegated signing to another party">signer.delegated</span>
+                        </div>
+                    </div>
+
+                    <!-- Security Events -->
+                    <div class="wh-event-group">
+                        <div class="wh-event-group-header wh-group-security">
+                            <div class="wh-event-group-icon wh-icon-red"><i class="fas fa-shield-halved"></i></div>
+                            <div>
+                                <div class="wh-event-group-name">Security Events</div>
+                                <div class="wh-event-group-count">8+ events</div>
+                            </div>
+                        </div>
+                        <div class="wh-chips">
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="Cryptographic tamper detection has been triggered">tamper.detected</span>
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="Signer identity was verified through multi-factor proof">identity.verified</span>
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="An audit trail has been exported">audit.exported</span>
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="An API key has been rotated">key.rotated</span>
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="A login attempt from a flagged IP was detected">ip.flagged</span>
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="An API key has been revoked">key.revoked</span>
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="Cryptographic proof has been verified by a third party">proof.verified</span>
+                            <span class="wh-chip wh-chip-security"
+                                data-desc="An unauthorized access attempt was detected">access.denied</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Chip Tooltip -->
+                <div class="wh-chip-tooltip" id="chipTooltip"></div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 3: PAYLOAD ANATOMY ===== -->
+        <section class="wh-payload">
+            <div class="wh-payload-grid-bg"></div>
+            <div class="container">
+                <div class="wh-section-header wh-section-header-dark animate-up">
+                    <div class="wh-section-label wh-label-dark">Payload Structure</div>
+                    <h2 class="premium-heading" style="color:#fff;">Every Payload is Cryptographically Signed —
+                        <span class="text-highlight">You Know It Came From Us.</span>
+                    </h2>
+                    <p style="color:#94a3b8;">Always verify the <code>hmac_signature</code> before processing any event.
+                        Reject anything that doesn't match. Trust nothing you haven't verified.</p>
+                </div>
+
+                <div class="wh-payload-layout animate-up">
+                    <!-- Annotated JSON Block -->
+                    <div class="wh-code-window">
+                        <div class="wh-code-bar">
+                            <div class="wh-code-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <span class="wh-code-label">Webhook Payload · document.signed</span>
+                            <button class="wh-copy-btn" id="payloadCopyBtn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <div class="wh-code-body" id="payloadCode">
+                            <pre class="wh-json-block"><span class="wj-brace">{</span>
+  <span class="wj-key">"event_id"</span><span class="wj-colon">:</span>        <span class="wj-str">"evt_9xkP2mQ7r3..."</span><span class="wj-comma">,</span>     <span class="wh-ann wh-ann-1">① Unique, idempotent ID</span>
+  <span class="wj-key">"event"</span><span class="wj-colon">:</span>           <span class="wj-str">"document.signed"</span><span class="wj-comma">,</span>        <span class="wh-ann wh-ann-2">② Event type string</span>
+  <span class="wj-key">"api_version"</span><span class="wj-colon">:</span>     <span class="wj-str">"v1"</span><span class="wj-comma">,</span>
+  <span class="wj-key">"timestamp"</span><span class="wj-colon">:</span>       <span class="wj-str">"2026-03-07T18:31:00.412Z"</span><span class="wj-comma">,</span>  <span class="wh-ann wh-ann-3">③ ISO-8601 millisecond precision</span>
+  <span class="wj-key">"hmac_signature"</span><span class="wj-colon">:</span>  <span class="wj-str">"sha256=a4b2c8d9f1e3..."</span><span class="wj-comma">,</span>  <span class="wh-ann wh-ann-4">④ Verify BEFORE processing!</span>
+  <span class="wj-key">"data"</span><span class="wj-colon">:</span> <span class="wj-brace">{</span>
+    <span class="wj-key">"document_id"</span><span class="wj-colon">:</span>   <span class="wj-str">"doc_abc123"</span><span class="wj-comma">,</span>
+    <span class="wj-key">"signer_email"</span><span class="wj-colon">:</span>  <span class="wj-str">"ceo@acme.com"</span><span class="wj-comma">,</span>
+    <span class="wj-key">"signer_role"</span><span class="wj-colon">:</span>   <span class="wj-str">"signer"</span><span class="wj-comma">,</span>
+    <span class="wj-key">"proof_hash"</span><span class="wj-colon">:</span>    <span class="wj-str">"sha256:f3d9e1..."</span><span class="wj-comma">,</span>   <span class="wh-ann wh-ann-5">⑤ Cryptographic proof included</span>
+    <span class="wj-key">"signed_at"</span><span class="wj-colon">:</span>     <span class="wj-str">"2026-03-07T18:31:00Z"</span><span class="wj-comma">,</span>
+    <span class="wj-key">"tamper_detected"</span><span class="wj-colon">: <span class="wj-bool">false</span>
+  <span class="wj-brace">}</span>
+<span class="wj-brace">}</span></span></pre>
+                        </div>
+                    </div>
+
+                    <!-- Annotations Panel -->
+                    <div class="wh-annotations">
+                        <div class="wh-ann-item">
+                            <div class="wh-ann-num">①</div>
+                            <div class="wh-ann-body">
+                                <strong>event_id</strong>
+                                <p>Globally unique, idempotent identifier. Store this to safely deduplicate retries —
+                                    same event ID means same delivery attempt.</p>
+                            </div>
+                        </div>
+                        <div class="wh-ann-item">
+                            <div class="wh-ann-num">②</div>
+                            <div class="wh-ann-body">
+                                <strong>event</strong>
+                                <p>Dot-notation event type string. Use this to route events in your handler — switch on
+                                    this value.</p>
+                            </div>
+                        </div>
+                        <div class="wh-ann-item">
+                            <div class="wh-ann-num">③</div>
+                            <div class="wh-ann-body">
+                                <strong>timestamp</strong>
+                                <p>ISO-8601 UTC timestamp with millisecond precision. Reject events older than 5 minutes
+                                    to prevent replay attacks.</p>
+                            </div>
+                        </div>
+                        <div class="wh-ann-item wh-ann-critical">
+                            <div class="wh-ann-num wh-ann-num-red">④</div>
+                            <div class="wh-ann-body">
+                                <strong>hmac_signature</strong>
+                                <p>HMAC-SHA256 of the raw request body, signed with your webhook secret. <strong>Always
+                                        verify this first</strong> — reject anything that doesn't match.</p>
+                            </div>
+                        </div>
+                        <div class="wh-ann-item">
+                            <div class="wh-ann-num">⑤</div>
+                            <div class="wh-ann-body">
+                                <strong>proof_hash</strong>
+                                <p>Cryptographic SHA-256 proof hash of the document. You can independently verify
+                                    document authenticity without contacting BrillSign.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 4: RELIABILITY ARCHITECTURE ===== -->
+        <section class="wh-reliability">
+            <div class="container">
+                <div class="wh-section-header animate-up">
+                    <div class="wh-section-label">Reliability</div>
+                    <h2 class="premium-heading">We Don't Give Up.
+                        <span class="text-highlight">5 Automatic Retries. Exponential Backoff.</span>
+                    </h2>
+                    <p>Transient failures happen. BrillSign automatically retries failed deliveries with
+                        exponential backoff — so you never miss a critical signing event.</p>
+                </div>
+
+                <!-- Retry Timeline -->
+                <div class="wh-retry-timeline animate-up">
+                    <div class="wh-retry-track"></div>
+
+                    <div class="wh-retry-node wh-rn-active" id="rn1">
+                        <div class="wh-retry-dot"></div>
+                        <div class="wh-retry-label">Attempt 1</div>
+                        <div class="wh-retry-time">0s</div>
+                        <div class="wh-retry-status">Immediate</div>
+                    </div>
+
+                    <div class="wh-retry-connector" id="rc1">
+                        <div class="wh-retry-travel-dot"></div>
+                    </div>
+
+                    <div class="wh-retry-node" id="rn2">
+                        <div class="wh-retry-dot"></div>
+                        <div class="wh-retry-label">Attempt 2</div>
+                        <div class="wh-retry-time">30s</div>
+                        <div class="wh-retry-status">Auto retry</div>
+                    </div>
+
+                    <div class="wh-retry-connector" id="rc2">
+                        <div class="wh-retry-travel-dot"></div>
+                    </div>
+
+                    <div class="wh-retry-node" id="rn3">
+                        <div class="wh-retry-dot"></div>
+                        <div class="wh-retry-label">Attempt 3</div>
+                        <div class="wh-retry-time">5m</div>
+                        <div class="wh-retry-status">Backoff</div>
+                    </div>
+
+                    <div class="wh-retry-connector" id="rc3">
+                        <div class="wh-retry-travel-dot"></div>
+                    </div>
+
+                    <div class="wh-retry-node" id="rn4">
+                        <div class="wh-retry-dot"></div>
+                        <div class="wh-retry-label">Attempt 4</div>
+                        <div class="wh-retry-time">30m</div>
+                        <div class="wh-retry-status">Backoff</div>
+                    </div>
+
+                    <div class="wh-retry-connector" id="rc4">
+                        <div class="wh-retry-travel-dot"></div>
+                    </div>
+
+                    <div class="wh-retry-node" id="rn5">
+                        <div class="wh-retry-dot"></div>
+                        <div class="wh-retry-label">Attempt 5</div>
+                        <div class="wh-retry-time">2h</div>
+                        <div class="wh-retry-status">Final</div>
+                    </div>
+
+                    <div class="wh-retry-connector wh-rc-fail" id="rc5">
+                        <div class="wh-retry-travel-dot wh-travel-red"></div>
+                    </div>
+
+                    <div class="wh-retry-node wh-rn-dlq" id="rn-dlq">
+                        <div class="wh-retry-dot wh-dot-red"><i class="fas fa-inbox"></i></div>
+                        <div class="wh-retry-label">Dead Letter</div>
+                        <div class="wh-retry-time">DLQ</div>
+                        <div class="wh-retry-status">+ Email alert</div>
+                    </div>
+                </div>
+
+                <!-- Guarantee Chips -->
+                <div class="wh-guarantee-row animate-up">
+                    <div class="wh-guarantee-chip">
+                        <i class="fas fa-repeat"></i>
+                        <span>At-least-once delivery</span>
+                    </div>
+                    <div class="wh-guarantee-chip">
+                        <i class="fas fa-clock"></i>
+                        <span>24-hour retry window</span>
+                    </div>
+                    <div class="wh-guarantee-chip">
+                        <i class="fas fa-bell"></i>
+                        <span>Email alert on failure</span>
+                    </div>
+                    <div class="wh-guarantee-chip">
+                        <i class="fas fa-fingerprint"></i>
+                        <span>Idempotent event IDs</span>
+                    </div>
+                    <div class="wh-guarantee-chip">
+                        <i class="fas fa-inbox"></i>
+                        <span>Dead Letter Queue</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 5: VERIFICATION CODE ===== -->
+        <section class="wh-verify">
+            <div class="wh-verify-dark-bg"></div>
+            <div class="container">
+                <div class="wh-section-header wh-section-header-dark animate-up">
+                    <div class="wh-section-label wh-label-dark">Signature Verification</div>
+                    <h2 class="premium-heading" style="color:#fff;">Verify in 3 Lines.
+                        <span class="text-highlight">Trust in Zero Doubt.</span>
+                    </h2>
+                    <p style="color:#94a3b8;">Always verify the HMAC-SHA256 signature before processing any payload.
+                        Skipping this exposes you to replay attacks and forged events.</p>
+                </div>
+
+                <div class="wh-verify-layout animate-up">
+                    <!-- Code Window -->
+                    <div class="wh-verify-code-wrap">
+                        <!-- Language Tabs -->
+                        <div class="wh-lang-tabs" id="whLangTabs">
+                            <button class="wh-lang-btn active" data-lang="nodejs"><i class="fab fa-node-js"></i>
+                                Node.js</button>
+                            <button class="wh-lang-btn" data-lang="python"><i class="fab fa-python"></i> Python</button>
+                            <button class="wh-lang-btn" data-lang="php"><i class="fab fa-php"></i> PHP</button>
+                            <button class="wh-lang-btn" data-lang="go"><i class="fas fa-cube"></i> Go</button>
+                        </div>
+
+                        <div class="wh-verify-window">
+                            <div class="wh-code-bar">
+                                <div class="wh-code-dots">
+                                    <span class="dot-red"></span>
+                                    <span class="dot-yellow"></span>
+                                    <span class="dot-green"></span>
+                                </div>
+                                <span class="wh-code-label" id="verifyLabel">webhook-verify.js</span>
+                                <button class="wh-copy-btn" id="verifyCodeCopyBtn"><i class="fas fa-copy"></i>
+                                    Copy</button>
+                            </div>
+                            <div class="wh-code-content" id="verifyCodeContent">
+
+                                <!-- Node.js -->
+                                <pre class="wh-code-block active" data-lang="nodejs"><span class="wcc-kw">const</span> crypto = <span class="wcc-fn">require</span>(<span class="wcc-str">'crypto'</span>);
+
+<span class="wcc-comment">// Express.js webhook handler</span>
+app.<span class="wcc-fn">post</span>(<span class="wcc-str">'/webhooks/brillsign'</span>, (req, res) =&gt; {
+  <span class="wcc-kw">const</span> secret = process.env.<span class="wcc-prop">BRILLSIGN_WEBHOOK_SECRET</span>;
+  <span class="wcc-kw">const</span> signature = req.headers[<span class="wcc-str">'x-brillsign-signature'</span>];
+  <span class="wcc-kw">const</span> rawBody = req.body; <span class="wcc-comment">// Must be raw buffer, not parsed JSON</span>
+
+  <span class="wcc-kw">const</span> expected = <span class="wcc-str">'sha256='</span> + crypto
+    .<span class="wcc-fn">createHmac</span>(<span class="wcc-str">'sha256'</span>, secret)
+    .<span class="wcc-fn">update</span>(rawBody)
+    .<span class="wcc-fn">digest</span>(<span class="wcc-str">'hex'</span>);
+
+  <span class="wcc-kw">if</span> (!crypto.<span class="wcc-fn">timingSafeEqual</span>(
+    Buffer.<span class="wcc-fn">from</span>(expected),
+    Buffer.<span class="wcc-fn">from</span>(signature)
+  )) {
+    <span class="wcc-kw">return</span> res.<span class="wcc-fn">status</span>(<span class="wcc-num">401</span>).<span class="wcc-fn">json</span>({ error: <span class="wcc-str">'Invalid signature'</span> });
+  }
+
+  <span class="wcc-kw">const</span> event = <span class="wcc-prop">JSON</span>.<span class="wcc-fn">parse</span>(rawBody);
+  <span class="wcc-fn">handleEvent</span>(event); <span class="wcc-comment">// ✓ Safe to process</span>
+  res.<span class="wcc-fn">status</span>(<span class="wcc-num">200</span>).<span class="wcc-fn">json</span>({ received: <span class="wcc-bool">true</span> });
+});</pre>
+
+                                <!-- Python -->
+                                <pre class="wh-code-block"
+                                    data-lang="python"><span class="wcc-kw">import</span> hmac, hashlib, os
+<span class="wcc-kw">from</span> flask <span class="wcc-kw">import</span> Flask, request, jsonify
+
+app = Flask(__name__)
+
+<span class="wcc-comment"># Flask webhook handler</span>
+@app.<span class="wcc-fn">route</span>(<span class="wcc-str">'/webhooks/brillsign'</span>, methods=[<span class="wcc-str">'POST'</span>])
+<span class="wcc-kw">def</span> <span class="wcc-fn">webhook</span>():
+    secret = os.environ[<span class="wcc-str">'BRILLSIGN_WEBHOOK_SECRET'</span>].<span class="wcc-fn">encode</span>()
+    signature = request.headers.get(<span class="wcc-str">'X-BrillSign-Signature'</span>, <span class="wcc-str">''</span>)
+    raw_body = request.<span class="wcc-prop">data</span>  <span class="wcc-comment"># Raw bytes, not .json()</span>
+
+    expected = <span class="wcc-str">'sha256='</span> + hmac.<span class="wcc-fn">new</span>(
+        secret, raw_body, hashlib.sha256
+    ).<span class="wcc-fn">hexdigest</span>()
+
+    <span class="wcc-kw">if not</span> hmac.<span class="wcc-fn">compare_digest</span>(expected, signature):
+        <span class="wcc-kw">return</span> <span class="wcc-fn">jsonify</span>(error=<span class="wcc-str">'Invalid signature'</span>), <span class="wcc-num">401</span>
+
+    event = request.<span class="wcc-fn">get_json</span>()
+    <span class="wcc-fn">handle_event</span>(event)  <span class="wcc-comment"># ✓ Safe to process</span>
+    <span class="wcc-kw">return</span> <span class="wcc-fn">jsonify</span>(received=<span class="wcc-bool">True</span>)</pre>
+
+                                <!-- PHP -->
+                                <pre class="wh-code-block" data-lang="php"><span class="wcc-kw">&lt;?php</span>
+
+<span class="wcc-comment">// Get raw body and signature header</span>
+<span class="wcc-prop">$rawBody</span>   = <span class="wcc-fn">file_get_contents</span>(<span class="wcc-str">'php://input'</span>);
+<span class="wcc-prop">$signature</span> = <span class="wcc-prop">$_SERVER</span>[<span class="wcc-str">'HTTP_X_BRILLSIGN_SIGNATURE'</span>] ?? <span class="wcc-str">''</span>;
+<span class="wcc-prop">$secret</span>    = <span class="wcc-fn">getenv</span>(<span class="wcc-str">'BRILLSIGN_WEBHOOK_SECRET'</span>);
+
+<span class="wcc-prop">$expected</span> = <span class="wcc-str">'sha256='</span> . <span class="wcc-fn">hash_hmac</span>(<span class="wcc-str">'sha256'</span>, <span class="wcc-prop">$rawBody</span>, <span class="wcc-prop">$secret</span>);
+
+<span class="wcc-kw">if</span> (!<span class="wcc-fn">hash_equals</span>(<span class="wcc-prop">$expected</span>, <span class="wcc-prop">$signature</span>)) {
+    <span class="wcc-fn">http_response_code</span>(<span class="wcc-num">401</span>);
+    <span class="wcc-fn">exit</span>(<span class="wcc-str">'Invalid signature'</span>);
+}
+
+<span class="wcc-prop">$event</span> = <span class="wcc-fn">json_decode</span>(<span class="wcc-prop">$rawBody</span>, <span class="wcc-bool">true</span>);
+<span class="wcc-fn">handleEvent</span>(<span class="wcc-prop">$event</span>); <span class="wcc-comment">// ✓ Safe to process</span>
+<span class="wcc-fn">http_response_code</span>(<span class="wcc-num">200</span>);</pre>
+
+                                <!-- Go -->
+                                <pre class="wh-code-block" data-lang="go"><span class="wcc-kw">import</span> (
+    <span class="wcc-str">"crypto/hmac"</span>
+    <span class="wcc-str">"crypto/sha256"</span>
+    <span class="wcc-str">"encoding/hex"</span>
+    <span class="wcc-str">"io"</span>
+    <span class="wcc-str">"net/http"</span>
+)
+
+<span class="wcc-kw">func</span> <span class="wcc-fn">webhookHandler</span>(w http.ResponseWriter, r *http.Request) {
+    secret := []<span class="wcc-kw">byte</span>(os.<span class="wcc-fn">Getenv</span>(<span class="wcc-str">"BRILLSIGN_WEBHOOK_SECRET"</span>))
+    body, _ := io.<span class="wcc-fn">ReadAll</span>(r.Body)
+    signature := r.Header.<span class="wcc-fn">Get</span>(<span class="wcc-str">"X-BrillSign-Signature"</span>)
+
+    mac := hmac.<span class="wcc-fn">New</span>(sha256.New, secret)
+    mac.<span class="wcc-fn">Write</span>(body)
+    expected := <span class="wcc-str">"sha256="</span> + hex.<span class="wcc-fn">EncodeToString</span>(mac.<span class="wcc-fn">Sum</span>(<span class="wcc-bool">nil</span>))
+
+    <span class="wcc-kw">if</span> !hmac.<span class="wcc-fn">Equal</span>([]<span class="wcc-kw">byte</span>(expected), []<span class="wcc-kw">byte</span>(signature)) {
+        http.<span class="wcc-fn">Error</span>(w, <span class="wcc-str">"Unauthorized"</span>, http.StatusUnauthorized)
+        <span class="wcc-kw">return</span>
+    }
+
+    <span class="wcc-fn">handleEvent</span>(body) <span class="wcc-comment">// ✓ Safe to process</span>
+    w.<span class="wcc-fn">WriteHeader</span>(http.StatusOK)
+}</pre>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Warning Callout -->
+                    <div class="wh-verify-side">
+                        <div class="wh-warning-card">
+                            <div class="wh-warning-icon"><i class="fas fa-triangle-exclamation"></i></div>
+                            <h4>What Happens If You Skip This?</h4>
+                            <p>Anyone can craft a fake webhook payload and POST it to your endpoint. Without HMAC
+                                verification, you'd process forged signing events — potentially triggering critical
+                                business logic with attacker-controlled data.</p>
+                            <div class="wh-warning-rules">
+                                <div class="wh-warning-rule">
+                                    <i class="fas fa-check"></i>
+                                    <span>Use <code>timingSafeEqual</code> — not <code>===</code></span>
+                                </div>
+                                <div class="wh-warning-rule">
+                                    <i class="fas fa-check"></i>
+                                    <span>Verify on raw bytes, never parsed JSON</span>
+                                </div>
+                                <div class="wh-warning-rule">
+                                    <i class="fas fa-check"></i>
+                                    <span>Reject events older than 5 minutes</span>
+                                </div>
+                                <div class="wh-warning-rule">
+                                    <i class="fas fa-check"></i>
+                                    <span>Store secret in env vars, never source code</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wh-verify-stat-stack">
+                            <div class="wh-vstat">
+                                <span class="wh-vstat-num">HMAC-SHA256</span>
+                                <span class="wh-vstat-label">Signing algorithm</span>
+                            </div>
+                            <div class="wh-vstat">
+                                <span class="wh-vstat-num">X-BrillSign-Signature</span>
+                                <span class="wh-vstat-label">Header name</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 6: WHY BRILLSIGN WEBHOOKS ===== -->
+        <section class="wh-why">
+            <div class="container">
+                <div class="wh-section-header animate-up">
+                    <div class="wh-section-label">Why BrillSign</div>
+                    <h2 class="premium-heading">The Only Signing Webhook Stack
+                        <span class="text-highlight">With Cryptographic Proof Built In.</span>
+                    </h2>
+                </div>
+
+                <div class="wh-why-grid">
+                    <div class="wh-why-card animate-up" style="transition-delay:0.05s;">
+                        <div class="wh-why-icon wh-wi-amber"><i class="fas fa-bolt"></i></div>
+                        <div class="wh-why-stat">&lt;500ms</div>
+                        <div class="wh-why-stat-label">Average delivery latency</div>
+                        <h3>Lightning Fast Delivery</h3>
+                        <p>Events are queued and dispatched from our edge infrastructure within milliseconds of the
+                            triggering action. No central bottleneck.</p>
+                    </div>
+
+                    <div class="wh-why-card animate-up" style="transition-delay:0.12s;">
+                        <div class="wh-why-icon wh-wi-green"><i class="fas fa-badge-check"></i></div>
+                        <div class="wh-why-stat">99.97%</div>
+                        <div class="wh-why-stat-label">Delivery success rate</div>
+                        <h3>Production Reliability</h3>
+                        <p>At-least-once delivery guarantees. Every event has a unique idempotent ID so you can safely
+                            deduplicate retries in your handler.</p>
+                    </div>
+
+                    <div class="wh-why-card animate-up" style="transition-delay:0.20s;">
+                        <div class="wh-why-icon wh-wi-blue"><i class="fas fa-signature"></i></div>
+                        <div class="wh-why-stat">HMAC</div>
+                        <div class="wh-why-stat-label">Every single payload, always</div>
+                        <h3>Cryptographically Signed</h3>
+                        <p>Every payload is signed with your secret key using HMAC-SHA256. Know with certainty that
+                            every event is authentic and unmodified.</p>
+                    </div>
+
+                    <div class="wh-why-card animate-up" style="transition-delay:0.28s;">
+                        <div class="wh-why-icon wh-wi-purple"><i class="fas fa-shield-halved"></i></div>
+                        <div class="wh-why-stat">ZK</div>
+                        <div class="wh-why-stat-label">Proof in every payload</div>
+                        <h3>Zero-Knowledge Payloads</h3>
+                        <p>Every <code>document.signed</code> event includes a <code>proof_hash</code> — independently
+                            verifiable cryptographic evidence, no BrillSign account required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 7: CTA BANNER ===== -->
+        <section class="wh-cta">
+            <div class="wh-cta-glow"></div>
+            <div class="container">
+                <div class="wh-cta-layout animate-up">
+                    <div class="wh-cta-text">
+                        <h2 class="premium-heading" style="color:#fff;">Ready to Go
+                            <span class="text-highlight">Event-Driven?</span>
+                        </h2>
+                        <p>Register your webhook endpoint in 30 seconds. No infrastructure required — just a URL that
+                            can receive POST requests.</p>
+                    </div>
+                    <div class="wh-cta-actions">
+                        <a href="../index.html#waitlist" class="btn-primary wh-cta-primary">
+                            <span>Register Your Webhook</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="../learn/api-guide.html" class="wh-cta-secondary">
+                            <i class="fas fa-book-open"></i>
+                            <span>Read the Docs</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 8: FAQ ===== -->
+        <section class="faq-section wh-faq">
+            <div class="container">
+                <div class="wh-section-header animate-up">
+                    <div class="wh-section-label">FAQ</div>
+                    <h2 class="premium-heading">Frequently Asked
+                        <span class="text-highlight">Questions</span>
+                    </h2>
+                </div>
+
+                <div class="faq-container animate-up">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What happens if my endpoint is down?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>BrillSign automatically retries failed deliveries using exponential backoff:
+                                    immediately → 30s → 5min → 30min → 2hr. After 5 failed attempts, the event moves to
+                                    a Dead Letter Queue and you receive an email alert. You can replay events from the
+                                    DLQ in your dashboard.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I verify webhook authenticity?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Every webhook request includes a <code>X-BrillSign-Signature</code> header containing
+                                    an HMAC-SHA256 hash of the raw request body, signed with your webhook secret.
+                                    Compute the expected HMAC on your side using your secret and compare using a
+                                    timing-safe comparison function. See the code examples in Section 5 above.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I filter which events I receive per webhook?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. When registering a webhook, you can specify an array of event types you want to
+                                    receive. For example, <code>["document.signed", "tamper.detected"]</code>. You can
+                                    update your event subscriptions at any time via the API or dashboard without
+                                    downtime.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Are webhook deliveries idempotent? How do I deduplicate?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. Each event has a unique <code>event_id</code>. During retries, the same
+                                    <code>event_id</code> is reused. Store received event IDs in your database and check
+                                    for duplicates before processing. If you've already processed an event with that ID,
+                                    return <code>200 OK</code> without re-processing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is there a rate limit on webhook registrations?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Free tier: 3 active webhook endpoints. Pro tier: 25 endpoints. Enterprise: unlimited.
+                                    Each endpoint can subscribe to any combination of event types. There are no limits
+                                    on the number of events delivered per endpoint.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../shared-components.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../animations.js"></script>
+    <script src="webhooks.js"></script>
+</body>
+
+</html>
