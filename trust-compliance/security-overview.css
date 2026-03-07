@@ -1,0 +1,728 @@
+/* ========================================
+   BrillSign — Security Overview Page
+   ======================================== */
+
+/* ---------- Hero ---------- */
+.sec-hero {
+    position: relative;
+    padding: 140px 24px 80px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 100%);
+}
+
+.sec-hero-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.sec-hero-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.12);
+    animation: secFloat 10s ease-in-out infinite;
+}
+
+.sec-hero-particle:nth-child(1) {
+    width: 6px;
+    height: 6px;
+    top: 15%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.sec-hero-particle:nth-child(2) {
+    width: 4px;
+    height: 4px;
+    top: 65%;
+    left: 90%;
+    animation-delay: 2s;
+}
+
+.sec-hero-particle:nth-child(3) {
+    width: 8px;
+    height: 8px;
+    top: 25%;
+    left: 75%;
+    animation-delay: 4s;
+    opacity: 0.08;
+}
+
+.sec-hero-particle:nth-child(4) {
+    width: 5px;
+    height: 5px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+@keyframes secFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.12;
+    }
+
+    50% {
+        transform: translate(12px, -25px);
+        opacity: 0.25;
+    }
+}
+
+.sec-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: white;
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    color: #0066ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 102, 255, 0.08);
+}
+
+.sec-hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sec-hero-title .grad-text {
+    background: linear-gradient(135deg, #0066ff, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sec-hero-sub {
+    font-size: 1.15rem;
+    color: #475569;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+}
+
+/* Stats strip */
+.sec-stats-strip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 36px;
+}
+
+.sec-stat {
+    text-align: center;
+}
+
+.sec-stat-val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0066ff;
+}
+
+.sec-stat-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+}
+
+/* ---------- Animated Shield Visual ---------- */
+.sec-shield-wrap {
+    margin: 0 auto 20px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.sec-shield-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.sec-shield-outline {
+    fill: none;
+    stroke: #0066ff;
+    stroke-width: 2;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: shieldDraw 2s ease-out 0.5s forwards;
+}
+
+.sec-shield-fill {
+    fill: rgba(0, 102, 255, 0.06);
+    opacity: 0;
+    animation: shieldFadeIn 1s ease 2s forwards;
+}
+
+.sec-shield-lock {
+    fill: #0066ff;
+    opacity: 0;
+    animation: shieldFadeIn 0.6s ease 2.5s forwards;
+}
+
+.sec-shield-pulse {
+    fill: none;
+    stroke: rgba(0, 102, 255, 0.15);
+    stroke-width: 1.5;
+    opacity: 0;
+    animation: shieldPulse 2s ease-in-out 3s infinite;
+}
+
+@keyframes shieldDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes shieldFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shieldPulse {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.15);
+    }
+}
+
+/* ---------- Architecture Diagram ---------- */
+.sec-arch {
+    padding: 80px 24px;
+    background: #f8fafc;
+}
+
+.sec-section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+.sec-section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.sec-section-header p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.sec-arch-flow {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.sec-arch-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 160px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.sec-arch-node.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sec-arch-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: white;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.sec-arch-icon.node-client {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.sec-arch-icon.node-encrypt {
+    background: linear-gradient(135deg, #10b981, #047857);
+}
+
+.sec-arch-icon.node-store {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.sec-arch-icon.node-verify {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.sec-arch-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-align: center;
+}
+
+.sec-arch-desc {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: center;
+    max-width: 140px;
+}
+
+.sec-arch-arrow {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.6s ease 0.3s;
+}
+
+.sec-arch-arrow.visible {
+    opacity: 1;
+}
+
+.sec-arch-arrow svg {
+    overflow: visible;
+}
+
+.sec-arrow-line {
+    stroke: #cbd5e1;
+    stroke-width: 2;
+    stroke-dasharray: 6 4;
+}
+
+.sec-arrow-dot {
+    fill: #0066ff;
+    r: 4;
+}
+
+.sec-arrow-dot-anim {
+    animation: archDotMove 1.8s ease-in-out infinite;
+}
+
+@keyframes archDotMove {
+    0% {
+        cx: 0;
+    }
+
+    100% {
+        cx: 50;
+    }
+}
+
+/* ---------- Security Pillars ---------- */
+.sec-pillars {
+    padding: 80px 24px;
+    background: white;
+}
+
+.sec-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sec-pillar-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px 24px;
+    border: 1px solid rgba(0, 102, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.sec-pillar-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sec-pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.sec-pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 50px rgba(0, 102, 255, 0.1);
+    border-color: rgba(0, 102, 255, 0.2);
+}
+
+.sec-pillar-card:hover::before {
+    transform: scaleX(1);
+}
+
+.sec-pillar-card:nth-child(1)::before {
+    background: linear-gradient(90deg, #3b82f6, #6366f1);
+}
+
+.sec-pillar-card:nth-child(2)::before {
+    background: linear-gradient(90deg, #10b981, #22d3ee);
+}
+
+.sec-pillar-card:nth-child(3)::before {
+    background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+}
+
+.sec-pillar-card:nth-child(4)::before {
+    background: linear-gradient(90deg, #f59e0b, #f97316);
+}
+
+.sec-pillar-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.sec-pillar-card:hover .sec-pillar-icon {
+    transform: scale(1.1);
+}
+
+.sec-pillar-icon.pi-zk {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.sec-pillar-icon.pi-encrypt {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.sec-pillar-icon.pi-storage {
+    background: #faf5ff;
+    color: #7c3aed;
+}
+
+.sec-pillar-icon.pi-verify {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.sec-pillar-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.sec-pillar-card p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* ---------- Compliance Badges ---------- */
+.sec-comply {
+    padding: 80px 24px;
+    background: #f8fafc;
+}
+
+.sec-comply-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sec-comply-badge {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    border: 1px solid rgba(0, 102, 255, 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    cursor: default;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.sec-comply-badge.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sec-comply-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 102, 255, 0.08);
+    border-color: rgba(0, 102, 255, 0.15);
+}
+
+.sec-badge-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+.sec-badge-icon.b-gdpr {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.sec-badge-icon.b-soc {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.sec-badge-icon.b-eidas {
+    background: #faf5ff;
+    color: #7c3aed;
+}
+
+.sec-badge-icon.b-hipaa {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.sec-badge-icon.b-iso {
+    background: #fefce8;
+    color: #ca8a04;
+}
+
+@keyframes badgePulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(0, 102, 255, 0.06);
+    }
+}
+
+.sec-comply-badge h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.sec-comply-badge p {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.sec-badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #16a34a;
+    background: #f0fdf4;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.sec-badge-status .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #16a34a;
+    animation: activeDot 1.5s ease-in-out infinite;
+}
+
+@keyframes activeDot {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* ---------- CTA Section ---------- */
+.sec-cta {
+    padding: 80px 24px;
+    background: linear-gradient(180deg, white 0%, #eef4ff 100%);
+    text-align: center;
+}
+
+.sec-cta-card {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 48px;
+    background: white;
+    border-radius: 28px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+}
+
+.sec-cta-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.sec-cta-card p {
+    color: #475569;
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.sec-cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sec-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #0066ff, #6366f1);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.25);
+}
+
+.sec-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.35);
+}
+
+.sec-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: white;
+    color: #0066ff;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1.5px solid rgba(0, 102, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.sec-cta-secondary:hover {
+    background: rgba(0, 102, 255, 0.04);
+    border-color: #0066ff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .sec-pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sec-comply-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sec-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .sec-stats-strip {
+        gap: 24px;
+    }
+
+    .sec-stat-val {
+        font-size: 1.8rem;
+    }
+
+    .sec-arch-flow {
+        flex-direction: column;
+    }
+
+    .sec-arch-arrow {
+        transform: rotate(90deg);
+        height: 40px;
+        width: 40px;
+    }
+
+    .sec-pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sec-comply-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

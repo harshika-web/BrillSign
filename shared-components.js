@@ -349,7 +349,7 @@ const apiDropdownHTML = `
         <h4>Build with BrillSign</h4>
         <ul class="solutions-list">
             <li>
-                <a href="#">
+                <a href="api-integration/rest-api.html">
                     <i class="fas fa-code"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">REST API</div>
@@ -357,7 +357,7 @@ const apiDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="api-integration/webhooks.html">
                     <i class="fas fa-bell"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Webhooks</div>
@@ -365,7 +365,7 @@ const apiDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="api-integration/sdks.html">
                     <i class="fas fa-box-archive"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">SDKs</div>
@@ -373,8 +373,8 @@ const apiDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-key"></i>
+                <a href="api-integration/authentication.html">
+                    <i class="fas fa-lock"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Authentication</div>
                     </div>
@@ -387,7 +387,7 @@ const apiDropdownHTML = `
         <h4>Works With Your Stack</h4>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
             <ul class="solutions-list">
-                <li><a href="#">
+                <li><a href="api-integration/salesforce.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg" alt="Salesforce">
                     </div>
@@ -395,7 +395,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Salesforce</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/google.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google">
                     </div>
@@ -403,7 +403,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Google</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/microsoft.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" alt="Microsoft">
                     </div>
@@ -411,7 +411,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Microsoft</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/dropbox.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/dropbox/dropbox-icon.svg" alt="Dropbox">
                     </div>
@@ -421,7 +421,7 @@ const apiDropdownHTML = `
                 </a></li>
             </ul>
             <ul class="solutions-list">
-                <li><a href="#">
+                <li><a href="api-integration/aws.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS">
                     </div>
@@ -429,7 +429,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">AWS</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/sap.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/sap/sap-icon.svg" alt="SAP">
                     </div>
@@ -437,7 +437,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">SAP</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/oracle.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg" alt="Oracle">
                     </div>
@@ -445,7 +445,7 @@ const apiDropdownHTML = `
                         <div class="solutions-title">Oracle</div>
                     </div>
                 </a></li>
-                <li><a href="#">
+                <li><a href="api-integration/hubspot.html">
                     <div class="integration-icon-container">
                         <img src="https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg" alt="HubSpot">
                     </div>
@@ -455,7 +455,7 @@ const apiDropdownHTML = `
                 </a></li>
             </ul>
         </div>
-        <a href="api-docs.html#ecosystem" class="solutions-cta" style="margin-top: 20px;">View All →</a>
+        <a href="api-integration/integrations-hub.html" class="solutions-cta" style="margin-top: 20px;">View All →</a>
     </div>
 `;
 
@@ -464,33 +464,34 @@ const resourcesDropdownHTML = `
     <div class="solutions-col">
         <h4>Learn</h4>
         <ul class="solutions-list compact">
-            <li><a href="#"><i class="fas fa-book"></i> Docs</a></li>
-            <li><a href="#"><i class="fas fa-graduation-cap"></i> Tutorials</a></li>
-            <li><a href="#"><i class="fas fa-code"></i> API Guides</a></li>
+            <li><a href="learn/tutorials.html"><i class="fas fa-graduation-cap"></i> Tutorials</a></li>
+            <li><a href="learn/api-guide.html"><i class="fas fa-code"></i> API Guides</a></li>
         </ul>
     </div>
     <div class="solutions-col">
         <h4>Trust & Compliance</h4>
         <ul class="solutions-list compact">
+<<<<<<< HEAD
             <li><a href="security-overview.html"><i class="fas fa-user-shield"></i> Security Overview</a></li>
             <li><a href="#"><i class="fas fa-certificate"></i> Certifications</a></li>
             <li><a href="#"><i class="fas fa-gavel"></i> Legal Validity</a></li>
+=======
+            <li><a href="trust-compliance/security-overview.html"><i class="fas fa-user-shield"></i> Security Overview</a></li>
+            <li><a href="trust-compliance/certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
+>>>>>>> ea171febaba13737637315c6150905e245b2afd8
         </ul>
     </div>
     <div class="solutions-col">
         <h4>Insights</h4>
         <ul class="solutions-list compact">
-            <li><a href="#"><i class="fas fa-rss"></i> Blog</a></li>
-            <li><a href="#"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
-            <li><a href="#"><i class="fas fa-file-pdf"></i> Whitepapers</a></li>
+            <li><a href="blog/zero-knowledge-architecture-enterprise.html"><i class="fas fa-rss"></i> Blog</a></li>
+            <li><a href="case-studies/banking-finance.html"><i class="fas fa-file-invoice"></i> Case Studies</a></li>
         </ul>
     </div>
     <div class="solutions-col">
         <h4>Support</h4>
         <ul class="solutions-list compact">
-            <li><a href="#"><i class="fas fa-life-ring"></i> Help Center</a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
-            <li><a href="#"><i class="fas fa-server"></i> System Status</a></li>
+            <li><a href="faq/faq.html"><i class="fas fa-life-ring"></i> Help Center</a></li>
         </ul>
     </div>
     <div class="solutions-col featured-col">
@@ -580,7 +581,7 @@ const footerHTML = `
                         <li><a href="#">Help Center</a></li>
                         <li><a href="#">Success Stories</a></li>
                         <li><a href="#">Trust Center</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="blog/zero-knowledge-architecture-enterprise.html">Blog</a></li>
                         <li><a href="#">Legal Knowledge Base</a></li>
                     </ul>
                 </div>
@@ -743,6 +744,38 @@ function initAll() {
     loadNavbar();
     loadFooter();
     initSharedBehavior();
+
+    // Fix relative links when page is in a subfolder (e.g., blog/)
+    const scriptTag = document.querySelector('script[src$="shared-components.js"]');
+    if (scriptTag) {
+        const src = scriptTag.getAttribute('src');
+        // If src starts with "../", the page is in a subfolder
+        if (src.startsWith('../')) {
+            const prefix = src.replace('shared-components.js', '');
+            const containers = [
+                document.getElementById('navbar-placeholder'),
+                document.getElementById('footer-placeholder')
+            ];
+            containers.forEach(container => {
+                if (!container) return;
+                // Fix anchor hrefs
+                container.querySelectorAll('a[href]').forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (!href || href.startsWith('http') || href.startsWith('#') ||
+                        href.startsWith('mailto:') || href.startsWith('../') ||
+                        href.startsWith('/')) return;
+                    link.setAttribute('href', prefix + href);
+                });
+                // Fix image srcs
+                container.querySelectorAll('img[src]').forEach(img => {
+                    const imgSrc = img.getAttribute('src');
+                    if (!imgSrc || imgSrc.startsWith('http') || imgSrc.startsWith('../') ||
+                        imgSrc.startsWith('/') || imgSrc.startsWith('data:')) return;
+                    img.setAttribute('src', prefix + imgSrc);
+                });
+            });
+        }
+    }
 }
 
 // Auto-load components
