@@ -36,72 +36,97 @@
                     <p>Six steps to absolute certainty. No platform trust required.</p>
                 </div>
 
-                <div class="timeline">
+                <div class="lifecycle-grid">
+
                     <!-- Step 1 -->
-                    <div class="timeline-item animate-left">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-icon"><i class="fas fa-file-upload"></i></div>
-                            <h3>1. Secure Ingestion</h3>
-                            <p>Your document is uploaded to our secure environment where it is prepared for the
-                                cryptographic sealing process.</p>
+                    <div class="lifecycle-card animate-up">
+                        <div class="lc-top">
+                            <div class="lc-badge">01</div>
+                            <div class="lc-icon"><i class="fas fa-file-upload"></i></div>
+                            <h3 class="lc-title">Secure Ingestion</h3>
+                            <p class="lc-desc">Your document is uploaded to our secure environment where it is prepared
+                                for the cryptographic sealing process.</p>
+                        </div>
+                        <div class="lc-image-frame">
+                            <img src="step1_secure_ingestion.png" alt="Secure document ingestion to cloud"
+                                loading="lazy">
                         </div>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="timeline-item animate-right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-icon"><i class="fas fa-fingerprint"></i></div>
-                            <h3>2. Digital Fingerprinting</h3>
-                            <p>A SHA-256 hash is generated. This "digital DNA" is unique to your document; if even one
-                                pixel changes, the hash will never match again.</p>
+                    <div class="lifecycle-card animate-up">
+                        <div class="lc-top">
+                            <div class="lc-badge">02</div>
+                            <div class="lc-icon"><i class="fas fa-fingerprint"></i></div>
+                            <h3 class="lc-title">Digital Fingerprinting</h3>
+                            <p class="lc-desc">A SHA-256 hash is generated — the digital DNA unique to your document.
+                                Even a single pixel change breaks the match.</p>
+                        </div>
+                        <div class="lc-image-frame">
+                            <img src="step2_digital_fingerprinting.png" alt="SHA-256 hash digital fingerprinting"
+                                loading="lazy">
                         </div>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="timeline-item animate-left">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-icon"><i class="fas fa-user-shield"></i></div>
-                            <h3>3. Identity Verification</h3>
-                            <p>The signer's identity is verified through multi-factor authentication or decentralized
-                                identifiers before they are granted access to sign.</p>
+                    <div class="lifecycle-card animate-up">
+                        <div class="lc-top">
+                            <div class="lc-badge">03</div>
+                            <div class="lc-icon"><i class="fas fa-user-shield"></i></div>
+                            <h3 class="lc-title">Identity Verification</h3>
+                            <p class="lc-desc">The signer's identity is verified through multi-factor authentication or
+                                decentralized identifiers before signing access is granted.</p>
+                        </div>
+                        <div class="lc-image-frame">
+                            <img src="step3_identity_verification.png" alt="Multi-factor authentication" loading="lazy">
                         </div>
                     </div>
 
                     <!-- Step 4 -->
-                    <div class="timeline-item animate-right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-icon"><i class="fas fa-file-signature"></i></div>
-                            <h3>4. Cryptographic Binding</h3>
-                            <p>The signer applies their approval. This intent is mathematically fused with the
-                                document's fingerprint using RSA-4096 encryption.</p>
+                    <div class="lifecycle-card animate-up">
+                        <div class="lc-top">
+                            <div class="lc-badge">04</div>
+                            <div class="lc-icon"><i class="fas fa-file-signature"></i></div>
+                            <h3 class="lc-title">Cryptographic Binding</h3>
+                            <p class="lc-desc">The signer's approval is mathematically fused with the document's
+                                fingerprint using RSA-4096 encryption — unbreakable by design.</p>
+                        </div>
+                        <div class="lc-image-frame">
+                            <img src="step4_cryptographic_binding.png" alt="RSA-4096 cryptographic binding"
+                                loading="lazy">
                         </div>
                     </div>
 
                     <!-- Step 5 -->
-                    <div class="timeline-item animate-left">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-icon"><i class="fas fa-link"></i></div>
-                            <h3>5. Distributed Anchoring</h3>
-                            <p>The signed evidence is anchored across a decentralized node network, ensuring no single
-                                entity (including BrillSign) can alter the history.</p>
+                    <div class="lifecycle-card animate-up">
+                        <div class="lc-top">
+                            <div class="lc-badge">05</div>
+                            <div class="lc-icon"><i class="fas fa-link"></i></div>
+                            <h3 class="lc-title">Distributed Anchoring</h3>
+                            <p class="lc-desc">The signed evidence is anchored across a decentralized node network — no
+                                single entity, including BrillSign, can alter the history.</p>
+                        </div>
+                        <div class="lc-image-frame">
+                            <img src="step5_distributed_anchoring.png" alt="Decentralized node anchoring"
+                                loading="lazy">
                         </div>
                     </div>
 
                     <!-- Step 6 -->
-                    <div class="timeline-item animate-right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
-                            <h3>6. Eternal Verifiability</h3>
-                            <p>The document is now a self-contained proof. It can be verified by anyone, anywhere, at
-                                any time—even if our platform disappears.</p>
+                    <div class="lifecycle-card animate-up">
+                        <div class="lc-top">
+                            <div class="lc-badge">06</div>
+                            <div class="lc-icon"><i class="fas fa-certificate"></i></div>
+                            <h3 class="lc-title">Eternal Verifiability</h3>
+                            <p class="lc-desc">The document becomes a self-contained proof. It can be verified by
+                                anyone, anywhere, at any time — even if our platform disappears.</p>
+                        </div>
+                        <div class="lc-image-frame lc-placeholder">
+                            <i class="fas fa-certificate"></i>
+                            <span>Verified Proof</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

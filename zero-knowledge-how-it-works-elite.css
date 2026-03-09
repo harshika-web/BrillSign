@@ -1,0 +1,404 @@
+/* 
+   ELITE REDESIGN: ZERO-KNOWLEDGE HOW IT WORKS
+   THEME: LIGHT
+   BRAND COLORS:
+   - BLUE: #0066ff (60%)
+   - RED: #ff0000 (30%)
+   - YELLOW: #ffff00 (10%)
+*/
+
+:root {
+    --elite-blue: #0066ff;
+    --elite-red: #ff0000;
+    --elite-yellow: #ffff00;
+    --elite-bg: #f8fafc;
+    --elite-text: #001f2e;
+    --elite-card: #ffffff;
+    --elite-border: rgba(0, 55, 85, 0.08);
+}
+
+.zk-deep-dive {
+    background: var(--elite-bg);
+    color: var(--elite-text);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* SECTION 1: HERO */
+.zk-elite-hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: #fff;
+}
+
+.hero-mask-graphic {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.mask-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+}
+
+.m1 {
+    width: 500px;
+    height: 500px;
+    background: var(--elite-blue);
+    top: -10%;
+    left: -5%;
+}
+
+.m2 {
+    width: 400px;
+    height: 400px;
+    background: var(--elite-red);
+    bottom: 0;
+    right: -5%;
+}
+
+.hero-main-title {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.text-gradient-blue {
+    background: linear-gradient(135deg, var(--elite-text) 30%, var(--elite-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.blindfold-trace-visual {
+    margin-top: 50px;
+    position: relative;
+    width: 300px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trace-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--elite-blue), transparent);
+    animation: traceMove 3s infinite;
+}
+
+@keyframes traceMove {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+}
+
+/* SECTION 2: PARADOX */
+.paradox-section {
+    padding: 150px 0;
+    background: #f8fafc;
+}
+
+.paradox-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.paradox-card {
+    background: #fff;
+    border: 1px solid var(--elite-border);
+    padding: 60px 40px;
+    border-radius: 30px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.card-status {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+.status-old {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.status-new {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.paradox-card i {
+    font-size: 3rem;
+    margin-top: 30px;
+    display: block;
+}
+
+.paradox-connector {
+    font-size: 2.5rem;
+    color: var(--elite-yellow);
+}
+
+/* SECTION 3: VEIL */
+.veil-section {
+    padding: 150px 0;
+    background: #fff;
+}
+
+.veil-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.zk-engine-core {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.core-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed var(--elite-blue);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: rotateRing 20s linear infinite;
+}
+
+@keyframes rotateRing {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.core-hex {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--elite-blue);
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+}
+
+.veil-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.veil-list li {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.v-icon {
+    font-size: 2rem;
+    color: var(--elite-blue);
+}
+
+/* SECTION 4: CASES */
+.privacy-cases {
+    padding: 150px 0;
+    background: #f8fafc;
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.case-card {
+    background: #fff;
+    padding: 50px;
+    border-radius: 40px;
+    border: 1px solid var(--elite-border);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.case-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--elite-blue);
+}
+
+.case-card i {
+    font-size: 3rem;
+    color: var(--elite-red);
+    margin-bottom: 30px;
+}
+
+/* SECTION 5: SPECS */
+.zk-specs {
+    padding: 150px 0;
+    background: #fff;
+}
+
+.specs-wrapper {
+    background: #f8fafc;
+    border: 1px solid var(--elite-border);
+    padding: 80px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.specs-header span {
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.spec-item h5 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--elite-blue);
+}
+
+/* SECTION 6: CTA */
+.zk-final-cta {
+    padding: 150px 0;
+}
+
+.cta-elite-flex {
+    background: var(--elite-blue);
+    color: #fff;
+    padding: 80px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-blue-outline {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.zk-faq {
+    margin-top: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item {
+    border-left: 4px solid var(--elite-yellow);
+    padding-left: 20px;
+}
+
+.faq-item h6 {
+    font-size: 1.1rem;
+    color: var(--elite-text);
+}
+
+/* REVEAL */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 1s;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: 1s;
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 1s;
+}
+
+.reveal-up.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 1024px) {
+
+    .paradox-grid,
+    .veil-layout,
+    .case-grid,
+    .specs-grid,
+    .cta-elite-flex {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .paradox-card {
+        width: 100%;
+    }
+}

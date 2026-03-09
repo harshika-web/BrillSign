@@ -1,22 +1,24 @@
-/* Enterprise IT Solution Page Styles */
+/* Enterprise IT Solution Page Styles — BrillSign Brand */
 :root {
     --it-navy: #ffffff;
-    /* Pure white for cleanest light mode */
-    --it-cyan: #0077b6;
-    /* Slightly deeper blue for light mode contrast */
-    --it-magenta: #be185d;
-    --it-purple: #4338ca;
-    --it-glass: rgba(0, 0, 0, 0.03);
-    --it-border: rgba(0, 119, 182, 0.1);
-    --it-neon-glow: 0 0 15px rgba(0, 119, 182, 0.1);
-    --it-bg-gradient: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-    --it-text-primary: #1e293b;
-    --it-text-secondary: #64748b;
+    --it-cyan: #0066ff;
+    /* Brand Blue #0066ff */
+    --it-magenta: #ff0000;
+    /* Brand Red #ff0000 */
+    --it-purple: #0047cc;
+    /* Dark brand blue */
+    --it-glass: rgba(0, 102, 255, 0.03);
+    --it-border: rgba(0, 102, 255, 0.12);
+    --it-neon-glow: 0 0 15px rgba(0, 102, 255, 0.12);
+    --it-bg-gradient: linear-gradient(180deg, #f0f5ff 0%, #ffffff 100%);
+    --it-text-primary: #001a40;
+    --it-text-secondary: #4d6080;
     --it-card-bg: #ffffff;
-    --it-card-border: rgba(0, 0, 0, 0.08);
-    --it-terminal-bg: #f8fafc;
-    --it-grid-opacity: 0.1;
+    --it-card-border: rgba(0, 102, 255, 0.1);
+    --it-terminal-bg: #f0f5ff;
+    --it-grid-opacity: 0.08;
 }
+
 
 
 

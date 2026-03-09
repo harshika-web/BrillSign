@@ -1,19 +1,21 @@
 /* ============================================================
    HR & OPERATIONS PAGE — hr-operations.css
-   BrillSign Design System
+   BrillSign Design System — Brand Colors
 ============================================================ */
 
 :root {
-    --hr-navy: #0d1b2e;
-    --hr-blue: #0056b3;
-    --hr-sky: #38bdf8;
-    --hr-green: #10b981;
-    --hr-bg: #f8fafc;
-    --hr-bg-alt: #f1f5f9;
-    --hr-border: #e2e8f0;
-    --hr-text: #334155;
+    --hr-navy: #001a40;
+    --hr-blue: #0066ff;
+    --hr-sky: #4d94ff;
+    --hr-green: #ff0000;
+    --hr-yellow: #FFB800;
+    --hr-bg: #f0f5ff;
+    --hr-bg-alt: #f8fafd;
+    --hr-border: #dce8ff;
+    --hr-text: #1e2a4a;
     --hr-muted: #64748b;
 }
+
 
 .hr-body {
     font-family: 'Inter', sans-serif;

@@ -1,0 +1,278 @@
+/* Jurisdiction How It Works - Custom Styles */
+
+.deep-dive-page {
+    background: var(--bg-body);
+}
+
+.deep-dive-hero {
+    padding: 120px 0 80px;
+    background: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 50%);
+    text-align: center;
+}
+
+.deep-dive-hero h1 {
+    font-size: 4rem;
+    margin-top: 20px;
+}
+
+.text-highlight {
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
+}
+
+.hexagon-logic-section {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.logic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.hexagon-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.logic-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--footer-bg);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 55, 85, 0.1);
+}
+
+.hex-pattern {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(var(--primary-blue) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.1;
+    animation: rotatePattern 60s linear infinite;
+}
+
+@keyframes rotatePattern {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hex-center-icon {
+    font-size: 5rem;
+    color: var(--primary-blue);
+    filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.4));
+    z-index: 1;
+}
+
+.hex-overlay {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: floatHex 6s ease-in-out infinite;
+}
+
+.hex-1 {
+    top: 10%;
+    left: -5%;
+    animation-delay: 0s;
+}
+
+.hex-2 {
+    bottom: 20%;
+    right: -5%;
+    animation-delay: 2s;
+}
+
+.hex-3 {
+    top: 40%;
+    right: 10%;
+    animation-delay: 4s;
+}
+
+@keyframes floatHex {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.logic-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+}
+
+.logic-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.logic-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 102, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.logic-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.logic-item p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Pipeline Diagram */
+.flow-diagram-section {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.pipeline-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 60px auto 0;
+    position: relative;
+}
+
+.pipeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+}
+
+.connector {
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    width: calc(100% + 50px);
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-blue), #cbd5e1);
+    z-index: 1;
+}
+
+.pipeline-step h4 {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Bottom CTA */
+.bottom-cta {
+    padding: 100px 0;
+}
+
+.cta-card {
+    background: var(--footer-bg);
+    border-radius: 30px;
+    padding: 60px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 40px 80px rgba(0, 31, 46, 0.2);
+}
+
+.cta-card h3 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+.cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+[data-theme="dark"] .flow-diagram-section {
+    background: #0f172a;
+}
+
+[data-theme="dark"] .connector {
+    background: linear-gradient(to right, var(--primary-blue), #1e293b);
+}
+
+@media (max-width: 991px) {
+    .logic-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .pipeline-container {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .connector {
+        top: 50px;
+        left: 24px;
+        width: 2px;
+        height: 60px;
+        background: linear-gradient(to bottom, var(--primary-blue), #cbd5e1);
+    }
+
+    .deep-dive-hero h1 {
+        font-size: 3rem;
+    }
+}

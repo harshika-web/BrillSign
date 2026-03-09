@@ -1,20 +1,21 @@
 /* 
-   Finance & Procurement Realistic Light Mode Styling
-   Inspiration: DocuSign (Clean, Professional, Trusted)
-   Colors: Pure White, Deep Navy, Enterprise Blue
+   Finance & Procurement — BrillSign Brand Colors
+   Blue #0066ff (60%), Red #ff0000 (30%), Yellow #FFB800 (10%)
 */
 
 :root {
     --finance-bg: #ffffff;
-    --finance-bg-alt: #f8fafc;
-    --finance-navy: #0f172a;
-    --finance-text: #334155;
-    --finance-blue: #0056b3;
-    /* Professional Enterprise Blue */
-    --finance-blue-light: #eef2ff;
-    --finance-border: #e2e8f0;
-    --finance-shadow: rgba(0, 0, 0, 0.05);
+    --finance-bg-alt: #f0f5ff;
+    --finance-navy: #001a40;
+    --finance-text: #1e2a4a;
+    --finance-blue: #0066ff;
+    --finance-red: #ff0000;
+    --finance-yellow: #FFB800;
+    --finance-blue-light: #dceeff;
+    --finance-border: #dce8ff;
+    --finance-shadow: rgba(0, 102, 255, 0.06);
 }
+
 
 .finance-body {
     background-color: var(--finance-bg);

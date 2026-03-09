@@ -1,10 +1,13 @@
 /* Legal Teams Solution Page Styles */
 :root {
-    --legal-slate: #0f172a;
-    --legal-gold: #fbbf24;
-    --legal-border: rgba(251, 191, 36, 0.2);
-    --legal-accent: #00d2ff;
+    --legal-slate: #001a40;
+    --legal-blue: #0066ff;
+    --legal-red: #ff0000;
+    --legal-border: rgba(0, 102, 255, 0.15);
+    --legal-accent: #0066ff;
+    --legal-yellow: #FFB800;
 }
+
 
 .legal-body {
     background-color: #f8fafc;
@@ -60,8 +63,10 @@
 }
 
 .legal-hero h1 span {
-    color: var(--legal-gold);
+    color: #ffffff;
+    /* Reverted to white for professionalism, or use var(--legal-blue) if needed */
     display: block;
+    opacity: 0.95;
 }
 
 .legal-hero p {
@@ -141,17 +146,17 @@
 
 /* Section 2: Evidence Matrix - Expert Console Aesthetic */
 .evidence-matrix {
-    padding: 100px 0;
-    background: var(--legal-slate);
-    color: #ffffff;
+    padding: 100px 0 0;
+    background: #ffffff;
+    color: var(--legal-slate);
 }
 
 .matrix-header h2 {
-    color: #ffffff !important;
+    color: var(--legal-slate) !important;
 }
 
 .matrix-header p {
-    color: #94a3b8 !important;
+    color: #64748b !important;
 }
 
 .matrix-grid {
@@ -161,36 +166,38 @@
 }
 
 .matrix-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 16px;
-    padding: 40px;
+    padding: 40px 40px 20px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .matrix-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--legal-gold);
+    background: #ffffff;
+    border-color: var(--legal-blue);
     transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
 }
 
 .matrix-card i {
     font-size: 2rem;
-    color: var(--legal-gold);
+    color: var(--legal-blue);
     margin-bottom: 24px;
 }
 
 .matrix-card h3 {
     margin-bottom: 16px;
-    color: #ffffff;
+    color: var(--legal-slate);
     font-size: 1.2rem;
     font-weight: 700;
 }
 
 /* Section 3: Compliance Map */
 .compliance-map {
-    padding: 100px 0;
-    background: url('scenario_compliance.png') center/cover fixed;
+    padding: 0 0 100px;
+    background: url('scenario_compliance_new.png') center/cover fixed;
     position: relative;
 }
 
@@ -234,8 +241,8 @@
 }
 
 .btn-legal {
-    background: var(--legal-gold);
-    color: var(--legal-slate);
+    background: var(--legal-blue);
+    color: #ffffff;
     padding: 16px 40px;
     border-radius: 50px;
     font-weight: 700;
@@ -246,7 +253,7 @@
 
 .btn-legal:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3);
 }
 
 /* Ghost button */
@@ -273,14 +280,19 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(251, 191, 36, 0.1);
+    background: rgba(0, 102, 255, 0.1);
     border: 1px solid var(--legal-border);
-    color: var(--legal-gold);
+    color: #ffffff;
     padding: 8px 20px;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 32px;
+}
+
+.role-badge i {
+    color: var(--legal-red);
+    /* Keep small icon red for a surgical accent */
 }
 
 .hero-cta-group {
@@ -308,7 +320,7 @@
 .stat-num {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--legal-gold);
+    color: var(--legal-blue);
     font-family: 'Rajdhani', sans-serif;
 }
 
