@@ -1,0 +1,529 @@
+/* ==========================================================================
+   Healthcare Specific Styles (healthcare.css)
+   ========================================================================== */
+
+/* Variables specifically for the Healthcare page to ensure consistency */
+:root {
+    --hc-blue: #0066ff;
+    --hc-blue-light: #eff6ff;
+    --hc-red: #ff0000;
+    --hc-yellow: #ffff00;
+    --hc-bg-clean: #ffffff;
+    --hc-bg-soft: #f8fafc;
+    --hc-text-main: #0f172a;
+    --hc-text-muted: #475569;
+    --hc-border: #e2e8f0;
+}
+
+/* Base resets & utilities for this page */
+.hc-page {
+    background-color: var(--hc-bg-clean);
+    color: var(--hc-text-main);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.hc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.hc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: var(--hc-blue-light);
+    color: var(--hc-blue);
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   Hero Section - Soft & Approachable
+   ========================================================================== */
+.hc-hero {
+    position: relative;
+    padding: 180px 0 140px;
+    background: var(--hc-bg-clean);
+    overflow: hidden;
+}
+
+/* Soft background shapes for clinical but approachable feel */
+.hc-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: var(--hc-blue-light);
+    border-bottom-left-radius: 100px;
+    z-index: 0;
+}
+
+.hc-hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hc-hero-text h1 {
+    font-size: 3.8rem;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--hc-text-main);
+}
+
+.hc-hero-text h1 span {
+    color: var(--hc-blue);
+}
+
+.hc-hero-text p {
+    font-size: 1.25rem;
+    color: var(--hc-text-muted);
+    margin-bottom: 40px;
+    max-width: 480px;
+    line-height: 1.6;
+}
+
+.hc-hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.hc-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    background: var(--hc-blue);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 50px;
+    /* Fully rounded for healthcare */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--hc-blue);
+}
+
+.hc-btn-primary:hover {
+    background: #0056d6;
+    border-color: #0056d6;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+}
+
+.hc-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    background: transparent;
+    color: var(--hc-text-main);
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--hc-border);
+}
+
+.hc-btn-secondary:hover {
+    border-color: var(--hc-text-main);
+    background: var(--hc-bg-soft);
+}
+
+.hc-hero-visual {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+.hc-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.hc-health-status {
+    position: absolute;
+    bottom: 30px;
+    left: -30px;
+    background: #ffffff;
+    padding: 16px 24px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: hcFloat 5s ease-in-out infinite;
+}
+
+.hc-pulse-ring {
+    width: 16px;
+    height: 16px;
+    background: #22c55e;
+    border-radius: 50%;
+    position: relative;
+}
+
+.hc-pulse-ring::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 197, 94, 0.4);
+    border-radius: 50%;
+    animation: hcPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==========================================================================
+   Circle of Care Features (Unique Grid)
+   ========================================================================== */
+.hc-care-grid {
+    padding: 120px 0;
+    background: var(--hc-bg-soft);
+}
+
+.hc-section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 80px;
+}
+
+.hc-section-header h2 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hc-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.hc-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s ease;
+    border: 1px solid var(--hc-border);
+}
+
+.hc-card:nth-child(2) {
+    transform: translateY(-30px);
+    /* Staggered layout */
+}
+
+.hc-card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(0, 102, 255, 0.08);
+    border-color: var(--hc-blue);
+}
+
+.hc-card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 32px;
+    background: var(--hc-blue-light);
+    color: var(--hc-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    position: relative;
+}
+
+.hc-card-icon::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed var(--hc-blue);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: hcSpin 20s linear infinite;
+}
+
+.hc-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.hc-card p {
+    color: var(--hc-text-muted);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Vertical Timeline Section
+   ========================================================================== */
+.hc-timeline-section {
+    padding: 120px 0;
+    background: #ffffff;
+}
+
+.hc-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hc-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 2px;
+    height: 100%;
+    background: var(--hc-border);
+}
+
+.hc-timeline-item {
+    position: relative;
+    padding-left: 100px;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s ease;
+}
+
+.hc-timeline-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hc-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.hc-timeline-dot {
+    position: absolute;
+    left: 28px;
+    top: 0;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    border: 4px solid var(--hc-blue);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hc-timeline-item.hc-red-theme .hc-timeline-dot {
+    border-color: var(--hc-red);
+}
+
+.hc-timeline-item.hc-yellow-theme .hc-timeline-dot {
+    border-color: #eab308;
+}
+
+.hc-timeline-content {
+    background: var(--hc-bg-soft);
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--hc-border);
+}
+
+.hc-timeline-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hc-timeline-content i {
+    color: var(--hc-blue);
+}
+
+/* ==========================================================================
+   Split Image & Text Sections
+   ========================================================================== */
+.hc-split-section {
+    padding: 120px 0;
+    background: var(--hc-bg-soft);
+}
+
+.hc-split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.hc-split-row:last-child {
+    margin-bottom: 0;
+}
+
+.hc-split-row.reverse {
+    direction: rtl;
+}
+
+.hc-split-row.reverse>* {
+    direction: ltr;
+}
+
+.hc-split-visual img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.hc-split-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.hc-split-text p {
+    font-size: 1.15rem;
+    color: var(--hc-text-muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.hc-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hc-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.hc-checklist li i {
+    color: var(--hc-blue);
+    background: var(--hc-blue-light);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Animations & Transition Classes
+   ========================================================================== */
+@keyframes hcFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes hcPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes hcSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hc-reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hc-reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 992px) {
+
+    .hc-hero-content,
+    .hc-split-row {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hc-hero::before {
+        width: 100%;
+        height: 70%;
+        border-bottom-left-radius: 0;
+    }
+
+    .hc-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-card:nth-child(2) {
+        transform: translateY(0);
+    }
+
+    .hc-split-row.reverse {
+        direction: ltr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hc-timeline::before {
+        left: 20px;
+    }
+
+    .hc-timeline-item {
+        padding-left: 60px;
+    }
+
+    .hc-timeline-dot {
+        left: 8px;
+    }
+
+    .hc-hero-actions {
+        flex-direction: column;
+    }
+}

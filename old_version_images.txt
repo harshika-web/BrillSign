@@ -1,0 +1,56 @@
+﻿
+            <img 
+src="hr_hero.png" 
+alt="HR manager 
+onboarding a new 
+employee" 
+class="hr-hero-img">
+                       
+ <img src="hr_offer_let
+ter.png" alt="Digital 
+offer letter on 
+tablet" 
+class="card-img-main">
+                       
+ <img 
+src="hr_hero.png" 
+alt="HR manager 
+onboarding a new 
+employee" 
+class="card-img-main">
+                       
+ <img src="hr_operation
+s.png" alt="HR 
+professional reviewing 
+performance docs"
+                       
+ <img 
+src="hr_hero.png" 
+alt="Employee role 
+change discussion" 
+class="card-img-main">
+                       
+ <img src="hr_operation
+s.png" 
+alt="Offboarding 
+documents review" 
+class="card-img-main">
+                    
+<img src="hr_hero.png" 
+alt="New employee 
+onboarding with 
+BrillSign" 
+class="editorial-img">
+                    
+<img src="hr_operations
+.png" alt="HR 
+operations director 
+reviewing digital 
+records"
+                <img sr
+c="hr_operations.png" 
+alt="HR professional 
+using BrillSign" 
+class="hr-cta-img">
+
+

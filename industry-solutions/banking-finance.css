@@ -1,0 +1,670 @@
+/* ==========================================================================
+   Banking & Finance Specific Styles (banking-finance.css)
+   ========================================================================== */
+
+/* Variables specifically for the Banking page to ensure consistency */
+:root {
+    --bf-blue: #0066ff;
+    --bf-blue-dark: #004ecc;
+    --bf-red: #ff0000;
+    --bf-yellow: #ffff00;
+    --bf-bg-light: #f8fafc;
+    --bf-text-dark: #0f172a;
+    --bf-text-muted: #64748b;
+    --bf-border: #e2e8f0;
+}
+
+/* Base resets & utilities for this page */
+.bf-page {
+    background-color: var(--bf-bg-light);
+    color: var(--bf-text-dark);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.bf-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.bf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(0, 102, 255, 0.1);
+    color: var(--bf-blue);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.bf-badge.bf-red {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--bf-red);
+}
+
+.bf-badge.bf-yellow {
+    background: rgba(255, 255, 0, 0.2);
+    color: #b3b300;
+    /* Darker yellow for text legibility */
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.bf-hero {
+    position: relative;
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    overflow: hidden;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.bf-hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.bf-hero-text h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--bf-text-dark);
+}
+
+.bf-hero-text h1 span {
+    color: var(--bf-blue);
+    position: relative;
+    display: inline-block;
+}
+
+.bf-hero-text h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 0, 0.4);
+    z-index: -1;
+    transform: skewX(-15deg);
+}
+
+.bf-hero-text p {
+    font-size: 1.25rem;
+    color: var(--bf-text-muted);
+    margin-bottom: 40px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.bf-hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.bf-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background: var(--bf-blue);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--bf-blue);
+}
+
+.bf-btn-primary:hover {
+    background: var(--bf-blue-dark);
+    border-color: var(--bf-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+}
+
+.bf-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--bf-text-dark);
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--bf-border);
+}
+
+.bf-btn-secondary:hover {
+    border-color: var(--bf-text-dark);
+    background: rgba(15, 23, 42, 0.05);
+}
+
+.bf-hero-visual {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s ease;
+}
+
+.bf-hero-visual:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.bf-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.bf-hero-overlay-card {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 4px solid var(--bf-red);
+    animation: bfFloat 4s ease-in-out infinite;
+}
+
+.bf-hero-overlay-card i {
+    font-size: 2rem;
+    color: var(--bf-blue);
+}
+
+/* ==========================================================================
+   Pillars Grid Section
+   ========================================================================== */
+.bf-pillars {
+    padding: 120px 0;
+    background: #ffffff;
+}
+
+.bf-section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.bf-section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.bf-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.bf-pillar-card {
+    background: var(--bf-bg-light);
+    border: 1px solid var(--bf-border);
+    border-radius: 16px;
+    padding: 40px 32px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.bf-pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--bf-blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.bf-pillar-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+.bf-pillar-card:hover::before {
+    transform: scaleX(1);
+}
+
+.bf-pillar-icon {
+    width: 64px;
+    height: 64px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--bf-blue);
+    margin-bottom: 24px;
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.1);
+}
+
+.bf-pillar-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.bf-pillar-card p {
+    color: var(--bf-text-muted);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Interactive Scenario Sections
+   ========================================================================== */
+.bf-scenarios {
+    padding: 120px 0;
+    background: #ffffff;
+    /* Light background bridging elite focus */
+    color: var(--bf-text-dark);
+    position: relative;
+}
+
+.bf-scenarios::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.bf-scenario-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.bf-scenario-row:last-child {
+    margin-bottom: 0;
+}
+
+.bf-scenario-row.reverse {
+    direction: rtl;
+}
+
+.bf-scenario-row.reverse>* {
+    direction: ltr;
+}
+
+.bf-scenario-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.bf-scenario-content p {
+    font-size: 1.125rem;
+    color: var(--bf-text-muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.bf-scenario-list list-style {
+    margin: 0;
+    padding: 0;
+}
+
+.bf-scenario-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.bf-scenario-list li i {
+    color: var(--bf-blue);
+    margin-top: 4px;
+}
+
+.bf-scenario-visual {
+    position: relative;
+}
+
+.bf-scenario-visual img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--bf-border);
+}
+
+/* Highlight badge for scenarios */
+.bf-hl-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -30px;
+    background: var(--bf-blue);
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 15px 30px rgba(0, 102, 255, 0.3);
+    border-left: 4px solid var(--bf-yellow);
+}
+
+.bf-scenario-row.reverse .bf-hl-badge {
+    right: auto;
+    left: -30px;
+}
+
+/* ==========================================================================
+   Compliance Marquee
+   ========================================================================== */
+.bf-marquee-section {
+    padding: 60px 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--bf-border);
+    overflow: hidden;
+}
+
+.bf-marquee-container {
+    display: flex;
+    white-space: nowrap;
+    animation: bfMarquee 40s linear infinite;
+}
+
+.bf-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--bf-text-muted);
+}
+
+.bf-marquee-item i {
+    color: var(--bf-blue);
+    font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes bfFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes bfMarquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.bf-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.bf-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bf-zoom-reveal {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.bf-zoom-reveal.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ==========================================================================
+   Architecture Section
+   ========================================================================== */
+.bf-architecture {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: var(--bf-text-dark);
+    overflow: hidden;
+}
+
+.bf-arch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.bf-arch-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.bf-arch-content p {
+    font-size: 1.125rem;
+    color: var(--bf-text-muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.bf-arch-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.bf-arch-stat {
+    border-left: 3px solid var(--bf-blue);
+    padding-left: 16px;
+}
+
+.bf-stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--bf-text-dark);
+    margin-bottom: 4px;
+}
+
+.bf-stat-label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.bf-arch-visual {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+}
+
+.bf-ledger-stack {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateZ(-45deg);
+    animation: bfStackFloat 8s ease-in-out infinite;
+}
+
+.bf-layer {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--bf-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--bf-text-dark);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), inset 0 0 20px rgba(0, 102, 255, 0.05);
+    transition: all 0.5s ease;
+}
+
+.bf-layer i {
+    color: var(--bf-yellow);
+    font-size: 1.5rem;
+}
+
+.bf-layer-1 {
+    transform: translateZ(120px);
+    animation: bfPulseLayer 4s infinite alternate;
+}
+
+.bf-layer-2 {
+    transform: translateZ(60px);
+    border-color: rgba(0, 102, 255, 0.4);
+    background: rgba(248, 250, 252, 0.9);
+}
+
+.bf-layer-3 {
+    transform: translateZ(0);
+    border-color: rgba(0, 102, 255, 0.15);
+    background: rgba(226, 232, 240, 0.8);
+}
+
+.bf-layer-beam {
+    position: absolute;
+    width: 4px;
+    height: 350px;
+    background: linear-gradient(to top, transparent, var(--bf-blue), transparent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(-90deg);
+    animation: bfBeamScan 3s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes bfStackFloat {
+
+    0%,
+    100% {
+        transform: rotateX(60deg) rotateZ(-45deg) translateY(0);
+    }
+
+    50% {
+        transform: rotateX(60deg) rotateZ(-45deg) translateY(-20px);
+    }
+}
+
+@keyframes bfPulseLayer {
+    0% {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), inset 0 0 20px rgba(0, 102, 255, 0.05), 0 0 0 rgba(0, 102, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), inset 0 0 20px rgba(0, 102, 255, 0.2), 0 0 30px rgba(0, 102, 255, 0.3);
+    }
+}
+
+@keyframes bfBeamScan {
+    0% {
+        transform: translate(-50%, -100%) rotateX(-90deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 100%) rotateX(-90deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 992px) {
+
+    .bf-hero-content,
+    .bf-arch-grid,
+    .bf-scenario-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .bf-hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .bf-pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bf-scenario-row.reverse {
+        direction: ltr;
+    }
+
+    .bf-hl-badge {
+        right: 20px;
+        left: auto !important;
+        bottom: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bf-pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bf-hero-actions {
+        flex-direction: column;
+    }
+
+    .bf-btn-primary,
+    .bf-btn-secondary {
+        width: 100%;
+    }
+}

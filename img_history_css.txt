@@ -1,0 +1,12 @@
+﻿
+-    background: url('s
+cenario_identity.png') 
+center/cover no-repeat;
++    background: url('c
+omp_hero_bg_new.png') 
+center/cover no-repeat;
++    background: url('s
+cenario_identity.png') 
+center/cover no-repeat;
+
+

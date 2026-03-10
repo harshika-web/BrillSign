@@ -1,0 +1,48 @@
+﻿
+            <img src="h
+r_hero_premium.png" 
+alt="HR manager 
+interacting with a 
+digital tablet in a 
+modern office"
+                       
+ <img src="hr_offer_let
+ter.png" alt="Digital 
+offer letter on 
+tablet" 
+class="card-img-main">
+                       
+ <img src="hr_onboardin
+g_realistic.png"
+                       
+ <img src="hr_performan
+ce_realistic.png"
+                       
+ <img src="hr_role_chan
+ges_realistic.png" 
+alt="HR manager and 
+employee celebrating a 
+promotion"
+                       
+ <img src="hr_performan
+ce_realistic.png" 
+alt="Professional HR 
+discussion" 
+class="card-img-main">
+                    
+<img src="hr_onboarding
+_realistic.png"
+                    
+<img src="hr_hero_premi
+um.png" alt="HR 
+professional using 
+BrillSign in a 
+high-end office"
+                <img sr
+c="hr_role_changes_real
+istic.png" alt="HR 
+professional working 
+in a modern office 
+environment"
+
+
