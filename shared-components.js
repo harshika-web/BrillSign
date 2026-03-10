@@ -471,14 +471,9 @@ const resourcesDropdownHTML = `
     <div class="solutions-col">
         <h4>Trust & Compliance</h4>
         <ul class="solutions-list compact">
-<<<<<<< HEAD
             <li><a href="security-overview.html"><i class="fas fa-user-shield"></i> Security Overview</a></li>
             <li><a href="#"><i class="fas fa-certificate"></i> Certifications</a></li>
             <li><a href="#"><i class="fas fa-gavel"></i> Legal Validity</a></li>
-=======
-            <li><a href="trust-compliance/security-overview.html"><i class="fas fa-user-shield"></i> Security Overview</a></li>
-            <li><a href="trust-compliance/certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
->>>>>>> ea171febaba13737637315c6150905e245b2afd8
         </ul>
     </div>
     <div class="solutions-col">
