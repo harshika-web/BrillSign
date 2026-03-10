@@ -170,7 +170,7 @@ const solutionsDropdownHTML = `
         <h4>By Role</h4>
         <ul class="solutions-list">
             <li>
-                <a href="legal-teams.html">
+                <a href="role-solutions/legal-teams.html">
                     <i class="fas fa-balance-scale"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Legal Teams</div>
@@ -179,7 +179,7 @@ const solutionsDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="compliance.html">
+                <a href="role-solutions/compliance.html">
                     <i class="fas fa-shield-halved"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Compliance</div>
@@ -188,7 +188,7 @@ const solutionsDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="enterprise-it.html">
+                <a href="role-solutions/enterprise-it.html">
                     <i class="fas fa-microchip"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Enterprise IT</div>
@@ -197,7 +197,7 @@ const solutionsDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="finance-procurement.html">
+                <a href="role-solutions/finance-procurement.html">
                     <i class="fas fa-file-invoice-dollar"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Finance & Procurement</div>
@@ -206,7 +206,7 @@ const solutionsDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="hr-operations.html">
+                <a href="role-solutions/hr-operations.html">
                     <i class="fas fa-users"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">HR &amp; Operations</div>
@@ -215,7 +215,7 @@ const solutionsDropdownHTML = `
                 </a>
             </li>
             <li>
-                <a href="founders-smbs.html">
+                <a href="role-solutions/founders-smbs.html">
                     <i class="fas fa-rocket"></i>
                     <div class="solutions-text">
                         <div class="solutions-title">Founders / SMBs</div>
@@ -228,21 +228,21 @@ const solutionsDropdownHTML = `
     <div class="solutions-col">
         <h4>By Industry</h4>
         <ul class="solutions-list">
-            <li><a href="banking-finance.html">
+            <li><a href="industry-solutions/banking-finance.html">
                 <i class="fas fa-landmark"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Banking & Finance</div>
                     <div class="solutions-desc">Secure wealth management</div>
                 </div>
             </a></li>
-            <li><a href="healthcare.html">
+            <li><a href="industry-solutions/healthcare.html">
                 <i class="fas fa-heartbeat"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Healthcare</div>
                     <div class="solutions-desc">HIPAA-compliant document flow</div>
                 </div>
             </a></li>
-            <li><a href="government.html">
+            <li><a href="industry-solutions/government.html">
                 <i class="fas fa-building-columns"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Government</div>

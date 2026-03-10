@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions | BrillSign - Strategic Trust Infrastructure</title>
+    <meta name="description"
+        content="Strategic digital trust solutions for every role and industry. From legal governance to healthcare compliance and global real estate.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cta-pages.css">
+    <link rel="stylesheet" href="features.css">
+    <style>
+        /* --- Strategic Integration Pipeline Styles (Solutions Hub) --- */
+        .sol-pipeline-stage-container {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .sol-pipeline-stages {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .sol-pipeline-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            z-index: 5;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .sol-pipeline-node.active {
+            transform: translateY(-8px);
+        }
+
+        .sol-pn-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transition: all 0.4s ease;
+            background: #f8fafc;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            color: #64748b;
+        }
+
+        .sol-pipeline-node.active .sol-pn-icon-wrap {
+            box-shadow: 0 0 0 8px rgba(0, 102, 255, 0.1), 0 12px 32px -8px rgba(0, 102, 255, 0.3);
+            background: linear-gradient(135deg, #0066ff, #60a5fa);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .sol-pipeline-node.done .sol-pn-icon-wrap::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #10b981;
+            color: #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+            animation: badge-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .sol-pn-label {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .sol-pipeline-node.active .sol-pn-label {
+            color: #0f172a;
+        }
+
+        .sol-pipeline-connector {
+            flex: 1;
+            height: 72px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .sol-pc-track {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 102, 255, 0.08);
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sol-pc-packet {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 4px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #0066ff, #60a5fa);
+            box-shadow: 0 0 12px rgba(0, 102, 255, 0.6);
+            opacity: 0;
+        }
+
+        .sol-pc-packet.traveling {
+            animation: sol-packet-travel 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes sol-packet-travel {
+            0% {
+                left: -30px;
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                left: calc(100% + 6px);
+                opacity: 0;
+            }
+        }
+
+        .sol-pipeline-log {
+            background: #020617;
+            border-radius: 20px;
+            padding: 24px 28px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            min-height: 280px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .sol-pl-header {
+            color: #475569;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sol-pl-dot {
+            width: 10px;
+            height: 10px;
+            background: #60a5fa;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+            animation: blink-dot 1.5s infinite;
+        }
+
+        .sol-pl-entries {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sol-pl-entry {
+            color: #94a3b8;
+            opacity: 0;
+            animation: fade-in-log 0.4s ease forwards;
+        }
+
+        .sol-pl-entry.highlight {
+            color: #60a5fa;
+        }
+
+        .sol-pl-entry.success {
+            color: #10b981;
+        }
+
+        @media (max-width: 992px) {
+            .sol-pipeline-stages {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .sol-pipeline-connector {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="cta-page-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Elite Hero Section -->
+    <section class="cta-hero solutions-hero-elite">
+        <!-- Dynamic Background Elements -->
+        <div class="hero-nebula-wrap">
+            <div class="nebula-layer"></div>
+            <div class="nebula-layer nebula-layer-2"></div>
+            <div class="nebula-layer nebula-layer-3"></div>
+        </div>
+        <div class="hero-mesh-overlay"></div>
+        <div class="hero-hex-pattern"></div>
+
+        <div class="container">
+            <span class="feature-tag-new"
+                style="margin: 0 auto 20px; background: rgba(0, 102, 255, 0.2); color: #60a5fa;">The BrillSign
+                Solutions</span>
+            <h1 style="font-size: 4.5rem; line-height: 1.1;">Tailored trust for <br><span>Every Need</span></h1>
+            <p style="margin-top: 30px; font-size: 1.3rem; opacity: 0.9;">Professional ecosystems designed to automate
+                compliance, secure high-value assets, and scale global operations.</p>
+        </div>
+
+        <!-- Abstract Glass Elements -->
+        <div
+            style="position: absolute; top: 10%; left: 5%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(0, 102, 255, 0.1), transparent); filter: blur(60px); pointer-events: none;">
+        </div>
+        <div
+            style="position: absolute; bottom: 10%; right: 5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(96, 165, 250, 0.05), transparent); filter: blur(80px); pointer-events: none;">
+        </div>
+    </section>
+
+    <!-- Bento Grid Showcase -->
+    <section class="elite-section">
+        <div class="container">
+            <span class="section-label">Strategic Capabilities</span>
+            <h2 class="section-title-elite">Explore Professional Workflows</h2>
+
+            <div class="features-bento-grid">
+                <!-- Large Box: By Role (Governance) -->
+                <div class="bento-card span-8">
+                    <span class="feature-tag-new">Governance</span>
+                    <div class="bento-icon"><i class="fas fa-users-gear"></i></div>
+                    <h3 class="bento-title">Enterprise Governance by Role</h3>
+                    <p class="bento-desc">Standardizing authorization across complex organizations. From legal counsel
+                        to IT administration, we provide role-specific auditability and signing logic.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px;">
+                        <a href="role-solutions/legal-teams.html" style="text-decoration: none;">
+                            <div style="background: rgba(0, 102, 255, 0.04); padding: 15px; border-radius: 12px; border: 1px solid rgba(0, 102, 255, 0.08); transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(0, 102, 255, 0.08)'"
+                                onmouseout="this.style.background='rgba(0, 102, 255, 0.04)'">
+                                <span style="display: block; font-weight: 800; color: #0f172a; font-size: 0.9rem;">Legal
+                                    Teams</span>
+                                <span style="font-size: 0.75rem; color: #64748b;">Court-Admissible
+                                    Proof-of-Origin</span>
+                            </div>
+                        </a>
+                        <a href="role-solutions/compliance.html" style="text-decoration: none;">
+                            <div style="background: rgba(16, 185, 129, 0.04); padding: 15px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.08); transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(16, 185, 129, 0.08)'"
+                                onmouseout="this.style.background='rgba(16, 185, 129, 0.04)'">
+                                <span
+                                    style="display: block; font-weight: 800; color: #0f172a; font-size: 0.9rem;">Compliance</span>
+                                <span style="font-size: 0.75rem; color: #64748b;">Automated Audit Logs & History</span>
+                            </div>
+                        </a>
+                        <a href="role-solutions/enterprise-it.html" style="text-decoration: none;">
+                            <div style="background: rgba(245, 158, 11, 0.04); padding: 15px; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.08); transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(245, 158, 11, 0.08)'"
+                                onmouseout="this.style.background='rgba(245, 158, 11, 0.04)'">
+                                <span
+                                    style="display: block; font-weight: 800; color: #0f172a; font-size: 0.9rem;">Enterprise
+                                    IT</span>
+                                <span style="font-size: 0.75rem; color: #64748b;">SAML/SSO Central Control Layer</span>
+                            </div>
+                        </a>
+                        <a href="role-solutions/finance-procurement.html" style="text-decoration: none;">
+                            <div style="background: rgba(239, 68, 68, 0.04); padding: 15px; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.08); transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(239, 68, 68, 0.08)'"
+                                onmouseout="this.style.background='rgba(239, 68, 68, 0.04)'">
+                                <span
+                                    style="display: block; font-weight: 800; color: #0f172a; font-size: 0.9rem;">Finance
+                                    Ops</span>
+                                <span style="font-size: 0.75rem; color: #64748b;">Asset-Verified Expenditure
+                                    Gates</span>
+                            </div>
+                        </a>
+                        <a href="role-solutions/hr-operations.html" style="text-decoration: none;">
+                            <div style="background: rgba(96, 165, 250, 0.04); padding: 15px; border-radius: 12px; border: 1px solid rgba(96, 165, 250, 0.08); transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(96, 165, 250, 0.08)'"
+                                onmouseout="this.style.background='rgba(96, 165, 250, 0.04)'">
+                                <span style="display: block; font-weight: 800; color: #0f172a; font-size: 0.9rem;">HR &
+                                    Operations</span>
+                                <span style="font-size: 0.75rem; color: #64748b;">Automated Onboarding Proofs</span>
+                            </div>
+                        </a>
+                        <a href="role-solutions/founders-smbs.html" style="text-decoration: none;">
+                            <div style="background: rgba(124, 58, 237, 0.04); padding: 15px; border-radius: 12px; border: 1px solid rgba(124, 58, 237, 0.08); transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(124, 58, 237, 0.08)'"
+                                onmouseout="this.style.background='rgba(124, 58, 237, 0.04)'">
+                                <span
+                                    style="display: block; font-weight: 800; color: #0f172a; font-size: 0.9rem;">Founders
+                                    / SMBs</span>
+                                <span style="font-size: 0.75rem; color: #64748b;">Rapid-Scale Trust Framework</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tall Box: Industry Compliance -->
+                <div class="bento-card span-4 tall">
+                    <span class="feature-tag-new">Verticality</span>
+                    <div class="bento-icon" style="background: linear-gradient(135deg,#7c3aed,#a78bfa);">
+                        <i class="fas fa-building-shield"></i>
+                    </div>
+                    <h3 class="bento-title">Industrial Sovereignity</h3>
+                    <p class="bento-desc">Meeting the specific regulatory demands of global industries with
+                        hardened encryption and data sharding.</p>
+
+                    <div style="margin-top: 40px;">
+                        <div style="display: flex; flex-direction: column; gap: 24px;">
+                            <a href="industry-solutions/banking-finance.html"
+                                style="text-decoration: none; color: inherit;">
+                                <div style="display: flex; align-items: center; gap: 15px; transition: transform 0.3s ease;"
+                                    onmouseover="this.style.transform='translateX(5px)'"
+                                    onmouseout="this.style.transform='translateX(0)'">
+                                    <div style="width: 8px; height: 30px; background: #0066ff; border-radius: 4px;">
+                                    </div>
+                                    <div>
+                                        <span
+                                            style="display: block; font-weight: 800; color: #0f172a; font-size: 0.85rem;">BANKING</span>
+                                        <span style="font-size: 0.7rem; color: #94a3b8; font-weight: 700;">KYC LINKED
+                                            TRANSFERS</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="industry-solutions/healthcare.html" style="text-decoration: none; color: inherit;">
+                                <div style="display: flex; align-items: center; gap: 15px; transition: transform 0.3s ease;"
+                                    onmouseover="this.style.transform='translateX(5px)'"
+                                    onmouseout="this.style.transform='translateX(0)'">
+                                    <div style="width: 8px; height: 30px; background: #10b981; border-radius: 4px;">
+                                    </div>
+                                    <div>
+                                        <span
+                                            style="display: block; font-weight: 800; color: #0f172a; font-size: 0.85rem;">HEALTHCARE</span>
+                                        <span style="font-size: 0.7rem; color: #94a3b8; font-weight: 700;">HIPAA SHARDED
+                                            RECORDS</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="industry-solutions/government.html" style="text-decoration: none; color: inherit;">
+                                <div style="display: flex; align-items: center; gap: 15px; transition: transform 0.3s ease;"
+                                    onmouseover="this.style.transform='translateX(5px)'"
+                                    onmouseout="this.style.transform='translateX(0)'">
+                                    <div style="width: 8px; height: 30px; background: #7c3aed; border-radius: 4px;">
+                                    </div>
+                                    <div>
+                                        <span
+                                            style="display: block; font-weight: 800; color: #0f172a; font-size: 0.85rem;">GOVERNMENT</span>
+                                        <span style="font-size: 0.7rem; color: #94a3b8; font-weight: 700;">REG-TECH
+                                            COMPLIANCE</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Technical Footer Addition -->
+                    <div style="margin-top: auto; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.05);">
+                        <div
+                            style="background: #020617; border-radius: 12px; padding: 12px 15px; font-family: monospace; font-size: 0.75rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span style="color: #64748b;">CORE_UPTIME</span>
+                                <span style="color: #10b981; font-weight: 700;">99.99%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #64748b;">LATENCY</span>
+                                <span style="color: #60a5fa;">0.012ms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medium Box: Global Agreements -->
+                <div class="bento-card span-4">
+                    <span class="feature-tag-new"
+                        style="background: rgba(239, 68, 68, 0.08); color: #ef4444;">Global</span>
+                    <div class="bento-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);"><i
+                            class="fas fa-earth-americas"></i></div>
+                    <h3 class="bento-title">Borderless Validity</h3>
+                    <p class="bento-desc">Universal legal recognition across 180+ jurisdictions with native adaptation.
+                    </p>
+                </div>
+
+                <!-- Small Box: Use Cases - Signing -->
+                <div class="bento-card span-4">
+                    <span class="feature-tag-new"
+                        style="background: rgba(16, 185, 129, 0.08); color: #10b981;">Contracting</span>
+                    <div class="bento-icon" style="background: linear-gradient(135deg, #10b981, #34d399);"><i
+                            class="fas fa-file-contract"></i></div>
+                    <h3 class="bento-title">Smart Agreements</h3>
+                    <p class="bento-desc">Programmable vendor agreements with automated execution logic and ZK-privacy.
+                    </p>
+                </div>
+
+                <!-- Small Box: Use Cases - Verification -->
+                <div class="bento-card span-12">
+                    <span class="feature-tag-new"
+                        style="background: rgba(245, 158, 11, 0.08); color: #f59e0b;">Trust</span>
+                    <div class="bento-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);"><i
+                            class="fas fa-certificate"></i></div>
+                    <h3 class="bento-title">Verified Life-cycle</h3>
+                    <p class="bento-desc" style="margin-bottom: 24px;">Platform-independent document validation with
+                        100-year auditability hooks.</p>
+
+                    <!-- Technical Status Bar Addition -->
+                    <div
+                        style="background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.1); border-radius: 16px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; gap: 24px;">
+                            <div style="display: flex; flex-direction: column;">
+                                <span
+                                    style="font-size: 0.65rem; color: #94a3b8; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Storage
+                                    Layer</span>
+                                <span style="font-size: 0.9rem; color: #0f172a; font-weight: 700;">IPFS SHARDED</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <span
+                                    style="font-size: 0.65rem; color: #94a3b8; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Consensus</span>
+                                <span style="font-size: 0.9rem; color: #0f172a; font-weight: 700;">BFT-OPTIMIZED</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div
+                                style="padding: 4px 10px; background: #fef3c7; color: #92400e; border-radius: 6px; font-size: 0.7rem; font-weight: 800; font-family: monospace;">
+                                PROTOCOL: v3.4.2 [LIVE]</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supply Chain Integrity Card -->
+                <div class="bento-card span-6">
+                    <span class="feature-tag-new"
+                        style="background: rgba(0, 102, 255, 0.08); color: #0066ff;">Traceability</span>
+                    <div class="bento-icon" style="background: linear-gradient(135deg, #020617, #1e293b);"><i
+                            class="fas fa-boxes-packing"></i></div>
+                    <h3 class="bento-title">Supply Chain Integrity</h3>
+                    <p class="bento-desc">Cryptographic tracking of physical assets and digital twins across global
+                        networks.</p>
+                </div>
+
+                <!-- Technical API Ecosystem Card -->
+                <div class="bento-card span-6">
+                    <span class="feature-tag-new" style="background: rgba(96, 165, 250, 0.1); color: #60a5fa;">Developer
+                        First</span>
+                    <div class="bento-icon" style="background: linear-gradient(135deg, #475569, #94a3b8);"><i
+                            class="fas fa-code"></i></div>
+                    <h3 class="bento-title">Technical API Ecosystem</h3>
+                    <p class="bento-desc">Embed professional trust into your own applications with SDKs, RESTful hooks,
+                        and ZK-Proof identity libraries.</p>
+                    <div
+                        style="margin-top: 20px; background: #0f172a; padding: 15px; border-radius: 12px; font-family: monospace; font-size: 0.8rem; color: #94a3b8; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: #60a5fa;">// Initialize BrillSign Protocol</div>
+                        <div>const <span style="color: #fff;">client</span> = new BrillSign.Client({ <span
+                                style="color: #fff;">tier</span>: 'ENTERPRISE' });</div>
+                        <div>await <span style="color: #fff;">client</span>.sign(document, { <span
+                                style="color: #fff;">consensus</span>: 'LAYER_2' });</div>
+                    </div>
+                </div>
+
+                <!-- Solution Blueprint Visualization - Full Width - [x] Create dedicated "Request an Integration" page <!-- id: 19 -->
+                <div class="bento-card span-12" id="solution-ecosystem-card">
+                    <span class="feature-tag-new" style="background: rgba(0,102,255,0.08); color:#0066ff;">Technical
+                        Blueprint</span>
+                    <h3 class="bento-title">Strategic Trust Integration Pipeline</h3>
+                    <p class="bento-desc" style="margin-bottom: 32px;">Visualizing the technical lifecycle of trust
+                        integration — from heterogeneous source ingestion to immutable cryptographic proof.</p>
+
+                    <div class="sol-pipeline-stage-container">
+                        <!-- Stages -->
+                        <div class="sol-pipeline-stages">
+                            <div class="sol-pipeline-node" id="sol-pn-ingest">
+                                <div class="sol-pn-icon-wrap" id="sol-icon-ingest">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <span class="sol-pn-label">Ingestion</span>
+                            </div>
+                            <div class="sol-pipeline-connector">
+                                <div class="sol-pc-track">
+                                    <div class="sol-pc-packet" id="sol-pkt-1"></div>
+                                </div>
+                            </div>
+
+                            <div class="sol-pipeline-node" id="sol-pn-map">
+                                <div class="sol-pn-icon-wrap" id="sol-icon-map">
+                                    <i class="fas fa-diagram-project"></i>
+                                </div>
+                                <span class="sol-pn-label">Harmonize</span>
+                            </div>
+                            <div class="sol-pipeline-connector">
+                                <div class="sol-pc-track">
+                                    <div class="sol-pc-packet" id="sol-pkt-2"></div>
+                                </div>
+                            </div>
+
+                            <div class="sol-pipeline-node" id="sol-pn-secure">
+                                <div class="sol-pn-icon-wrap" id="sol-icon-secure">
+                                    <i class="fas fa-user-lock"></i>
+                                </div>
+                                <span class="sol-pn-label">Secure Wrap</span>
+                            </div>
+                            <div class="sol-pipeline-connector">
+                                <div class="sol-pc-track">
+                                    <div class="sol-pc-packet" id="sol-pkt-3"></div>
+                                </div>
+                            </div>
+
+                            <div class="sol-pipeline-node" id="sol-pn-consensus">
+                                <div class="sol-pn-icon-wrap" id="sol-icon-consensus">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <span class="sol-pn-label">Consensus</span>
+                            </div>
+                            <div class="sol-pipeline-connector">
+                                <div class="sol-pc-track">
+                                    <div class="sol-pc-packet" id="sol-pkt-4"></div>
+                                </div>
+                            </div>
+
+                            <div class="sol-pipeline-node" id="sol-pn-proof">
+                                <div class="sol-pn-icon-wrap" id="sol-icon-proof">
+                                    <i class="fas fa-file-shield"></i>
+                                </div>
+                                <span class="sol-pn-label">Trust Proof</span>
+                            </div>
+                        </div>
+
+                        <!-- Activity Log -->
+                        <div class="sol-pipeline-log" id="sol-pipeline-log">
+                            <div class="sol-pl-header"><span class="sol-pl-dot"></span> Integration Engine — Active
+                            </div>
+                            <div class="sol-pl-entries" id="sol-pl-entries"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Trust Foundation - Standards Grid -->
+    <!-- Global Compliance Infrastructure - Animated Stack -->
+    <section class="elite-section" style="background: #020617; padding: 120px 0; position: relative; overflow: hidden;">
+        <!-- Background Glows -->
+        <div
+            style="position: absolute; top: -10%; left: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0, 102, 255, 0.08), transparent 70%); filter: blur(60px); pointer-events: none;">
+        </div>
+        <div
+            style="position: absolute; bottom: -10%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(16, 185, 129, 0.05), transparent 70%); filter: blur(80px); pointer-events: none;">
+        </div>
+
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;">
+                <div class="compliance-info">
+                    <span class="section-label"
+                        style="color: #60a5fa; border-color: rgba(96, 165, 250, 0.2);">Compliance Architecture</span>
+                    <h2
+                        style="font-size: 3.8rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em;">
+                        Network of <br><span
+                            style="background: linear-gradient(to right, #60a5fa, #3b82f6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Infallible
+                            Trust</span>
+                    </h2>
+                    <p style="font-size: 1.25rem; color: #94a3b8; line-height: 1.6; margin-bottom: 40px;">
+                        BrillSign's multi-layered compliance framework ensures your digital signatures are legally
+                        recognized, mathematically proven, and operationally secure across every global jurisdiction.
+                    </p>
+
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div style="display: flex; align-items: flex-start; gap: 20px;">
+                            <div
+                                style="width: 48px; height: 48px; border-radius: 12px; background: rgba(96, 165, 250, 0.1); border: 1px solid rgba(96, 165, 250, 0.2); display: flex; align-items: center; justify-content: center; color: #60a5fa; flex-shrink: 0;">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">Global Reciprocity</h4>
+                                <p style="color: #64748b; font-size: 0.95rem;">Seamlessly navigating eIDAS, ESIGN, and
+                                    local treaties for cross-border validity.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 20px;">
+                            <div
+                                style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); display: flex; align-items: center; justify-content: center; color: #10b981; flex-shrink: 0;">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">Sovereign Infrastructure
+                                </h4>
+                                <p style="color: #64748b; font-size: 0.95rem;">ISO 27001 and SOC 2 Type II certified
+                                    operations for the highest security uptime.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compliance-visual">
+                    <div class="comp-stack-wrap" id="compliance-stack">
+                        <div class="comp-stack-inner">
+                            <!-- Tier 4 -->
+                            <div class="comp-layer" id="cl-3" style="--accent: #60a5fa;">
+                                <div class="cl-icon"><i class="fas fa-gavel"></i></div>
+                                <div class="cl-info">
+                                    <span class="cl-name">Strategic Governance</span>
+                                    <span class="cl-desc">eIDAS (QES), ESIGN, UETA, PIPEDA</span>
+                                </div>
+                                <div class="cl-status">LEGAL</div>
+                                <div class="cl-shimmer"></div>
+                            </div>
+
+                            <div class="cl-connector">
+                                <div class="cl-packet" id="clp-2"></div>
+                            </div>
+
+                            <!-- Tier 3 -->
+                            <div class="comp-layer" id="cl-2" style="--accent: #c084fc;">
+                                <div class="cl-icon"><i class="fas fa-user-shield"></i></div>
+                                <div class="cl-info">
+                                    <span class="cl-name">Data Sovereignty</span>
+                                    <span class="cl-desc">GDPR, HIPAA, CCPA, ZK-Privacy</span>
+                                </div>
+                                <div class="cl-status">PRIVACY</div>
+                                <div class="cl-shimmer"></div>
+                            </div>
+
+                            <div class="cl-connector">
+                                <div class="cl-packet" id="clp-1"></div>
+                            </div>
+
+                            <!-- Tier 2 -->
+                            <div class="comp-layer" id="cl-1" style="--accent: #2dd4bf;">
+                                <div class="cl-icon"><i class="fas fa-building-shield"></i></div>
+                                <div class="cl-info">
+                                    <span class="cl-name">Operational Integrity</span>
+                                    <span class="cl-desc">ISO 27001, SOC 2 Type II, FISMA</span>
+                                </div>
+                                <div class="cl-status">SECURITY</div>
+                                <div class="cl-shimmer"></div>
+                            </div>
+
+                            <div class="cl-connector">
+                                <div class="cl-packet" id="clp-0"></div>
+                            </div>
+
+                            <!-- Tier 1 -->
+                            <div class="comp-layer" id="cl-0" style="--accent: #f472b6;">
+                                <div class="cl-icon"><i class="fas fa-microchip"></i></div>
+                                <div class="cl-info">
+                                    <span class="cl-name">Cryptographic Core</span>
+                                    <span class="cl-desc">Dilithium-3, ZKP, Post-Quantum Proofs</span>
+                                </div>
+                                <div class="cl-status">CRYPTO</div>
+                                <div class="cl-shimmer"></div>
+                            </div>
+                        </div>
+
+                        <div class="comp-stack-footer">
+                            <div class="csf-item"><span class="csf-dot"></span> GLOBAL_SYNC: ACTIVE</div>
+                            <div class="csf-item">LATENCY: 0.03ms</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .comp-stack-wrap {
+                background: rgba(15, 23, 42, 0.4);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 32px;
+                padding: 40px;
+                position: relative;
+                backdrop-filter: blur(20px);
+            }
+
+            .comp-stack-inner {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .comp-layer {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 18px;
+                padding: 20px 24px;
+                position: relative;
+                overflow: hidden;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .comp-layer.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .comp-layer.active {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: var(--accent) !important;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.02);
+            }
+
+            .cl-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 14px;
+                background: var(--accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                color: #fff;
+                flex-shrink: 0;
+                box-shadow: 0 8px 20px -6px var(--accent);
+                transition: transform 0.4s;
+            }
+
+            .comp-layer.active .cl-icon {
+                transform: scale(1.1);
+            }
+
+            .cl-info {
+                flex: 1;
+            }
+
+            .cl-name {
+                display: block;
+                color: #fff;
+                font-size: 1.05rem;
+                font-weight: 800;
+                margin-bottom: 2px;
+            }
+
+            .cl-desc {
+                display: block;
+                color: #94a3b8;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+
+            .cl-status {
+                font-family: monospace;
+                font-size: 0.7rem;
+                font-weight: 800;
+                letter-spacing: 1px;
+                color: var(--accent);
+                padding: 4px 10px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 6px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .cl-shimmer {
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+                pointer-events: none;
+            }
+
+            .comp-layer.active .cl-shimmer {
+                animation: cl-shimmer-pass 1.5s infinite;
+            }
+
+            @keyframes cl-shimmer-pass {
+                from {
+                    left: -100%;
+                }
+
+                to {
+                    left: 100%;
+                }
+            }
+
+            .cl-connector {
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                color: rgba(255, 255, 255, 0.05);
+            }
+
+            .cl-connector::after {
+                content: '';
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+            }
+
+            .cl-packet {
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background: #fff;
+                border-radius: 50%;
+                box-shadow: 0 0 10px #fff;
+                opacity: 0;
+            }
+
+            .cl-packet.traveling {
+                animation: cl-pkt-travel 0.6s ease-in-out forwards;
+            }
+
+            @keyframes cl-pkt-travel {
+                0% {
+                    top: 0;
+                    opacity: 1;
+                }
+
+                100% {
+                    top: 100%;
+                    opacity: 0;
+                }
+            }
+
+            .comp-stack-footer {
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                display: flex;
+                justify-content: space-between;
+                font-family: monospace;
+                font-size: 0.75rem;
+                color: #64748b;
+            }
+
+            .csf-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .csf-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #10b981;
+                animation: blink 1s infinite;
+            }
+
+            @keyframes blink {
+
+                0%,
+                100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.4;
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .compliance-visual {
+                    margin-top: 40px;
+                }
+
+                .elite-section>.container>div {
+                    grid-template-columns: 1fr !important;
+                    gap: 40px !important;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+
+    <script>
+        // Strategic Trust Integration Pipeline Animation Logic
+        (function () {
+            const card = document.getElementById('solution-ecosystem-card');
+            const nodes = [
+                { id: 'sol-pn-ingest', log: 'INGESTING: Source ERP/CRM Streams [Direct_API_Bridge]', packet: 'sol-pkt-1' },
+                { id: 'sol-pn-map', log: 'HARMONIZING: Canonical Schema Mapping Complete', packet: 'sol-pkt-2' },
+                { id: 'sol-pn-secure', log: 'SECURING: ZK-ID Wrap & Hashing Initiated', packet: 'sol-pkt-3' },
+                { id: 'sol-pn-consensus', log: 'VALIDATING: Cross-Entity Consensus Reached', packet: 'sol-pkt-4' },
+                { id: 'sol-pn-proof', log: 'FINALIZING: Immutable Trust-Proof anchored to Ledger v3.4.2 [SECURE]', packet: null }
+            ];
+            const logContainer = document.getElementById('sol-pl-entries');
+            let currentIdx = 0;
+            let active = false;
+
+            function addLog(text, type = '') {
+                const entry = document.createElement('div');
+                entry.className = `sol-pl-entry ${type}`;
+                entry.textContent = `> ${text}`;
+                logContainer.prepend(entry);
+                if (logContainer.children.length > 8) logContainer.lastElementChild.remove();
+            }
+
+            function firePacket(pktId) {
+                const pkt = document.getElementById(pktId);
+                if (!pkt) return;
+                pkt.classList.remove('traveling');
+                void pkt.offsetWidth; // Trigger reflow
+                pkt.classList.add('traveling');
+            }
+
+            function performStep() {
+                if (!active) return;
+
+                // Clear previous node status
+                nodes.forEach(n => {
+                    const el = document.getElementById(n.id);
+                    el.classList.remove('active');
+                });
+
+                const nodeData = nodes[currentIdx];
+                const nodeEl = document.getElementById(nodeData.id);
+
+                // Activate current node
+                nodeEl.classList.add('active');
+                nodeEl.classList.add('done');
+                addLog(nodeData.log, currentIdx === 4 ? 'success' : 'highlight');
+
+                if (nodeData.packet) {
+                    setTimeout(() => firePacket(nodeData.packet), 600);
+                    setTimeout(performStep, 1600);
+                } else {
+                    // Reset cycle
+                    setTimeout(() => {
+                        nodes.forEach(n => {
+                            document.getElementById(n.id).classList.remove('active', 'done');
+                        });
+                        currentIdx = 0;
+                        addLog('RESTARTING: New Integration Cycle Initialized...', 'highlight');
+                        performStep();
+                    }, 4000);
+                    return;
+                }
+
+                currentIdx++;
+            }
+
+            if (card && 'IntersectionObserver' in window) {
+                const obs = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting && !active) {
+                        active = true;
+                        addLog('ENGINE_BOOT: Strategic Proxy Layer READY', 'highlight');
+                        setTimeout(performStep, 800);
+                    }
+                }, { threshold: 0.3 });
+                obs.observe(card);
+            }
+        })();
+
+        // Compliance Stack Cascade Animation
+        (function () {
+            const wrap = document.getElementById('compliance-stack');
+            const layers = [
+                { id: 'cl-3', pktId: 'clp-2' },
+                { id: 'cl-2', pktId: 'clp-1' },
+                { id: 'cl-1', pktId: 'clp-0' },
+                { id: 'cl-0', pktId: null }
+            ];
+
+            function firePacket(pktId) {
+                if (!pktId) return;
+                const p = document.getElementById(pktId);
+                if (!p) return;
+                p.classList.remove('traveling');
+                void p.offsetWidth;
+                p.classList.add('traveling');
+            }
+
+            function runSequence(idx) {
+                if (idx >= layers.length) {
+                    setTimeout(() => {
+                        layers.forEach(l => {
+                            document.getElementById(l.id).classList.remove('active');
+                        });
+                        runSequence(0);
+                    }, 2500);
+                    return;
+                }
+
+                const l = layers[idx];
+                const el = document.getElementById(l.id);
+
+                // Show layer if first time
+                el.classList.add('visible');
+                el.classList.add('active');
+
+                if (idx > 0) {
+                    document.getElementById(layers[idx - 1].id).classList.remove('active');
+                }
+
+                if (l.pktId) {
+                    setTimeout(() => firePacket(l.pktId), 400);
+                }
+
+                setTimeout(() => runSequence(idx + 1), 1200);
+            }
+
+            if (wrap && 'IntersectionObserver' in window) {
+                let started = false;
+                const obs = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting && !started) {
+                        started = true;
+                        // Initial visibility cascade
+                        layers.forEach((l, i) => {
+                            setTimeout(() => {
+                                document.getElementById(l.id).classList.add('visible');
+                            }, i * 200);
+                        });
+                        setTimeout(() => runSequence(0), layers.length * 200 + 400);
+                    }
+                }, { threshold: 0.2 });
+                obs.observe(wrap);
+            }
+        })    </script>
+</body>
+
+</html>
