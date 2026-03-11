@@ -2,6 +2,10 @@
  * Shared Components for BrillSign Website (v5)
  * This file contains the navbar, footer, and features dropdown
  * to ensure consistency across all pages.
+ * 
+ * IMPORTANT: The root detection block below (v5) is CRITICAL for subfolder 
+ * navigation on GitHub Pages. Do not modify the detection logic unless 
+ * testing across multiple directory levels.
  */
 
 // Global variable to store detected site root
