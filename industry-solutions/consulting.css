@@ -1,0 +1,1049 @@
+/* ==============================================
+   CONSULTING PAGE — consulting.css
+   Each section has its own distinct layout DNA
+   ============================================== */
+
+/* ---- Variables ---- */
+:root {
+    --cs-navy: #003755;
+    --cs-blue: #0066ff;
+    --cs-red: #ff0000;
+    --cs-gold: #b8860b;
+    --cs-muted: #64748b;
+    --cs-light-bg: #f8fafc;
+    --cs-white: #ffffff;
+    --cs-dark: #0a1628;
+}
+
+body.consulting-body {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+/* ---- Shared Reveal Animation ---- */
+.cs-reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cs-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ---- Shared Section Tag ---- */
+.cs-section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(0, 102, 255, 0.07);
+    color: var(--cs-blue);
+    border: 1px solid rgba(0, 102, 255, 0.18);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    width: fit-content;         /* ← prevents flex-stretch */
+    align-self: flex-start;     /* ← prevents flex-stretch */
+}
+.cs-section-tag.light {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ---- Buttons ---- */
+.cs-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 36px;
+    background: var(--cs-blue);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+}
+.cs-btn-primary:hover {
+    background: #0052cc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0, 102, 255, 0.4);
+}
+
+.cs-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    background: transparent;
+    color: var(--cs-navy);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1.5px solid rgba(0, 55, 85, 0.15);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.cs-btn-ghost:hover {
+    border-color: var(--cs-blue);
+    color: var(--cs-blue);
+    background: rgba(0, 102, 255, 0.04);
+}
+.cs-btn-ghost.dark {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+.cs-btn-ghost.dark:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==============================================
+   SECTION 1: HERO — DIAGONAL SPLIT
+   ============================================== */
+.cs-hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px; /* navbar height */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left: navy-tinted background */
+.cs-hero-left {
+    background: #ffffff;
+    padding: 100px 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Diagonal clip on the right edge of the left col */
+/* Removed diagonal overlay for clean white look */
+.cs-hero-left::after {
+    display: none;
+}
+
+.cs-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--cs-blue);
+    margin-bottom: 20px;
+}
+.cs-eyebrow i { font-size: 0.85rem; }
+
+.cs-hero-left h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--cs-navy);
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    max-width: 600px;
+    width: 100%;
+}
+.cs-hero-left h1 span {
+    color: var(--cs-blue);
+}
+.cs-hero-left p {
+    font-size: 1.15rem;
+    color: var(--cs-muted);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 40px;
+}
+
+.cs-hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+.cs-trust-strip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.cs-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+}
+.cs-trust-item i { color: var(--cs-blue); }
+.cs-trust-divider {
+    width: 1px; height: 18px;
+    background: rgba(0,0,0,0.12);
+}
+
+/* Right: image col */
+.cs-hero-right {
+    position: relative;
+    overflow: hidden;
+}
+.cs-hero-img-frame {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.cs-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Floating stat cards */
+.cs-hero-stat {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 8px 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    animation: cs-float 3s ease-in-out infinite;
+}
+.cs-hero-stat.top { top: 60px; left: 60px; right: auto; animation-delay: 0s; }
+.cs-hero-stat.bottom { bottom: 60px; left: 60px; right: auto; animation-delay: 1.5s; }
+
+@keyframes cs-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.cs-stat-icon {
+    width: 44px; height: 44px;
+    background: rgba(0, 102, 255, 0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    color: var(--cs-blue);
+    flex-shrink: 0;
+}
+.cs-stat-icon.green {
+    background: rgba(39, 201, 63, 0.1);
+    color: #16a34a;
+}
+.cs-stat-num {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--cs-navy);
+    line-height: 1;
+    margin-bottom: 2px;
+}
+.cs-stat-label {
+    font-size: 0.72rem;
+    color: var(--cs-muted);
+    font-weight: 600;
+}
+
+
+/* ==============================================
+   SECTION 2+3: UNIFIED BEFORE VS AFTER COMPARISON
+   ============================================== */
+.cs-compare-section {
+    padding: 100px 0 80px;
+    background: #f8fafc;
+}
+
+.cs-compare-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+.cs-compare-header h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--cs-navy);
+    margin-bottom: 14px;
+}
+.cs-compare-header p {
+    font-size: 1.05rem;
+    color: var(--cs-muted);
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+/* Two-column comparison grid */
+.cs-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    gap: 0;
+    align-items: stretch;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    margin-bottom: 48px;
+}
+
+/* Column headers */
+.cs-compare-col-header {
+    padding: 24px 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.cs-col-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.cs-col-badge.red {
+    background: #fff5f5;
+    color: #dc2626;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+}
+.cs-col-badge.green {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+/* Before column tint */
+.cs-compare-col.before {
+    background: #fffbfb;
+}
+.cs-compare-col.after {
+    background: #fafffe;
+}
+
+/* Row items */
+.cs-compare-rows {
+    padding: 8px 0;
+}
+
+.cs-compare-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    transition: background 0.2s ease;
+}
+.cs-compare-row:hover { background: rgba(0,0,0,0.015); }
+.cs-compare-row.last { border-bottom: none; }
+
+.cs-row-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+.cs-row-icon.red {
+    background: rgba(220, 38, 38, 0.08);
+    color: #dc2626;
+}
+.cs-row-icon.green {
+    background: rgba(22, 163, 74, 0.08);
+    color: #16a34a;
+}
+
+.cs-row-stat {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--cs-navy);
+    margin-bottom: 3px;
+}
+.cs-compare-col.before .cs-row-stat { color: #c0362d; }
+.cs-compare-col.after  .cs-row-stat { color: #15803d; }
+
+.cs-row-label {
+    font-size: 0.83rem;
+    color: var(--cs-muted);
+    line-height: 1.45;
+}
+
+/* Centre VS divider */
+.cs-compare-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-left: 1px solid rgba(0,0,0,0.07);
+    border-right: 1px solid rgba(0,0,0,0.07);
+    gap: 10px;
+    padding: 24px 0;
+}
+.cs-divider-line {
+    width: 1px;
+    flex: 1;
+    background: rgba(0,0,0,0.1);
+}
+.cs-divider-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--cs-navy);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,55,85,0.25);
+}
+
+/* Bottom proof image strip */
+.cs-compare-proof {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.cs-compare-proof-img-wrap {
+    position: relative;
+}
+.cs-compare-proof-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+.cs-compare-before-tag,
+.cs-compare-after-tag {
+    position: absolute;
+    bottom: 16px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.cs-compare-before-tag {
+    left: 16px;
+    background: rgba(220, 38, 38, 0.88);
+    color: #fff;
+}
+.cs-compare-after-tag {
+    right: 16px;
+    background: rgba(22, 163, 74, 0.88);
+    color: #fff;
+}
+
+.cs-compare-proof-caption {
+    padding: 32px 40px 32px 0;
+    font-size: 1rem;
+    color: var(--cs-muted);
+    line-height: 1.6;
+}
+.cs-compare-proof-caption span {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cs-navy);
+    margin-bottom: 10px;
+}
+
+
+/* ==============================================
+   SECTION 4: REMOTE — REVERSED EDITORIAL
+   Light background, image right, text left
+   ============================================== */
+.cs-remote-section {
+    background: #ffffff;
+    padding: 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.cs-remote-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+}
+
+.cs-remote-content {
+    padding: 100px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;   /* ← keeps tag & text left-aligned, not stretched */
+    background: #f0f6ff;       /* subtle blue tint on text side */
+}
+.cs-remote-content h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--cs-navy);
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 20px;
+    max-width: 480px;
+}
+.cs-remote-content p {
+    font-size: 1rem;
+    color: var(--cs-muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 460px;
+}
+
+.cs-remote-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--cs-blue);
+    border-radius: 2px;
+    margin-bottom: 28px;
+}
+
+.cs-remote-stats {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.cs-rstat {
+    padding: 20px 28px;
+    border-right: 1px solid rgba(0,0,0,0.07);
+    flex: 1;
+}
+.cs-rstat:last-child { border-right: none; }
+.cs-rstat-val {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--cs-blue);
+    margin-bottom: 4px;
+    line-height: 1;
+}
+.cs-rstat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--cs-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.cs-remote-img-col {
+    position: relative;
+    overflow: hidden;
+}
+.cs-remote-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 500px;
+    filter: brightness(0.92);
+}
+
+.cs-remote-badge {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(10px);
+    padding: 14px 20px;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+.cs-remote-badge i {
+    font-size: 1.3rem;
+    color: var(--cs-blue);
+}
+.cs-remote-badge-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--cs-navy);
+}
+.cs-remote-badge-sub {
+    font-size: 0.75rem;
+    color: var(--cs-muted);
+}
+
+
+/* ==============================================
+   SECTION 5: DOCUMENT TYPES — ASYMMETRIC GRID
+   ============================================== */
+.cs-docs-section {
+    padding: 120px 0;
+    background: #f8fafc;
+}
+.cs-docs-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+.cs-docs-header h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--cs-navy);
+    margin-bottom: 16px;
+}
+.cs-docs-header p {
+    font-size: 1.05rem;
+    color: var(--cs-muted);
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.cs-docs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.cs-doc-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 20px;
+    padding: 36px 30px;
+    position: relative;
+    transition: all 0.35s ease;
+    overflow: hidden;
+}
+.cs-doc-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.08);
+    border-color: rgba(0, 102, 255, 0.15);
+}
+.cs-doc-card:hover .cs-doc-icon {
+    background: var(--cs-blue);
+    color: #fff;
+}
+
+.cs-doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cs-blue), #0052cc);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+.cs-doc-card:hover::before { transform: scaleX(1); }
+
+.cs-doc-icon {
+    width: 52px; height: 52px;
+    background: rgba(0, 102, 255, 0.08);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    color: var(--cs-blue);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.cs-doc-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--cs-navy);
+    margin-bottom: 10px;
+    text-align: left;
+}
+.cs-doc-card p {
+    font-size: 0.88rem;
+    color: var(--cs-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cs-doc-tag {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 3px 10px;
+    background: rgba(0, 102, 255, 0.07);
+    color: var(--cs-blue);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 100px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+
+/* ==============================================
+   SECTION 6: TRUST — LIGHT COMPLIANCE BAND
+   ============================================== */
+.cs-trust-section {
+    background: #f8fafc;
+    padding: 100px 0;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+.cs-trust-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.cs-trust-text h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--cs-navy);
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.cs-trust-text p {
+    font-size: 1rem;
+    color: var(--cs-muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+.cs-trust-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--cs-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+}
+.cs-trust-link:hover { gap: 14px; }
+
+.cs-trust-badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.cs-tbadge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--cs-navy);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.cs-tbadge:hover {
+    background: rgba(0, 102, 255, 0.04);
+    border-color: rgba(0, 102, 255, 0.2);
+    color: var(--cs-blue);
+    box-shadow: 0 4px 16px rgba(0,102,255,0.08);
+}
+.cs-tbadge i {
+    font-size: 1.1rem;
+    color: var(--cs-blue);
+    width: 20px;
+    text-align: center;
+}
+
+
+/* ==============================================
+   SECTION 7: FAQs — CENTERED GRID
+   ============================================== */
+.cs-faq-section {
+    padding: 120px 0;
+    background: #ffffff;
+}
+
+.cs-faq-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 64px;
+}
+.cs-faq-header h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--cs-navy);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+.cs-faq-header p {
+    font-size: 1.1rem;
+    color: var(--cs-muted);
+}
+
+/* Two columns of questions */
+.cs-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.cs-faq-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cs-faq-item {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.cs-faq-item:hover {
+    border-color: rgba(0, 102, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Question button */
+.cs-faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 28px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cs-navy);
+    transition: color 0.2s ease;
+}
+.cs-faq-q:hover {
+    color: var(--cs-blue);
+}
+.cs-faq-q[aria-expanded="true"] {
+    color: var(--cs-blue);
+}
+
+/* Icon rotation */
+.cs-faq-icon {
+    font-size: 0.9rem;
+    color: var(--cs-muted);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+.cs-faq-q[aria-expanded="true"] .cs-faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Answer panel */
+.cs-faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0 28px;
+}
+.cs-faq-a.open {
+    max-height: 400px;
+    padding: 0 28px 28px;
+}
+.cs-faq-a p {
+    font-size: 0.95rem;
+    color: var(--cs-muted);
+    line-height: 1.7;
+    margin: 0;
+    padding-top: 0;
+}
+
+/* Bottom CTA nudge */
+.cs-faq-bottom {
+    text-align: center;
+    padding-top: 16px;
+}
+.cs-faq-bottom p {
+    font-size: 1.05rem;
+    color: var(--cs-muted);
+}
+.cs-faq-bottom a {
+    color: var(--cs-blue);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease;
+}
+.cs-faq-bottom a:hover {
+    gap: 10px;
+}
+
+@media (max-width: 1024px) {
+    .cs-faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.cs-cta-section {
+    padding: 100px 0 140px;
+    background: #ffffff;
+    position: relative;
+    text-align: center;
+}
+
+.cs-cta-inner {
+    position: relative;
+    z-index: 2;
+    background: var(--cs-navy);
+    padding: 80px 60px;
+    border-radius: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 55, 85, 0.2);
+}
+
+/* Subtle pattern background within the card */
+.cs-cta-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 40%);
+    z-index: -1;
+}
+
+.cs-cta-text h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    text-align: center;
+    letter-spacing: -0.03em;
+}
+.cs-cta-text p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+}
+
+.cs-cta-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cs-cta-actions .cs-btn-primary {
+    background: #ffffff;
+    color: var(--cs-blue);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.cs-cta-actions .cs-btn-primary:hover {
+    background: #f0f6ff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.cs-btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.cs-btn-outline-white:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    transform: translateY(-3px);
+}
+
+
+
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+@media (max-width: 1024px) {
+    .cs-hero,
+    .cs-proof-inner,
+    .cs-remote-inner,
+    .cs-trust-content {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-hero-left {
+        padding: 100px 32px 60px;
+    }
+    .cs-hero-left::after { display: none; }
+    .cs-hero-right { min-height: 400px; }
+    .cs-hero-stat.top { left: -10px; right: auto; top: 15px; }
+    .cs-hero-stat.bottom { left: -10px; right: auto; bottom: 15px; }
+
+    .cs-proof-img { min-height: 300px; }
+    .cs-proof-content { padding: 60px 32px; }
+    .cs-proof-content h2 { font-size: 1.8rem; }
+
+    .cs-remote-content { padding: 60px 32px; }
+    .cs-remote-content h2 { font-size: 1.8rem; }
+    .cs-remote-stats { gap: 24px; flex-wrap: wrap; }
+
+    .cs-docs-grid { grid-template-columns: 1fr 1fr; }
+
+    .cs-trust-content { gap: 48px; }
+    .cs-trust-text h2 { font-size: 1.9rem; }
+
+    .cs-cta-text h2 { font-size: 2rem; }
+
+    .cs-pain-track { gap: 4px; }
+    .cs-pain-arrow { display: none; }
+}
+
+@media (max-width: 640px) {
+    .cs-docs-grid { grid-template-columns: 1fr; }
+    .cs-trust-badges { grid-template-columns: 1fr; }
+    .cs-hero-left h1 { font-size: 2.8rem; }
+    .cs-remote-img { min-height: 300px; }
+}

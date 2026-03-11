@@ -1,0 +1,803 @@
+/* Real Estate Solutions - Unique Styling */
+:root {
+    --re-primary: #1e293b;
+    --re-accent-blue: #0066ff;
+    --re-accent-red: #ff0000;
+    --re-accent-yellow: #ffff00;
+    --re-text-light: #f8fafc;
+    --re-text-dark: #0f172a;
+    --re-text-muted: #64748b;
+    --re-bg-light: #f8fafc;
+    --re-border: rgba(30, 41, 59, 0.1);
+    --re-glass: rgba(255, 255, 255, 0.8);
+    --re-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.re-page-body {
+    background-color: #ffffff;
+    color: var(--re-text-dark);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.re-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Animations */
+@keyframes re-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes re-zoom-reveal {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes re-pulse-secure {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
+@keyframes re-ledger-flow {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.re-reveal {
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.re-reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Fallback for initial load or slow JS */
+.re-hero.re-reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* Hero Section */
+.re-hero {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.re-hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.re-hero-text .re-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(0, 102, 255, 0.1);
+    color: var(--re-accent-blue);
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 32px;
+}
+
+.re-hero-text h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--re-primary);
+    margin-bottom: 24px;
+}
+
+.re-hero-text h1 span {
+    color: var(--re-accent-blue);
+    background: linear-gradient(to right, var(--re-accent-blue), #5eafff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.re-hero-text p {
+    font-size: 1.25rem;
+    color: var(--re-text-muted);
+    line-height: 1.6;
+    margin-bottom: 48px;
+    max-width: 600px;
+}
+
+.re-hero-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.re-btn-primary {
+    padding: 20px 40px;
+    background: var(--re-primary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 2px solid var(--re-primary);
+}
+
+.re-btn-primary:hover {
+    background: transparent;
+    color: var(--re-primary);
+    transform: translateY(-5px);
+}
+
+.re-btn-secondary {
+    padding: 20px 40px;
+    background: transparent;
+    color: var(--re-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    border: 2px solid var(--re-primary);
+    transition: all 0.3s ease;
+}
+
+.re-btn-secondary:hover {
+    background: var(--re-primary);
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.re-hero-visual {
+    position: relative;
+}
+
+.re-hero-img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+}
+
+.re-security-tag {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-left: 4px solid var(--re-accent-red);
+}
+
+.re-security-tag i {
+    font-size: 2rem;
+    color: var(--re-accent-red);
+    animation: re-pulse-secure 2s infinite;
+    border-radius: 50%;
+}
+
+.re-tag-info div:first-child {
+    font-weight: 800;
+    color: var(--re-primary);
+    font-size: 1rem;
+}
+
+.re-tag-info div:last-child {
+    font-size: 0.8rem;
+    color: var(--re-text-muted);
+}
+
+/* Metrics Section */
+.re-metrics {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.re-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.re-metric-card {
+    padding: 40px;
+    background: var(--re-bg-light);
+    border-radius: 24px;
+    border: 1px solid var(--re-border);
+    transition: all 0.3s ease;
+}
+
+.re-metric-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--re-accent-blue);
+}
+
+.re-metric-card i {
+    font-size: 2.5rem;
+    color: var(--re-accent-blue);
+    margin-bottom: 24px;
+}
+
+.re-metric-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.re-metric-card p {
+    color: var(--re-text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Ledger Section (Unique Layout) */
+.re-ledger {
+    padding: 120px 0;
+    background: var(--re-primary);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.re-ledger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
+}
+
+.re-ledger-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.re-ledger-text h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #ffffff;
+    /* Explicit high contrast */
+}
+
+.re-ledger-text p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.re-ledger-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.re-ledger-step {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border-left: 3px solid var(--re-accent-blue);
+    transition: all 0.3s ease;
+}
+
+.re-ledger-step:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.re-step-num {
+    font-weight: 900;
+    color: var(--re-accent-blue);
+    font-size: 1.2rem;
+}
+
+.re-step-info h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.re-step-info p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0;
+}
+
+.re-ledger-visual {
+    position: relative;
+    padding: 20px;
+}
+
+.re-ledger-img {
+    width: 100%;
+    border-radius: 32px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scenarios */
+.re-scenarios {
+    padding: 140px 0;
+}
+
+.re-scenario-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.re-scenario-row.reverse {
+    direction: rtl;
+}
+
+.re-scenario-row.reverse .re-scenario-content {
+    direction: ltr;
+}
+
+.re-scenario-content h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.re-scenario-content p {
+    font-size: 1.15rem;
+    color: var(--re-text-muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.re-scenario-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.re-scenario-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--re-primary);
+}
+
+.re-scenario-list li i {
+    color: var(--re-accent-blue);
+}
+
+.re-scenario-visual img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--re-shadow);
+}
+
+/* Scenarios Expansion */
+.re-escrow-section {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+.re-vault-visual {
+    position: relative;
+    padding: 40px;
+    background: var(--re-primary);
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
+}
+
+.re-vault-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Fractional Ownership - Premium Dashboard v2 (Graphs) */
+.re-fractional {
+    padding: 140px 0;
+    background: #f8fafc;
+    overflow: hidden;
+}
+
+.re-market-card { /* market-card */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    border-radius: 32px;
+    padding: 32px;
+    box-shadow: 0 50px 100px -20px rgba(0, 102, 255, 0.12);
+    position: relative;
+    z-index: 5;
+}
+
+.re-chart-container {
+    height: 180px;
+    margin: 30px 0;
+    position: relative;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.re-chart-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.re-chart-line {
+    fill: none;
+    stroke: var(--re-accent-blue);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+.re-reveal.active .re-chart-line {
+    animation: re-draw-line 3s forwards ease-in-out;
+}
+
+@keyframes re-draw-line {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.re-chart-area {
+    fill: url(#re-chart-gradient);
+    opacity: 0;
+}
+
+.re-reveal.active .re-chart-area {
+    animation: re-fade-in 1s 2s forwards;
+}
+
+@keyframes re-fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+.re-donut-box {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.re-donut-chart {
+    width: 70px;
+    height: 70px;
+    position: relative;
+}
+
+.re-donut-ring {
+    fill: none;
+    stroke: #e2e8f0;
+    stroke-width: 8;
+}
+
+.re-donut-segment {
+    fill: none;
+    stroke: var(--re-accent-blue);
+    stroke-width: 8;
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 251.2;
+    transition: stroke-dashoffset 2s ease;
+}
+
+.re-reveal.active .re-donut-segment {
+    stroke-dashoffset: 45;
+    /* ~82% */
+}
+
+.re-legend {
+    flex: 1;
+}
+
+.re-legend-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.re-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.re-stats-mini {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding-top: 20px;
+}
+
+.re-stat-item h5 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--re-primary);
+    margin: 0;
+}
+
+.re-stat-item span {
+    font-size: 0.65rem;
+    color: var(--re-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Geospacial - Professional Coordinate Proof (3D Enhanced Light Mode) */
+.re-geo {
+    padding: 140px 0;
+    background: #ffffff;
+    color: var(--re-primary);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #f1f5f9;
+}
+
+.re-geo-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.re-proof-visual {
+    position: relative;
+    height: 600px;
+    perspective: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.re-iso-grid {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(60deg) rotateZ(-45deg);
+    background-image: 
+        linear-gradient(rgba(0, 102, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 102, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    background-color: rgba(248, 250, 252, 0.5);
+    transform-style: preserve-3d;
+}
+
+/* 3D Property Models (Isometric Boxes) */
+.re-iso-box {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.re-iso-side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.re-iso-side.top {
+    background: #e2e8f0;
+    transform: translateZ(40px); /* Height of building */
+    border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.re-iso-side.front {
+    background: #cbd5e1;
+    transform: rotateX(-90deg) translateZ(20px) translateY(-20px);
+    height: 40px;
+}
+
+.re-iso-side.right {
+    background: #94a3b8;
+    transform: rotateY(90deg) translateZ(20px) translateX(20px);
+    width: 40px;
+}
+
+.re-geo-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--re-accent-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 20px 5px var(--re-accent-blue);
+    transform: translateZ(45px); /* Position on top of building */
+}
+
+/* Vertical Proof Beams */
+.re-proof-beam {
+    position: absolute;
+    width: 1px;
+    height: 200px;
+    background: linear-gradient(to top, var(--re-accent-blue), transparent);
+    transform-origin: bottom;
+    transform: rotateX(-60deg) rotateZ(45deg); /* Counter the grid rotation */
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.re-proof-tag {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 
+        0 30px 60px -12px rgba(0, 0, 0, 0.12),
+        inset 0 0 20px rgba(0, 102, 255, 0.05);
+    backdrop-filter: blur(15px);
+    z-index: 100;
+    min-width: 260px;
+    transform: translateZ(100px); /* Lift in 3D space */
+}
+
+.re-reveal.active .re-iso-box {
+    animation: re-box-rise 1.5s ease-out forwards;
+}
+
+@keyframes re-box-rise {
+    from { transform: translateZ(-200px) scale(0); opacity: 0; }
+    to { transform: translateZ(0) scale(1); opacity: 1; }
+}
+
+.re-proof-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.re-proof-badge {
+    color: var(--re-accent-blue);
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.re-geohash {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #334155;
+    background: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: block;
+    margin-top: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.re-proof-sig {
+    font-size: 0.75rem;
+    color: #475569;
+    margin-top: 15px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Final CTA Section */
+.re-cta {
+    padding: 120px 0;
+    text-align: center;
+    background: #ffffff;
+    border-top: 1px solid #f1f5f9;
+}
+
+.re-cta h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--re-primary);
+    margin-bottom: 24px;
+}
+
+.re-cta p {
+    font-size: 1.25rem;
+    color: var(--re-text-muted);
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+.re-cta-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Responsive Update */
+@media (max-width: 1024px) {
+
+    .re-hero-content,
+    .re-ledger-content,
+    .re-scenario-row {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+
+    .re-hero-text p,
+    .re-ledger-text p,
+    .re-cta p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .re-hero-actions {
+        justify-content: center;
+    }
+
+    .re-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .re-hero-text h1 {
+        font-size: 3rem;
+    }
+}

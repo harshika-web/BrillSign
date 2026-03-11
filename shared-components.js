@@ -30,7 +30,7 @@ let detectedRoot = '';
                 }
             }
         }
-        
+
         // Manual GitHub Pages fallback as a last resort
         if (!detectedRoot || detectedRoot.startsWith('file://')) {
             const loc = window.location;
@@ -293,21 +293,21 @@ const solutionsDropdownHTML = `
                     <div class="solutions-desc">Reg-tech for public sector</div>
                 </div>
             </a></li>
-            <li><a href="real-estate.html">
+            <li><a href="industry-solutions/real-estate.html">
                 <i class="fas fa-building"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Real Estate</div>
                     <div class="solutions-desc">Accelerated closing cycles</div>
                 </div>
             </a></li>
-            <li><a href="technology.html">
+            <li><a href="industry-solutions/technology.html">
                 <i class="fas fa-laptop-code"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Technology</div>
                     <div class="solutions-desc">API-first signing infra</div>
                 </div>
             </a></li>
-            <li><a href="consulting.html">
+            <li><a href="industry-solutions/consulting.html">
                 <i class="fas fa-handshake"></i>
                 <div class="solutions-text">
                     <div class="solutions-title">Consulting</div>
@@ -694,17 +694,17 @@ function loadFooter(siteRoot) {
 // Helper to fix paths in injected HTML
 function fixHTMLPaths(html, root) {
     if (!root) return html;
-    
+
     // Ensure root ends with /
     if (!root.endsWith('/')) root += '/';
 
     return html.replace(/(href|src)="([^"]+)"/g, (match, attr, val) => {
         // Skip absolute URLs, hashes, mailto, etc.
-        if (val.startsWith('http') || val.startsWith('/') || val.startsWith('#') || 
+        if (val.startsWith('http') || val.startsWith('/') || val.startsWith('#') ||
             val.startsWith('mailto:') || val.startsWith('data:') || val.startsWith('tel:')) {
             return match;
         }
-        
+
         // Combine root + val
         return `${attr}="${root}${val}"`;
     });
