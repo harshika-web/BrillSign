@@ -78,23 +78,30 @@
 }
 
 .hc-hero-text h1 {
-    font-size: 3.8rem;
-    line-height: 1.15;
-    font-weight: 700;
+    font-size: 4.2rem;
+    line-height: 1.1;
+    font-weight: 800;
     margin-bottom: 24px;
     color: var(--hc-text-main);
+    letter-spacing: -1px;
 }
 
 .hc-hero-text h1 span {
-    color: var(--hc-blue);
+    background: linear-gradient(135deg, var(--hc-blue) 0%, #00d2ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .hc-hero-text p {
-    font-size: 1.25rem;
-    color: var(--hc-text-muted);
+    font-size: 1.35rem;
+    color: #334155;
     margin-bottom: 40px;
-    max-width: 480px;
+    max-width: 520px;
     line-height: 1.6;
+    font-weight: 400;
 }
 
 .hc-hero-actions {

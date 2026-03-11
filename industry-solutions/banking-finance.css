@@ -382,34 +382,66 @@
 }
 
 /* ==========================================================================
-   Compliance Marquee
+   Banking FAQs Section
    ========================================================================== */
-.bf-marquee-section {
-    padding: 60px 0;
+.bf-faq-section {
+    padding: 100px 0;
     background: #ffffff;
+    border-top: 1px solid var(--bf-border);
+}
+
+.bf-faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bf-faq-item {
     border-bottom: 1px solid var(--bf-border);
-    overflow: hidden;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
 }
 
-.bf-marquee-container {
+.bf-faq-question {
     display: flex;
-    white-space: nowrap;
-    animation: bfMarquee 40s linear infinite;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 16px 0;
 }
 
-.bf-marquee-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 40px;
+.bf-faq-question h4 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--bf-text-muted);
+    color: var(--bf-text-dark);
+    margin: 0;
 }
 
-.bf-marquee-item i {
+.bf-faq-question i {
     color: var(--bf-blue);
-    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.bf-faq-item.active .bf-faq-question i {
+    transform: rotate(45deg);
+}
+
+.bf-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+.bf-faq-item.active .bf-faq-answer {
+    max-height: 500px; /* Arbitrary large number to allow animation */
+    opacity: 1;
+}
+
+.bf-faq-answer p {
+    padding: 0 0 16px 0;
+    color: var(--bf-text-muted);
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* ==========================================================================
@@ -427,15 +459,6 @@
     }
 }
 
-@keyframes bfMarquee {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
 
 .bf-reveal {
     opacity: 0;

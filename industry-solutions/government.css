@@ -86,22 +86,26 @@
 }
 
 .gov-hero-content h1 {
-    font-size: 4rem;
+    font-size: 4.2rem;
     line-height: 1.15;
     font-weight: 800;
     margin-bottom: 24px;
     letter-spacing: -1px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .gov-hero-content h1 span {
     color: var(--gov-gold);
+    text-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
 }
 
 .gov-hero-content p {
-    font-size: 1.25rem;
-    color: #cbd5e1;
+    font-size: 1.35rem;
+    color: #f1f5f9;
     margin-bottom: 40px;
     line-height: 1.7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    font-weight: 400;
 }
 
 .gov-hero-actions {
