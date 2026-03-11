@@ -1,8 +1,48 @@
 /**
- * Shared Components for BrillSign Website
+ * Shared Components for BrillSign Website (v5)
  * This file contains the navbar, footer, and features dropdown
  * to ensure consistency across all pages.
  */
+
+// Global variable to store detected site root
+let detectedRoot = '';
+
+// Immediate detection (currentScript ONLY works during initial script execution)
+(function detectRoot() {
+    try {
+        const currentScript = document.currentScript;
+        if (currentScript && currentScript.src) {
+            // Get the directory containing this script
+            detectedRoot = currentScript.src.split('shared-components.js')[0];
+            console.log("BrillSign: Root detected via currentScript:", detectedRoot);
+        } else {
+            // Fallback for async/deferred loading - find the script by name
+            const scripts = document.getElementsByTagName('script');
+            for (let i = 0; i < scripts.length; i++) {
+                if (scripts[i].src && scripts[i].src.includes('shared-components.js')) {
+                    detectedRoot = scripts[i].src.split('shared-components.js')[0];
+                    console.log("BrillSign: Root detected via scripts collection:", detectedRoot);
+                    break;
+                }
+            }
+        }
+        
+        // Manual GitHub Pages fallback as a last resort
+        if (!detectedRoot || detectedRoot.startsWith('file://')) {
+            const loc = window.location;
+            if (loc.hostname.includes('github.io')) {
+                const pathParts = loc.pathname.split('/');
+                if (pathParts.length > 1 && pathParts[1]) {
+                    // Assuming /repo-name/ is the first part of the path on GitHub Pages
+                    detectedRoot = `${loc.origin}/${pathParts[1]}/`;
+                    console.log("BrillSign: Root hardcoded for GitHub Pages:", detectedRoot);
+                }
+            }
+        }
+    } catch (e) {
+        console.error("BrillSign: Error detecting root:", e);
+    }
+})();
 
 // Navbar HTML
 const navbarHTML = `
@@ -618,37 +658,52 @@ const footerHTML = `
 `;
 
 // Function to inject navbar
-function loadNavbar() {
+// Function to inject navbar
+function loadNavbar(siteRoot) {
     const navPlaceholder = document.getElementById('navbar-placeholder');
     if (navPlaceholder) {
-        navPlaceholder.innerHTML = navbarHTML; // Use innerHTML instead of outerHTML to keep the container or just replace content
+        navPlaceholder.innerHTML = fixHTMLPaths(navbarHTML, siteRoot);
 
-        // Inject features dropdown content
-        const featuresDropdownContent = document.getElementById('featuresDropdownContent');
-        if (featuresDropdownContent) {
-            featuresDropdownContent.innerHTML = featuresDropdownHTML;
-        }
+        // Inject dropdown contents
+        const targets = [
+            { id: 'featuresDropdownContent', html: featuresDropdownHTML },
+            { id: 'solutionsDropdownContent', html: solutionsDropdownHTML },
+            { id: 'apiDropdownContent', html: apiDropdownHTML },
+            { id: 'resourcesDropdownContent', html: resourcesDropdownHTML }
+        ];
 
-        // Inject solutions dropdown content
-        const solutionsDropdownContent = document.getElementById('solutionsDropdownContent');
-        if (solutionsDropdownContent) {
-            solutionsDropdownContent.innerHTML = solutionsDropdownHTML;
-        }
-
-        // Inject API dropdown content
-        const apiDropdownContent = document.getElementById('apiDropdownContent');
-        if (apiDropdownContent) {
-            apiDropdownContent.innerHTML = apiDropdownHTML;
-        }
-
-        // Inject resources dropdown content
-        const resourcesDropdownContent = document.getElementById('resourcesDropdownContent');
-        if (resourcesDropdownContent) {
-            resourcesDropdownContent.innerHTML = resourcesDropdownHTML;
-        }
-
-        // Initialize features dropdown content is separate from general behavior
+        targets.forEach(target => {
+            const el = document.getElementById(target.id);
+            if (el) el.innerHTML = fixHTMLPaths(target.html, siteRoot);
+        });
     }
+}
+
+// Function to inject footer
+function loadFooter(siteRoot) {
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+        footerPlaceholder.innerHTML = fixHTMLPaths(footerHTML, siteRoot);
+    }
+}
+
+// Helper to fix paths in injected HTML
+function fixHTMLPaths(html, root) {
+    if (!root) return html;
+    
+    // Ensure root ends with /
+    if (!root.endsWith('/')) root += '/';
+
+    return html.replace(/(href|src)="([^"]+)"/g, (match, attr, val) => {
+        // Skip absolute URLs, hashes, mailto, etc.
+        if (val.startsWith('http') || val.startsWith('/') || val.startsWith('#') || 
+            val.startsWith('mailto:') || val.startsWith('data:') || val.startsWith('tel:')) {
+            return match;
+        }
+        
+        // Combine root + val
+        return `${attr}="${root}${val}"`;
+    });
 }
 
 // Function to inject fonts
@@ -726,51 +781,12 @@ function initSharedBehavior() {
     });
 }
 
-// Function to inject footer
-function loadFooter() {
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = footerHTML;
-    }
-}
-
 // Function to initialize everything
 function initAll() {
-    loadNavbar();
-    loadFooter();
+    console.log(`BrillSign Components v20260311_v5 | Active Root: ${detectedRoot}`);
+    loadNavbar(detectedRoot);
+    loadFooter(detectedRoot);
     initSharedBehavior();
-
-    // Fix relative links when page is in a subfolder (e.g., blog/)
-    const scriptTag = document.querySelector('script[src$="shared-components.js"]');
-    if (scriptTag) {
-        const src = scriptTag.getAttribute('src');
-        // If src starts with "../", the page is in a subfolder
-        if (src.startsWith('../')) {
-            const prefix = src.replace('shared-components.js', '');
-            const containers = [
-                document.getElementById('navbar-placeholder'),
-                document.getElementById('footer-placeholder')
-            ];
-            containers.forEach(container => {
-                if (!container) return;
-                // Fix anchor hrefs
-                container.querySelectorAll('a[href]').forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (!href || href.startsWith('http') || href.startsWith('#') ||
-                        href.startsWith('mailto:') || href.startsWith('../') ||
-                        href.startsWith('/')) return;
-                    link.setAttribute('href', prefix + href);
-                });
-                // Fix image srcs
-                container.querySelectorAll('img[src]').forEach(img => {
-                    const imgSrc = img.getAttribute('src');
-                    if (!imgSrc || imgSrc.startsWith('http') || imgSrc.startsWith('../') ||
-                        imgSrc.startsWith('/') || imgSrc.startsWith('data:')) return;
-                    img.setAttribute('src', prefix + imgSrc);
-                });
-            });
-        }
-    }
 }
 
 // Auto-load components
