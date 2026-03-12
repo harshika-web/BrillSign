@@ -14,8 +14,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../index.css">
-    <link rel="stylesheet" href="../faq-section.css">
     <link rel="stylesheet" href="rest-api.css">
+    <link rel="stylesheet" href="faq-premium.css">
 </head>
 
 <body class="feature-page">
@@ -231,10 +231,10 @@
         <section class="rest-endpoints" id="endpoints">
             <div class="rest-endpoints-grid-bg"></div>
             <div class="container">
-                <div class="rest-section-header rest-section-header-dark animate-up">
-                    <h2 class="premium-heading" style="color:#fff;">Everything You Need. <span
+                <div class="rest-section-header animate-up">
+                    <h2 class="premium-heading">Everything You Need. <span
                             class="text-highlight">Nothing You Don't.</span></h2>
-                    <p style="color:#94a3b8;">8 core endpoints covering the full document signing lifecycle — from
+                    <p>8 core endpoints covering the full document signing lifecycle — from
                         upload through independent verification.</p>
                 </div>
 
@@ -687,10 +687,10 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
         <section class="rest-trust">
             <div class="rest-trust-bg-grid"></div>
             <div class="container">
-                <div class="rest-section-header rest-section-header-dark animate-up">
-                    <h2 class="premium-heading" style="color:#fff;">Built on a Stack That <span
+                <div class="rest-section-header animate-up">
+                    <h2 class="premium-heading">Built on a Stack That <span
                             class="text-highlight">Regulators Trust</span></h2>
-                    <p style="color:#94a3b8;">Every API call is isolated, encrypted, and cryptographically attributable.
+                    <p>Every API call is isolated, encrypted, and cryptographically attributable.
                         Security isn't a feature — it's the architecture.</p>
                 </div>
 
@@ -843,7 +843,7 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
                     <div class="rest-cta-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h2 class="premium-heading" style="color:#fff;">Ready to Ship Cryptographic Signing Into Your
+                    <h2 class="premium-heading">Ready to Ship Cryptographic Signing Into Your
                         Product?</h2>
                     <p>Get your API key, make your first call, and have documents signing with full cryptographic proof
                         in under 5 minutes.</p>
@@ -861,7 +861,7 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
         </section>
 
         <!-- ===== SECTION 9: FAQ ===== -->
-        <section class="rest-faq">
+        <section class="premium-faq-section rest-faq">
             <div class="container">
                 <div class="rest-section-header animate-up">
                     <h2 class="premium-heading">Developer <span class="text-highlight">FAQ</span></h2>
@@ -871,11 +871,11 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
                 <div class="faq-container">
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span class="question-text">Is the API production-ready?</span>
-                            <div class="faq-toggle"></div>
+                            <span>Is the API production-ready?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
                                 Yes. BrillSign API v1 is live and production-ready with a 99.99% uptime SLA on
                                 Enterprise tier and 99.9% on Pro. We've processed over 2 million documents since launch
                                 with zero data breaches. Full changelog and API versioning policy are available in the
@@ -886,11 +886,11 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span class="question-text">What authentication method does the API use?</span>
-                            <div class="faq-toggle"></div>
+                            <span>What authentication method does the API use?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
                                 Bearer token (API key) for server-to-server calls — pass it as
                                 <code>Authorization: Bearer sk_live_...</code>. OAuth 2.0 is available for user-facing
                                 signer flows where the end-user authorizes directly. All keys support request-level
@@ -902,11 +902,11 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span class="question-text">Can I test without a live account?</span>
-                            <div class="faq-toggle"></div>
+                            <span>Can I test without a live account?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
                                 Yes. Use our sandbox environment at <code>https://api-sandbox.brillsign.com/v1</code>
                                 with test keys (prefixed <code>sk_test_</code>). No documents are actually signed or
                                 stored in sandbox mode. Sandbox responses mirror production exactly — same payloads,
@@ -917,11 +917,11 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span class="question-text">How do I handle webhook retries if my endpoint is down?</span>
-                            <div class="faq-toggle"></div>
+                            <span>How do I handle webhook retries if my endpoint is down?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
                                 BrillSign retries failed webhook deliveries 5 times with exponential backoff: 30 seconds
                                 → 5 minutes → 30 minutes → 2 hours → 6 hours. After all retries fail, the event moves to
                                 a dead-letter queue accessible via the dashboard (Pro+). All webhook payloads are
@@ -932,11 +932,11 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span class="question-text">Is the API GDPR and SOC 2 compliant?</span>
-                            <div class="faq-toggle"></div>
+                            <span>Is the API GDPR and SOC 2 compliant?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
                                 Yes. Our zero-knowledge architecture means we do not store document content — only
                                 cryptographic proofs and metadata. All metadata is stored in your chosen jurisdiction
                                 (EU, US, or APAC). BrillSign is SOC 2 Type II certified and eIDAS compliant. GDPR Data
@@ -947,11 +947,11 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span class="question-text">What file formats and sizes does the upload API support?</span>
-                            <div class="faq-toggle"></div>
+                            <span>What file formats and sizes does the upload API support?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
                                 PDF, DOCX, and PNG are supported for upload and signing. Maximum file size is 25MB per
                                 document on Free/Pro tiers; 100MB on Enterprise. Batch uploading up to 50 documents per
                                 request is available on Pro+ via the <code>/v1/documents/batch-upload</code> endpoint.
@@ -961,11 +961,11 @@ System.out.<span class="cc-fn">println</span>(webhook.<span class="cc-fn">getId<
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span class="question-text">What happens to signed proofs if BrillSign has an outage?</span>
-                            <div class="faq-toggle"></div>
+                            <span>What happens to signed proofs if BrillSign has an outage?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
                                 All cryptographic proofs are embedded directly into the signed documents — they do not
                                 require BrillSign to verify. Our exit-safe architecture means every signed document
                                 remains independently verifiable forever, even if BrillSign ceased operations entirely.

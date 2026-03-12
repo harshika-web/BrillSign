@@ -7,15 +7,8 @@
     <title>Salesforce Integration | BrillSign</title>
     <meta name="description"
         content="Sign contracts directly from Salesforce Opportunity records. BrillSign's native Salesforce integration with zero-knowledge security.">
-    <style>
-        :root {
-            --pi-color: #0176D3;
-            --pi-glow: rgba(1, 118, 211, 0.2);
-            --pi-color-mid: rgba(1, 118, 211, 0.12);
-            --pi-icon-bg: rgba(1, 118, 211, 0.1);
-        }
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
         rel="stylesheet">
@@ -25,104 +18,288 @@
     <link rel="stylesheet" href="platform-integration.css">
 </head>
 
+    <style>
+        :root {
+            --sf-blue: #0176D3;
+            --sf-light: #f0f8ff;
+            --sf-glow: rgba(1, 118, 211, 0.15);
+            --pi-color: #0176D3; /* Ensure shared CSS uses this */
+        }
+        
+        /* Premium Hero Adjustments */
+        .pi-hero {
+            background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+            padding: 140px 24px 100px;
+        }
+        .pi-blob-1 { background: radial-gradient(circle, var(--sf-glow) 0%, transparent 65%); }
+        .pi-hero-title.premium-heading { color: var(--text-primary); }
+        .pi-hero-title .text-highlight { 
+            color: var(--primary-blue);
+        }
+        
+        /* Force Light Theme on Shared Dark Sections */
+        .pi-how { background: var(--bg-body); }
+        .pi-how-bg { display: none; }
+        .pi-flow-step { background: var(--card-bg); border-color: var(--card-border); box-shadow: var(--card-shadow); }
+        .pi-flow-step h4 { color: var(--text-primary); }
+        .pi-flow-step p { color: var(--text-secondary); }
+        .pi-flow-num { background: var(--primary-blue); color: white; }
+        .pi-flow-icon { background: var(--bg-accent); color: var(--primary-blue); }
+        .pi-cta { background: var(--bg-accent); border-top: 1px solid var(--card-border); }
+        .pi-cta-glow { display: none; }
+        .faq-section.pi-faq { background: var(--bg-body); }
+        
+        /* Elite Bento Grid for Features */
+        .sf-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .sf-bento-item {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sf-bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--sf-glow);
+            border-color: rgba(1, 118, 211, 0.3);
+        }
+        
+        .sf-bento-item.col-8 { grid-column: span 8; }
+        .sf-bento-item.col-4 { grid-column: span 4; }
+        .sf-bento-item.col-6 { grid-column: span 6; }
+        
+        .sf-bento-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(1, 118, 211, 0.1), rgba(1, 118, 211, 0.05));
+            border: 1px solid rgba(1, 118, 211, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--sf-blue);
+            margin-bottom: 24px;
+        }
+        
+        .sf-bento-item h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .sf-bento-item p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Enhanced Setup Steps */
+        .sf-setup-container {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 4px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .sf-setup-header {
+            background: var(--bg-accent);
+            border-radius: 28px 28px 0 0;
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .sf-setup-dots span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            opacity: 0.5;
+        }
+        .sf-setup-dots span:nth-child(1) { background: #ff5f56; opacity: 1; }
+        .sf-setup-dots span:nth-child(2) { background: #ffbd2e; opacity: 1; }
+        .sf-setup-dots span:nth-child(3) { background: #27c93f; opacity: 1; }
+        
+        .sf-setup-grid {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            background: var(--card-bg);
+            border-radius: 0 0 28px 28px;
+        }
+        
+        .sf-step-card {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            border-radius: 20px;
+            background: var(--bg-accent);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .sf-step-card:hover {
+            background: var(--card-bg);
+            border-color: rgba(1, 118, 211, 0.2);
+            box-shadow: var(--card-shadow);
+        }
+        .sf-step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--sf-blue);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .sf-step-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .sf-step-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 900px) {
+            .sf-bento-item.col-8, .sf-bento-item.col-4, .sf-bento-item.col-6 { grid-column: span 12; }
+            .sf-setup-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
 <body class="feature-page">
     <div id="navbar-placeholder"></div>
     <main>
 
-        <!-- HERO -->
+        <!-- PREMIUM HERO -->
         <section class="pi-hero">
             <div class="pi-hero-grid"></div>
             <div class="pi-blob-1 glow-blob"></div>
-            <div class="pi-blob-2 glow-blob"></div>
             <div class="container">
-                <div class="pi-hero-layout">
+                <div class="pi-hero-layout" style="gap: 40px;">
                     <div class="pi-hero-content animate-up">
-                        <div class="pi-hero-badge"><i class="fas fa-cloud" style="color:#0176D3"></i> Salesforce
-                            Integration · Native CRM</div>
-                        <h1 class="pi-hero-title premium-heading">Sign Contracts Without <span
-                                class="text-highlight">Leaving Salesforce.</span></h1>
-                        <p class="pi-hero-sub">BrillSign's native Salesforce integration lets your team send, track, and
-                            receive signed contracts directly from Opportunity records — zero platform-switching, zero
-                            lost context.</p>
+                        <div class="pi-hero-badge" style="background: var(--bg-accent); border-color: var(--card-border); color: var(--primary-blue);">
+                            <i class="fas fa-cloud"></i> Salesforce Integration · Native CRM
+                        </div>
+                        <h1 class="pi-hero-title premium-heading">Sign Contracts Without <br><span class="text-highlight">Leaving Salesforce.</span></h1>
+                        <p class="pi-hero-sub" style="color: var(--text-secondary); font-size: 1.15rem;">BrillSign's native Salesforce integration lets your team send, track, and receive signed contracts directly from Opportunity records — zero platform-switching, zero lost context.</p>
                         <div class="pi-hero-ctas feature-ctas">
-                            <a href="../index.html#waitlist" class="btn-primary"><span>Connect Salesforce</span><i
-                                    class="fas fa-arrow-right"></i></a>
-                            <a href="#how" class="btn-outline"><i class="fas fa-play"></i><span>See How It
-                                    Works</span></a>
+                            <a href="../index.html#waitlist" class="btn-primary" style="background:var(--primary-blue); padding: 16px 32px; border-radius: 12px; font-size: 1.1rem;"><span>Install Package</span><i class="fas fa-arrow-right"></i></a>
+                            <a href="#how" class="btn-outline-v3" style="color: var(--text-primary); border-color: var(--card-border);"><i class="fas fa-play" style="margin-right: 8px;"></i><span>See Workflow</span></a>
                         </div>
                     </div>
                     <div class="pi-hero-diagram animate-right">
-                        <div class="pi-pipe-diagram">
-                            <div class="pi-logo-node">
-                                <div class="pi-logo-circle pi-logo-bs"><i class="fas fa-shield-halved"></i></div>
-                                <span class="pi-logo-label">BrillSign</span>
-                            </div>
-                            <div class="pi-pipe">
-                                <div class="pi-pipe-labels">
-                                    <span class="pi-pipe-tag">ZK-signed</span>
-                                    <span class="pi-pipe-tag">document.signed</span>
+                        <!-- Upgraded Sync Diagram -->
+                        <div style="position: relative; width: 100%; height: 400px; background: rgba(255, 255, 255, 0.7); border: 1px solid var(--card-border); border-radius: 32px; backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: var(--card-shadow);">
+                            <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(1,118,211,0.05) 0%, transparent 70%);"></div>
+                            
+                            <div style="display: flex; align-items: center; gap: 30px; z-index: 2;">
+                                <!-- BrillSign Node -->
+                                <div style="width: 100px; height: 100px; border-radius: 28px; background: linear-gradient(135deg, #003755, #0066ff); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #fff; box-shadow: 0 10px 30px rgba(0,102,255,0.3);">
+                                    <i class="fas fa-shield-halved"></i>
                                 </div>
-                                <div class="pi-pipe-dot"></div>
-                                <div class="pi-pipe-dot"></div>
-                                <div class="pi-pipe-dot"></div>
-                                <div class="pi-pipe-status">
-                                    <div class="pi-pipe-status-dot"></div> Live Sync
+                                
+                                <!-- Animated Data Flow -->
+                                <div style="flex: 1; min-width: 150px; height: 4px; background: rgba(1, 118, 211, 0.2); border-radius: 2px; position: relative;">
+                                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: var(--primary-blue); font-family:var(--mono); background: var(--bg-accent); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--card-border); white-space: nowrap;">⚡ Real-time Sync</div>
+                                    <div class="pi-pipe-dot" style="background:var(--primary-blue); box-shadow: 0 0 15px var(--primary-blue); width:12px; height:12px;"></div>
+                                    <div class="pi-pipe-dot" style="background:#0176D3; box-shadow: 0 0 15px #0176D3; width:12px; height:12px; animation-delay: 0.6s;"></div>
+                                    <div class="pi-pipe-dot" style="background:#00d2ff; box-shadow: 0 0 15px #00d2ff; width:12px; height:12px; animation-delay: 1.2s;"></div>
+                                </div>
+                                
+                                <!-- Salesforce Node -->
+                                <div style="width: 100px; height: 100px; border-radius: 28px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #0176D3; box-shadow: 0 10px 30px rgba(1,118,211,0.2);">
+                                    <i class="fab fa-salesforce"></i>
                                 </div>
                             </div>
-                            <div class="pi-logo-node">
-                                <div class="pi-logo-circle pi-logo-platform"><i class="fas fa-cloud"></i></div>
-                                <span class="pi-logo-label">Salesforce</span>
+                            
+                            <!-- Floating UI Elements -->
+                            <div style="position: absolute; bottom: 30px; left: 30px; background: var(--card-bg); padding: 12px 20px; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid var(--card-border); display: flex; align-items: center; gap: 12px; box-shadow: var(--card-shadow);">
+                                <div style="width: 36px; height: 36px; border-radius: 10px; background:#22c55e; display: flex; align-items: center; justify-content: center; color: white;"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <div style="font-size: 0.8rem; color: var(--text-primary); font-weight: 600;">MSA_Signed.pdf</div>
+                                    <div style="font-size: 0.65rem; color: var(--text-muted);">Attached to record</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pi-hero-stats">
-                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">1-click</span><span
-                                    class="pi-hero-stat-label">Send from Opp.</span></div>
-                            <div class="pi-stat-div"></div>
-                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">Real-time</span><span
-                                    class="pi-hero-stat-label">Status sync</span></div>
-                            <div class="pi-stat-div"></div>
-                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">Auto</span><span
-                                    class="pi-hero-stat-label">Record attach</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FEATURES -->
-        <section class="pi-features">
+        <!-- BENTO FEATURES -->
+        <section class="pi-features" style="background: var(--bg-body); padding: 120px 24px;">
             <div class="container">
                 <div class="pi-section-header animate-up">
-                    <div class="pi-section-label">Key Features</div>
-                    <h2 class="premium-heading">CRM-Native Signing. <span class="text-highlight">Zero Workflow
+                    <div class="pi-section-label" style="background: rgba(1, 118, 211, 0.1); border-color: rgba(1, 118, 211, 0.2); color: #0176D3;">Deep Integration</div>
+                    <h2 class="premium-heading" style="color: var(--text-primary);">CRM-Native Signing. <span class="text-highlight">Zero Workflow
                             Disruption.</span></h2>
-                    <p>Every signing action lives inside Salesforce — no context switching means faster closes and
-                        better adoption across your team.</p>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 20px auto 0;">Every signing action lives inside Salesforce — no context switching means faster closes and
+                        better adoption across your revenue team.</p>
                 </div>
-                <div class="pi-features-grid">
-                    <div class="pi-feature-card animate-up" style="transition-delay:0.05s">
-                        <div class="pi-feature-icon"><i class="fas fa-bolt"></i></div>
-                        <div class="pi-feature-stat">1-click</div>
-                        <div class="pi-feature-stat-label">Send from Opportunity</div>
-                        <h3>Send from Any Opportunity Record</h3>
-                        <p>A BrillSign button appears on every Opportunity record. Click once to choose a template, add
-                            signers, and send — all without leaving Salesforce.</p>
+                
+                <div class="sf-bento-grid">
+                    <!-- Dominant Feature: Send from Opp -->
+                    <div class="sf-bento-item col-8 animate-up" style="background: var(--elite-card-bg); padding: 60px;">
+                        <div class="sf-bento-icon" style="width: 80px; height: 80px; font-size: 2rem;"><i class="fas fa-paper-plane"></i></div>
+                        <h3 style="font-size: 2rem;">Send from Any Opportunity Record</h3>
+                        <p style="font-size: 1.15rem; max-width: 500px;">A custom BrillSign module sits natively on your Opportunity, Contact, or custom object pages. Generate contracts from Salesforce templates, select signers from Contact Roles, and send with one click.</p>
+                        <!-- Visual mockup representation could go here -->
+                        <div style="margin-top: 40px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px; box-shadow: var(--card-shadow); display: flex; align-items:center; gap: 20px;">
+                            <div style="width: 48px; height: 48px; border-radius: 8px; background: #0176D3; color: white; display: flex; align-items:center; justify-content:center; font-size: 1.2rem;"><i class="fas fa-file-signature"></i></div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--text-primary);">Enterprise_Software_MSA_v2.pdf</div>
+                                <div style="font-size: 0.85rem; color: var(--text-muted);">Ready to send to 2 signers</div>
+                            </div>
+                            <button style="margin-left:auto; background: #0176D3; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">Send for Signature</button>
+                        </div>
                     </div>
-                    <div class="pi-feature-card animate-up" style="transition-delay:0.12s">
-                        <div class="pi-feature-icon"><i class="fas fa-paperclip"></i></div>
-                        <div class="pi-feature-stat">Auto</div>
-                        <div class="pi-feature-stat-label">Record Attachment</div>
-                        <h3>Signed Docs Auto-Attach to Records</h3>
-                        <p>Once signed, the document and cryptographic proof automatically attach to the parent
-                            Salesforce record. No manual uploads, no lost files.</p>
+                    
+                    <!-- Side Feature: Auto Sync -->
+                    <div class="sf-bento-item col-4 animate-up" style="transition-delay: 0.1s;">
+                        <div class="sf-bento-icon"><i class="fas fa-rotate"></i></div>
+                        <h3>Real-time Field Sync</h3>
+                        <p>Status updates flow instantly to Salesforce fields. Trigger workflows when a deal is "Viewed" or "Signed".</p>
                     </div>
-                    <div class="pi-feature-card animate-up" style="transition-delay:0.20s">
-                        <div class="pi-feature-icon"><i class="fas fa-rotate"></i></div>
-                        <div class="pi-feature-stat">Real-time</div>
-                        <div class="pi-feature-stat-label">Bi-directional Sync</div>
-                        <h3>Signing Status Syncs to Custom Fields</h3>
-                        <p>Custom Salesforce fields update in real time as signers view, sign, or decline. Trigger
-                            Salesforce flows and automations based on signing events.</p>
+                    
+                    <!-- Bottom Feature 1: Attachments -->
+                    <div class="sf-bento-item col-6 animate-up" style="transition-delay: 0.2s;">
+                        <div class="sf-bento-icon"><i class="fas fa-paperclip"></i></div>
+                        <h3>Auto-Attach Signed Documents</h3>
+                        <p>The final signed PDF and its cryptographic audit trail are automatically pushed to the Salesforce record's "Files" or "Notes & Attachments" section. No manual dragging.</p>
+                    </div>
+                    
+                    <!-- Bottom Feature 2: CPQ -->
+                    <div class="sf-bento-item col-6 animate-up" style="transition-delay: 0.3s; background: #003755; border-color:#003755;">
+                        <div class="sf-bento-icon" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h3 style="color: white;">Salesforce CPQ Ready</h3>
+                        <p style="color: rgba(255,255,255,0.7);">Generate complex quote documents using Salesforce CPQ and seamlessly route them through BrillSign's zero-knowledge signing workflow.</p>
                     </div>
                 </div>
             </div>
@@ -130,11 +307,10 @@
 
         <!-- HOW IT WORKS -->
         <section class="pi-how" id="how">
-            <div class="pi-how-bg"></div>
             <div class="container">
-                <div class="pi-section-header pi-section-header-dark animate-up">
-                    <div class="pi-section-label pi-label-dark">How It Works</div>
-                    <h2 class="premium-heading" style="color:#fff;">From Opportunity to Signed Contract in <span
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">How It Works</div>
+                    <h2 class="premium-heading" style="color:var(--text-primary);">From Opportunity to Signed Contract in <span
                             class="text-highlight">3 Steps.</span></h2>
                 </div>
                 <div class="pi-flow animate-up">
@@ -168,40 +344,51 @@
             </div>
         </section>
 
-        <!-- SETUP -->
-        <section class="pi-setup">
+        <!-- SETUP MOCKUP -->
+        <section class="pi-setup" style="padding: 120px 24px; background: var(--bg-accent);">
             <div class="container">
                 <div class="pi-section-header animate-up">
-                    <div class="pi-section-label">Quick Setup</div>
-                    <h2 class="premium-heading">Live in Your Salesforce Org in <span class="text-highlight">Under 10
+                    <div class="pi-section-label" style="background: var(--card-bg); color: var(--text-primary); border-color: var(--card-border);">Quick Setup</div>
+                    <h2 class="premium-heading" style="color: var(--text-primary);">Live in Your Salesforce Org in <span class="text-highlight" style="color:var(--primary-blue);">Under 10
                             Minutes.</span></h2>
+                    <p style="color: var(--text-secondary);">Designed for Salesforce Admins. Install, connect, and configure without writing a single line of Apex code.</p>
                 </div>
-                <div class="pi-setup-grid animate-up">
-                    <div class="pi-setup-step">
-                        <div class="pi-setup-num">1</div>
-                        <h4>Install the Managed Package</h4>
-                        <p>Install BrillSign from the Salesforce AppExchange. No code required — click-to-install in any
-                            org.</p>
+                
+                <div class="sf-setup-container animate-up">
+                    <div class="sf-setup-header">
+                        <div class="sf-setup-dots"><span></span><span></span><span></span></div>
+                        <div style="font-family: var(--mono); font-size: 0.85rem; color: var(--text-muted); margin-left: auto; background: var(--card-bg); padding: 4px 12px; border-radius: 12px; border: 1px solid var(--card-border);">BrillSign Config Panel</div>
                     </div>
-                    <div class="pi-setup-step">
-                        <div class="pi-setup-num">2</div>
-                        <h4>Connect Your API Key</h4>
-                        <p>In BrillSign Setup, paste your API key. The integration connects and syncs your team
-                            automatically.</p>
-                        <div class="pi-setup-code">BS__API_Key__c = 'sk_live_...'<button
-                                class="pi-setup-copy">Copy</button></div>
-                    </div>
-                    <div class="pi-setup-step">
-                        <div class="pi-setup-num">3</div>
-                        <h4>Add BrillSign to Page Layouts</h4>
-                        <p>Drag the BrillSign Lightning component to Opportunity, Contract, or custom object page
-                            layouts.</p>
-                    </div>
-                    <div class="pi-setup-step">
-                        <div class="pi-setup-num">4</div>
-                        <h4>Map Status Fields</h4>
-                        <p>Configure which Salesforce fields receive signing status updates. Create Salesforce Flows
-                            triggered on signing events.</p>
+                    
+                    <div class="sf-setup-grid">
+                        <div class="sf-step-card">
+                            <div class="sf-step-num">1</div>
+                            <div class="sf-step-content">
+                                <h4>Install Managed Package</h4>
+                                <p>Get it from the AppExchange. Works in Professional, Enterprise, and Unlimited editions.</p>
+                            </div>
+                        </div>
+                        <div class="sf-step-card">
+                            <div class="sf-step-num">2</div>
+                            <div class="sf-step-content">
+                                <h4>Paste Secure API Key</h4>
+                                <p>Generate a key in BrillSign and securely store it in your org's Custom Settings.</p>
+                            </div>
+                        </div>
+                        <div class="sf-step-card">
+                            <div class="sf-step-num">3</div>
+                            <div class="sf-step-content">
+                                <h4>Lightning App Builder</h4>
+                                <p>Drag and drop the "BrillSign Send" Lightning web component onto your Opportunity layouts.</p>
+                            </div>
+                        </div>
+                        <div class="sf-step-card">
+                            <div class="sf-step-num" style="background: #22c55e;">✓</div>
+                            <div class="sf-step-content">
+                                <h4>Map Custom Fields</h4>
+                                <p>Point BrillSign status events to your custom Salesforce fields to trigger Process Builders.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -262,13 +449,12 @@
 
         <!-- CTA -->
         <section class="pi-cta">
-            <div class="pi-cta-glow"></div>
             <div class="container">
                 <div class="pi-cta-layout animate-up">
                     <div class="pi-cta-text">
-                        <h2 class="premium-heading" style="color:#fff;">Ready to Sign from <span
+                        <h2 class="premium-heading" style="color:var(--text-primary);">Ready to Sign from <span
                                 class="text-highlight">Salesforce?</span></h2>
-                        <p>Install the package from AppExchange and connect your API key in minutes.</p>
+                        <p style="color: var(--text-secondary);">Install the package from AppExchange and connect your API key in minutes.</p>
                     </div>
                     <div class="pi-cta-actions"><a href="../index.html#waitlist" class="btn-primary"><span>Get Started
                                 Free</span><i class="fas fa-arrow-right"></i></a><a href="integrations-hub.html"

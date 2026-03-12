@@ -5,10 +5,9 @@
 /* ---------- Hero ---------- */
 .cert-hero {
     position: relative;
-    padding: 140px 24px 80px;
-    text-align: center;
+    padding: 140px 24px 0;
     overflow: hidden;
-    background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 100%);
+    background: linear-gradient(160deg, #eef3ff 0%, #f0f4fa 40%, #f4f0fa 70%, #f8fafc 100%);
 }
 
 .cert-hero-particles {
@@ -20,7 +19,7 @@
 .cert-hero-particle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(0, 102, 255, 0.12);
+    background: rgba(0, 102, 255, 0.1);
     animation: certFloat 9s ease-in-out infinite;
 }
 
@@ -57,23 +56,40 @@
 }
 
 @keyframes certFloat {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translate(0, 0);
         opacity: 0.12;
     }
-
     50% {
         transform: translate(10px, -20px);
         opacity: 0.25;
     }
 }
 
+/* Hero inner — two-column split */
+.cert-hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 60px;
+}
+
+/* Left column */
+.cert-hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .cert-hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     padding: 8px 20px;
     border-radius: 50px;
     background: white;
@@ -81,36 +97,133 @@
     color: #0066ff;
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+    margin-bottom: 28px;
     box-shadow: 0 2px 12px rgba(0, 102, 255, 0.08);
+}
+
+.cert-badge-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0066ff;
+    flex-shrink: 0;
 }
 
 .cert-hero-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
     font-weight: 800;
     color: #0f172a;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
 }
 
 .cert-hero-title .grad-text {
-    background: linear-gradient(135deg, #0066ff, #6366f1, #8b5cf6);
+    background: linear-gradient(135deg, #ff0000, #cc0000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .cert-hero-sub {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: #475569;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 440px;
     line-height: 1.7;
+}
+
+/* Right column — Certificate image */
+.cert-hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cert-hero-img {
+    max-width: 100%;
+    width: 450px;
+    height: auto;
+    border-radius: 12px;
+    animation: certImgFloat 5s ease-in-out infinite;
+}
+
+@keyframes certImgFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* ---- Certification Logo Strip ---- */
+.cert-logo-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    padding: 36px 24px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(0, 102, 255, 0.06);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.cert-logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.cert-logo-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-logo-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cert-logo-circle.cl-blue {
+    background: #e8f0fe;
+    color: #0066ff;
+}
+
+.cert-logo-circle.cl-gold {
+    background: #fef9e7;
+    color: #ca8a04;
+}
+
+.cert-logo-circle.cl-purple {
+    background: #f3e8ff;
+    color: #7c3aed;
+}
+
+.cert-logo-circle.cl-red {
+    background: #ffebee;
+    color: #ff0000;
+}
+
+.cert-logo-circle.cl-green {
+    background: #ecfdf5;
+    color: #16a34a;
+}
+
+.cert-logo-item span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 /* ---------- Region Filter Tabs ---------- */
@@ -640,8 +753,73 @@
     box-shadow: 0 10px 30px rgba(0, 102, 255, 0.35);
 }
 
+.cert-cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cert-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: white;
+    color: #0066ff;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1.5px solid rgba(0, 102, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cert-cta-secondary:hover {
+    background: rgba(0, 102, 255, 0.04);
+    border-color: #0066ff;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+    .cert-hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .cert-hero-left {
+        align-items: center;
+    }
+
+    .cert-hero-sub {
+        max-width: 100%;
+    }
+
+    .cert-hero-mockups {
+        width: 340px;
+        height: 260px;
+    }
+
+    .cert-mock-soc2 {
+        width: 160px;
+        height: 160px;
+    }
+
+    .cert-mock-inner-circle {
+        width: 136px;
+        height: 136px;
+    }
+
+    .cert-mock-iso {
+        width: 180px;
+        height: 230px;
+    }
+
+    .cert-logo-strip {
+        gap: 24px;
+    }
+
     .cert-cards-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -653,7 +831,7 @@
 
 @media (max-width: 768px) {
     .cert-hero-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .cert-cards-grid {
@@ -670,5 +848,25 @@
 
     .cert-table-wrap {
         overflow-x: auto;
+    }
+}
+
+@media (max-width: 540px) {
+    .cert-hero-right {
+        display: none;
+    }
+
+    .cert-hero {
+        padding-top: 120px;
+    }
+
+    .cert-logo-strip {
+        gap: 16px;
+    }
+
+    .cert-logo-circle {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
     }
 }

@@ -577,27 +577,27 @@
 
 /* Card color themes */
 .hc-topic-card.card-security {
-    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    background: linear-gradient(135deg, #0044cc, #0066ff);
 }
 
 .hc-topic-card.card-setup {
-    background: linear-gradient(135deg, #047857, #10b981);
+    background: linear-gradient(135deg, #0066ff, #3385ff);
 }
 
 .hc-topic-card.card-compliance {
-    background: linear-gradient(135deg, #b45309, #f59e0b);
+    background: linear-gradient(135deg, #cc0000, #ff0000);
 }
 
 .hc-topic-card.card-billing {
-    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    background: linear-gradient(135deg, #ff0000, #ff3333);
 }
 
 .hc-topic-card.card-integration {
-    background: linear-gradient(135deg, #0e7490, #22d3ee);
+    background: linear-gradient(135deg, #0052cc, #0066ff);
 }
 
 .hc-topic-card.card-api {
-    background: linear-gradient(135deg, #be185d, #f472b6);
+    background: linear-gradient(135deg, #cc0000, #ff3333);
 }
 
 /* ========================================

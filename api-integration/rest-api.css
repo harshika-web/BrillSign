@@ -5,17 +5,15 @@
 
 /* ── CSS Variables ── */
 :root {
-    --rest-dark: #0d1117;
-    --rest-dark-mid: #0f172a;
-    --rest-dark-surface: #1e293b;
-    --rest-blue: #0066ff;
-    --rest-blue-light: #60a5fa;
-    --rest-green: #22c55e;
-    --rest-amber: #f59e0b;
-    --rest-purple: #818cf8;
-    --rest-teal: #06b6d4;
-    --rest-border: rgba(255, 255, 255, 0.06);
-    --rest-glass: rgba(255, 255, 255, 0.03);
+    --rest-primary: var(--primary-color, #0066ff); /* Brand Blue */
+    --rest-secondary: var(--accent-red, #ff0000); /* Brand Red */
+    --rest-tertiary: var(--accent-yellow, #ffff00); /* Brand Yellow */
+    --rest-bg-light: #ffffff;
+    --rest-bg-mid: #f8fafc;
+    --rest-text-dark: #0f172a;
+    --rest-text-mid: #475569;
+    --rest-border: rgba(0, 0, 0, 0.08);
+    --rest-glass: rgba(255, 255, 255, 0.6);
     --mono: 'Fira Code', 'Courier New', monospace;
 }
 
@@ -26,7 +24,7 @@
 .rest-hero {
     position: relative;
     padding: 140px 24px 100px;
-    background: linear-gradient(160deg, #060a12 0%, #0f1929 55%, #111827 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(240, 246, 255, 1) 100%);
     overflow: hidden;
 }
 
@@ -43,7 +41,7 @@
 .blob-rest-1 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(0, 102, 255, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, transparent 70%);
     top: -120px;
     left: -150px;
     animation: blobFloat 8s ease-in-out infinite;
@@ -52,7 +50,7 @@
 .blob-rest-2 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(129, 140, 248, 0.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.05) 0%, transparent 70%);
     bottom: -80px;
     right: -100px;
     animation: blobFloat 10s ease-in-out 2s infinite reverse;
@@ -90,9 +88,9 @@
     gap: 8px;
     padding: 8px 18px;
     border-radius: 50px;
-    background: rgba(0, 102, 255, 0.12);
-    border: 1px solid rgba(0, 102, 255, 0.28);
-    color: #60a5fa;
+    background: rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.25);
+    color: var(--rest-primary);
     font-size: 0.82rem;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
@@ -115,13 +113,13 @@
 .rest-hero-title {
     font-size: clamp(2rem, 3.5vw, 3rem);
     line-height: 1.18;
-    color: #ffffff;
+    color: var(--rest-text-dark);
     margin-bottom: 20px;
 }
 
 .rest-hero-sub {
     font-size: 1.05rem;
-    color: #94a3b8;
+    color: var(--rest-text-mid);
     line-height: 1.75;
     margin-bottom: 32px;
     max-width: 500px;
@@ -145,7 +143,7 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--rest-text-dark);
     letter-spacing: -0.5px;
 }
 
@@ -160,7 +158,7 @@
 .rest-stat-divider {
     width: 1px;
     height: 36px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--rest-border);
 }
 
 /* Hero CTAs */
@@ -672,7 +670,7 @@
 ═══════════════════════════════════════════ */
 .rest-endpoints {
     padding: 100px 24px;
-    background: var(--rest-dark);
+    background: var(--rest-bg-mid);
     position: relative;
     overflow: hidden;
 }
@@ -682,8 +680,8 @@
     inset: 0;
     pointer-events: none;
     background-image:
-        linear-gradient(rgba(0, 102, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 102, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
 }
 
@@ -698,8 +696,8 @@
 }
 
 .rest-ep-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--rest-bg-light);
+    border: 1px solid var(--rest-border);
     border-radius: 16px;
     padding: 24px;
     transition: all 0.3s ease;
@@ -714,7 +712,7 @@
 }
 
 .rest-ep-card:hover {
-    background: rgba(0, 102, 255, 0.08);
+    background: var(--rest-bg-light);
     border-color: rgba(0, 102, 255, 0.25);
     transform: translateY(-3px);
     box-shadow: 0 12px 40px rgba(0, 102, 255, 0.12);
@@ -771,13 +769,13 @@
 .rest-ep-path {
     font-family: var(--mono);
     font-size: 0.82rem;
-    color: #e2e8f0;
+    color: var(--rest-text-dark);
     font-weight: 500;
 }
 
 .rest-ep-card>p {
     font-size: 0.83rem;
-    color: #94a3b8;
+    color: var(--rest-text-mid);
     line-height: 1.6;
     margin-bottom: 14px;
 }
@@ -786,8 +784,8 @@
     display: inline-block;
     padding: 3px 10px;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.06);
-    color: #64748b;
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--rest-text-mid);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -1048,19 +1046,19 @@
 .rest-code-window {
     max-width: 860px;
     margin: 0 auto;
-    background: #0d1117;
+    background: var(--rest-bg-mid);
     border-radius: 18px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    border: 1px solid var(--rest-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
 }
 
 .rest-code-bar {
     display: flex;
     align-items: center;
     padding: 12px 18px;
-    background: rgba(255, 255, 255, 0.025);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     gap: 10px;
 }
 
@@ -1106,8 +1104,8 @@
 }
 
 .rest-copy-btn.copied {
-    color: #22c55e;
-    border-color: rgba(34, 197, 94, 0.3);
+    color: var(--rest-primary);
+    border-color: var(--rest-primary);
 }
 
 .rest-code-content {
@@ -1120,7 +1118,7 @@
     font-family: var(--mono);
     font-size: 0.8rem;
     line-height: 1.85;
-    color: #e2e8f0;
+    color: var(--rest-text-dark);
     overflow-x: auto;
     min-height: 200px;
 }
@@ -1180,7 +1178,7 @@
 ═══════════════════════════════════════════ */
 .rest-trust {
     padding: 100px 24px;
-    background: var(--rest-dark-mid);
+    background: var(--rest-bg-light);
     position: relative;
     overflow: hidden;
 }
@@ -1216,8 +1214,8 @@
     display: flex;
     align-items: flex-start;
     gap: 18px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: var(--rest-bg-mid);
+    border: 1px solid var(--rest-border);
     border-radius: 16px;
     padding: 24px;
     transition: all 0.3s ease;
@@ -1231,8 +1229,8 @@
 }
 
 .rest-trust-card:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.12);
+    background: var(--rest-bg-light);
+    border-color: rgba(0, 102, 255, 0.12);
     transform: translateX(4px);
 }
 
@@ -1268,13 +1266,13 @@
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
-    color: #f1f5f9;
+    color: var(--text-color, #1a202c);
     margin-bottom: 6px;
 }
 
 .rest-trust-body p {
     font-size: 0.83rem;
-    color: #94a3b8;
+    color: var(--rest-text-mid);
     line-height: 1.6;
 }
 
@@ -1316,21 +1314,21 @@
 .ring-outer {
     width: 320px;
     height: 320px;
-    border-color: rgba(99, 102, 241, 0.2);
+    border-color: rgba(0, 102, 255, 0.1);
     animation: radarSpin 14s linear infinite;
 }
 
 .ring-mid {
     width: 220px;
     height: 220px;
-    border-color: rgba(0, 102, 255, 0.25);
+    border-color: rgba(0, 102, 255, 0.15);
     animation: radarSpin 9s linear infinite reverse;
 }
 
 .ring-inner {
     width: 130px;
     height: 130px;
-    border-color: rgba(34, 197, 94, 0.3);
+    border-color: rgba(34, 197, 94, 0.2);
     animation: radarSpin 6s linear infinite;
 }
 
@@ -1344,14 +1342,14 @@
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1d4ed8, #0066ff);
+    background: linear-gradient(135deg, var(--rest-primary), #004ecc);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
     color: white;
     z-index: 5;
-    box-shadow: 0 0 32px rgba(0, 102, 255, 0.4), 0 0 64px rgba(0, 102, 255, 0.15);
+    box-shadow: 0 0 32px rgba(0, 102, 255, 0.3), 0 0 64px rgba(0, 102, 255, 0.1);
     animation: coreGlow 3s ease-in-out infinite;
 }
 
@@ -1359,11 +1357,11 @@
 
     0%,
     100% {
-        box-shadow: 0 0 32px rgba(0, 102, 255, 0.4), 0 0 64px rgba(0, 102, 255, 0.15);
+        box-shadow: 0 0 32px rgba(0, 102, 255, 0.3), 0 0 64px rgba(0, 102, 255, 0.1);
     }
 
     50% {
-        box-shadow: 0 0 48px rgba(0, 102, 255, 0.6), 0 0 96px rgba(0, 102, 255, 0.25);
+        box-shadow: 0 0 48px rgba(0, 102, 255, 0.45), 0 0 96px rgba(0, 102, 255, 0.2);
     }
 }
 
@@ -1423,7 +1421,7 @@
     position: absolute;
     font-size: 0.67rem;
     font-weight: 600;
-    color: #64748b;
+    color: var(--rest-text-mid);
     text-transform: uppercase;
     letter-spacing: 0.8px;
     white-space: nowrap;
@@ -1729,29 +1727,7 @@
     background: #f8fafc;
 }
 
-.rest-faq .faq-container {
-    max-width: 760px;
-    margin: 0 auto;
-}
 
-/* Override faq-section.css for light bg */
-.rest-faq .faq-item {
-    background: #ffffff;
-    border: 1px solid rgba(0, 102, 255, 0.07);
-    border-radius: 14px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
-}
-
-.rest-faq .faq-answer-inner code {
-    background: rgba(0, 102, 255, 0.07);
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-family: var(--mono);
-    font-size: 0.82em;
-    color: #0066ff;
-}
 
 
 /* ═══════════════════════════════════════════

@@ -62,7 +62,7 @@
 }
 
 .cs-hero h1 .accent {
-    background: linear-gradient(135deg, var(--primary-blue), #8E2DE2);
+    background: linear-gradient(135deg, var(--primary-blue), #ff0000);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -100,7 +100,7 @@
 }
 
 .sec-hero-title .grad-text {
-    background: linear-gradient(135deg, #0066ff, #6366f1, #8b5cf6);
+    background: linear-gradient(135deg, #ff0000, #cc0000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -279,19 +279,20 @@
 }
 
 .sec-arch-icon.node-client {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(135deg, #0066ff, #0052cc);
 }
 
 .sec-arch-icon.node-encrypt {
-    background: linear-gradient(135deg, #10b981, #047857);
+    background: linear-gradient(135deg, #ff0000, #cc0000);
 }
 
 .sec-arch-icon.node-store {
-    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    background: linear-gradient(135deg, #0066ff, #3385ff);
 }
 
 .sec-arch-icon.node-verify {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
+    background: linear-gradient(135deg, #ffff00, #e6cc00);
+    color: #333;
 }
 
 .sec-arch-label {
@@ -407,19 +408,19 @@
 }
 
 .sec-pillar-card:nth-child(1)::before {
-    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    background: linear-gradient(90deg, #0066ff, #3385ff);
 }
 
 .sec-pillar-card:nth-child(2)::before {
-    background: linear-gradient(90deg, #10b981, #22d3ee);
+    background: linear-gradient(90deg, #ff0000, #ff3333);
 }
 
 .sec-pillar-card:nth-child(3)::before {
-    background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+    background: linear-gradient(90deg, #0066ff, #0052cc);
 }
 
 .sec-pillar-card:nth-child(4)::before {
-    background: linear-gradient(90deg, #f59e0b, #f97316);
+    background: linear-gradient(90deg, #ffff00, #e6cc00);
 }
 
 .sec-pillar-icon {
@@ -439,23 +440,23 @@
 }
 
 .sec-pillar-icon.pi-zk {
-    background: #eff6ff;
-    color: #2563eb;
+    background: #e8f0fe;
+    color: #0066ff;
 }
 
 .sec-pillar-icon.pi-encrypt {
-    background: #ecfdf5;
-    color: #059669;
+    background: #ffebee;
+    color: #ff0000;
 }
 
 .sec-pillar-icon.pi-storage {
-    background: #faf5ff;
-    color: #7c3aed;
+    background: #e8f0fe;
+    color: #0066ff;
 }
 
 .sec-pillar-icon.pi-verify {
-    background: #fffbeb;
-    color: #d97706;
+    background: #fffde7;
+    color: #b8a000;
 }
 
 .sec-pillar-card h3 {
@@ -523,28 +524,28 @@
 }
 
 .sec-badge-icon.b-gdpr {
-    background: #eff6ff;
-    color: #2563eb;
+    background: #e8f0fe;
+    color: #0066ff;
 }
 
 .sec-badge-icon.b-soc {
-    background: #ecfdf5;
-    color: #059669;
+    background: #e8f0fe;
+    color: #0066ff;
 }
 
 .sec-badge-icon.b-eidas {
-    background: #faf5ff;
-    color: #7c3aed;
+    background: #ffebee;
+    color: #ff0000;
 }
 
 .sec-badge-icon.b-hipaa {
-    background: #fff7ed;
-    color: #ea580c;
+    background: #ffebee;
+    color: #ff0000;
 }
 
 .sec-badge-icon.b-iso {
-    background: #fefce8;
-    color: #ca8a04;
+    background: #fffde7;
+    color: #b8a000;
 }
 
 @keyframes badgePulse {

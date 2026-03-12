@@ -14,8 +14,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../index.css">
-    <link rel="stylesheet" href="../faq-section.css">
     <link rel="stylesheet" href="webhooks.css">
+    <link rel="stylesheet" href="faq-premium.css">
 </head>
 
 <body class="feature-page">
@@ -225,12 +225,12 @@
         <section class="wh-payload">
             <div class="wh-payload-grid-bg"></div>
             <div class="container">
-                <div class="wh-section-header wh-section-header-dark animate-up">
-                    <div class="wh-section-label wh-label-dark">Payload Structure</div>
-                    <h2 class="premium-heading" style="color:#fff;">Every Payload is Cryptographically Signed —
+                <div class="wh-section-header animate-up">
+                    <div class="wh-section-label">Payload Structure</div>
+                    <h2 class="premium-heading">Every Payload is Cryptographically Signed —
                         <span class="text-highlight">You Know It Came From Us.</span>
                     </h2>
-                    <p style="color:#94a3b8;">Always verify the <code>hmac_signature</code> before processing any event.
+                    <p>Always verify the <code>hmac_signature</code> before processing any event.
                         Reject anything that doesn't match. Trust nothing you haven't verified.</p>
                 </div>
 
@@ -326,68 +326,73 @@
 
                 <!-- Retry Timeline -->
                 <div class="wh-retry-timeline animate-up">
-                    <div class="wh-retry-track"></div>
+                    
+                    <!-- Line Markers -->
+                    <div class="wh-timeline-marker wh-marker-1"></div>
+                    <div class="wh-timeline-marker wh-marker-2"></div>
+                    <div class="wh-timeline-marker wh-marker-3"></div>
+                    <div class="wh-timeline-marker wh-marker-4"></div>
+                    <div class="wh-timeline-marker wh-marker-red"></div>
 
-                    <div class="wh-retry-node wh-rn-active" id="rn1">
+                    <!-- Traveling animations -->
+                    <div class="wh-travel-container">
+                        <div class="wh-timeline-travel"></div>
+                        <div class="wh-timeline-travel-red"></div>
+                    </div>
+
+                    <!-- Nodes -->
+                    <div class="wh-retry-node">
                         <div class="wh-retry-dot"></div>
-                        <div class="wh-retry-label">Attempt 1</div>
-                        <div class="wh-retry-time">0s</div>
-                        <div class="wh-retry-status">Immediate</div>
+                        <div class="wh-retry-content">
+                            <div class="wh-retry-label">Attempt 1</div>
+                            <div class="wh-retry-time">0s</div>
+                            <div class="wh-retry-status">Immediate</div>
+                        </div>
                     </div>
 
-                    <div class="wh-retry-connector" id="rc1">
-                        <div class="wh-retry-travel-dot"></div>
-                    </div>
-
-                    <div class="wh-retry-node" id="rn2">
+                    <div class="wh-retry-node">
                         <div class="wh-retry-dot"></div>
-                        <div class="wh-retry-label">Attempt 2</div>
-                        <div class="wh-retry-time">30s</div>
-                        <div class="wh-retry-status">Auto retry</div>
+                        <div class="wh-retry-content">
+                            <div class="wh-retry-label">Attempt 2</div>
+                            <div class="wh-retry-time">30s</div>
+                            <div class="wh-retry-status">Auto retry</div>
+                        </div>
                     </div>
 
-                    <div class="wh-retry-connector" id="rc2">
-                        <div class="wh-retry-travel-dot"></div>
-                    </div>
-
-                    <div class="wh-retry-node" id="rn3">
+                    <div class="wh-retry-node">
                         <div class="wh-retry-dot"></div>
-                        <div class="wh-retry-label">Attempt 3</div>
-                        <div class="wh-retry-time">5m</div>
-                        <div class="wh-retry-status">Backoff</div>
+                        <div class="wh-retry-content">
+                            <div class="wh-retry-label">Attempt 3</div>
+                            <div class="wh-retry-time">5m</div>
+                            <div class="wh-retry-status">Backoff</div>
+                        </div>
                     </div>
 
-                    <div class="wh-retry-connector" id="rc3">
-                        <div class="wh-retry-travel-dot"></div>
-                    </div>
-
-                    <div class="wh-retry-node" id="rn4">
+                    <div class="wh-retry-node">
                         <div class="wh-retry-dot"></div>
-                        <div class="wh-retry-label">Attempt 4</div>
-                        <div class="wh-retry-time">30m</div>
-                        <div class="wh-retry-status">Backoff</div>
+                        <div class="wh-retry-content">
+                            <div class="wh-retry-label">Attempt 4</div>
+                            <div class="wh-retry-time">30m</div>
+                            <div class="wh-retry-status">Backoff</div>
+                        </div>
                     </div>
 
-                    <div class="wh-retry-connector" id="rc4">
-                        <div class="wh-retry-travel-dot"></div>
-                    </div>
-
-                    <div class="wh-retry-node" id="rn5">
+                    <div class="wh-retry-node">
                         <div class="wh-retry-dot"></div>
-                        <div class="wh-retry-label">Attempt 5</div>
-                        <div class="wh-retry-time">2h</div>
-                        <div class="wh-retry-status">Final</div>
+                        <div class="wh-retry-content">
+                            <div class="wh-retry-label">Attempt 5</div>
+                            <div class="wh-retry-time">2h</div>
+                            <div class="wh-retry-status">Final</div>
+                        </div>
                     </div>
 
-                    <div class="wh-retry-connector wh-rc-fail" id="rc5">
-                        <div class="wh-retry-travel-dot wh-travel-red"></div>
-                    </div>
-
-                    <div class="wh-retry-node wh-rn-dlq" id="rn-dlq">
-                        <div class="wh-retry-dot wh-dot-red"><i class="fas fa-inbox"></i></div>
-                        <div class="wh-retry-label">Dead Letter</div>
-                        <div class="wh-retry-time">DLQ</div>
-                        <div class="wh-retry-status">+ Email alert</div>
+                    <div class="wh-retry-node wh-rn-dlq">
+                        <div class="wh-retry-dot"><i class="fas fa-inbox"></i></div>
+                        <div class="wh-retry-content">
+                            <div class="wh-retry-label">Dead Letter</div>
+                            <div class="wh-retry-time">DLQ</div>
+                            <div class="wh-retry-status">+ Email alert</div>
+                        </div>
                     </div>
                 </div>
 
@@ -421,12 +426,12 @@
         <section class="wh-verify">
             <div class="wh-verify-dark-bg"></div>
             <div class="container">
-                <div class="wh-section-header wh-section-header-dark animate-up">
-                    <div class="wh-section-label wh-label-dark">Signature Verification</div>
-                    <h2 class="premium-heading" style="color:#fff;">Verify in 3 Lines.
+                <div class="wh-section-header animate-up">
+                    <div class="wh-section-label">Signature Verification</div>
+                    <h2 class="premium-heading">Verify in 3 Lines.
                         <span class="text-highlight">Trust in Zero Doubt.</span>
                     </h2>
-                    <p style="color:#94a3b8;">Always verify the HMAC-SHA256 signature before processing any payload.
+                    <p>Always verify the HMAC-SHA256 signature before processing any payload.
                         Skipping this exposes you to replay attacks and forged events.</p>
                 </div>
 
@@ -655,7 +660,7 @@ app = Flask(__name__)
             <div class="container">
                 <div class="wh-cta-layout animate-up">
                     <div class="wh-cta-text">
-                        <h2 class="premium-heading" style="color:#fff;">Ready to Go
+                        <h2 class="premium-heading">Ready to Go
                             <span class="text-highlight">Event-Driven?</span>
                         </h2>
                         <p>Register your webhook endpoint in 30 seconds. No infrastructure required — just a URL that
@@ -676,7 +681,7 @@ app = Flask(__name__)
         </section>
 
         <!-- ===== SECTION 8: FAQ ===== -->
-        <section class="faq-section wh-faq">
+        <section class="premium-faq-section wh-faq">
             <div class="container">
                 <div class="wh-section-header animate-up">
                     <div class="wh-section-label">FAQ</div>
@@ -686,12 +691,12 @@ app = Flask(__name__)
                 </div>
 
                 <div class="faq-container animate-up">
-                    <div class="faq-item">
+                    <div class="faq-item active">
                         <button class="faq-question">
                             <span>What happens if my endpoint is down?</span>
                             <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" style="max-height: 200px;">
                             <div class="faq-answer-content">
                                 <p>BrillSign automatically retries failed deliveries using exponential backoff:
                                     immediately → 30s → 5min → 30min → 2hr. After 5 failed attempts, the event moves to

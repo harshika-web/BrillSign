@@ -23,6 +23,49 @@
     <!-- ===== HERO ===== -->
     <section class="api-hero">
         <div class="api-hero-grid"></div>
+
+        <!-- Animated wave decoration -->
+        <svg class="api-hero-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#c2185b" stop-opacity="0.5" />
+                    <stop offset="40%" stop-color="#e65100" stop-opacity="0.4" />
+                    <stop offset="70%" stop-color="#ff8f00" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#b71c1c" stop-opacity="0.45" />
+                </linearGradient>
+                <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#d50000" stop-opacity="0.35" />
+                    <stop offset="50%" stop-color="#ff6d00" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#c62828" stop-opacity="0.4" />
+                </linearGradient>
+                <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#880e4f" stop-opacity="0.3" />
+                    <stop offset="50%" stop-color="#bf360c" stop-opacity="0.2" />
+                    <stop offset="100%" stop-color="#d32f2f" stop-opacity="0.35" />
+                </linearGradient>
+            </defs>
+            <path d="M0,120 C200,180 400,60 720,120 C1040,180 1240,70 1440,110 L1440,200 L0,200 Z" fill="url(#waveGrad1)">
+                <animate attributeName="d"
+                    values="M0,120 C200,180 400,60 720,120 C1040,180 1240,70 1440,110 L1440,200 L0,200 Z;
+                            M0,130 C200,70 400,160 720,100 C1040,60 1240,150 1440,120 L1440,200 L0,200 Z;
+                            M0,120 C200,180 400,60 720,120 C1040,180 1240,70 1440,110 L1440,200 L0,200 Z"
+                    dur="8s" repeatCount="indefinite" />
+            </path>
+            <path d="M0,140 C300,100 500,170 800,130 C1100,90 1300,160 1440,140 L1440,200 L0,200 Z" fill="url(#waveGrad2)">
+                <animate attributeName="d"
+                    values="M0,140 C300,100 500,170 800,130 C1100,90 1300,160 1440,140 L1440,200 L0,200 Z;
+                            M0,150 C300,170 500,100 800,150 C1100,170 1300,100 1440,130 L1440,200 L0,200 Z;
+                            M0,140 C300,100 500,170 800,130 C1100,90 1300,160 1440,140 L1440,200 L0,200 Z"
+                    dur="6s" repeatCount="indefinite" />
+            </path>
+            <path d="M0,160 C240,140 480,175 720,155 C960,135 1200,170 1440,160 L1440,200 L0,200 Z" fill="url(#waveGrad3)">
+                <animate attributeName="d"
+                    values="M0,160 C240,140 480,175 720,155 C960,135 1200,170 1440,160 L1440,200 L0,200 Z;
+                            M0,165 C240,175 480,140 720,165 C960,175 1200,140 1440,155 L1440,200 L0,200 Z;
+                            M0,160 C240,140 480,175 720,155 C960,135 1200,170 1440,160 L1440,200 L0,200 Z"
+                    dur="10s" repeatCount="indefinite" />
+            </path>
+        </svg>
         <div class="api-hero-badge"><i class="fas fa-code"></i> Developer Portal</div>
         <h1 class="api-hero-title">Build with <span class="grad-text">BrillSign API</span></h1>
         <p class="api-hero-sub">

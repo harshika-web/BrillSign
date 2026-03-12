@@ -23,6 +23,58 @@
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="../faq-section.css">
     <link rel="stylesheet" href="platform-integration.css">
+    <style>
+        :root {
+            --pi-color: #0FAAFF;
+            --pi-glow: rgba(15, 170, 255, 0.2);
+            --pi-color-mid: rgba(15, 170, 255, 0.12);
+            --pi-icon-bg: rgba(15, 170, 255, 0.1);
+        }
+        
+        /* Premium Hero Adjustments (Light Theme) */
+        .pi-hero {
+            background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+            padding: 140px 24px 100px;
+        }
+        .pi-blob-1 { background: radial-gradient(circle, var(--pi-glow) 0%, transparent 65%); }
+        .pi-blob-2 { display: none; }
+        .pi-hero-title.premium-heading { color: var(--text-primary); }
+        .pi-hero-title .text-highlight { color: var(--pi-color); }
+        .pi-hero-sub { color: var(--text-secondary); }
+        .pi-hero .btn-outline { color: var(--text-primary); border-color: var(--card-border); background: var(--card-bg); }
+        .pi-hero .btn-outline i { color: var(--pi-color); }
+        
+        /* Force Light Theme on Shared Dark Sections */
+        .pi-how { background: var(--bg-body); }
+        .pi-how-bg { display: none; }
+        .pi-flow-step { background: var(--card-bg); border-color: var(--card-border); box-shadow: var(--card-shadow); }
+        .pi-flow-step h4 { color: var(--text-primary); }
+        .pi-flow-step p { color: var(--text-secondary); }
+        .pi-flow-num { background: var(--pi-color); color: white; }
+        .pi-flow-icon { background: var(--bg-accent); color: var(--pi-color); }
+        .pi-cta { background: var(--bg-accent); border-top: 1px solid var(--card-border); }
+        .pi-cta-glow { display: none; }
+        .faq-section.pi-faq { background: var(--bg-body); }
+        .pi-section-header-dark .pi-label-dark { background: rgba(15, 170, 255, 0.1); border-color: rgba(15, 170, 255, 0.2); color: var(--pi-color); }
+        
+        /* Alternating Feature Split Layout */
+        .split-features { padding: 120px 24px; background: var(--bg-body); }
+        .split-row { display: flex; align-items: center; gap: 80px; margin-bottom: 140px; }
+        .split-row:last-child { margin-bottom: 0; }
+        .split-row.reverse { flex-direction: row-reverse; }
+        .split-content { flex: 1; }
+        .split-image { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid var(--card-border); background: var(--card-bg); line-height: 0; display: flex; align-items: center; justify-content: center; min-height: 350px;}
+        .split-image img { width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        .split-content .tag { display:inline-block; padding: 6px 16px; border-radius: 50px; background: rgba(15, 170, 255, 0.1); color: var(--pi-color); font-weight: 600; font-size: 0.85rem; margin-bottom: 16px; border: 1px solid rgba(15, 170, 255, 0.2); }
+        .split-content h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--text-primary); font-weight: 700; line-height: 1.2; }
+        .split-content p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+        
+        @media(max-width: 900px) {
+            .split-row, .split-row.reverse { flex-direction: column; text-align: left; gap: 40px; margin-bottom: 80px; }
+            .split-content h3 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 
 <body class="feature-page">
@@ -51,74 +103,60 @@
                         </div>
                     </div>
                     <div class="pi-hero-diagram animate-right">
-                        <div class="pi-pipe-diagram">
-                            <div class="pi-logo-node">
-                                <div class="pi-logo-circle pi-logo-bs"><i class="fas fa-shield-halved"></i></div><span
-                                    class="pi-logo-label">BrillSign</span>
-                            </div>
-                            <div class="pi-pipe">
-                                <div class="pi-pipe-labels"><span class="pi-pipe-tag">ZK-signed</span><span
-                                        class="pi-pipe-tag">GRC export</span></div>
-                                <div class="pi-pipe-dot"></div>
-                                <div class="pi-pipe-dot"></div>
-                                <div class="pi-pipe-dot"></div>
-                                <div class="pi-pipe-status">
-                                    <div class="pi-pipe-status-dot"></div> Compliant
-                                </div>
-                            </div>
-                            <div class="pi-logo-node">
-                                <div class="pi-logo-circle pi-logo-platform"><i class="fas fa-database"></i></div><span
-                                    class="pi-logo-label">SAP</span>
-                            </div>
-                        </div>
-                        <div class="pi-hero-stats">
-                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">Ariba</span><span
-                                    class="pi-hero-stat-label">Native connector</span></div>
-                            <div class="pi-stat-div"></div>
-                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">GRC</span><span
-                                    class="pi-hero-stat-label">Audit export</span></div>
-                            <div class="pi-stat-div"></div>
-                            <div class="pi-hero-stat"><span class="pi-hero-stat-num">PO</span><span
-                                    class="pi-hero-stat-label">Approval chains</span></div>
+                        <div style="position: relative; width: 100%; border-radius: 32px; overflow: hidden; box-shadow: 0 40px 80px rgba(15, 170, 255, 0.15); border: 1px solid var(--card-border); line-height: 0;">
+                            <img src="../assets/images/integrations/sap_hero_illustration_1773316594299.png" alt="SAP ERP Secure Signing Integration Hero" style="width: 100%; height: auto; display: block;">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="pi-features">
+        <section class="split-features" id="features">
             <div class="container">
                 <div class="pi-section-header animate-up">
-                    <div class="pi-section-label">Key Features</div>
-                    <h2 class="premium-heading">Enterprise Signing for <span class="text-highlight">SAP's
-                            Ecosystem.</span></h2>
-                    <p>From Ariba sourcing to S/4HANA contracts, BrillSign adds legal-grade signing to every document
-                        workflow in your SAP environment.</p>
+                    <div class="pi-section-label" style="background: rgba(15, 170, 255, 0.1); border-color: rgba(15, 170, 255, 0.2); color: var(--pi-color);">Key Features</div>
+                    <h2 class="premium-heading">Enterprise Signing for <span class="text-highlight">SAP's Ecosystem.</span></h2>
+                    <p style="color: var(--text-secondary);">From Ariba sourcing to S/4HANA contracts, BrillSign adds legal-grade signing to every document workflow in your SAP environment.</p>
                 </div>
-                <div class="pi-features-grid">
-                    <div class="pi-feature-card animate-up" style="transition-delay:0.05s">
-                        <div class="pi-feature-icon"><i class="fas fa-handshake-simple"></i></div>
-                        <div class="pi-feature-stat">Ariba</div>
-                        <div class="pi-feature-stat-label">Native connector</div>
+
+                <!-- ROW 1: SAP Ariba -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-handshake-simple" style="color: var(--pi-color);"></i> Ariba Connector</div>
                         <h3>Direct SAP Ariba Integration</h3>
-                        <p>BrillSign's SAP Ariba connector routes contracts and supplier agreements from Ariba Contracts
-                            to BrillSign for signing — automatically, without leaving the Ariba interface.</p>
+                        <p>BrillSign's SAP Ariba connector routes contracts and supplier agreements from Ariba Contracts directly to BrillSign for secure execution.</p>
+                        <p>No more downloading and uploading PDFs. Send, track, and sync data fields automatically without your procurement team ever leaving the Ariba interface.</p>
                     </div>
-                    <div class="pi-feature-card animate-up" style="transition-delay:0.12s">
-                        <div class="pi-feature-icon"><i class="fas fa-diagram-project"></i></div>
-                        <div class="pi-feature-stat">Multi-party</div>
-                        <div class="pi-feature-stat-label">PO approval chains</div>
-                        <h3>PO Approval Chain Signing</h3>
-                        <p>Configure multi-party signing chains for purchase orders — CFO approval, legal sign-off,
-                            supplier signature — all in a single BrillSign signing request with sequential routing.</p>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/sap_ariba_mockup_1773316612941.png" alt="SAP Ariba Routing Mockup">
                     </div>
-                    <div class="pi-feature-card animate-up" style="transition-delay:0.20s">
-                        <div class="pi-feature-icon"><i class="fas fa-file-export"></i></div>
-                        <div class="pi-feature-stat">GRC</div>
-                        <div class="pi-feature-stat-label">Audit trail export</div>
-                        <h3>Audit Trail Exported to SAP GRC</h3>
-                        <p>Cryptographic audit trails from every signing event export directly to SAP GRC — ensuring
-                            your digital signature records meet internal and regulatory audit requirements.</p>
+                </div>
+
+                <!-- ROW 2: Multi-party POs (Reverse) -->
+                <div class="split-row reverse animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-diagram-project" style="color: var(--pi-color);"></i> Approval Chains</div>
+                        <h3>Complex PO Approval Chains</h3>
+                        <p>Configure sophisticated, multi-party signing dependencies for enterprise purchase orders or master agreements.</p>
+                        <p>Map out sequential routing—CFO approval first, legal validation second, supplier signature third—all managed within a single, atomic BrillSign execution request.</p>
+                    </div>
+                    <div class="split-image" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); flex-direction: column; color: #0369a1; font-weight: 600; text-align: center; padding: 40px;">
+                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                        [Pending Image Generation:<br>SAP PO Approval Mockup]
+                    </div>
+                </div>
+
+                <!-- ROW 3: SAP GRC Audit -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-file-export" style="color: var(--pi-color);"></i> SAP GRC Sync</div>
+                        <h3>Audit Trail Sync to SAP GRC</h3>
+                        <p>Enterprise compliance demands centralized evidence. Every signature creates a zero-knowledge cryptographic proof file.</p>
+                        <p>These ironclad audit trails are automatically exported to SAP Governance, Risk, and Compliance (GRC)—ensuring your digital signature records immediately meet regulatory audit requirements.</p>
+                    </div>
+                    <div class="split-image" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); flex-direction: column; color: #0369a1; font-weight: 600; text-align: center; padding: 40px;">
+                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                        [Pending Image Generation:<br>SAP GRC Audit Dashboard]
                     </div>
                 </div>
             </div>

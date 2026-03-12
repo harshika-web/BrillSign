@@ -63,9 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             termBody.appendChild(row);
 
-            // Keep max 4 visible
-            while (termBody.children.length > 4) {
-                const old = termBody.firstChild;
+            // Auto-scroll to bottom
+            termBody.scrollTop = termBody.scrollHeight;
+
+            // Keep max 6 visible (excluding elements already fading out)
+            const activeLines = Array.from(termBody.children).filter(el => !el.classList.contains('removing'));
+            if (activeLines.length > 8) {
+                const old = activeLines[0];
+                old.classList.add('removing');
                 old.style.transition = 'opacity 0.3s ease';
                 old.style.opacity = '0';
                 setTimeout(() => old.remove(), 300);
