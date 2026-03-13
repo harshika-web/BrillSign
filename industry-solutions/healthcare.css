@@ -55,18 +55,7 @@
     overflow: hidden;
 }
 
-/* Soft background shapes for clinical but approachable feel */
-.hc-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    background: var(--hc-blue-light);
-    border-bottom-left-radius: 100px;
-    z-index: 0;
-}
+/* Soft background removed for cleaner look */
 
 .hc-hero-content {
     display: grid;
@@ -78,30 +67,23 @@
 }
 
 .hc-hero-text h1 {
-    font-size: 4.2rem;
-    line-height: 1.1;
-    font-weight: 800;
+    font-size: 3.8rem;
+    line-height: 1.15;
+    font-weight: 700;
     margin-bottom: 24px;
     color: var(--hc-text-main);
-    letter-spacing: -1px;
 }
 
 .hc-hero-text h1 span {
-    background: linear-gradient(135deg, var(--hc-blue) 0%, #00d2ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+    color: var(--hc-blue);
 }
 
 .hc-hero-text p {
-    font-size: 1.35rem;
-    color: #334155;
+    font-size: 1.25rem;
+    color: var(--hc-text-muted);
     margin-bottom: 40px;
-    max-width: 520px;
+    max-width: 480px;
     line-height: 1.6;
-    font-weight: 400;
 }
 
 .hc-hero-actions {
@@ -153,7 +135,7 @@
 .hc-hero-visual {
     position: relative;
     border-radius: 30px;
-    overflow: hidden;
+    /* overflow: hidden; removed to prevent cropping of floating elements */
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
 }
 
@@ -162,6 +144,7 @@
     height: auto;
     display: block;
     object-fit: cover;
+    border-radius: 30px; /* Applied here instead of parent */
 }
 
 .hc-health-status {

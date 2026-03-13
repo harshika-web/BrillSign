@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendor Agreement Solutions | BrillSign - Secure Supply Chain</title>
+    <title>Vendor Agreement Solutions | BrillSign - Procurement Built for Scale</title>
     <meta name="description"
-        content="Streamline your vendor onboarding and supply chain agreements with BrillSign. Secure, verifiable, and transparent digital signatures for procurement.">
+        content="Automate and secure every vendor agreement at scale. BrillSign accelerates procurement with legally binding, auditable, and verifiable digital signatures.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cta-pages.css">
+    <link rel="stylesheet" href="vendor-agreements.css">
 </head>
 
 <body class="cta-page-body">
@@ -21,89 +22,363 @@
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="cta-hero" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);">
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="va-hero">
         <div class="container">
-            <span
-                style="color: #0ea5e9; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Use
-                Case: Vendor Agreements</span>
-            <h1>Streamline Your <span>Supply Chain</span></h1>
-            <p>From onboarding to recurring renewals, BrillSign provides a secure, transparent environment for all
-                vendor agreements. Built for modern procurement teams.</p>
-        </div>
-    </section>
-
-    <!-- Value Props -->
-    <section class="cta-benefits">
-        <div class="feature-hub-container">
-            <div class="hub-visual-column">
-                <div class="bs-dashboard" style="border-color: rgba(14, 165, 233, 0.1);">
-                    <div class="bs-topbar" style="background: #0ea5e9;">
-                        <span class="bs-brand">Procure-Flow</span>
-                        <span class="bs-live-badge"><i class="fas fa-truck"></i> Optimized</span>
+            <div class="va-hero-grid">
+                <div class="va-hero-text va-reveal">
+                    <span class="va-pill va-pill-red">Procurement & Vendor Management</span>
+                    <h1>
+                        Agreements at Scale.<br>
+                        <span class="va-blue">Zero Bottlenecks.</span>
+                    </h1>
+                    <p>From first-time vendor onboarding to annual MSA renewals, BrillSign gives your procurement team a
+                        single, auditable, legally airtight system for every third-party agreement.</p>
+                    <div class="va-hero-btns">
+                        <a href="book-a-demo.html" class="va-btn-primary">Book a Procurement Demo</a>
+                        <a href="start-free-trial.html" class="va-btn-outline">Start Free Trial</a>
                     </div>
-                    <div style="padding: 40px; text-align: center;">
-                        <i class="fas fa-file-contract"
-                            style="font-size: 4rem; color: #0ea5e9; opacity: 0.15; margin-bottom: 25px; display: block;"></i>
-                        <div
-                            style="height: 12px; width: 100%; background: #f1f5f9; border-radius: 6px; margin-bottom: 12px;">
+                    <div class="va-hero-stats">
+                        <div class="va-stat-pill">
+                            <strong>73%</strong>
+                            <span>Faster vendor onboarding</span>
                         </div>
-                        <div
-                            style="height: 12px; width: 80%; background: #f1f5f9; border-radius: 6px; margin-bottom: 12px;">
+                        <div class="va-stat-divider"></div>
+                        <div class="va-stat-pill">
+                            <strong>100%</strong>
+                            <span>Audit-ready records</span>
                         </div>
-                        <div style="height: 12px; width: 90%; background: #f1f5f9; border-radius: 6px;"></div>
+                        <div class="va-stat-divider"></div>
+                        <div class="va-stat-pill">
+                            <strong>5,000+</strong>
+                            <span>Procurement teams</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="va-hero-visual va-reveal va-delay-200">
+                    <div class="va-dashboard-card">
+                        <div class="va-dash-header">
+                            <div class="va-dash-dots">
+                                <span class="dot-r"></span>
+                                <span class="dot-y"></span>
+                                <span class="dot-g"></span>
+                            </div>
+                            <span class="va-dash-title">Vendor Agreement Dashboard</span>
+                        </div>
+                        <div class="va-dash-body">
+                            <div class="va-dash-stat-row">
+                                <div class="va-ds-block">
+                                    <div class="va-ds-number blue">142</div>
+                                    <div class="va-ds-label">Active Vendors</div>
+                                </div>
+                                <div class="va-ds-block">
+                                    <div class="va-ds-number red">28</div>
+                                    <div class="va-ds-label">Pending Signature</div>
+                                </div>
+                                <div class="va-ds-block">
+                                    <div class="va-ds-number green">116</div>
+                                    <div class="va-ds-label">Agreements Signed</div>
+                                </div>
+                            </div>
+                            <div class="va-dash-list">
+                                <div class="va-dl-item">
+                                    <span class="va-dl-badge signed"><i class="fas fa-check-circle"></i> Signed</span>
+                                    <span class="va-dl-name">Nexus Corp — MSA 2025</span>
+                                    <span class="va-dl-date">Mar 10</span>
+                                </div>
+                                <div class="va-dl-item pending">
+                                    <span class="va-dl-badge pending-b"><i class="fas fa-clock"></i> Pending</span>
+                                    <span class="va-dl-name">Apex Logistics — NDA Q2</span>
+                                    <span class="va-dl-date">Mar 12</span>
+                                </div>
+                                <div class="va-dl-item">
+                                    <span class="va-dl-badge signed"><i class="fas fa-check-circle"></i> Signed</span>
+                                    <span class="va-dl-name">Delta Freight — SOW #4</span>
+                                    <span class="va-dl-date">Mar 11</span>
+                                </div>
+                                <div class="va-dl-item pending">
+                                    <span class="va-dl-badge pending-b"><i class="fas fa-clock"></i> Pending</span>
+                                    <span class="va-dl-name">ProForce Supply — Addendum</span>
+                                    <span class="va-dl-date">Mar 13</span>
+                                </div>
+                            </div>
+                            <div class="va-dash-bar-section">
+                                <div class="va-bar-label">Signature completion rate</div>
+                                <div class="va-progress-bar">
+                                    <div class="va-progress-fill" style="width: 82%;"></div>
+                                </div>
+                                <div class="va-bar-percent">82%</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="hub-features-column">
-                <div class="section-header">
-                    <h2 style="font-size: 2.5rem; font-weight: 800; line-height: 1.3;">Secure <span
-                            style="color: #0ea5e9;">Onboarding</span></h2>
-                    <p style="margin-top: 20px; font-size: 1.1rem; color: #64748b;">Eliminate the friction of vendor
-                        onboarding. BrillSign automate the signing of NDAs, MSAs, and SOWs with absolute cryptographic
-                        certainty.</p>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 2: METRICS STRIP ===== -->
+    <section class="va-metrics-strip">
+        <div class="container">
+            <div class="va-metrics-grid">
+                <div class="va-metric va-reveal">
+                    <span class="va-metric-number va-blue">73%</span>
+                    <p>Reduction in vendor onboarding time compared to paper-based workflows</p>
                 </div>
-                <div class="feature-strip">
-                    <div class="strip-icon" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9;"><i
-                            class="fas fa-boxes-packing"></i></div>
-                    <div class="strip-content">
-                        <h3>Bulk Vendor Management</h3>
-                        <p>Send agreements to hundreds of vendors simultaneously with personalized fields and automated
-                            reminders.</p>
-                    </div>
+                <div class="va-metric-divider"></div>
+                <div class="va-metric va-reveal va-delay-100">
+                    <span class="va-metric-number va-red">$1.8M</span>
+                    <p>Average annual savings for enterprise procurement teams using BrillSign</p>
                 </div>
-                <div class="feature-strip">
-                    <div class="strip-icon" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9;"><i
-                            class="fas fa-repeat"></i></div>
-                    <div class="strip-content">
-                        <h3>Automated Renewals</h3>
-                        <p>Set alerts and automated workflows for contract renewals, ensuring your supply chain never
-                            skips a beat.</p>
-                    </div>
+                <div class="va-metric-divider"></div>
+                <div class="va-metric va-reveal va-delay-200">
+                    <span class="va-metric-number va-blue">99.9%</span>
+                    <p>Uptime SLA — your procurement never pauses, even during peak contract seasons</p>
+                </div>
+                <div class="va-metric-divider"></div>
+                <div class="va-metric va-reveal va-delay-300">
+                    <span class="va-metric-number va-red">48hr</span>
+                    <p>Average time from vendor invitation to fully executed agreement</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section style="padding: 100px 0; background: #f8fafc; text-align: center;">
+    <!-- ===== SECTION 3: ALTERNATING FEATURE SPLITS ===== -->
+    <section class="va-features">
         <div class="container">
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Ready to Optimize Procurement?</h2>
-            <p style="font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto 40px;">Join the procurement
-                teams accelerating their supply chain with BrillSign.</p>
-            <div style="display: flex; gap: 20px; justify-content: center;">
-                <a href="book-a-demo.html" class="btn-primary"
-                    style="padding: 18px 36px; font-weight: 700; text-decoration: none; border-radius: 12px; background: #0ea5e9; color: #fff; border-color: #0ea5e9;">Talk
-                    to Procurement Expert</a>
-                <a href="join-waitlist.html" class="btn-secondary"
-                    style="padding: 18px 36px; font-weight: 700; text-decoration: none; border-radius: 12px; border: 2px solid #0ea5e9; color: #0ea5e9;">Join
-                    the Waitlist</a>
+
+            <!-- Feature 1: Left text, right visual -->
+            <div class="va-feature-row va-reveal">
+                <div class="va-feature-text">
+                    <span class="va-feature-tag">Vendor Onboarding</span>
+                    <h2>Onboard Vendors in <span class="va-blue">Hours, Not Weeks</span></h2>
+                    <p>Cut through the paperwork chaos. Send legally binding NDAs, MSAs, and SOWs to new vendors
+                        instantly with one click. Every document is auto-tracked, and your team gets real-time status
+                        visibility the moment a vendor opens — or ignores — the agreement.</p>
+                    <ul class="va-feature-list">
+                        <li><i class="fas fa-check-circle"></i> One-click bulk onboarding for multiple vendors</li>
+                        <li><i class="fas fa-check-circle"></i> Auto-reminders for unsigned counterparties</li>
+                        <li><i class="fas fa-check-circle"></i> Branded signing experience with your logo</li>
+                        <li><i class="fas fa-check-circle"></i> No vendor account signup needed to sign</li>
+                    </ul>
+                </div>
+                <div class="va-feature-visual">
+                    <img src="a-clean-modern-saas-interface-illustrati_ibSNhYC9SB-yr9FV350rOQ_AWvwtZmTRJiXl948Tfo72A_sd.jpeg"
+                        alt="Vendor Onboarding">
+                    <div class="va-feature-float-card">
+                        <i class="fas fa-bolt va-blue"></i>
+                        <div>
+                            <strong>2 hours</strong>
+                            <span>average onboarding time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Right text, left visual (reversed) -->
+            <div class="va-feature-row va-feature-row-reverse va-reveal">
+                <div class="va-feature-text">
+                    <span class="va-feature-tag va-tag-red">Bulk Execution</span>
+                    <h2>Send to 500 Vendors <span class="va-red">Simultaneously</span></h2>
+                    <p>Updated your supplier code of conduct? Revising payment terms site-wide? BrillSign's bulk send
+                        engine lets you dispatch personalized agreements to your entire vendor roster in one action.
+                        Track every distinct signature on a single live dashboard.</p>
+                    <ul class="va-feature-list">
+                        <li><i class="fas fa-check-circle va-blue"></i> Personalized agreements at bulk scale</li>
+                        <li><i class="fas fa-check-circle va-blue"></i> Live signature dashboard by vendor segment</li>
+                        <li><i class="fas fa-check-circle va-blue"></i> ERP and procurement platform webhooks</li>
+                        <li><i class="fas fa-check-circle va-blue"></i> Batch download all executed agreements</li>
+                    </ul>
+                </div>
+                <div class="va-feature-visual">
+                    <img src="a-professional-product-marketing-photogr_WKp1xOVnQbGhzFs5h7RbIw_ANLdWJooTbSn50ilw8O1fw_sd.jpeg"
+                        alt="Bulk Supply Chain Execution">
+                    <div class="va-feature-float-card va-float-right">
+                        <i class="fas fa-network-wired va-red"></i>
+                        <div>
+                            <strong>500+ vendors</strong>
+                            <span>dispatched in one action</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Left text, right visual -->
+            <div class="va-feature-row va-reveal">
+                <div class="va-feature-text">
+                    <span class="va-feature-tag">Renewal Automation</span>
+                    <h2>Never Miss a Contract <span class="va-blue">Renewal Again</span></h2>
+                    <p>Set contract renewal workflows and walk away. BrillSign automatically notifies both parties
+                        before expiry, regenerates updated agreements, and queues them for signature — maintaining an
+                        unbroken, audit-ready supply chain history for every renewal cycle.</p>
+                    <ul class="va-feature-list">
+                        <li><i class="fas fa-check-circle"></i> Automated renewal workflows with custom timelines</li>
+                        <li><i class="fas fa-check-circle"></i> Immutable audit log for every agreement version</li>
+                        <li><i class="fas fa-check-circle"></i> Decentralized tamper-proof renewal records</li>
+                        <li><i class="fas fa-check-circle"></i> One-click renewal approval for existing vendors</li>
+                    </ul>
+                </div>
+                <div class="va-feature-visual">
+                    <img src="a-sleek-digital-visualization-showcasing_XQ2w2jaURMewWX574ipDww_0qg6WluDRaKjBdW679SIVA_sd.jpeg"
+                        alt="Renewal Automation">
+                    <div class="va-feature-float-card">
+                        <i class="fas fa-arrows-rotate va-blue"></i>
+                        <div>
+                            <strong>0 expired contracts</strong>
+                            <span>with auto-renewal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== SECTION 4: VENDOR LIFECYCLE STEPS ===== -->
+    <section class="va-lifecycle">
+        <div class="container">
+            <div class="va-lifecycle-header va-reveal">
+                <span class="va-pill va-pill-yellow">End-to-End Workflow</span>
+                <h2>The Complete <span class="va-blue">Vendor Agreement Lifecycle</span></h2>
+                <p>BrillSign manages every stage — from first contact to long-term relationship — in one unified,
+                    audit-ready workflow.</p>
+            </div>
+
+            <div class="va-lifecycle-content">
+                <div class="va-lifecycle-steps">
+                    <div class="va-lc-step va-reveal va-delay-100 active" data-step="1">
+                        <div class="va-lc-number">01</div>
+                        <div class="va-lc-icon"><i class="fas fa-user-plus"></i></div>
+                        <h3>Vendor Invitation</h3>
+                        <p>Send personalized onboarding packages to new vendors — NDAs, codes of conduct, and SOWs — in a
+                            single branded email with one-click signing.</p>
+                    </div>
+                    <div class="va-lc-step va-reveal va-delay-200" data-step="2">
+                        <div class="va-lc-number">02</div>
+                        <div class="va-lc-icon va-icon-red"><i class="fas fa-pen-to-square"></i></div>
+                        <h3>Digital Signing</h3>
+                        <p>Vendors sign from any device with no account required. Identity verification, geo-timestamps, and
+                            device fingerprinting are applied automatically.</p>
+                    </div>
+                    <div class="va-lc-step va-reveal va-delay-300" data-step="3">
+                        <div class="va-lc-number">03</div>
+                        <div class="va-lc-icon"><i class="fas fa-lock"></i></div>
+                        <h3>Cryptographic Sealing</h3>
+                        <p>Every executed agreement receives an SHA-3 cryptographic seal, a unique fingerprint, and is
+                            archived in an immutable record for 99+ years.</p>
+                    </div>
+                    <div class="va-lc-step va-reveal va-delay-100" data-step="4">
+                        <div class="va-lc-number">04</div>
+                        <div class="va-lc-icon va-icon-red"><i class="fas fa-arrows-rotate"></i></div>
+                        <h3>Renewal & Monitoring</h3>
+                        <p>Automatic renewal alerts, version-controlled amendments, and real-time compliance monitoring keep
+                            your vendor relationships fresh and airtight.</p>
+                    </div>
+                </div>
+
+                <div class="va-lifecycle-visual va-reveal va-delay-100">
+                    <div class="va-video-container">
+                        <video id="lifecycleVideo" autoplay loop muted playsinline class="va-video">
+                            <source src="vendor-lifecycle-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="va-video-overlay"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Sync Script -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const video = document.getElementById('lifecycleVideo');
+                    if (!video) return;
+
+                    const steps = document.querySelectorAll('.va-lc-step');
+                    
+                    video.addEventListener('timeupdate', () => {
+                        const time = video.currentTime;
+                        let activeStep = 1;
+
+                        if (time >= 0 && time < 3.0) activeStep = 1;
+                        else if (time >= 3.0 && time < 6.4) activeStep = 2;
+                        else if (time >= 6.4 && time < 10.1) activeStep = 3;
+                        else if (time >= 10.1) activeStep = 4;
+
+                        steps.forEach(step => {
+                            if (parseInt(step.dataset.step) === activeStep) {
+                                step.classList.add('active');
+                            } else {
+                                step.classList.remove('active');
+                            }
+                        });
+                    });
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 5: INTEGRATION LOGOS ===== -->
+    <section class="va-integrations">
+        <div class="container">
+            <div class="va-integrations-header va-reveal">
+                <h2>Connects with Your <span class="va-blue">Procurement Stack</span></h2>
+                <p>BrillSign integrates natively with the tools your procurement team already uses — no custom
+                    development needed.</p>
+            </div>
+            <div class="va-integrations-grid">
+                <div class="va-int-card va-reveal va-delay-100"><i class="fas fa-cloud"></i><span>SAP Ariba</span></div>
+                <div class="va-int-card va-reveal va-delay-200"><i class="fas fa-diagram-project"></i><span>Coupa</span>
+                </div>
+                <div class="va-int-card va-reveal va-delay-300"><i class="fas fa-cubes"></i><span>Oracle
+                        Procurement</span></div>
+                <div class="va-int-card va-reveal va-delay-100"><i class="fas fa-bolt"></i><span>Salesforce</span></div>
+                <div class="va-int-card va-reveal va-delay-200"><i class="fas fa-users-gear"></i><span>BambooHR</span>
+                </div>
+                <div class="va-int-card va-reveal va-delay-300"><i class="fas fa-plug"></i><span>Zapier / API</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 6: CTA ===== -->
+    <section class="va-cta va-reveal">
+        <div class="container">
+            <div class="va-cta-inner">
+                <div class="va-cta-text">
+                    <span class="va-pill va-pill-red">Ready to Transform Procurement?</span>
+                    <h2>From First Vendor to Full Supply Chain — BrillSign Has You Covered</h2>
+                    <p>Stop managing vendor agreements in email threads and spreadsheets. Upgrade to a procurement-grade
+                        signature platform trusted by 5,000+ companies worldwide.</p>
+                </div>
+                <div class="va-cta-actions">
+                    <a href="book-a-demo.html" class="va-btn-primary">Talk to a Procurement Expert</a>
+                    <a href="start-free-trial.html" class="va-btn-outline">Start Free — No Credit Card</a>
+                    <div class="va-cta-trust">
+                        <i class="fas fa-shield-halved"></i>
+                        <span>eIDAS · ESIGN · SOC 2 · ISO 27001 Compliant</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
+
+    <!-- Scroll reveal script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('va-visible');
+                    }
+                });
+            }, { threshold: 0.08 });
+
+            document.querySelectorAll('.va-reveal').forEach(el => observer.observe(el));
+        });
+    </script>
 
     <script src="shared-components.js?v=20260311_v6"></script>
 </body>

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cta-pages.css">
+    <link rel="stylesheet" href="long-term-proof.css">
 </head>
 
 <body class="cta-page-body">
@@ -22,66 +23,164 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="cta-hero" style="background: linear-gradient(135deg, #fefce8 0%, #ffffff 100%);">
-        <div class="container">
-            <span
-                style="color: #ca8a04; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Use
-                Case: Long-Term Proof</span>
-            <h1>Trust That <span>Endures</span></h1>
-            <p>Documents signed today must be verifiable decades from now. BrillSign provides the decentralized
-                infrastructure for permanent digital trust, independent of any platform.</p>
+    <section class="ltp-hero">
+        <div class="time-circle tc-1"></div>
+        <div class="time-circle tc-2"></div>
+        <div class="time-circle tc-3"></div>
+        
+        <div class="container relative z-10">
+            <div class="ltp-content">
+                <span style="display: inline-block; padding: 6px 12px; border-radius: 20px; background: rgba(202, 138, 4, 0.15); color: #ca8a04; font-weight: 700; font-size: 0.85rem; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;">
+                    Long-Term Proof
+                </span>
+                <h1 style="font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: #0f172a;">
+                    Trust That <span style="color: #ca8a04;">Endures Decades</span>
+                </h1>
+                <p style="font-size: 1.25rem; color: #64748b; line-height: 1.6; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Documents signed today must be verifiable 30 years from now. BrillSign provides the decentralized infrastructure for permanent digital trust, independent of centralized failures.
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <a href="book-a-demo.html" class="btn-primary" style="padding: 16px 32px; font-weight: 700; text-decoration: none; border-radius: 12px; background: #ca8a04; color: #fff; box-shadow: 0 10px 20px rgba(202, 138, 4, 0.2); border: none;">Consult Archival Expert</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Value Props -->
-    <section class="cta-benefits">
-        <div class="feature-hub-container">
-            <div class="hub-visual-column">
-                <div class="bs-dashboard" style="border-color: rgba(202, 138, 4, 0.1);">
-                    <div class="bs-topbar" style="background: #ca8a04;">
-                        <span class="bs-brand">Archive-Secure</span>
-                        <span class="bs-live-badge"><i class="fas fa-history"></i> Immutable</span>
-                    </div>
-                    <div style="padding: 40px; text-align: center;">
-                        <i class="fas fa-hourglass-half"
-                            style="font-size: 4rem; color: #ca8a04; opacity: 0.15; margin-bottom: 25px; display: block;"></i>
-                        <div
-                            style="height: 12px; width: 90%; background: #f1f5f9; border-radius: 6px; margin: 0 auto 12px;">
+    <!-- Horizontal Scrolling Timeline Section -->
+    <section class="decade-timeline-section">
+        <div class="container" style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 15px;">The Lifecycle of Digital Proof</h2>
+            <p style="font-size: 1.15rem; color: #64748b; max-width: 600px; margin: 0 auto;">Scroll down to see how traditional signatures degrade over time, while BrillSign's cryptographic proof remains immutable.</p>
+        </div>
+
+        <div class="timeline-sticky-container" id="timelineContainer">
+            <div class="timeline-sticky-inner">
+                <div class="timeline-track" id="timelineTrack">
+                    <!-- Connective Line -->
+                    <div class="timeline-track-line"></div>
+
+                    <!-- Year 1 -->
+                    <div class="timeline-card">
+                        <div class="t-year">YEAR 1 (Sign Date)</div>
+                        <div class="t-status">
+                            <span class="status-badge status-valid">Legacy E-Sign: Valid</span>
+                            <span class="status-badge status-valid">BrillSign: Valid</span>
                         </div>
-                        <div style="height: 12px; width: 70%; background: #f1f5f9; border-radius: 6px; margin: 0 auto;">
-                        </div>
+                        <h3>The Baseline</h3>
+                        <p>Both traditional e-signatures and BrillSign operate effectively. The signing platform holds the audit trail, and all links are active.</p>
+                        <i class="fas fa-file-contract t-icon"></i>
                     </div>
+
+                    <!-- Year 5 -->
+                    <div class="timeline-card">
+                        <div class="t-year">YEAR 5</div>
+                        <div class="t-status">
+                            <span class="status-badge status-warn">Legacy E-Sign: At Risk</span>
+                            <span class="status-badge status-valid">BrillSign: Immutable</span>
+                        </div>
+                        <h3>Vendor Dependency</h3>
+                        <p>If you migrate away from a traditional e-sign vendor, you lose access to the native audit trail. BrillSign's proof is embedded in the PDF, remaining verifiable offline.</p>
+                        <i class="fas fa-server t-icon"></i>
+                    </div>
+
+                    <!-- Year 15 -->
+                    <div class="timeline-card">
+                        <div class="t-year">YEAR 15</div>
+                        <div class="t-status">
+                            <span class="status-badge status-warn">Legacy E-Sign: Corrupted</span>
+                            <span class="status-badge status-valid">BrillSign: Verifiable</span>
+                        </div>
+                        <h3>Link Rot & Expiry</h3>
+                        <p>Standard links to traditional signing events expire. BrillSign uses decentralized storage protocols (like IPFS paired with ledger tech) to ensure the document footprint never 404s.</p>
+                        <i class="fas fa-link-slash t-icon"></i>
+                    </div>
+
+                    <!-- Year 30+ -->
+                    <div class="timeline-card" style="border-right: 4px solid #ca8a04;">
+                        <div class="t-year" style="background: #0f172a;">YEAR 30+</div>
+                        <div class="t-status">
+                            <span class="status-badge" style="background:#fefce8; color:#ca8a04;">Legacy E-Sign: Invalidated</span>
+                            <span class="status-badge status-valid">BrillSign: Permanent</span>
+                        </div>
+                        <h3>Future-Proof Algorithmics</h3>
+                        <p>As cryptography evolves, BrillSign supports hash upgrading and cryptographic timestamping designed for long-term archival standards (LTV/PAdES).</p>
+                        <i class="fas fa-infinity t-icon"></i>
+                    </div>
+
                 </div>
             </div>
-            <div class="hub-features-column">
-                <div class="section-header">
-                    <h2 style="font-size: 2.5rem; font-weight: 800; line-height: 1.3;">Decade-Scale
-                        <span>Validity</span></h2>
-                    <p style="margin-top: 20px; font-size: 1.1rem; color: #64748b;">BrillSign's decentralized proof
-                        protocol ensures that your documents remain cryptographically valid even if the software used to
-                        sign them no longer exists.</p>
-                </div>
-                <div class="feature-strip">
-                    <div class="strip-icon" style="background: rgba(202, 138, 4, 0.1); color: #ca8a04;"><i
-                            class="fas fa-database"></i></div>
-                    <div class="strip-content">
-                        <h3>Distributed Ledger Storage</h3>
-                        <p>Document hashes and signing events are stored across a permanent, decentralized network,
-                            eliminating single points of failure.</p>
+        </div>
+    </section>
+
+    <!-- Architecture Features -->
+    <section class="arch-features">
+        <div class="container">
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-bottom: 50px; text-align: center;">Purpose-Built for the Archive</h2>
+            <div class="arch-grid">
+                <div class="arch-item">
+                    <div class="arch-icon"><i class="fas fa-anchor"></i></div>
+                    <div class="arch-text">
+                        <h4>Blockchain & Ledger Anchoring</h4>
+                        <p>Document proofs are rolled up and anchored into immutable public ledgers. This creates an unforgeable timestamp proving the document existed at a specific moment in history.</p>
                     </div>
                 </div>
-                <div class="feature-strip">
-                    <div class="strip-icon" style="background: rgba(202, 138, 4, 0.1); color: #ca8a04;"><i
-                            class="fas fa-file-shield"></i></div>
-                    <div class="strip-content">
-                        <h3>Self-Contained Proof</h3>
-                        <p>BrillSign documents carry their own cryptographic proof, allowing for offline verification
-                            without any platform dependency.</p>
+                <div class="arch-item">
+                    <div class="arch-icon"><i class="fas fa-cube"></i></div>
+                    <div class="arch-text">
+                        <h4>Decentralized Storage (IPFS)</h4>
+                        <p>Optionally distribute secure, encrypted fragments of your audit logs across decentralized networks, removing the single point of failure inherent in cloud providers.</p>
+                    </div>
+                </div>
+                <div class="arch-item">
+                    <div class="arch-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="arch-text">
+                        <h4>PAdES LTV Compliance</h4>
+                        <p>Signatures conform to the strictly defined Long Term Validation profiles, ensuring they meet the technical requirements for multi-decade archiving required by EU courts.</p>
+                    </div>
+                </div>
+                <div class="arch-item">
+                    <div class="arch-icon"><i class="fas fa-laptop-medical"></i></div>
+                    <div class="arch-text">
+                        <h4>Local Validator Applications</h4>
+                        <p>We provide open-source, downloadable verification tools. You never have to worry about our servers being online to validate your crucial decades-old agreements.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Horizontal Scroll Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('timelineContainer');
+            const track = document.getElementById('timelineTrack');
+            
+            window.addEventListener('scroll', () => {
+                // Get the scroll position relative to the container
+                const rect = container.getBoundingClientRect();
+                const containerHeight = container.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                // Calculate progress (0 to 1) while container is crossing the viewport
+                // We start scrolling track when top of container hits top of viewport
+                if (rect.top <= 0 && rect.bottom >= windowHeight) {
+                    const scrollableDistance = containerHeight - windowHeight;
+                    const amountScrolled = Math.abs(rect.top);
+                    const progress = amountScrolled / scrollableDistance;
+                    
+                    // max left translation = track width - window width
+                    const maxTranslate = track.scrollWidth - window.innerWidth + 100; // adding padded ending
+                    
+                    track.style.transform = `translateX(-${progress * maxTranslate}px)`;
+                } else if (rect.top > 0) {
+                    track.style.transform = `translateX(0)`;
+                } else if (rect.bottom < windowHeight) {
+                    const maxTranslate = track.scrollWidth - window.innerWidth + 100;
+                    track.style.transform = `translateX(-${maxTranslate}px)`;
+                }
+            });
+        });
+    </script>
 
     <!-- Final CTA -->
     <section style="padding: 100px 0; background: #f8fafc; text-align: center;">

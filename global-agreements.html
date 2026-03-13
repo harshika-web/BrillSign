@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cta-pages.css">
+    <link rel="stylesheet" href="global-agreements.css">
 </head>
 
 <body class="cta-page-body">
@@ -22,65 +23,130 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="cta-hero" style="background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);">
-        <div class="container">
-            <span
-                style="color: #7c3aed; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Use
-                Case: Global Agreements</span>
-            <h1>Borderless <span>Legal Validity</span></h1>
-            <p>BrillSign provides the infrastructure for legally binding signatures across every jurisdiction.
-                Experience platform-independent proof that travels with your document.</p>
+    <section class="global-hero">
+        <div class="global-map-bg"></div>
+        <div class="container relative z-10">
+            <div class="global-content-wrapper">
+                <div class="global-text">
+                    <span style="display: inline-block; padding: 6px 12px; border-radius: 20px; background: rgba(124, 58, 237, 0.15); color: #7c3aed; font-weight: 700; font-size: 0.85rem; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;">
+                        Global Agreements
+                    </span>
+                    <h1 style="font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: #0f172a;">
+                        Borderless <span style="color: #7c3aed;">Legal Validity</span>
+                    </h1>
+                    <p style="font-size: 1.25rem; color: #64748b; line-height: 1.6; margin-bottom: 40px;">
+                        BrillSign provides the infrastructure for legally binding signatures across every jurisdiction. Experience platform-independent proof that travels securely with your localized documents.
+                    </p>
+                    <div style="display: flex; gap: 20px;">
+                        <a href="book-a-demo.html" class="btn-primary" style="padding: 16px 32px; font-weight: 700; text-decoration: none; border-radius: 12px; background: #7c3aed; color: #fff; box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2); border: none;">Consult Global Expert</a>
+                    </div>
+                </div>
+                <div class="global-visual">
+                    <img src="scenario_jurisdiction.png" alt="Global Jurisdiction Map Dashboard">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Value Props -->
-    <section class="cta-benefits">
-        <div class="feature-hub-container">
-            <div class="hub-visual-column">
-                <div class="bs-dashboard" style="border-color: rgba(124, 58, 237, 0.1);">
-                    <div class="bs-topbar" style="background: #7c3aed;">
-                        <span class="bs-brand">Global-Secure</span>
-                        <span class="bs-live-badge"><i class="fas fa-globe"></i> Active</span>
-                    </div>
-                    <div style="padding: 40px; text-align: center;">
-                        <i class="fas fa-earth-americas"
-                            style="font-size: 4rem; color: #7c3aed; opacity: 0.15; margin-bottom: 25px; display: block;"></i>
-                        <div
-                            style="height: 12px; width: 100%; background: #f1f5f9; border-radius: 6px; margin-bottom: 12px;">
-                        </div>
-                        <div style="height: 12px; width: 80%; background: #f1f5f9; border-radius: 6px;"></div>
-                    </div>
-                </div>
+    <!-- Compliance Routing Interactive Section -->
+    <section class="compliance-routing-section">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 80px;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 20px;">Universal Acceptance Protocol</h2>
+                <p style="font-size: 1.15rem; color: #64748b;">Automatically adapt signing workflows to meet stringent regional requirements, protecting your global ecosystem.</p>
             </div>
-            <div class="hub-features-column">
-                <div class="section-header">
-                    <h2 style="font-size: 2.5rem; font-weight: 800; line-height: 1.3;">Universal <span>Acceptance</span>
-                    </h2>
-                    <p style="margin-top: 20px; font-size: 1.1rem; color: #64748b;">Built on open standards and
-                        decentralized proof, BrillSign agreements are verifiable independently of the platform, ensuring
-                        long-term global validity.</p>
-                </div>
-                <div class="feature-strip">
-                    <div class="strip-icon" style="background: rgba(124, 58, 237, 0.1); color: #7c3aed;"><i
-                            class="fas fa-language"></i></div>
-                    <div class="strip-content">
-                        <h3>Multi-Language Support</h3>
-                        <p>Sign in your local language while maintaining a globally recognized cryptographic proof of
-                            origin.</p>
+
+            <div class="routing-container">
+                <!-- Sticky Map Side -->
+                <div class="routing-map-side">
+                    <div class="map-header">
+                        <span>Live Verification</span>
+                        <h3>Jurisdiction Engine</h3>
+                    </div>
+                    <div class="map-visualization">
+                        <div class="map-node" id="node-eu"></div>
+                        <div class="map-node" id="node-na"></div>
+                        <div class="map-node" id="node-apac"></div>
                     </div>
                 </div>
-                <div class="feature-strip">
-                    <div class="strip-icon" style="background: rgba(124, 58, 237, 0.1); color: #7c3aed;"><i
-                            class="fas fa-landmark-flag"></i></div>
-                    <div class="strip-content">
-                        <h3>Jurisdiction Awareness</h3>
-                        <p>BrillSign automatically adapts signing protocols to meet regional legal requirements for
-                            every participant.</p>
+
+                <!-- Scrolling Steps Side -->
+                <div class="routing-content-side">
+                    
+                    <div class="routing-step step-eu" data-node="node-eu">
+                        <div class="step-region">EUROPEAN UNION</div>
+                        <h4>eIDAS (QES & AES) Compliance</h4>
+                        <p>BrillSign adheres strictly to the eIDAS regulation, verifying cryptographic identities against trusted European lists. Ensures court-admissible proof equivalent to handwritten signatures across the EU.</p>
+                        <div class="compliance-tags">
+                            <span class="c-tag">GDPR Compliant</span>
+                            <span class="c-tag">QES Verification</span>
+                            <span class="c-tag">Data Sovereignty</span>
+                        </div>
                     </div>
+
+                    <div class="routing-step step-na" data-node="node-na">
+                        <div class="step-region">NORTH AMERICA</div>
+                        <h4>ESIGN & UETA Standards</h4>
+                        <p>Automatically triggers necessary consent and intent-to-sign tracking required in the US and Canada. Implements specific audit trails mapped directly to ESIGN Act mandates.</p>
+                        <div class="compliance-tags">
+                            <span class="c-tag">ESIGN Act</span>
+                            <span class="c-tag">UETA Framework</span>
+                            <span class="c-tag">FDA 21 CFR 11</span>
+                        </div>
+                    </div>
+
+                    <div class="routing-step step-apac" data-node="node-apac">
+                        <div class="step-region">APAC REGION</div>
+                        <h4>Cross-Border Treaties</h4>
+                        <p>Handles complex localization and regional personal data protection acts. Native integration with local trust providers for regions requiring specific CA assertions.</p>
+                        <div class="compliance-tags">
+                            <span class="c-tag">PDPA Alignment</span>
+                            <span class="c-tag">Multi-byte Identity</span>
+                            <span class="c-tag">Local CA Trusts</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Scroll Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.routing-step');
+            const nodes = document.querySelectorAll('.map-node');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-40% 0px -40% 0px', // Trigger when step hits the middle of viewport
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Highlight scrolling step
+                        steps.forEach(s => s.classList.remove('active'));
+                        entry.target.classList.add('active');
+
+                        // Highlight corresponding map node
+                        const nodeId = entry.target.getAttribute('data-node');
+                        nodes.forEach(n => n.classList.remove('active'));
+                        document.getElementById(nodeId).classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            steps.forEach(step => observer.observe(step));
+            
+            // Activate first immediately
+            if(steps.length > 0) {
+                steps[0].classList.add('active');
+                document.getElementById(steps[0].getAttribute('data-node')).classList.add('active');
+            }
+        });
+    </script>
 
     <!-- Final CTA -->
     <section style="padding: 100px 0; background: #f8fafc; text-align: center;">

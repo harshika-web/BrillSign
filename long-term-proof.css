@@ -1,0 +1,206 @@
+/* --- Unique Layout for Long-Term Proof --- */
+.ltp-hero {
+    padding: 140px 0 100px;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ltp-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to top, #ffffff, transparent);
+    z-index: 1;
+}
+
+.time-circle {
+    position: absolute;
+    border: 1px solid rgba(202, 138, 4, 0.2);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.tc-1 { width: 400px; height: 400px; animation: spin 40s linear infinite; }
+.tc-2 { width: 600px; height: 600px; border-style: dashed; animation: spin 60s linear infinite reverse; }
+.tc-3 { width: 800px; height: 800px; animation: spin 80s linear infinite; }
+
+@keyframes spin {
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.ltp-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Horizontal Scrolling Timeline Area */
+.decade-timeline-section {
+    padding: 100px 0;
+    background: #ffffff;
+    overflow: hidden; /* For custom scroll */
+}
+
+/* The sticky container that pins while we scroll horizontal */
+.timeline-sticky-container {
+    height: 300vh; /* Create scroll space */
+    position: relative;
+}
+
+.timeline-sticky-inner {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.timeline-track {
+    display: flex;
+    gap: 80px;
+    padding: 0 50vw 0 10vw; /* Padding to allow centering items */
+    will-change: transform;
+}
+
+.timeline-card {
+    min-width: 450px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border: 1px solid #f1f5f9;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 40px;
+    width: 2px;
+    height: 40px;
+    background: #e2e8f0;
+}
+
+/* Connective line behind cards */
+.timeline-track-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e2e8f0;
+    z-index: -1;
+}
+
+/* Timeline Year Badge */
+.t-year {
+    position: absolute;
+    top: -55px;
+    left: 20px;
+    background: #ca8a04;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(202, 138, 4, 0.2);
+}
+
+.t-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-valid { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+.status-warn { background: rgba(249, 115, 22, 0.1); color: #f97316; }
+
+.timeline-card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+
+.timeline-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.t-icon {
+    font-size: 2.5rem;
+    color: #ca8a04;
+    opacity: 0.2;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+/* Architecture Features */
+.arch-features {
+    padding: 80px 0 120px;
+    background: #ffffff;
+}
+
+.arch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.arch-item {
+    display: flex;
+    gap: 20px;
+}
+
+.arch-icon {
+    width: 50px; height: 50px;
+    min-width: 50px;
+    background: #fff;
+    border: 2px solid #ca8a04;
+    color: #ca8a04;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.arch-text h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.arch-text p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+    .arch-grid { grid-template-columns: 1fr; }
+    .timeline-card { min-width: 320px; padding: 25px; }
+}

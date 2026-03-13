@@ -86,26 +86,31 @@
 }
 
 .gov-hero-content h1 {
-    font-size: 4.2rem;
+    font-size: 4rem;
     line-height: 1.15;
     font-weight: 800;
     margin-bottom: 24px;
     letter-spacing: -1px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    color: #ffffff; /* Explicitly set to white to override inherited dark navy */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Added for better visibility against background */
 }
 
 .gov-hero-content h1 span {
     color: var(--gov-gold);
-    text-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
 }
 
 .gov-hero-content p {
-    font-size: 1.35rem;
-    color: #f1f5f9;
+    font-size: 1.25rem;
+    color: #e2e8f0; /* Lightened from #cbd5e1 for better readability */
     margin-bottom: 40px;
     line-height: 1.7;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gov-hero .gov-badge {
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8; /* Lighter blue for better contrast on dark navy */
+    border-color: rgba(56, 189, 248, 0.4);
 }
 
 .gov-hero-actions {
