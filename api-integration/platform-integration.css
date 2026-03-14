@@ -703,14 +703,94 @@
 /* ═══════════════════════════════════════════
    SECTION 5 — FAQ
 ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   SECTION 5 — FAQ (Premium Overrides)
+   ═══════════════════════════════════════════ */
 .pi-faq {
-    padding: 100px 24px;
-    background: #f8fafc;
+    padding: 120px 24px;
+    background: var(--bg-body);
 }
 
 .pi-faq .faq-container {
-    max-width: 760px;
+    max-width: 840px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pi-faq .faq-item {
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.pi-faq .faq-item:hover {
+    border-color: rgba(0, 102, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 102, 255, 0.05);
+}
+
+.pi-faq .faq-item.active {
+    border-color: #0066ff;
+    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.08);
+}
+
+.pi-faq .faq-question {
+    padding: 28px 32px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 20px;
+    outline: none;
+}
+
+.pi-faq .faq-question span {
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.pi-faq .faq-item.active .faq-question span {
+    color: #0066ff;
+}
+
+.pi-faq .faq-icon {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    transition: all 0.4s ease;
+}
+
+.pi-faq .faq-item.active .faq-icon {
+    color: #0066ff;
+    transform: rotate(180deg);
+}
+
+.pi-faq .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pi-faq .faq-answer-content {
+    padding: 0 32px 32px;
+}
+
+.pi-faq .faq-answer-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
 }
 
 /* ═══════════════════════════════════════════
