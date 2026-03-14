@@ -6,6 +6,7 @@
     --legal-border: rgba(0, 102, 255, 0.15);
     --legal-accent: #0066ff;
     --legal-yellow: #FFB800;
+    --legal-gold: #fbbf24;
 }
 
 
@@ -264,15 +265,18 @@
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
-    border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-ghost-legal:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--legal-gold) !important;
-    color: var(--legal-gold) !important;
+    background: #ffffff;
+    border-color: #ffffff !important;
+    color: var(--legal-slate) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero Enhancements */

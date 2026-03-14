@@ -14,153 +14,293 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cta-pages.css">
-    <link rel="stylesheet" href="global-agreements.css">
+    <link rel="stylesheet" href="global-agreements-v2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body class="cta-page-body">
+<body class="global-agreements-v2">
 
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="global-hero">
-        <div class="global-map-bg"></div>
-        <div class="container relative z-10">
-            <div class="global-content-wrapper">
-                <div class="global-text">
-                    <span style="display: inline-block; padding: 6px 12px; border-radius: 20px; background: rgba(124, 58, 237, 0.15); color: #7c3aed; font-weight: 700; font-size: 0.85rem; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;">
-                        Global Agreements
-                    </span>
-                    <h1 style="font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: #0f172a;">
-                        Borderless <span style="color: #7c3aed;">Legal Validity</span>
-                    </h1>
-                    <p style="font-size: 1.25rem; color: #64748b; line-height: 1.6; margin-bottom: 40px;">
-                        BrillSign provides the infrastructure for legally binding signatures across every jurisdiction. Experience platform-independent proof that travels securely with your localized documents.
+    <!-- Hero Section V2 -->
+    <section class="hero-v2">
+        <div class="hero-v2-bg">
+            <img src="global-hero-v2.png" alt="Global Business Boardroom">
+        </div>
+        <div class="hero-v2-overlay"></div>
+        <div class="hero-v2-content container">
+            <span class="hero-v2-badge">Global Agreements</span>
+            <h1>Borderless <span>Legal Validity</span></h1>
+            <p>
+                BrillSign provides the infrastructure for legally binding signatures across every jurisdiction. Experience platform-independent proof that travels securely with your localized documents.
+            </p>
+            <div class="hero-v2-btns">
+                <a href="book-a-demo.html" class="btn-v2 btn-v2-primary">Consult Expert</a>
+                <a href="#compliance" class="btn-v2 btn-v2-secondary">Explore Coverage</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Compliance Section V2 -->
+    <section id="compliance" class="regional-v2">
+        <div class="container">
+            <span class="section-tag">Global Standards</span>
+            <h2 class="section-title">The Jurisdiction <span style="color: var(--brand-blue);">Engine</span></h2>
+
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <span style="color: var(--brand-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase;">European Union</span>
+                    <h3>eIDAS Compliance</h3>
+                    <p>Adheres to QES & AES regulations. Court-admissible proof equivalent to handwritten signatures across all EU member states.</p>
+                </div>
+                <div class="compliance-card red">
+                    <span style="color: var(--brand-red); font-weight: 800; font-size: 0.9rem; text-transform: uppercase;">North America</span>
+                    <h3>ESIGN & UETA</h3>
+                    <p>Automated consent tracking and audit trails mapped directly to ESIGN Act mandates. Full US & Canada legal coverage.</p>
+                </div>
+                <div class="compliance-card yellow">
+                    <span style="color: #d9822b; font-weight: 800; font-size: 0.9rem; text-transform: uppercase;">APAC Region</span>
+                    <h3>PDPA & Local Trusts</h3>
+                    <p>Native integration with local trust providers and adherence to regional data protection acts for seamless cross-border treaties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Layout: The Legal Bridge -->
+    <section class="legal-bridge">
+        <div class="container bridge-container">
+            <div class="bridge-visual">
+                <img src="compliance-v2.png" alt="Legal Compliance Dashboard">
+            </div>
+            <div class="bridge-content">
+                <span class="section-tag">Secure Framework</span>
+                <h2>The <span>Legal Bridge</span> Architecture</h2>
+                <p style="font-size: 1.1rem; color: #475569; margin-bottom: 30px;">
+                    Our proprietary architecture ensures that every signature carries its own legal weight, independent of the platform.
+                </p>
+                
+                <div class="bridge-steps">
+                    <div class="bridge-step">
+                        <div class="step-num">1</div>
+                        <div class="step-text">
+                            <h4>Zero-Knowledge Identity</h4>
+                            <p>Verify identities without exposing sensitive private data, maintaining GDPR and HIPAA compliance.</p>
+                        </div>
+                    </div>
+                    <div class="bridge-step">
+                        <div class="step-num" style="background: var(--brand-red);">2</div>
+                        <div class="step-text">
+                            <h4>Immutable Evidence Trail</h4>
+                            <p>Every signing event is cryptographically timestamped and multi-indexed for permanent verification.</p>
+                        </div>
+                    </div>
+                    <div class="bridge-step">
+                        <div class="step-num" style="background: var(--brand-yellow); color: #000;">3</div>
+                        <div class="step-text">
+                            <h4>Cross-Border Validation</h4>
+                            <p>Documents automatically include locale-specific metadata to ensure validity in different legal zones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectoral Impact (New) -->
+    <section class="sector-impact">
+        <div class="container">
+            <span class="section-tag">Industry Focus</span>
+            <h2 class="section-title">Legal Infinity Across <span style="color: var(--brand-red);">Sectors</span></h2>
+            <div class="staggered-grid">
+                <div class="impact-card finance">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Banking & Finance</span></h3>
+                    <p>Meeting SEC, FINRA, and global banking mandates with KYC-linked digital signatures.</p>
+                </div>
+                <div class="impact-card healthcare">
+                    <i class="fas fa-file-medical"></i>
+                    <h3>Modern Healthcare</span></h3>
+                    <p>HIPAA compliant workflows for cross-border medical research and patient consent.</p>
+                </div>
+                <div class="impact-card gov">
+                    <i class="fas fa-shield-halved"></i>
+                    <h3>Government & Public</span></h3>
+                    <p>GSA-approved standards for public sector digital transformation and citizen services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Architecture Section -->
+    <section style="padding: 120px 0; background: #fff;">
+        <div class="container" style="display: flex; align-items: center; gap: 80px; flex-direction: row-reverse;">
+            <div style="flex: 1;">
+                <img src="a-professional-enterprise-saas-illustrat_giG0_1elQZ6zVFsDTMsI5g_wM6AY6h8R_G8_0YZR3YeEA_sd.jpeg" alt="Digital Trust Infrastructure" style="width: 100%; border-radius: 24px; box-shadow: 0 40px 100px rgba(0,0,0,0.1);">
+            </div>
+            <div style="flex: 1;">
+                <span class="section-tag">Infrastructure</span>
+                <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 30px;">The Foundation of <span style="color: var(--brand-red);">Global Trust</span></h2>
+                <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 40px;">
+                    BrillSign doesn't just manage documents; we manage the cryptographic proof of intent that resides within them. Our infrastructure is built for high-stakes international commerce.
+                </p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-weight: 600;">
+                        <i class="fas fa-check-circle" style="color: var(--brand-blue);"></i> 24/7 Global Uptime Commitment
+                    </li>
+                    <li style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-weight: 600;">
+                        <i class="fas fa-check-circle" style="color: var(--brand-red);"></i> Multi-Region Data Sovereignty
+                    </li>
+                    <li style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-weight: 600;">
+                        <i class="fas fa-check-circle" style="color: var(--brand-yellow);"></i> Military-Grade Encryption Standards
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Node Network (New) -->
+    <section class="nodes-section">
+        <img src="nodes-v2.png" alt="Global Node Network" class="nodes-bg-image">
+        <div class="container">
+            <div class="nodes-grid" style="margin-bottom: 40px;">
+                <div class="nodes-text">
+                    <span class="section-tag" style="color: var(--brand-red);">Decentralized Trust</span>
+                    <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 30px; color: #ffffff;">The Global <span style="color: var(--brand-blue);">Node Network</span></h2>
+                    <p style="font-size: 1.1rem; color: rgba(226, 232, 240, 0.9); margin-bottom: 0; line-height: 1.8;">
+                        Our signatures are verified across a distributed network of cryptographic nodes, ensuring that legal proof is never tied to a single point of failure. This decentralized architecture provides unparalleled resilience and auditability.
                     </p>
-                    <div style="display: flex; gap: 20px;">
-                        <a href="book-a-demo.html" class="btn-primary" style="padding: 16px 32px; font-weight: 700; text-decoration: none; border-radius: 12px; background: #7c3aed; color: #fff; box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2); border: none;">Consult Global Expert</a>
+                </div>
+                <div class="nodes-visual">
+                    <div class="status-box">
+                        <h4><i class="fas fa-satellite-dish"></i> Live Network Status</h4>
+                        <div class="status-row">
+                            <div class="status-info">
+                                <div class="status-dot"></div>
+                                <span class="status-label">North America</span>
+                            </div>
+                            <span class="status-meta">99.98% Up</span>
+                        </div>
+                        <div class="status-row">
+                            <div class="status-info">
+                                <div class="status-dot"></div>
+                                <span class="status-label">Europe Central</span>
+                            </div>
+                            <span class="status-meta">99.99% Up</span>
+                        </div>
+                        <div class="status-row">
+                            <div class="status-info">
+                                <div class="status-dot"></div>
+                                <span class="status-label">Asia Pacific</span>
+                            </div>
+                            <span class="status-meta">99.97% Up</span>
+                        </div>
                     </div>
                 </div>
-                <div class="global-visual">
-                    <img src="scenario_jurisdiction.png" alt="Global Jurisdiction Map Dashboard">
+            </div>
+
+            <div class="node-stats">
+                <div class="stat-item">
+                    <span class="stat-val">100%</span>
+                    <p>Data Sovereignty</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">2.4ms</span>
+                    <p>Global Latency</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">500+</span>
+                    <p>Active Nodes</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">99.9%</span>
+                    <p>Uptime SLA</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Compliance Routing Interactive Section -->
-    <section class="compliance-routing-section">
+    <!-- Document Journey (New) -->
+    <section class="journey-section">
         <div class="container">
-            <div style="text-align: center; max-width: 700px; margin: 0 auto 80px;">
-                <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 20px;">Universal Acceptance Protocol</h2>
-                <p style="font-size: 1.15rem; color: #64748b;">Automatically adapt signing workflows to meet stringent regional requirements, protecting your global ecosystem.</p>
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag">Lifecycle</span>
+                <h2 class="section-title">The Document <span style="color: var(--brand-blue);">Journey</span></h2>
             </div>
-
-            <div class="routing-container">
-                <!-- Sticky Map Side -->
-                <div class="routing-map-side">
-                    <div class="map-header">
-                        <span>Live Verification</span>
-                        <h3>Jurisdiction Engine</h3>
-                    </div>
-                    <div class="map-visualization">
-                        <div class="map-node" id="node-eu"></div>
-                        <div class="map-node" id="node-na"></div>
-                        <div class="map-node" id="node-apac"></div>
-                    </div>
-                </div>
-
-                <!-- Scrolling Steps Side -->
-                <div class="routing-content-side">
-                    
-                    <div class="routing-step step-eu" data-node="node-eu">
-                        <div class="step-region">EUROPEAN UNION</div>
-                        <h4>eIDAS (QES & AES) Compliance</h4>
-                        <p>BrillSign adheres strictly to the eIDAS regulation, verifying cryptographic identities against trusted European lists. Ensures court-admissible proof equivalent to handwritten signatures across the EU.</p>
-                        <div class="compliance-tags">
-                            <span class="c-tag">GDPR Compliant</span>
-                            <span class="c-tag">QES Verification</span>
-                            <span class="c-tag">Data Sovereignty</span>
-                        </div>
-                    </div>
-
-                    <div class="routing-step step-na" data-node="node-na">
-                        <div class="step-region">NORTH AMERICA</div>
-                        <h4>ESIGN & UETA Standards</h4>
-                        <p>Automatically triggers necessary consent and intent-to-sign tracking required in the US and Canada. Implements specific audit trails mapped directly to ESIGN Act mandates.</p>
-                        <div class="compliance-tags">
-                            <span class="c-tag">ESIGN Act</span>
-                            <span class="c-tag">UETA Framework</span>
-                            <span class="c-tag">FDA 21 CFR 11</span>
-                        </div>
-                    </div>
-
-                    <div class="routing-step step-apac" data-node="node-apac">
-                        <div class="step-region">APAC REGION</div>
-                        <h4>Cross-Border Treaties</h4>
-                        <p>Handles complex localization and regional personal data protection acts. Native integration with local trust providers for regions requiring specific CA assertions.</p>
-                        <div class="compliance-tags">
-                            <span class="c-tag">PDPA Alignment</span>
-                            <span class="c-tag">Multi-byte Identity</span>
-                            <span class="c-tag">Local CA Trusts</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scroll Interaction Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const steps = document.querySelectorAll('.routing-step');
-            const nodes = document.querySelectorAll('.map-node');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '-40% 0px -40% 0px', // Trigger when step hits the middle of viewport
-                threshold: 0
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Highlight scrolling step
-                        steps.forEach(s => s.classList.remove('active'));
-                        entry.target.classList.add('active');
-
-                        // Highlight corresponding map node
-                        const nodeId = entry.target.getAttribute('data-node');
-                        nodes.forEach(n => n.classList.remove('active'));
-                        document.getElementById(nodeId).classList.add('active');
-                    }
-                });
-            }, observerOptions);
-
-            steps.forEach(step => observer.observe(step));
             
-            // Activate first immediately
-            if(steps.length > 0) {
-                steps[0].classList.add('active');
-                document.getElementById(steps[0].getAttribute('data-node')).classList.add('active');
-            }
-        });
-    </script>
+            <!-- Redesigned Elite Journey Steps -->
+            <div class="journey-scroll-container">
+                <div class="journey-steps-wrapper">
+                    <!-- Step 1: Initiation -->
+                <div class="journey-step">
+                    <div class="step-text">
+                        <span class="step-num">01</span>
+                        <h3>Smart Contract Initiation</h3>
+                        <p>Your document begins its journey with legally-aware smart templates that automatically adapt to the specific jurisdiction of its signers, ensuring initial compliance.</p>
+                    </div>
+                    <div class="step-image-wrapper">
+                        <img src="a-high-end-product-photography-shot-of-a_wqAV24_QR5-yH5FSRCLkrw_2Y6e2tF8RwmSbQbiCl5yrg_sd.jpeg" alt="Smart Initiation">
+                    </div>
+                </div>
 
-    <!-- Final CTA -->
-    <section style="padding: 100px 0; background: #f8fafc; text-align: center;">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Scale Your Global Business</h2>
-            <p style="font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto 40px;">Join the international
-                organizations choosing BrillSign for superior cross-border document security.</p>
-            <div style="display: flex; gap: 20px; justify-content: center;">
-                <a href="book-a-demo.html" class="btn-primary"
-                    style="padding: 18px 36px; font-weight: 700; text-decoration: none; border-radius: 12px; background: #7c3aed; color: #fff; border-color: #7c3aed;">Talk
-                    to Global Expert</a>
-                <a href="join-waitlist.html" class="btn-secondary"
-                    style="padding: 18px 36px; font-weight: 700; text-decoration: none; border-radius: 12px; border: 2px solid #7c3aed; color: #7c3aed;">Join
-                    the Waitlist</a>
+                <!-- Step 2: Verification -->
+                <div class="journey-step">
+                    <div class="step-text">
+                        <span class="step-num">02</span>
+                        <h3>Biometric Identity Binding</h3>
+                        <p>Using advanced Zero-Knowledge Proofs (ZKP), we verify the identity of all parties without compromising sensitive personal data, creating a permanent cryptographic bond.</p>
+                    </div>
+                    <div class="step-image-wrapper">
+                        <img src="a-photorealistic-image-of-a-sleek-modern_csqXDS5oQKSGaf8l9Ap5ig_Yjlzhf9tTm2tvJuX8rTR9A_sd.jpeg" alt="Identity Binding">
+                    </div>
+                </div>
+
+                <!-- Step 3: Attestation -->
+                <div class="journey-step">
+                    <div class="step-text">
+                        <span class="step-num">03</span>
+                        <h3>Cryptographic Attestation</h3>
+                        <p>The document is sealed with military-grade encryption and multi-CA support, satisfying the most stringent international standards for digital proof.</p>
+                    </div>
+                    <div class="step-image-wrapper">
+                        <img src="text-in-green-glassmorphic-box-not-visib_BPdddViPSfytq8x5LKRN-A_XRvz90b7TbKRDwSAku0rUw_sd.jpeg" alt="Cryptographic Attestation">
+                    </div>
+                </div>
+
+                <!-- Step 4: Finality -->
+                <div class="journey-step">
+                    <div class="step-text">
+                        <span class="step-num">04</span>
+                        <h3>Distributed Legal Finality</h3>
+                        <p>Upon completion, the signature audit trail is archived across our global node network, ensuring permanent, immutable, and verifiable legal finality for decades.</p>
+                    </div>
+                    <div class="step-image-wrapper">
+                        <img src="make-the-texts-understable_XN2Edns6RbCOnDyw_7Hq5w_IciJQxLPQGaSSFuSw4pSMA_sd.jpeg" alt="Legal Finality">
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Final CTA Redesigned -->
+    <section class="final-cta">
+        <div class="container final-cta-content">
+            <span class="section-tag" style="background: rgba(0, 102, 255, 0.1); border-color: rgba(0, 102, 255, 0.3); color: var(--brand-blue); margin-bottom: 30px;">Global Expansion</span>
+            <h2>Ready to Scale Globally?</h2>
+            <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); max-width: 800px; margin: 0 auto 50px; line-height: 1.6;">
+                Join the international organizations choosing BrillSign for superior cross-border document security and legal certainty across 150+ jurisdictions.
+            </p>
+            <div style="display: flex; gap: 24px; justify-content: center; position: relative; z-index: 20;">
+                <a href="book-a-demo.html" class="cta-glow-btn btn-v2-primary">
+                    Book a Demo <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="join-waitlist.html" class="cta-glow-btn btn-v2-secondary">
+                    Join Waitlist
+                </a>
             </div>
         </div>
     </section>
@@ -169,6 +309,192 @@
     <div id="footer-placeholder"></div>
 
     <script src="shared-components.js?v=20260311_v6"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animations
+        gsap.from(".hero-v2 h1", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+        gsap.from(".hero-v2 p", { opacity: 0, y: 30, duration: 1, delay: 0.8 });
+        gsap.from(".hero-v2-btns", { opacity: 0, y: 20, duration: 1, delay: 1 });
+
+        // Scroll Reveal Animations
+        gsap.from(".compliance-card", {
+            scrollTrigger: {
+                trigger: ".compliance-grid",
+                start: "top 90%",
+                toggleActions: "play none none none"
+            },
+            opacity: 0,
+            y: 40,
+            stagger: 0.15,
+            duration: 0.6,
+            ease: "power2.out"
+        });
+
+        gsap.from(".bridge-visual", {
+            scrollTrigger: {
+                trigger: ".legal-bridge",
+                start: "top 95%"
+            },
+            opacity: 0,
+            x: -100,
+            duration: 1
+        });
+
+        gsap.from(".bridge-step", {
+            scrollTrigger: {
+                trigger: ".bridge-steps",
+                start: "top 95%"
+            },
+            opacity: 0,
+                    duration: 0.8
+        });
+
+        // Document Journey: Native Horizontal Auto-Scroll with Drag Support
+        const scrollContainer = document.querySelector('.journey-scroll-container');
+        const journeyWrapper = document.querySelector('.journey-steps-wrapper');
+        
+        if (scrollContainer && journeyWrapper) {
+            const steps = Array.from(journeyWrapper.children);
+            
+            // Clone steps twice for seamless infinite loop (left and right buffers)
+            steps.forEach(step => journeyWrapper.appendChild(step.cloneNode(true)));
+            steps.forEach(step => journeyWrapper.appendChild(step.cloneNode(true)));
+
+            // Calculate the width of one original set
+            let singleSetWidth = 0;
+            steps.forEach(step => singleSetWidth += step.offsetWidth + 40); // width + flex gap
+
+            // Start in the middle set to allow scrolling left or right
+            scrollContainer.scrollLeft = singleSetWidth;
+
+            let isHovering = false;
+            let isDragging = false;
+            let startX;
+            let scrollLeftStart;
+            let autoScrollSpeed = 1; // Pixels per frame
+
+            // Auto-scroll animation loop
+            function autoScroll() {
+                if (!isHovering && !isDragging) {
+                    scrollContainer.scrollLeft += autoScrollSpeed;
+                    
+                    // Infinite loop logic: reset to middle when reaching the cloned ends
+                    if (scrollContainer.scrollLeft >= singleSetWidth * 2) {
+                        scrollContainer.scrollLeft -= singleSetWidth;
+                    } else if (scrollContainer.scrollLeft <= 0) {
+                        scrollContainer.scrollLeft += singleSetWidth;
+                    }
+                }
+                requestAnimationFrame(autoScroll);
+            }
+
+            // Start the loop
+            requestAnimationFrame(autoScroll);
+
+            // Pause interactions
+            scrollContainer.addEventListener('mouseenter', () => isHovering = true);
+            scrollContainer.addEventListener('mouseleave', () => {
+                isHovering = false;
+                isDragging = false;
+                scrollContainer.classList.remove('active-drag');
+            });
+
+            // Drag to scroll logic
+            scrollContainer.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                scrollContainer.classList.add('active-drag');
+                startX = e.pageX - scrollContainer.offsetLeft;
+                scrollLeftStart = scrollContainer.scrollLeft;
+            });
+
+            scrollContainer.addEventListener('mouseup', () => {
+                isDragging = false;
+                scrollContainer.classList.remove('active-drag');
+            });
+
+            scrollContainer.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - scrollContainer.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed multiplier
+                scrollContainer.scrollLeft = scrollLeftStart - walk;
+            });
+            
+            // Touch support for mobile
+            scrollContainer.addEventListener('touchstart', (e) => {
+                isHovering = true;
+                startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+                scrollLeftStart = scrollContainer.scrollLeft;
+            }, {passive: true});
+            
+            scrollContainer.addEventListener('touchend', () => isHovering = false);
+            
+            scrollContainer.addEventListener('touchmove', (e) => {
+                if (!isHovering) return;
+                const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                scrollContainer.scrollLeft = scrollLeftStart - walk;
+            }, {passive: true});
+        }
+
+        gsap.from(".impact-card", {
+            scrollTrigger: {
+                trigger: ".staggered-grid",
+                start: "top 90%",
+                toggleActions: "play none none none"
+            },
+            opacity: 0,
+            y: 80,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+
+        gsap.from(".nodes-text", {
+            scrollTrigger: {
+                trigger: ".nodes-section",
+                start: "top 95%"
+            },
+            opacity: 0,
+            x: -50,
+            duration: 1
+        });
+
+        gsap.from(".stat-item", {
+            scrollTrigger: {
+                trigger: ".node-stats",
+                start: "top 90%",
+                toggleActions: "play none none none"
+            },
+            opacity: 0,
+            scale: 0.9,
+            stagger: 0.15,
+            duration: 0.6,
+            ease: "back.out(1.7)"
+        });
+
+        gsap.from(".journey-node", {
+            scrollTrigger: {
+                trigger: ".journey-wrapper",
+                start: "top 95%"
+            },
+            opacity: 0,
+            y: 30,
+            stagger: 0.3,
+            duration: 0.8
+        });
+
+        gsap.from(".journey-section img", {
+            scrollTrigger: {
+                trigger: ".journey-section img",
+                start: "top 95%"
+            },
+            opacity: 0,
+            scale: 0.9,
+            duration: 1.2
+        });
+    </script>
 </body>
 
 </html>

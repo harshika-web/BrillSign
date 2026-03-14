@@ -1,0 +1,306 @@
+/* --- Integrity Infrastructure Design System (Elite) --- */
+:root {
+    --brand-blue: #0066ff;
+    --brand-red: #ff0000;
+    --brand-yellow: #ffff00;
+    
+    /* 60:30:10 Ratio Application */
+    --primary-depth: #000c1f; /* Base Dark Blue */
+    --accent-red: #ff0000;
+    --accent-blue: #0066ff;
+    --accent-yellow: #ffff00;
+    
+    /* Page Moods */
+    --v-accent: var(--accent-red); /* Verification uses Red as secondary */
+    --ltp-accent: var(--accent-yellow); /* Long-term Proof uses Yellow as secondary */
+    
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.integrity-overlay-v2 {
+    background-color: var(--primary-depth);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.container-large {
+    max-width: 1400px;
+}
+
+/* ====================================================
+   NAVBAR FIXES: Force the shared navbar to be
+   readable on dark integrity pages. The body's
+   --text-primary: #fff bleeds into .nav-links a,
+   making links invisible on the white navbar.
+   ==================================================== */
+.integrity-overlay-v2 .navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+.integrity-overlay-v2 .nav-links a {
+    color: #003755 !important;
+}
+
+.integrity-overlay-v2 .nav-links a:hover {
+    color: #0066ff !important;
+}
+
+.integrity-overlay-v2 .logo-text {
+    background: linear-gradient(to right, #003755 40%, #0066ff 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.integrity-overlay-v2 .nav-arrow {
+    color: #003755 !important;
+}
+
+/* Fix Navbar Placeholder stacking */
+#navbar-placeholder {
+    position: relative;
+    z-index: 1000;
+}
+
+/* --- Premium Hero Section --- */
+/* Standardize h2 font size to match the rest of the site */
+.integrity-overlay-v2 h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.integrity-hero {
+    min-height: 100vh;
+    padding-top: 100px; /* Safety for fixed navbar */
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: var(--primary-depth);
+    overflow: hidden;
+}
+
+.integrity-hero-content {
+    position: relative;
+    z-index: 30;
+    width: 100%;
+    max-width: 600px; /* Increased for better typographic balance */
+    text-align: left;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    background: rgba(0, 102, 255, 0.05);
+    color: var(--accent-blue);
+    border: 1px solid rgba(0, 102, 255, 0.15);
+}
+
+/* Hero Content Tuning */
+.integrity-hero-content h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin: 0 0 20px 0;
+    padding: 0;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-transform: none;
+}
+
+.integrity-hero-content h1 span {
+    color: var(--accent-red);
+}
+
+.hero-desc {
+    max-width: 500px;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 45px;
+}
+
+/* Visual Image Masking */
+.hero-visual-dashboard, .hero-visual-vault {
+    mask-image: linear-gradient(to right, transparent, black 25%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 25%);
+}
+
+#navbar-placeholder {
+    height: 80px; /* Pre-allocate space */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+}
+
+/* --- The Pulse Section (Verification) --- */
+.pulse-section {
+    padding: 160px 0;
+    background: #ffffff;
+    color: #0f172a;
+}
+
+.pulse-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.pulse-visual {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 12, 31, 0.15);
+    background: #000;
+}
+
+.scan-progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 4px;
+    background: rgba(0, 102, 255, 0.1);
+    border-radius: 2px;
+    z-index: 5;
+}
+
+.scan-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--brand-blue);
+    box-shadow: 0 0 20px var(--brand-blue);
+}
+
+/* --- Temporal Bridge (Long Term Proof) --- */
+.temporal-bridge {
+    padding: 160px 0;
+    background: var(--primary-depth);
+    position: relative;
+}
+
+.bridge-track {
+    position: relative;
+    padding-left: 80px;
+}
+
+.bridge-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--brand-blue), var(--brand-red), transparent);
+}
+
+.bridge-card {
+    margin-bottom: 120px;
+    max-width: 500px;
+    padding: 40px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bridge-year {
+    position: absolute;
+    left: -100px;
+    top: 40px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-yellow);
+}
+
+/* --- Button Styles --- */
+.btn-integrity {
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary-blue {
+    background: #0066ff !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 25px rgba(0, 102, 255, 0.2);
+}
+
+.btn-primary-blue:hover {
+    background: #0052cc !important;
+    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsive Fixes */
+@media (max-width: 1200px) {
+    .hero-visual-dashboard, .hero-visual-vault {
+        width: 45%;
+        right: -5%;
+    }
+}
+
+@media (max-width: 992px) {
+    .integrity-hero {
+        height: auto;
+        padding: 160px 0 100px;
+        text-align: center;
+    }
+    .integrity-hero-content {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .hero-accent-line { justify-content: center; margin: 0 auto 30px; }
+    .hero-visual-dashboard, .hero-visual-vault {
+        position: relative;
+        width: 100%;
+        right: 0;
+        top: 40px;
+        opacity: 1;
+        border-radius: 20px;
+    }
+    .hero-v2-btns { justify-content: center; }
+    
+    .pulse-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+}

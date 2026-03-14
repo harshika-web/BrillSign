@@ -4,184 +4,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Verification Solutions | BrillSign - Trusted Origin</title>
+    <title>Document Verification | BrillSign - Instant Cryptographic Proof</title>
     <meta name="description"
-        content="Verify document origin and integrity with BrillSign's decentralized proof. Secure, platform-independent verification that ensures digital trust.">
+        content="Instant, bit-level document verification. Secured by global cryptographic anchors and platform-independent protocols.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cta-pages.css">
-    <link rel="stylesheet" href="document-verification.css">
+    <link rel="stylesheet" href="integrity-unified.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/GSap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating-stat {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .bench-node {
+            transition: all 0.3s ease;
+        }
+
+        .bench-node:hover {
+            transform: scale(1.02) translateX(5px);
+            background: rgba(255, 255, 255, 0.08) !important;
+        }
+    </style>
 </head>
 
-<body class="cta-page-body">
+<body class="integrity-overlay-v2 page-verification">
 
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="verification-hero">
-        <div class="code-overlay">
-0x8A9B2... Verify Hash
-Initiating Cryptographic Layer...
-STATUS: SECURE
-BLOCK: #99281A
-        </div>
+    <!-- Command Center Hero -->
+    <section class="integrity-hero command-center">
         <div class="container">
-            <div class="verify-grid">
-                <div>
-                    <span style="display: inline-block; padding: 6px 12px; border-radius: 20px; background: rgba(16, 185, 129, 0.15); color: #10b981; font-weight: 700; font-size: 0.85rem; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;">
-                        Document Verification
-                    </span>
-                    <h1 style="font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px;">
-                        Instant, <span style="color: #10b981;">Indisputable Proof</span>
-                    </h1>
-                    <p style="font-size: 1.25rem; color: #94a3b8; line-height: 1.6; margin-bottom: 40px;">
-                        Don't just take their word for it. Verify the origin and integrity of any document instantly with BrillSign's decentralized cryptographic proof—even if our platform goes offline.
+            <div class="integrity-hero-content">
+                <div class="hero-accent-line" style="width: 100px; height: 5px; display: flex; gap: 5px; margin-bottom: 40px;">
+                    <div style="flex: 6; background: var(--accent-blue); border-radius: 10px;"></div>
+                    <div style="flex: 3; background: var(--accent-red); border-radius: 10px;"></div>
+                    <div style="flex: 1; background: var(--accent-yellow); border-radius: 10px;"></div>
+                </div>
+                <div class="section-tag" style="background: rgba(0, 102, 255, 0.1); border: 1px solid rgba(0, 102, 255, 0.2); color: var(--accent-blue);">
+                    <i class="fas fa-radar" style="margin-right: 10px;"></i>
+                    REAL-TIME VERIFICATION ENGINE
+                </div>
+                <h1>Instant. <br><span style="color: var(--accent-blue);">Indisputable.</span><br>Universal.</h1>
+                <p class="hero-desc">
+                    Deploy the world's first platform-independent verification protocol. Bit-accurate proof that travels with your document, regardless of where it's stored.
+                </p>
+                <div class="hero-v2-btns" style="display: flex; gap: 20px; align-items: center; margin-top: 45px;">
+                    <a href="book-a-demo.html" class="btn-integrity btn-primary-blue" style="padding: 18px 40px; font-size: 1rem;">REQUEST DEMO</a>
+                    <a href="#pulse" class="btn-integrity btn-outline" style="border: 2px solid rgba(255,255,255,0.2); color: #fff; padding: 18px 40px; font-size: 1rem;">EXPLORE TECH</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dashboard Realistic Overlay -->
+        <div class="hero-visual-dashboard" style="position: absolute; right: 0; top: 0; width: 55%; height: 100%; opacity: 0.9; pointer-events: none; z-index: 10;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to right, var(--primary-depth) 0%, transparent 40%); z-index: 2;"></div>
+            <img src="a-clean-realistic-photograph-of-a-modern_63z3x_BRTWedR5YiEU5fHQ_egS6CCnFQfGITJNC4pPdtg_cover_sd.jpeg" alt="Verification Interface" style="width: 100%; height: 100%; object-fit: cover; object-position: left center;">
+        </div>
+    </section>
+
+    <!-- The Pulse (Verification Showcase - Enriched) -->
+    <section id="pulse" class="pulse-section" style="padding: 120px 0 40px; background: #ffffff; color: #0f172a; position: relative; overflow: hidden;">
+        <!-- Background Decoration -->
+        <div style="position: absolute; inset: 0; background-image: radial-gradient(#e2e8f0 1.2px, transparent 1.2px); background-size: 30px 30px; opacity: 0.4; pointer-events: none;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="pulse-grid">
+                <div class="pulse-text">
+                    <span class="section-tag" style="background: rgba(0, 102, 255, 0.05); color: var(--accent-blue); border-color: rgba(0, 102, 255, 0.2);">THE PULSE</span>
+                    <h2 style="font-size: 3rem; font-weight: 800; margin: 25px 0; color: #0f172a; line-height: 1.1;">Independent <span style="color: var(--accent-blue);">Audit</span></h2>
+                    <p style="font-size: 1.15rem; color: #475569; margin-bottom: 45px; line-height: 1.6;">
+                        BrillSign documents carry their own proof within their metadata. Verification requires no login, no API, and no vendor dependency.
                     </p>
-                    <div style="display: flex; gap: 20px;">
-                        <a href="book-a-demo.html" class="btn-primary" style="padding: 16px 32px; font-weight: 700; text-decoration: none; border-radius: 12px; background: #10b981; color: #fff; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2); border: none;">Test Verification</a>
-                    </div>
-                </div>
 
-                <div class="verify-terminal">
-                    <div class="term-header">
-                        <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
-                        <span style="margin-left: 10px;">Verification Engine v2.4</span>
-                    </div>
-                    <div class="term-body">
-                        
-                        <div class="document-layers" id="layerContainer">
-                            <!-- Graphical Document -->
-                            <div class="doc-layer layer-visual">
-                                <h4 style="color: #0f172a; margin-bottom: 15px; font-size: 0.9rem;">CONFIDENTIAL</h4>
-                                <div class="mock-line"></div>
-                                <div class="mock-line"></div>
-                                <div class="mock-line"></div>
-                                <div class="mock-line short"></div>
-                                <div class="mock-seal"></div>
-
-                                <!-- The interactive scanner line -->
-                                <div class="scan-line"></div>
+                    <!-- Core Audit Pillars (Enriched) -->
+                    <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 40px;">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="width: 48px; height: 48px; background: rgba(0, 102, 255, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 102, 255, 0.15); flex-shrink: 0;">
+                                <i class="fas fa-microchip" style="color: var(--accent-blue); font-size: 1.2rem;"></i>
                             </div>
-
-                            <!-- Cryptographic Hash Document -->
-                            <div class="doc-layer layer-crypto">
-                                > START_HASH_BLOCK <br>
-                                0x4B2...F9A<br>
-                                E29A7...0D4<br>
-                                8F92D...C22<br>
-                                VALIDATING_SIGNATURE...<br>
-                                [OK]<br>
-                                > END_BLOCK
+                            <div>
+                                <h4 style="font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">ZKP-DRIVEN PROOF</h4>
+                                <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.5;">Zero-Knowledge protocols verify authenticity without exposing sensitive underlying data.</p>
                             </div>
                         </div>
 
-                        <div class="console-output" id="consoleOutput">
-                            <!-- Lines generated by JS during animation -->
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(16, 185, 129, 0.15); flex-shrink: 0;">
+                                <i class="fas fa-fingerprint" style="color: #10b981; font-size: 1.2rem;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">BIOMETRIC BINDING</h4>
+                                <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.5;">Cryptographic keys are uniquely pinned to the signer's verified hardware-backed identity.</p>
+                            </div>
                         </div>
 
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="width: 48px; height: 48px; background: rgba(217, 168, 0, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(217, 168, 0, 0.2); flex-shrink: 0;">
+                                <i class="fas fa-anchor" style="color: #b48a00; font-size: 1.2rem;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">IMMUTABLE LEDGER</h4>
+                                <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.5;">Every verification event is anchored to a globally distributed, tamper-proof record.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pulse-visual-container" style="position: relative; padding: 40px 0;">
+                    <div class="pulse-visual" style="border-radius: 40px; overflow: hidden; border: 1px solid rgba(0, 102, 255, 0.1); box-shadow: 0 40px 100px rgba(0,12,31,0.12);">
+                        <img src="a-realistic-photograph-of-a-modern-saas-_-APP1xTVSVWyhI1e8FHKmw_7dbox0JnSyS4_CXMA1BWfA_cover_sd.jpeg" alt="Verification Core" style="width: 100%; display: block;">
+                    </div>
+                    
+                    <!-- Floating Indicator 1: Hash Match -->
+                    <div class="floating-stat" style="position: absolute; top: 0; right: -20px; background: #fff; color: #000; padding: 18px 25px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); z-index: 10; border: 1px solid #f1f5f9;">
+                        <span style="display: block; font-size: 0.65rem; font-weight: 800; color: #94a3b8; letter-spacing: 1.5px; text-transform: uppercase;">Audit Result</span>
+                        <span style="font-size: 1.35rem; font-weight: 800; color: #10b981;">100% VALID</span>
+                    </div>
+
+                    <!-- Floating Indicator 2: Origin (New) -->
+                    <div class="floating-stat" style="position: absolute; bottom: 20px; left: -40px; background: #fff; color: #000; padding: 15px 22px; border-radius: 18px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); z-index: 10; border: 1px solid #f1f5f9; animation-delay: 1s;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px rgba(16,185,129,0.5);"></div>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: #0f172a;">Origin Integrity Verified</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Detailed Features Section -->
-    <section class="verification-process">
+    <!-- Bit-Level Forensics (New unique section) -->
+    <section class="forensics-section" style="padding: 60px 0 160px; background: #f8fafc; color: #0f172a; position: relative; overflow: hidden;">
         <div class="container">
-            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 20px;">Truth You Can Independently Verify</h2>
-                <p style="font-size: 1.15rem; color: #64748b;">Our protocol embeds mathematical proof directly into the document structure, meaning verification requires no vendor lock-in.</p>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 100px;">
+                <span class="section-tag" style="background: rgba(0, 102, 255, 0.06); color: var(--accent-blue); border-color: rgba(0, 102, 255, 0.2);">Deep Forensics</span>
+                <h2 style="font-size: 3.5rem; font-weight: 800; margin-top: 20px; color: #0f172a; text-align: center;">Zero Trust — <span style="color: var(--accent-blue);">Zero Doubt</span></h2>
+                <p style="font-size: 1.2rem; color: #64748b;">We don't just check signatures. We analyze the entire document bitstream to detect even single-pixel manipulations.</p>
             </div>
 
-            <div class="process-grid">
-                <div class="v-step-card">
-                    <div class="v-step-icon"><i class="fas fa-microscope"></i></div>
-                    <h3>Bit-Level Tamper Detection</h3>
-                    <p>Identify even the most subtle modifications to a document after it has been signed. If a single pixel or character changes, the entire signature wrapper invalidates immediately.</p>
+            <div class="forensics-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div class="f-card" style="padding: 50px; border-radius: 32px; background: #ffffff; border: 1px solid #e2e8f0; border-top: 4px solid var(--accent-blue); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--accent-blue);">01. Bitstream Audit</h3>
+                    <p style="color: #475569; line-height: 1.6;">Automated analysis of the binary structure to identify anomalies in metadata infusion.</p>
                 </div>
-                
-                <div class="v-step-card">
-                    <div class="v-step-icon"><i class="fas fa-qrcode"></i></div>
-                    <h3>QR-Driven Offline Verification</h3>
-                    <p>Embedded cryptographic QR codes allow for the verification of physical paper copies against their digital originals using any standard scanning application.</p>
+                <div class="f-card" style="padding: 50px; border-radius: 32px; background: #ffffff; border: 1px solid #e2e8f0; border-top: 4px solid #94a3b8; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #64748b;">02. Fragment Analysis</h3>
+                    <p style="color: #475569; line-height: 1.6;">Identifying unauthorized shifts in encrypted segments across the document body.</p>
                 </div>
-
-                <div class="v-step-card">
-                    <div class="v-step-icon"><i class="fas fa-code-branch"></i></div>
-                    <h3>Open Source Tooling</h3>
-                    <p>We provide open-source verification libraries and validator tools. You can run the verification engine directly on your own servers without ever pinging BrillSign.</p>
+                <div class="f-card" style="padding: 50px; border-radius: 32px; background: #ffffff; border: 1px solid #e2e8f0; border-top: 4px solid #d9a800; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #d9a800;">03. Global Parity</h3>
+                    <p style="color: #475569; line-height: 1.6;">Real-time comparison against decentralized ledger storage to ensure 100% integrity.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Animation Script for Terminal -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const consoleOutput = document.getElementById('consoleOutput');
-            const lines = [
-                "> Analyzing file structure...",
-                "> Extracting public keys...",
-                "> Hashing document body: SHA-256...",
-                "> Verifying signature against ledger...",
-                "<span style='color: #2dd4bf;'>[SUCCESS] Signatures Valid. Document is unchanged.</span>"
-            ];
-            
-            let currentLine = 0;
+    <!-- Global Trust Anchors (Enhanced Light Mode) -->
+    <section class="anchors-section" style="padding: 100px 0; background: #f8fafc; color: #0f172a; position: relative; overflow: hidden; border-bottom: 1px solid #e2e8f0;">
+        <!-- Ambient glow orbs (Softened for light mode) -->
+        <div style="position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,102,255,0.04) 0%, transparent 70%); pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,0,0,0.03) 0%, transparent 70%); pointer-events: none;"></div>
 
-            function runTerminal() {
-                consoleOutput.innerHTML = '';
-                currentLine = 0;
-                
-                function printNext() {
-                    if (currentLine < lines.length) {
-                        const line = document.createElement('div');
-                        line.className = 'console-line';
-                        line.innerHTML = lines[currentLine];
-                        consoleOutput.appendChild(line);
-                        currentLine++;
-                        setTimeout(printNext, 600);
-                    } else {
-                        // Restart sequence after delay
-                        setTimeout(runTerminal, 3000);
-                    }
-                }
-                
-                printNext();
-            }
-
-            // Delay start slightly
-            setTimeout(runTerminal, 500);
-        });
-    </script>
-
-    <!-- Final CTA -->
-    <section style="padding: 100px 0; background: #f8fafc; text-align: center;">
         <div class="container">
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Protect Your Organization's Integrity
-            </h2>
-            <p style="font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto 40px;">Experience the most
-                robust document verification infrastructure in the world.</p>
-            <div style="display: flex; gap: 20px; justify-content: center;">
-                <a href="book-a-demo.html" class="btn-primary"
-                    style="padding: 18px 36px; font-weight: 700; text-decoration: none; border-radius: 12px; background: #059669; color: #fff; border-color: #059669;">Talk
-                    to Security Expert</a>
-                <a href="join-waitlist.html" class="btn-secondary"
-                    style="padding: 18px 36px; font-weight: 700; text-decoration: none; border-radius: 12px; border: 2px solid #059669; color: #059669;">Join
-                    the Waitlist</a>
+            <div class="pulse-grid" style="direction: rtl;">
+                <div class="pulse-text" style="direction: ltr;">
+                    <span class="section-tag" style="background: rgba(217,168,0,0.1); color: #b48a00; border-color: rgba(217,168,0,0.25);">Network Effect</span>
+                    <h2 style="font-size: 3rem; font-weight: 800; margin: 30px 0; line-height: 1.1; color: #0f172a;">Global <span style="color: var(--accent-blue);">Anchorage</span></h2>
+                    <p style="color: #475569; line-height: 1.8; font-size: 1.05rem;">
+                        BrillSign verification is backed by a distributed network of cryptographic nodes, ensuring that proof of integrity is permanent and geographically redundant.
+                    </p>
+
+                    <!-- Live Stats Row (Light) -->
+                    <div style="display: flex; gap: 30px; margin: 35px 0; padding: 24px 28px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                        <div style="text-align: center; flex: 1; border-right: 1px solid #f1f5f9; padding-right: 20px;">
+                            <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-blue);">190+</div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #94a3b8; letter-spacing: 1px; margin-top: 4px;">NODES</div>
+                        </div>
+                        <div style="text-align: center; flex: 1; border-right: 1px solid #f1f5f9; padding-right: 20px;">
+                            <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-red);">12</div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #94a3b8; letter-spacing: 1px; margin-top: 4px;">REGIONS</div>
+                        </div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 1.8rem; font-weight: 800; color: #059669;">99.99%</div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #94a3b8; letter-spacing: 1px; margin-top: 4px;">UPTIME</div>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Node Map (Light) -->
+                    <div class="node-map-simple" style="padding: 8px; border: 1px solid #e2e8f0; border-radius: 24px; background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+
+                        <!-- Node 1 -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 16px; margin-bottom: 6px; background: rgba(0,102,255,0.03); border: 1px solid rgba(0,102,255,0.1);">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px rgba(16,185,129,0.4); animation: pulseGlow 2s infinite;"></div>
+                                <div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: var(--accent-blue); letter-spacing: 1px;">NA-NODE-01</div>
+                                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px;">North America — Virginia</div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.78rem; color: #10b981; font-weight: 700;">● SYNCED</div>
+                                <div style="font-size: 0.68rem; color: #94a3b8; margin-top: 2px;">Latency: 12ms</div>
+                            </div>
+                        </div>
+
+                        <!-- Node 2 -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 16px; margin-bottom: 6px; background: rgba(255,0,0,0.02); border: 1px solid rgba(255,0,0,0.08);">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px rgba(16,185,129,0.4); animation: pulseGlow 2s infinite 0.6s;"></div>
+                                <div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: var(--accent-red); letter-spacing: 1px;">EU-NODE-04</div>
+                                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px;">Europe — Frankfurt</div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.78rem; color: #10b981; font-weight: 700;">● SYNCED</div>
+                                <div style="font-size: 0.68rem; color: #94a3b8; margin-top: 2px;">Latency: 8ms</div>
+                            </div>
+                        </div>
+
+                        <!-- Node 3 -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 16px; background: rgba(217,168,0,0.02); border: 1px solid rgba(217,168,0,0.1);">
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px rgba(16,185,129,0.4); animation: pulseGlow 2s infinite 1.2s;"></div>
+                                <div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b48a00; letter-spacing: 1px;">AS-NODE-09</div>
+                                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px;">Asia Pacific — Singapore</div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.78rem; color: #10b981; font-weight: 700;">● SYNCED</div>
+                                <div style="font-size: 0.68rem; color: #94a3b8; margin-top: 2px;">Latency: 21ms</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="pulse-visual" style="direction: ltr; background: none; box-shadow: none; position: relative;">
+                    <img src="a-professional-enterprise-technology-vis_8Ls1zEL5Q26TZ4siv3Oi_A_Tgfw8zbqSHeYjzxObkwoJg_cover_sd.jpeg" alt="Global Nodes" style="width: 100%; border-radius: 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    <div class="node-glow" style="position: absolute; top: 30%; left: 40%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(0,102,255,0.2) 0%, transparent 70%); animation: pulseGlow 4s infinite;"></div>
+                </div>
             </div>
         </div>
-    </section>
+      <!-- Sovereign Audit & Final CTA (Banner Upgrade - Card Version) -->
+    <section style="background: #fff; padding: 100px 0 120px;">
+        <div class="container">
+            <section style="padding: 40px; background: url('a-clean-minimal-cybersecurity-background_iX68mjTiR96r35LGg1kDSw_-aPed07PSGW7ISNBtosZhA_sd.jpeg'); background-size: cover; background-position: center; text-align: center; position: relative; overflow: hidden; border-radius: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.1);">
+                <!-- Subtle Dark Overlay for Legibility (Optional, but usually better for text) -->
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); pointer-events: none;"></div>
+                
+                <!-- Backdrop Grid Pattern -->
+                <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.1) 1.5px, transparent 1.5px); background-size: 40px 40px; opacity: 0.2; pointer-events: none;"></div>
+                
+                <div style="position: relative; z-index: 5; animation: float 6s ease-in-out infinite;">
+                    <div style="display: flex; flex-direction: column; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <span class="section-tag" style="background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.3); margin-bottom: 15px; padding: 10px 20px; letter-spacing: 2px;">DEEP AUDIT INFRASTRUCTURE</span>
+                    
+                    <h2 style="font-size: 3.5rem; font-weight: 800; color: #ffffff; margin-bottom: 15px; letter-spacing: -2px; line-height: 1.1; text-align: center;">Verify The <span style="color: #60a5fa;">Unverifiable.</span></h2>
+                    
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.25rem; line-height: 1.5; margin-bottom: 30px; text-align: center;">
+                        Experience the most robust document verification architecture designed for the speed and scale of modern enterprise.
+                    </p>
+                    
+                    <!-- Trust Markers -->
+                    <div style="display: flex; gap: 40px; margin-bottom: 35px; opacity: 1;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.95rem; color: #fff;">
+                            <i class="fas fa-shield-alt" style="color: #60a5fa;"></i> ISO 27001
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.95rem; color: #fff;">
+                            <i class="fas fa-lock" style="color: #60a5fa;"></i> SOC2 TYPE II
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.95rem; color: #fff;">
+                            <i class="fas fa-check-circle" style="color: #4ade80;"></i> GDPR READY
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 20px; justify-content: center; width: 100%;">
+                        <a href="start-free-trial.html" class="btn-integrity btn-primary-blue" style="font-size: 1.2rem; padding: 24px 60px; box-shadow: 0 20px 40px rgba(0, 102, 255, 0.4); border-radius: 20px; color: #ffffff !important;">
+                            Start Verification Trial
+                        </a>
+                        <a href="join-waitlist.html" class="btn-integrity" style="border: 2px solid rgba(255,255,255,0.8); color: #ffffff; padding: 22px 50px; font-size: 1.1rem; border-radius: 20px; font-weight: 700; backdrop-filter: blur(10px); background: rgba(255,255,255,0.1);">
+                            Join Waitlist
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
     <script src="shared-components.js?v=20260311_v6"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animations
+        gsap.from(".command-center h1", { opacity: 0, x: -50, duration: 1.2, delay: 0.5 });
+        gsap.from(".hero-desc", { opacity: 0, x: -30, duration: 1.2, delay: 0.8 });
+        gsap.from(".hero-visual-dashboard", { opacity: 0, x: 100, scale: 0.9, duration: 1.5, ease: "power4.out" });
+
+        // Pulse Section Animation
+        gsap.to(".scan-bar", {
+            width: "100%",
+            duration: 2.5,
+            repeat: -1,
+            ease: "power2.inOut",
+            scrollTrigger: {
+                trigger: ".pulse-visual",
+                start: "top 80%"
+            }
+        });
+
+        // Forensics Cards
+        gsap.from(".f-card", {
+            scrollTrigger: {
+                trigger: ".forensics-grid",
+                start: "top 75%"
+            },
+            opacity: 0,
+            y: 40,
+            stagger: 0.2,
+            duration: 1,
+            ease: "expo.out"
+        });
+
+        // Floating stat reveal
+        gsap.from(".floating-stat", {
+            scrollTrigger: {
+                trigger: ".pulse-visual",
+                start: "top 60%"
+            },
+            scale: 0,
+            duration: 1,
+            delay: 0.5,
+            ease: "back.out(1.7)"
+        });
+    </script>
 </body>
 
 </html>
