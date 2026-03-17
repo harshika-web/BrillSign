@@ -1,0 +1,254 @@
+/* ============================================================
+   Identity Security Overview — Premium CSS
+   ============================================================ */
+
+/* ── 1. HERO (Light Theme) ── */
+.iso-hero {
+    position: relative;
+    padding: 160px 0 100px;
+    background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    overflow: hidden;
+}
+
+.iso-hero-grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.35;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+}
+
+.iso-hero-blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(120px); opacity: 0.4; z-index: 1;
+}
+.iso-blob-1 { width: 600px; height: 600px; background: rgba(99,102,241,0.12); top: -150px; left: -100px; }
+.iso-blob-2 { width: 500px; height: 500px; background: rgba(14,165,233,0.08); bottom: -100px; right: -100px; }
+
+.iso-hero .container { position: relative; z-index: 3; }
+
+.iso-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.iso-live-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 100px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.2);
+    color: #6366f1;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.iso-live-badge .live-dot {
+    width: 8px; height: 8px; background: #10b981; border-radius: 50%;
+    animation: isoPing 2s infinite;
+}
+@keyframes isoPing {
+    0%   { box-shadow: 0 0 0 0 rgba(16,185,129,.7); }
+    70%  { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+    100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+
+.iso-hero .premium-heading { color: var(--text-primary); }
+.iso-hero-subtitle {
+    font-size: 1.15rem; line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+}
+.iso-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.iso-hero-image-wrap {
+    position: relative; border-radius: 20px; padding: 16px;
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+.iso-hero-image { width: 100%; border-radius: 12px; display: block; }
+
+/* ── 2. TRUST CHAIN TIMELINE ── */
+.iso-timeline-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+}
+
+.iso-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 60px auto 0;
+    padding-left: 40px;
+}
+
+.iso-timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), rgba(99,102,241,0.15));
+    border-radius: 10px;
+}
+
+.iso-timeline-step {
+    position: relative;
+    padding: 0 0 60px 40px;
+}
+.iso-timeline-step:last-child { padding-bottom: 0; }
+
+.iso-step-dot {
+    position: absolute;
+    left: -32px; top: 4px;
+    width: 28px; height: 28px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 0.7rem; font-weight: 800;
+    box-shadow: 0 0 0 6px rgba(99,102,241,0.15);
+    z-index: 2;
+}
+
+.iso-step-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.iso-step-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.iso-step-card h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0 0 8px;
+    display: flex; align-items: center; gap: 10px;
+}
+.iso-step-card h4 i { color: var(--primary-color); font-size: 1rem; }
+.iso-step-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem; line-height: 1.6; margin: 0;
+}
+
+/* ── 3. ALTERNATING SPLIT PILLARS ── */
+.iso-pillars-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+}
+
+.iso-pillar-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+.iso-pillar-block:last-child { margin-bottom: 0; }
+.iso-pillar-block.reverse { direction: rtl; }
+.iso-pillar-block.reverse > * { direction: ltr; }
+
+.iso-pillar-img {
+    width: 100%; border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+.iso-pillar-tag {
+    display: inline-block; padding: 4px 14px;
+    border-radius: 100px; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 1px; margin-bottom: 16px;
+}
+.tag-purple { background: rgba(99,102,241,0.1); color: #6366f1; }
+.tag-blue   { background: rgba(59,130,246,0.1); color: #2563eb; }
+.tag-amber  { background: rgba(245,158,11,0.1); color: #d97706; }
+
+.iso-pillar-text h3 { font-size: 1.5rem; color: var(--text-primary); margin: 0 0 16px; }
+.iso-pillar-text p  { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin: 0 0 20px; }
+
+.iso-pillar-features { list-style: none; padding: 0; margin: 0; }
+.iso-pillar-features li {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 12px;
+    color: var(--text-secondary); font-size: 0.9rem;
+}
+.iso-pillar-features li i { color: #10b981; margin-top: 3px; }
+
+/* ── 4. STATS STRIP ── */
+.iso-stats-strip {
+    padding: 70px 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+.iso-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; text-align: center;
+}
+.iso-stat-number {
+    font-size: 3rem; font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1; margin-bottom: 8px;
+}
+.iso-stat-label { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* ── 5. COMPLIANCE GRID ── */
+.iso-compliance-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+}
+.iso-compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px; margin-top: 60px;
+}
+.iso-compliance-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px; padding: 28px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+.iso-compliance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+.iso-compliance-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin: 0 auto 16px;
+}
+.icon-eu      { background: rgba(59,130,246,0.1); color: #2563eb; }
+.icon-privacy { background: rgba(16,185,129,0.1); color: #059669; }
+.icon-nist    { background: rgba(245,158,11,0.1); color: #d97706; }
+.icon-soc     { background: rgba(99,102,241,0.1); color: #6366f1; }
+.icon-iso     { background: rgba(236,72,153,0.1); color: #db2777; }
+
+.iso-compliance-card h4 { font-size: 1.05rem; color: var(--text-primary); margin: 0 0 8px; }
+.iso-compliance-card p  { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; margin: 0; }
+
+/* ── 6. CTA SECTION ── */
+.iso-cta-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+    text-align: center;
+}
+.iso-cta-section .premium-heading { color: var(--text-primary); }
+.iso-cta-sub { color: var(--text-secondary); font-size: 1.1rem; margin: 1.5rem 0 2.5rem; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .iso-pillar-block { grid-template-columns: 1fr; }
+    .iso-pillar-block.reverse { direction: ltr; }
+}
+@media (max-width: 768px) {
+    .iso-hero-grid  { grid-template-columns: 1fr; }
+    .iso-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}

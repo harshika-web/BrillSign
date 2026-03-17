@@ -1,0 +1,535 @@
+/* --- Unique Layout for Long-Term Proof --- */
+.ltp-hero {
+    padding: 140px 0 100px;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ltp-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to top, #ffffff, transparent);
+    z-index: 1;
+}
+
+.time-circle {
+    position: absolute;
+    border: 1px solid rgba(202, 138, 4, 0.2);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.tc-1 { width: 400px; height: 400px; animation: spin 40s linear infinite; }
+.tc-2 { width: 600px; height: 600px; border-style: dashed; animation: spin 60s linear infinite reverse; }
+.tc-3 { width: 800px; height: 800px; animation: spin 80s linear infinite; }
+
+@keyframes spin {
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.ltp-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Horizontal Scrolling Timeline Area */
+.decade-timeline-section {
+    padding: 100px 0;
+    background: #ffffff;
+    overflow: hidden; /* For custom scroll */
+}
+
+/* The sticky container that pins while we scroll horizontal */
+.timeline-sticky-container {
+    height: 300vh; /* Create scroll space */
+    position: relative;
+}
+
+.timeline-sticky-inner {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.timeline-track {
+    display: flex;
+    gap: 80px;
+    padding: 0 50vw 0 10vw; /* Padding to allow centering items */
+    will-change: transform;
+}
+
+.timeline-card {
+    min-width: 450px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border: 1px solid #f1f5f9;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 40px;
+    width: 2px;
+    height: 40px;
+    background: #e2e8f0;
+}
+
+/* Connective line behind cards */
+.timeline-track-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e2e8f0;
+    z-index: -1;
+}
+
+/* Timeline Year Badge */
+.t-year {
+    position: absolute;
+    top: -55px;
+    left: 20px;
+    background: #ca8a04;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(202, 138, 4, 0.2);
+}
+
+.t-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-valid { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+.status-warn { background: rgba(249, 115, 22, 0.1); color: #f97316; }
+
+.timeline-card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+
+.timeline-card p {
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.t-icon {
+    font-size: 2.5rem;
+    color: #ca8a04;
+    opacity: 0.2;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+/* Architecture Features */
+.arch-features {
+    padding: 80px 0 120px;
+    background: #ffffff;
+}
+
+.arch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.arch-item {
+    display: flex;
+    gap: 20px;
+}
+
+.arch-icon {
+    width: 50px; height: 50px;
+    min-width: 50px;
+    background: #fff;
+    border: 2px solid #ca8a04;
+    color: #ca8a04;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.arch-text h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.arch-text p {
+    color: #334155;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+    .arch-grid { grid-template-columns: 1fr; }
+    .timeline-card { min-width: 320px; padding: 25px; }
+}
+
+/* --- Testimonials Slider (Light Mode Overrides) --- */
+.testimonials-section {
+    padding: 140px 0 !important;
+    background: #ffffff !important;
+    text-align: center !important;
+    position: relative !important;
+    border-top: 1px solid #f1f5f9 !important;
+    overflow: visible !important;
+    width: 100% !important;
+}
+
+.testimonials-section .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    position: relative !important;
+    text-align: center !important;
+}
+
+.testimonials-title {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 80px !important;
+    color: #0f172a !important;
+    line-height: 1.2 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    text-align: center !important;
+    transform: none !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.testimonials-title::before, .testimonials-title::after {
+    display: none !important; /* Remove any watermarks from index.css */
+}
+
+.testimonials-title span {
+    background: linear-gradient(90deg, #0066ff, #ff0000) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #0066ff !important; /* Fallback */
+}
+
+.testimonials-container {
+    position: relative !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 80px !important;
+}
+
+.testimonials-slider {
+    flex: 1 !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.test-track {
+    display: flex !important;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.test-slide {
+    min-width: 100% !important;
+    padding: 0 20px !important;
+    opacity: 0 !important;
+    transform: scale(0.95) !important;
+    transition: all 0.6s ease !important;
+}
+
+.test-slide.active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+.test-quote {
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    line-height: 1.5 !important;
+    margin-bottom: 40px !important;
+    font-style: normal !important;
+    font-family: 'Poppins', sans-serif !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.test-brand {
+    height: 80px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-bottom: 30px !important;
+}
+
+.press-logo {
+    max-width: 200px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: none !important;
+}
+
+/* Specific Logo Tweaks if needed, otherwise use simple contain */
+.press-logo.techradar { height: 40px !important; }
+.press-logo.forbes { height: 35px !important; }
+.press-logo.pcmag { height: 35px !important; }
+
+.read-more {
+    display: inline-block !important;
+    color: #0066ff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    opacity: 1 !important;
+}
+
+.test-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #fff !important;
+    cursor: pointer !important;
+    font-size: 1.4rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: all 0.3s ease !important;
+    color: #475569 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+    z-index: 100 !important;
+}
+
+.test-btn.prev { left: 0 !important; }
+.test-btn.next { right: 0 !important; }
+
+.test-btn:hover {
+    background: #0066ff !important;
+    color: #fff !important;
+    border-color: #0066ff !important;
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.25) !important;
+}
+
+.test-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin-top: 60px !important;
+}
+
+.dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #e2e8f0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.dot.active {
+    background: #0066ff !important;
+    width: 32px !important;
+    border-radius: 6px !important;
+}
+
+@media (max-width: 768px) {
+    .testimonials-section { padding: 80px 0 !important; }
+    .testimonials-title { font-size: 2.2rem !important; }
+    .test-quote { font-size: 1.4rem !important; }
+    .test-btn { display: none !important; }
+    .testimonials-container { padding: 0 20px !important; }
+}
+
+/* --- FAQ Section (Adapted for Long-Term Proof) --- */
+.section-6 {
+    padding: 120px 0;
+    background: radial-gradient(circle at center, rgba(0,102,255,0.03) 0%, #fff 70%);
+    position: relative;
+    border-top: 1px solid #f1f5f9;
+}
+
+.faq-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.faq-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.faq-subtitle {
+    font-size: 1.25rem;
+    color: #0f172a; /* Maximum contrast navy */
+    font-weight: 600; /* Increased weight for visibility */
+}
+
+.faq-title span {
+    color: #0066ff;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+    border-color: #0066ff;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.05);
+}
+
+.faq-item.active {
+    border-color: #0066ff;
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.1);
+}
+
+.faq-question {
+    padding: 28px 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.question-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    transition: color 0.3s ease;
+}
+
+.faq-item.active .question-text {
+    color: #0066ff;
+}
+
+.faq-toggle {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-toggle::before,
+.faq-toggle::after {
+    content: '';
+    position: absolute;
+    background-color: #334155;
+    border-radius: 2px;
+}
+
+.faq-toggle::before {
+    width: 16px;
+    height: 2px;
+}
+
+.faq-toggle::after {
+    width: 2px;
+    height: 16px;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(135deg);
+}
+
+.faq-item.active .faq-toggle::before,
+.faq-item.active .faq-toggle::after {
+    background-color: #0066ff;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    opacity: 0;
+}
+
+.faq-answer-inner {
+    padding: 0 40px 32px;
+    color: #334155;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.faq-item.active .faq-answer {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .section-6 { padding: 80px 0; }
+    .faq-title { font-size: 2.2rem; }
+    .faq-question { padding: 20px 24px; }
+    .question-text { font-size: 1.1rem; }
+    .faq-answer-inner { padding: 0 24px 24px; }
+}

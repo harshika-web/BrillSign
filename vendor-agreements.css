@@ -1,0 +1,963 @@
+/* =====================================================
+   VENDOR AGREEMENTS PAGE — BrillSign Brand Design
+   Colors: Blue #0066ff | Red #ff0000 | Yellow #ffff00
+===================================================== */
+
+/* Base */
+body {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+/* Utilities */
+.va-blue {
+    color: #0066ff;
+}
+
+.va-red {
+    color: #ff0000;
+}
+
+.va-yellow {
+    color: #cca300;
+}
+
+/* Scroll Reveal */
+.va-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.va-reveal.va-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.va-delay-100 {
+    transition-delay: 0.1s;
+}
+
+.va-delay-200 {
+    transition-delay: 0.2s;
+}
+
+.va-delay-300 {
+    transition-delay: 0.3s;
+}
+
+/* Pills */
+.va-pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+}
+
+.va-pill-red {
+    background: rgba(255, 0, 0, 0.08);
+    color: #ff0000;
+    border: 1px solid rgba(255, 0, 0, 0.18);
+}
+
+.va-pill-yellow {
+    background: rgba(255, 255, 0, 0.12);
+    color: #c49a00;
+    border: 1px solid rgba(204, 163, 0, 0.3);
+}
+
+/* =====================================================
+   SECTION 1: HERO
+===================================================== */
+.va-hero {
+    padding: 130px 0 80px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.va-hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.04) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.va-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.va-hero-text h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #0f172a;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.va-hero-text p {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 520px;
+}
+
+.va-hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+.va-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background: #0066ff;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.25);
+    transition: all 0.3s ease;
+}
+
+.va-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(0, 102, 255, 0.35);
+    color: #fff;
+}
+
+.va-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: #ff0000;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid #ff0000;
+    transition: all 0.3s ease;
+}
+
+.va-btn-outline:hover {
+    background: rgba(255, 0, 0, 0.05);
+    transform: translateY(-2px);
+    color: #ff0000;
+}
+
+/* Hero stats row */
+.va-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.va-stat-pill strong {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0066ff;
+    line-height: 1;
+}
+
+.va-stat-pill span {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.va-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: #e2e8f0;
+}
+
+/* Hero Dashboard Card */
+.va-dashboard-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    overflow: hidden;
+}
+
+.va-dash-header {
+    background: #f8fafc;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.va-dash-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.va-dash-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-r {
+    background: #ff5f57;
+}
+
+.dot-y {
+    background: #febc2e;
+}
+
+.dot-g {
+    background: #28c840;
+}
+
+.va-dash-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.va-dash-body {
+    padding: 24px;
+}
+
+.va-dash-stat-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.va-ds-block {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.va-ds-number {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.va-ds-number.blue {
+    color: #0066ff;
+}
+
+.va-ds-number.red {
+    color: #ff0000;
+}
+
+.va-ds-number.green {
+    color: #22c55e;
+}
+
+.va-ds-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.va-dash-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.va-dl-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 0.82rem;
+}
+
+.va-dl-badge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.va-dl-badge.signed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.va-dl-badge.pending-b {
+    background: rgba(234, 179, 8, 0.12);
+    color: #92400e;
+}
+
+.va-dl-name {
+    flex: 1;
+    font-weight: 600;
+    color: #334155;
+}
+
+.va-dl-date {
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.va-dash-bar-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.va-bar-label {
+    font-size: 0.78rem;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.va-progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.va-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0066ff, #3b82f6);
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+.va-bar-percent {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0066ff;
+}
+
+/* =====================================================
+   SECTION 2: METRICS STRIP
+===================================================== */
+.va-metrics-strip {
+    padding: 60px 0;
+    background: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.va-metrics-grid {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    justify-content: space-between;
+}
+
+.va-metric {
+    flex: 1;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.va-metric-number {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+.va-metric p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.va-metric-divider {
+    width: 1px;
+    height: 80px;
+    background: #e2e8f0;
+    flex-shrink: 0;
+}
+
+/* =====================================================
+   SECTION 3: FEATURE SPLITS
+===================================================== */
+.va-features {
+    padding: 120px 0;
+    background: #ffffff;
+}
+
+.va-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.va-feature-row:last-child {
+    margin-bottom: 0;
+}
+
+.va-feature-row-reverse {
+    direction: rtl;
+}
+
+.va-feature-row-reverse>* {
+    direction: ltr;
+}
+
+.va-feature-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background: rgba(0, 102, 255, 0.08); /* Soft blue theme */
+    color: #0066ff;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.va-tag-red {
+    background: rgba(255, 0, 0, 0.08);
+    color: #ff0000;
+    border-color: rgba(255, 0, 0, 0.2);
+}
+
+.va-feature-text h2 {
+    font-size: 3rem; /* Larger and more impactful */
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.va-feature-text p {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.va-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.va-feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1.05rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+.va-feature-list li i {
+    color: #0066ff;
+    font-size: 1rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.15));
+}
+
+.va-feature-visual {
+    position: relative;
+    border-radius: 20px;
+    overflow: visible;
+}
+
+.va-feature-visual img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.va-feature-visual:hover img {
+    transform: scale(1.02);
+}
+
+.va-feature-float-card {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f1f5f9;
+    min-width: 200px;
+    z-index: 2;
+}
+
+.va-feature-float-card i {
+    font-size: 1.4rem;
+}
+
+.va-feature-float-card strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.va-feature-float-card span {
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+.va-float-right {
+    left: auto;
+    right: -20px;
+}
+
+/* =====================================================
+   SECTION 4: LIFECYCLE STEPS
+===================================================== */
+.va-lifecycle {
+    padding: 120px 0;
+    background: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+}
+
+.va-lifecycle-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 70px;
+}
+
+.va-lifecycle-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.va-lifecycle-header p {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Lifecycle Demo Video Styling */
+.va-lifecycle-visual {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.va-video-container {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e2e8f0;
+    line-height: 0;
+    /* Remove potential whitespace */
+    background: #fff;
+}
+
+.va-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    /* Ensure common video aspect ratio */
+    object-fit: contain;
+    /* Don't crop the demo! */
+}
+
+.va-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Lifecycle Split Layout */
+.va-lifecycle-content {
+    display: grid;
+    grid-template-columns: 0.8fr 1.8fr;
+    gap: 60px;
+    align-items: center; /* Same level alignment */
+    justify-content: center;
+}
+
+.va-lifecycle-steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: auto;
+    margin: 0;
+}
+
+.va-lc-step {
+    display: none;
+    padding: 24px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    animation: vaFadeIn 0.5s ease forwards;
+}
+
+@keyframes vaFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.va-lc-step.active {
+    display: block;
+}
+
+.va-lc-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(0,102,255,0.5); /* Much more visible */
+    line-height: 1;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+}
+
+.va-lc-icon {
+    width: 64px;
+    height: 64px;
+    background: #0066ff;
+    color: #fff;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.2);
+}
+
+.va-icon-red {
+    background: #ff0000;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+}
+
+.va-lc-step h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.va-lc-step p {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.va-lc-arrow {
+    display: none;
+}
+
+
+/* =====================================================
+   SECTION 5: INTEGRATIONS
+===================================================== */
+.va-integrations {
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    background: #f8fafc;
+}
+
+/* Animated Curve Background */
+.va-integrations::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: url('remove-the-text-written-on-this-backgrou_MVYzhppYQyKOmv2FgI4PJA_toKS8BEfSjifP5HAyPv-qQ_sd.jpeg') center/cover no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+    z-index: 0;
+    animation: vaCurveMove 20s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes vaCurveMove {
+    0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+    50% { transform: scale(1.05) translate(-2%, 2%) rotate(1deg); }
+    100% { transform: scale(1) translate(2%, -2%) rotate(-1deg); }
+}
+
+.va-integrations .container {
+    position: relative;
+    z-index: 1;
+}
+
+.va-integrations-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.va-integrations-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.va-integrations-header p {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.va-integrations-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+}
+
+.va-int-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 32px 20px;
+    background: rgba(255, 255, 255, 0.6); /* Glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    cursor: default;
+}
+
+.va-int-card i {
+    font-size: 1.6rem;
+    color: #0066ff;
+    transition: color 0.3s ease;
+}
+
+.va-int-card:hover {
+    border-color: rgba(0, 102, 255, 0.25);
+    background: rgba(0, 102, 255, 0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.06);
+}
+
+.va-int-card:hover i {
+    color: #0066ff;
+}
+
+/* =====================================================
+   SECTION 6: CTA
+===================================================== */
+.va-cta {
+    padding: 100px 0;
+    background: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+}
+
+.va-cta-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    background: #fff;
+    border-radius: 28px;
+    padding: 70px;
+    border: 1px solid #e8efff;
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+/* CTA Background Image */
+.va-cta-inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('a-clean-abstract-background-illustration_ggUBrIcgT6-EJ13Mn7jpeA_wCNK9SlQRiWGRj5u1u44pg_sd.jpeg') center/cover no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.va-cta-inner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.va-cta-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0066ff 60%, #ff0000);
+}
+
+.va-cta-text .va-pill {
+    margin-bottom: 20px;
+}
+
+.va-cta-text h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.va-cta-text p {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.va-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.va-cta-trust {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 500;
+    padding-top: 8px;
+}
+
+.va-cta-trust i {
+    color: #0066ff;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 1024px) {
+    .va-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .va-hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .va-feature-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .va-feature-row-reverse {
+        direction: ltr;
+    }
+
+    .va-lifecycle-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .va-lc-arrow {
+        display: none;
+    }
+
+    .va-integrations-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .va-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px;
+    }
+
+    .va-metrics-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .va-metric-divider {
+        width: 60px;
+        height: 1px;
+    }
+
+    .va-hero-stats {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .va-hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .va-integrations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

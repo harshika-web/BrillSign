@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrillSign for Legal Teams – Legally Binding, Cryptographically Sealed</title>
+    <meta name="description"
+        content="BrillSign gives legal teams the fastest, most secure document signing workflow available. Court-admissible evidence, tamper-proof audit trails, and zero-knowledge privacy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="legal-teams.css">
+</head>
+
+<body class="legal-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- ========================================================
+         HERO: SPLIT-SCREEN 
+    ======================================================== -->
+    <section class="legal-hero">
+        <div class="legal-hero-visual"></div>
+        <div class="legal-hero-content">
+            <div class="role-badge"><i class="fas fa-balance-scale"></i> For Legal Teams</div>
+            <h1>Contracts That <span>Stand Up in Court</span></h1>
+            <p>BrillSign turns every digital agreement into an unassailable legal record. Cryptographic seals,
+                tamper-evident logs, and jurisdiction-aware signing — all in one workflow your legal team will actually
+                love.</p>
+            <div class="hero-cta-group">
+                <a href="../book-a-demo.html" class="btn-legal">Request a Demo</a>
+                <a href="#integrity-timeline" class="btn-ghost-legal">See How It Works</a>
+            </div>
+            <div class="hero-trust-bar">
+                <div class="trust-stat"><span class="stat-num">100%</span><span class="stat-label">Legally admissible in
+                        120+ jurisdictions</span></div>
+                <div class="trust-stat"><span class="stat-num">0</span><span class="stat-label">Breaches since
+                        inception</span></div>
+                <div class="trust-stat"><span class="stat-num">eIDAS / ESIGN</span><span class="stat-label">Compliant by
+                        default</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 1: THE INTEGRITY TIMELINE
+    ======================================================== -->
+    <section class="integrity-timeline" id="integrity-timeline">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <div class="section-tag">Document Lifecycle</div>
+                <h2>From Draft to <strong>Unbreakable Evidence</strong></h2>
+                <p class="section-sub">Every contract signed on BrillSign goes through a cryptographic sealing process
+                    the moment a signer touches it. Here's what that journey looks like.</p>
+            </div>
+            <div class="timeline-grid">
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="node-number">01</div>
+                    <div class="node-icon"><i class="fas fa-file-alt"></i></div>
+                    <h4>Document Upload & Fingerprinting</h4>
+                    <p>Your document is hashed with SHA-256 the moment it enters BrillSign's system. This hash is your
+                        document's immutable fingerprint — change one byte and the hash breaks.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="node-number">02</div>
+                    <div class="node-icon"><i class="fas fa-user-check"></i></div>
+                    <h4>Signer Identity Capture</h4>
+                    <p>We bind each signature to multi-factor identity evidence: email, device fingerprint, geolocation,
+                        and timestamp — creating an identity chain no one can later deny.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="node-number">03</div>
+                    <div class="node-icon"><i class="fas fa-stamp"></i></div>
+                    <h4>Cryptographic Seal Applied</h4>
+                    <p>The signature is merged with the document hash under a PKI cryptographic seal. Any subsequent
+                        alteration of the document invalidates this seal — instantly detectable.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="node-dot"></div>
+                    <div class="node-number">04</div>
+                    <div class="node-icon"><i class="fas fa-archive"></i></div>
+                    <h4>Audit Log Frozen & Stored</h4>
+                    <p>A tamper-proof audit log containing every action, timestamp, and identity data point is frozen
+                        and stored in decentralized infrastructure, ready for court disclosure at any time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2: THE EVIDENCE MATRIX
+    ======================================================== -->
+    <section class="evidence-matrix">
+        <div class="container" style="max-width:1200px; margin:0 auto; padding: 0 20px;">
+            <div class="matrix-header" style="text-align:center; margin-bottom:20px;">
+                <div class="section-tag light">Legal Security Architecture</div>
+                <h2 style="font-size:2.5rem; font-weight:700; margin-bottom:16px;">The Evidence Matrix</h2>
+                <p style="max-width:600px; margin:0 auto;">Six layers of legal defensibility, working in concert to make
+                    every signed document an airtight legal record.</p>
+            </div>
+            <div class="matrix-grid">
+                <div class="matrix-card">
+                    <i class="fas fa-fingerprint"></i>
+                    <h3>Biometric Binding</h3>
+                    <p style="font-size:0.95rem; line-height:1.7;">Our optional biometric capture ties the user's unique
+                        behavioural signature pattern to the document at the moment of signing, creating proof that goes
+                        beyond email verification.</p>
+                    <div class="matrix-badge">Court-Grade</div>
+                </div>
+                <div class="matrix-card">
+                    <i class="fas fa-clock-rotate-left"></i>
+                    <h3>Trusted Timestamp Authority</h3>
+                    <p style="font-size:0.95rem; line-height:1.7;">Every signing event is anchored to a legally
+                        recognized Trusted Timestamp Authority (RFC 3161). The time is irrefutable — no internal server
+                        can be manipulated to change it.</p>
+                    <div class="matrix-badge">RFC 3161</div>
+                </div>
+                <div class="matrix-card">
+                    <i class="fas fa-link"></i>
+                    <h3>Blockchain Notarization</h3>
+                    <p style="font-size:0.95rem; line-height:1.7;">Document hashes are optionally anchored to a public
+                        blockchain ledger. Third-party verification requires no trust in BrillSign — just the math.</p>
+                    <div class="matrix-badge">Zero-Trust</div>
+                </div>
+                <div class="matrix-card">
+                    <i class="fas fa-shield-halved"></i>
+                    <h3>Non-Repudiation Framework</h3>
+                    <p style="font-size:0.95rem; line-height:1.7;">A signer cannot legally claim they did not sign. Our
+                        non-repudiation chain combines identity, intent capture, and cryptographic proof that no counsel
+                        can unravel.</p>
+                    <div class="matrix-badge">Dispute-Proof</div>
+                </div>
+                <div class="matrix-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Zero-Knowledge Privacy</h3>
+                    <p style="font-size:0.95rem; line-height:1.7;">BrillSign never reads the contents of your contracts.
+                        Documents are processed in encrypted form end-to-end. Your privileged legal communications
+                        remain strictly your own.</p>
+                    <div class="matrix-badge">E2E Encrypted</div>
+                </div>
+                <div class="matrix-card">
+                    <i class="fas fa-scale-balanced"></i>
+                    <h3>Jurisdiction-Aware Engine</h3>
+                    <p style="font-size:0.95rem; line-height:1.7;">Whether it's eIDAS in Europe, ESIGN in the US, or IT
+                        Act in India — our engine automatically applies the correct legal signing standard based on
+                        signer geolocation.</p>
+                    <div class="matrix-badge">120+ Jurisdictions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3: GLOBAL COMPLIANCE MAP 
+    ======================================================== -->
+    <section class="compliance-map">
+        <div class="compliance-overlay"></div>
+        <div class="compliance-content" style="padding: 0 20px;">
+            <div class="section-tag light">Cross-Border Legal Validity</div>
+            <h2 style="font-size:2.8rem; font-weight:800; margin-bottom:24px;">Valid Everywhere Your <strong
+                    style="color:var(--legal-gold);">Contracts Go</strong></h2>
+            <p
+                style="color:#cbd5e1; font-size:1.1rem; margin-bottom:50px; max-width:700px; margin-left:auto; margin-right:auto;">
+                International deals require global legal certainty. BrillSign's Jurisdiction-Aware Engine is
+                pre-configured with the signing standards of 120+ countries, so your legal team never has to
+                second-guess compliance.</p>
+            <div class="jurisdiction-grid">
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> EU — eIDAS Qualified</div>
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> USA — ESIGN / UETA</div>
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> India — IT Act 2000</div>
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> UK — Electronic Communications Act
+                </div>
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> UAE — TRA Regulations</div>
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> Singapore — ETA</div>
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> Australia — Electronic Transactions
+                    Act</div>
+                <div class="jurisdiction-pill"><i class="fas fa-check-circle"></i> Canada — PIPEDA / FIPPA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 4: EXPERT-WITNESS READY
+    ======================================================== -->
+    <section class="expert-witness-section">
+        <div class="container" style="max-width:1200px; margin:0 auto; padding:100px 20px;">
+            <div class="expert-grid">
+                <div class="expert-visual-side">
+                    <img src="images/scenario_audit_trails_new.png" alt="Audit Trail Records"
+                        style="width:100%; border-radius:20px; box-shadow: 0 30px 80px rgba(0,0,0,0.12);">
+                    <div class="expert-floating-badge">
+                        <i class="fas fa-gavel"></i>
+                        <div>
+                            <span class="badge-title">Court Disclosure Ready</span>
+                            <span class="badge-sub">Export signed package anytime</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="expert-text-side">
+                    <div class="section-tag">For Legal Dispute Support</div>
+                    <h2>When a Dispute Happens, <strong>You're Already Prepared</strong></h2>
+                    <p>The moment a contract is contested, your legal team needs evidence — not excuses. BrillSign
+                        generates a court-ready evidence package that includes:</p>
+                    <ul class="expert-feature-list">
+                        <li>
+                            <i class="fas fa-circle-check"></i>
+                            <div>
+                                <strong>Complete Signing Audit Trail</strong>
+                                <span>Every view, open, reject, and signature event with UTC timestamps</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check"></i>
+                            <div>
+                                <strong>Cryptographic Certificate</strong>
+                                <span>Machine-verifiable proof of document authenticity and signer identity</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check"></i>
+                            <div>
+                                <strong>Signer IP, Device & Geolocation Record</strong>
+                                <span>Full chain of custody from document creation to final signature</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check"></i>
+                            <div>
+                                <strong>Independent Verifiability</strong>
+                                <span>Documents can be verified without BrillSign's servers — platform-agnostic
+                                    truth</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="../audit-trails.html" class="btn-legal"
+                        style="margin-top:32px; display:inline-block;">Explore
+                        Audit-Ready Logs →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 5: WORKFLOW ADVANTAGE 
+    ======================================================== -->
+    <section class="workflow-advantage">
+        <div class="container" style="max-width:1200px; margin:0 auto; padding:100px 20px;">
+            <div style="text-align:center; margin-bottom:70px;">
+                <div class="section-tag">Workflow Efficiency</div>
+                <h2 style="font-size:2.5rem; font-weight:700;">Built for the Pace of <strong>Modern Legal Work</strong>
+                </h2>
+                <p class="section-sub">Legal teams spend 30% of their time managing document turnaround. BrillSign cuts
+                    that to minutes.</p>
+            </div>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-icon-box"><i class="fas fa-upload"></i></div>
+                    <h4>Upload Once</h4>
+                    <p>Drag in any PDF, DOC, or DOCX. BrillSign handles formatting, field mapping, and signing order
+                        automatically.</p>
+                </div>
+                <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+                <div class="workflow-step">
+                    <div class="step-icon-box"><i class="fas fa-paper-plane"></i></div>
+                    <h4>Dispatch Instantly</h4>
+                    <p>Send to multiple signatories simultaneously or in sequence. Set reminders, deadlines, and
+                        optional biometric capture per signer.</p>
+                </div>
+                <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+                <div class="workflow-step">
+                    <div class="step-icon-box"><i class="fas fa-pen-to-square"></i></div>
+                    <h4>Sign Anywhere</h4>
+                    <p>Signers complete on any device with no app required. BrillSign captures full identity context
+                        silently in the background.</p>
+                </div>
+                <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+                <div class="workflow-step">
+                    <div class="step-icon-box"><i class="fas fa-vault"></i></div>
+                    <h4>Sealed & Stored</h4>
+                    <p>The moment all parties sign, the document is cryptographically finalized and placed in your
+                        secure vault — along with the full audit evidence package.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         FINAL CTA
+    ======================================================== -->
+    <section class="legal-footer-cta">
+        <div class="container" style="max-width:800px; margin:0 auto; padding: 0 20px;">
+            <div class="final-cta-badge"><i class="fas fa-balance-scale"></i> BrillSign for Legal Teams</div>
+            <h2 style="font-size:3rem; font-weight:800; margin-bottom:24px; line-height:1.2;">Ready to Make Every
+                Contract <strong style="color:var(--legal-gold);">Legally Unbreakable?</strong></h2>
+            <p
+                style="color:#94a3b8; font-size:1.15rem; margin-bottom:50px; max-width:600px; margin-left:auto; margin-right:auto;">
+                Join hundreds of legal teams that have eliminated document disputes, cut turnaround time in half, and
+                built a digital signing process they trust completely.</p>
+            <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+                <a href="../book-a-demo.html" class="btn-legal">Request a Demo</a>
+                <a href="../strong-non-repudiation.html" class="btn-ghost-legal">Explore Non-Repudiation →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../shared-components.js?v=20260311_v6"></script>
+    <script src="../animations.js"></script>
+    <script src="../translations.js"></script>
+</body>
+
+</html>

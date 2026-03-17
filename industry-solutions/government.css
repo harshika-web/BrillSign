@@ -1,0 +1,702 @@
+/* ==========================================================================
+   Government Solutions Specific Styles (government.css)
+   ========================================================================== */
+
+/* Variables specifically for the Government page for an authoritative tone */
+:root {
+    --gov-navy: #0f172a;
+    /* Deep authoritative blue/black */
+    --gov-blue-accent: #0284c7;
+    /* Trustworthy official blue */
+    --gov-gold: #d97706;
+    /* Official insignia gold */
+    --gov-red: #dc2626;
+    /* Official seal red */
+    --gov-bg-light: #f8fafc;
+    /* Clean document white/gray */
+    --gov-text-dark: #1e293b;
+    --gov-text-muted: #64748b;
+    --gov-border: #cbd5e1;
+}
+
+/* Base resets & utilities */
+.gov-page {
+    background-color: var(--gov-bg-light);
+    color: var(--gov-text-dark);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.gov-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.gov-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(2, 132, 199, 0.1);
+    color: var(--gov-blue-accent);
+    border: 1px solid rgba(2, 132, 199, 0.2);
+    border-radius: 4px;
+    /* More formal, less playful rounded corners */
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   Hero Section - Authoritative & Solemn
+   ========================================================================== */
+.gov-hero {
+    position: relative;
+    padding: 180px 0 120px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    overflow: hidden;
+    border-bottom: 4px solid var(--gov-gold);
+}
+
+.gov-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7)), url('images/gov_hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.gov-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gov-hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    color: #ffffff; /* Explicitly set to white to override inherited dark navy */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Added for better visibility against background */
+}
+
+.gov-hero-content h1 span {
+    color: var(--gov-gold);
+}
+
+.gov-hero-content p {
+    font-size: 1.25rem;
+    color: #e2e8f0; /* Lightened from #cbd5e1 for better readability */
+    margin-bottom: 40px;
+    line-height: 1.7;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gov-hero .gov-badge {
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8; /* Lighter blue for better contrast on dark navy */
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.gov-hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.gov-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    background: var(--gov-blue-accent);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--gov-blue-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gov-btn-primary:hover {
+    background: #0369a1;
+    border-color: #0369a1;
+}
+
+.gov-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gov-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Metrics Section (Stamp Reveal)
+   ========================================================================== */
+.gov-metrics {
+    padding: 80px 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--gov-border);
+}
+
+.gov-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.gov-metric-item {
+    padding: 30px;
+    border: 1px dashed var(--gov-border);
+    border-radius: 8px;
+    position: relative;
+}
+
+.gov-metric-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    margin-bottom: 8px;
+    font-family: monospace;
+    /* Official log feel */
+}
+
+.gov-metric-label {
+    font-size: 0.9rem;
+    color: var(--gov-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   The "Digital Bureaucracy" Funnel (Zig-Zag)
+   ========================================================================== */
+.gov-funnel {
+    padding: 120px 0;
+    background: var(--gov-bg-light);
+    position: relative;
+}
+
+.gov-section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+}
+
+.gov-section-header h2 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--gov-navy);
+}
+
+.gov-funnel-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.gov-funnel-step:last-child {
+    margin-bottom: 0;
+}
+
+/* Connector line between steps */
+.gov-funnel-step::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -80px;
+    width: 2px;
+    height: 80px;
+    background: var(--gov-border);
+    z-index: 0;
+}
+
+.gov-funnel-step:last-child::after {
+    display: none;
+}
+
+.gov-funnel-step.reverse {
+    direction: rtl;
+}
+
+.gov-funnel-step.reverse>* {
+    direction: ltr;
+}
+
+.gov-step-content {
+    background: #ffffff;
+    padding: 48px;
+    border: 1px solid var(--gov-border);
+    border-top: 4px solid var(--gov-blue-accent);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+}
+
+.gov-step-content h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.gov-step-content h3 i {
+    color: var(--gov-gold);
+}
+
+.gov-step-content p {
+    color: var(--gov-text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+}
+
+.gov-step-visual {
+    position: relative;
+    z-index: 1;
+}
+
+.gov-step-visual img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+    border: 1px solid var(--gov-border);
+}
+
+/* ==========================================================================
+   Security & Clearance Vault Layout
+   ========================================================================== */
+.gov-vault {
+    padding: 120px 0;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border-top: 4px solid var(--gov-red);
+}
+
+.gov-vault .gov-section-header h2 {
+    color: #ffffff;
+}
+
+.gov-vault .gov-section-header p {
+    color: #cbd5e1;
+}
+
+.gov-vault-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.gov-vault-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 32px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.gov-vault-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gov-red);
+}
+
+.gov-vault-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gov-clearance-level {
+    font-size: 0.75rem;
+    background: rgba(220, 38, 38, 0.2);
+    color: #fca5a5;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(220, 38, 38, 0.4);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.gov-vault-card p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes govStampReveal {
+    0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes govSlideInLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes govSlideInRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.gov-reveal-stamp {
+    opacity: 0;
+}
+
+.gov-reveal-stamp.active {
+    animation: govStampReveal 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.gov-reveal-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.gov-reveal-slide-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.gov-reveal-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.gov-reveal-slide-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.gov-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.gov-fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Legacy Systems Integration Timeline
+   ========================================================================== */
+.gov-timeline {
+    padding: 120px 0;
+    background: #ffffff;
+    border-top: 1px solid var(--gov-border);
+}
+
+.timeline-container {
+    max-width: 900px;
+    margin: 60px auto 0;
+    position: relative;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--gov-border);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    width: 45%;
+    background: var(--gov-bg-light);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--gov-border);
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    color: var(--gov-navy);
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    color: var(--gov-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.timeline-marker {
+    width: 20px;
+    height: 20px;
+    background: var(--gov-blue-accent);
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 2px var(--gov-blue-accent);
+}
+
+.timeline-image {
+    width: 45%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-image img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gov-timeline-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gov-timeline-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Citizen Impact Grid
+   ========================================================================== */
+.gov-impact-grid-section {
+    padding: 120px 0;
+    background: var(--gov-bg-light);
+    border-top: 1px solid var(--gov-border);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.impact-card {
+    background: #ffffff;
+    border: 1px solid var(--gov-border);
+    border-radius: 6px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.impact-card.focus-image {
+    grid-column: span 3;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    max-height: 400px;
+}
+
+.impact-card.focus-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.impact-icon {
+    font-size: 2.5rem;
+    color: var(--gov-gold);
+    margin-bottom: 20px;
+}
+
+.impact-card h3 {
+    font-size: 1.4rem;
+    color: var(--gov-navy);
+    margin-bottom: 12px;
+}
+
+.impact-card p {
+    color: var(--gov-text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.gov-card-hover {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gov-card-hover.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gov-card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--gov-blue-accent);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 992px) {
+    .gov-funnel-step {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .gov-funnel-step::after {
+        display: none;
+    }
+
+    .gov-funnel-step.reverse {
+        direction: ltr;
+    }
+
+    .gov-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gov-vault-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-container::before {
+        left: 20px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-marker {
+        left: 20px;
+    }
+
+    .timeline-content,
+    .timeline-image {
+        width: 100%;
+        margin-left: 50px;
+        margin-bottom: 20px;
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-card.focus-image {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .gov-hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .gov-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gov-hero-actions {
+        flex-direction: column;
+    }
+}

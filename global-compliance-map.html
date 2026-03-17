@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Compliance Map | BrillSign</title>
+    <meta name="description"
+        content="Explore BrillSign's global coverage of electronic signature regulations — eIDAS, ESIGN, ZertES, and more — with our interactive compliance map.">
+    <link rel="stylesheet" href="index.css?v=20260311_v6">
+    <link rel="stylesheet" href="global-compliance-map.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="compliance-map-page">
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <!-- ══════════════════════════════════════════════
+             1. DARK HERO
+        ══════════════════════════════════════════════ -->
+        <section class="gcm-hero">
+            <div class="gcm-hero-blob gcm-blob-1"></div>
+            <div class="gcm-hero-blob gcm-blob-2"></div>
+            <div class="gcm-hero-grid-overlay"></div>
+
+            <div class="container">
+                <div class="gcm-hero-grid">
+                    <!-- Text -->
+                    <div class="gcm-hero-content animate-up">
+                        <div class="gcm-live-badge">
+                            <span class="live-dot"></span>
+                            LIVE &nbsp;· &nbsp;40+ Jurisdictions Tracked
+                        </div>
+                        <h1 class="premium-heading">
+                            Global Enforceability,<br>
+                            <span class="text-highlight">Local Compliance.</span>
+                        </h1>
+                        <p class="gcm-hero-subtitle">
+                            BrillSign adapts to every regional electronic signature law automatically. Explore your jurisdiction's regulatory framework and see how your documents stay court-ready everywhere.
+                        </p>
+                        <div class="gcm-ctas">
+                            <a href="join-waitlist.html" class="btn-primary">
+                                <span>Book Compliance Demo</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="jurisdiction-aware-signing.html" class="btn-outline">
+                                <i class="fas fa-gavel"></i>
+                                <span>See How It Works</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image -->
+                    <div class="gcm-hero-image-wrap animate-right">
+                        <img src="compliance_map_hero.png" alt="Global Compliance Map Visual" class="gcm-hero-image">
+                        <div class="gcm-stat-chip chip-a">
+                            <i class="fas fa-shield-halved" style="color:#10b981;font-size:1.2rem;"></i>
+                            <div>
+                                <span class="chip-label">COVERAGE</span>
+                                <strong>40+ Jurisdictions</strong>
+                            </div>
+                        </div>
+                        <div class="gcm-stat-chip chip-b">
+                            <i class="fas fa-certificate" style="color:#3b82f6;font-size:1.2rem;"></i>
+                            <div>
+                                <span class="chip-label">HIGHEST TIER</span>
+                                <strong>QES Qualified</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════
+             2. INTERACTIVE WORLD MAP
+        ══════════════════════════════════════════════ -->
+        <section class="gcm-map-section">
+            <div class="container">
+                <div class="section-header text-center animate-up">
+                    <h2 class="premium-heading">Interactive Compliance Explorer</h2>
+                    <p class="section-subtitle">Hover over a region to see its regulatory framework, legal standing, and supported signature tiers.</p>
+                </div>
+
+                <div class="gcm-map-layout" style="margin-top:60px;">
+                    <!-- SVG Map -->
+                    <div class="gcm-map-canvas animate-left">
+                        <svg viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive world compliance map">
+                            <!-- Ocean background -->
+                            <rect width="960" height="500" fill="#e8f0fe" rx="12"/>
+
+                            <!-- Latitude/longitude grid lines for realism -->
+                            <g opacity="0.08" stroke="#94a3b8" stroke-width="0.5" fill="none">
+                                <line x1="0" y1="125" x2="960" y2="125"/>
+                                <line x1="0" y1="250" x2="960" y2="250"/>
+                                <line x1="0" y1="375" x2="960" y2="375"/>
+                                <line x1="240" y1="0" x2="240" y2="500"/>
+                                <line x1="480" y1="0" x2="480" y2="500"/>
+                                <line x1="720" y1="0" x2="720" y2="500"/>
+                            </g>
+
+                            <!-- ═══ Realistic Continent Outlines ═══ -->
+
+                            <!-- Greenland (non-interactive) -->
+                            <path d="M310,32 L330,28 L350,35 L355,55 L345,72 L325,75 L310,65 L305,48 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+
+                            <!-- Canada -->
+                            <path class="gcm-region" data-region="ca"
+                                d="M55,80 L75,68 L95,58 L130,48 L165,45 L195,50 L218,58 L235,72 L242,88
+                                   L238,95 L222,98 L215,108 L205,105 L188,95 L170,92 L148,95 L125,100
+                                   L105,108 L85,115 L68,112 L55,105 L48,92 Z"
+                                title="Canada"/>
+                            <text x="152" y="82" font-size="10" fill="#64748b" font-weight="600" text-anchor="middle" pointer-events="none">Canada</text>
+
+                            <!-- United States -->
+                            <path class="gcm-region" data-region="us"
+                                d="M55,115 L85,118 L105,112 L130,105 L155,100 L188,98 L210,108 L228,115
+                                   L240,125 L248,142 L245,160 L238,178 L225,192 L210,198 L192,202
+                                   L175,210 L155,215 L140,218 L125,215 L108,208 L92,198
+                                   L78,185 L65,172 L55,158 L48,142 L45,128 Z"
+                                title="United States"/>
+                            <text x="155" y="162" font-size="11" fill="#64748b" font-weight="700" text-anchor="middle" pointer-events="none">USA</text>
+
+                            <!-- Mexico & Central America (non-interactive) -->
+                            <path d="M95,218 L120,222 L148,225 L168,232 L178,245 L175,258 L165,268
+                                     L152,272 L138,268 L125,262 L112,255 L100,248 L88,238 L82,228 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+
+                            <!-- South America (non-interactive) -->
+                            <path d="M175,275 L195,268 L215,272 L232,282 L245,298 L252,318 L255,342
+                                     L248,365 L238,385 L222,398 L205,408 L188,412 L172,405 L158,392
+                                     L148,375 L142,355 L140,332 L142,312 L148,295 L158,282 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+                            <text x="198" y="345" font-size="10" fill="#64748b" font-weight="600" text-anchor="middle" pointer-events="none">S. America</text>
+
+                            <!-- UK -->
+                            <path class="gcm-region" data-region="uk"
+                                d="M405,95 L412,88 L418,90 L422,98 L420,108 L416,118 L412,125
+                                   L408,122 L404,115 L402,105 Z"
+                                title="United Kingdom"/>
+                            <text x="412" y="110" font-size="8" fill="#64748b" font-weight="700" text-anchor="middle" pointer-events="none">UK</text>
+
+                            <!-- Europe (EU) -->
+                            <path class="gcm-region" data-region="eu"
+                                d="M425,82 L445,75 L465,78 L488,82 L508,88 L525,98 L535,112
+                                   L538,128 L535,145 L528,158 L518,168 L505,175 L492,178
+                                   L478,180 L462,178 L448,172 L438,162 L432,148 L428,135
+                                   L425,120 L422,105 L422,92 Z"
+                                title="European Union"/>
+                            <text x="480" y="132" font-size="11" fill="#64748b" font-weight="700" text-anchor="middle" pointer-events="none">EU</text>
+
+                            <!-- Switzerland (small marker inside EU) -->
+                            <path class="gcm-region" data-region="ch"
+                                d="M458,148 L468,145 L475,150 L472,158 L462,160 L456,155 Z"
+                                title="Switzerland"/>
+                            <text x="465" y="154" font-size="7" fill="#64748b" font-weight="700" text-anchor="middle" pointer-events="none">CH</text>
+
+                            <!-- Scandinavia / Northern Europe (non-interactive) -->
+                            <path d="M455,42 L462,38 L472,42 L478,55 L475,72 L468,78 L458,75 L452,65 L450,52 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+
+                            <!-- Russia / Eastern Europe (non-interactive, large mass) -->
+                            <path d="M540,48 L580,42 L625,45 L668,52 L710,55 L748,58 L775,65
+                                     L790,78 L795,95 L788,108 L775,118 L758,122 L738,120
+                                     L715,115 L690,112 L665,108 L640,105 L618,108 L598,112
+                                     L575,115 L555,112 L540,105 L532,92 L528,78 L530,62 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+                            <text x="665" y="85" font-size="10" fill="#94a3b8" font-weight="600" text-anchor="middle" pointer-events="none">Russia</text>
+
+                            <!-- Middle East (non-interactive) -->
+                            <path d="M545,168 L572,162 L598,168 L618,178 L628,192 L625,205
+                                     L612,212 L595,215 L578,212 L562,205 L548,195 L542,182 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+
+                            <!-- Africa (non-interactive) -->
+                            <path d="M425,205 L448,195 L472,192 L498,195 L518,202 L535,215
+                                     L545,232 L548,252 L545,275 L538,298 L525,318 L508,335
+                                     L488,348 L465,355 L445,352 L428,342 L415,325 L408,305
+                                     L405,282 L408,258 L412,235 L418,218 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+                            <text x="475" y="278" font-size="10" fill="#94a3b8" font-weight="600" text-anchor="middle" pointer-events="none">Africa</text>
+
+                            <!-- India -->
+                            <path class="gcm-region" data-region="in"
+                                d="M628,195 L648,188 L668,192 L682,202 L690,218 L692,238
+                                   L688,258 L678,275 L665,288 L648,295 L632,292 L618,282
+                                   L608,268 L605,248 L608,228 L615,212 Z"
+                                title="India"/>
+                            <text x="650" y="245" font-size="10" fill="#64748b" font-weight="700" text-anchor="middle" pointer-events="none">India</text>
+
+                            <!-- China / East Asia (non-interactive) -->
+                            <path d="M695,115 L725,108 L755,112 L782,122 L802,138 L812,158
+                                     L808,178 L798,195 L782,205 L762,210 L742,208 L722,202
+                                     L705,192 L695,178 L688,162 L685,142 L688,128 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+                            <text x="750" y="162" font-size="10" fill="#94a3b8" font-weight="600" text-anchor="middle" pointer-events="none">Asia</text>
+
+                            <!-- Japan (non-interactive) -->
+                            <path d="M828,125 L835,118 L840,122 L842,135 L838,148 L832,155 L826,148 L824,135 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+                            <text x="834" y="140" font-size="7" fill="#94a3b8" font-weight="600" text-anchor="middle" pointer-events="none">JP</text>
+
+                            <!-- SE Asia / Indonesia (non-interactive) -->
+                            <path d="M758,228 L778,225 L802,232 L825,242 L842,252 L848,265
+                                     L840,275 L822,278 L798,275 L778,268 L762,258 L755,245 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+
+                            <!-- Australia -->
+                            <path class="gcm-region" data-region="au"
+                                d="M768,318 L795,308 L825,305 L852,312 L872,325 L882,342
+                                   L878,362 L868,378 L852,390 L832,395 L808,392 L788,382
+                                   L772,368 L762,352 L758,335 Z"
+                                title="Australia"/>
+                            <text x="820" y="355" font-size="10" fill="#64748b" font-weight="700" text-anchor="middle" pointer-events="none">Australia</text>
+
+                            <!-- New Zealand (non-interactive) -->
+                            <path d="M892,378 L898,372 L902,380 L900,392 L895,398 L890,392 Z"
+                                  fill="#c8d5e6" stroke="#fff" stroke-width="0.5" />
+
+                            <!-- ═══ Pulsing Hotspot Indicators ═══ -->
+                            <!-- Washington DC -->
+                            <circle cx="170" cy="165" r="5" fill="#3b82f6" opacity="0.9" class="gcm-hotspot"/>
+                            <circle cx="170" cy="165" r="12" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.4" class="gcm-hotspot" style="animation-delay:-0.5s"/>
+                            <!-- London -->
+                            <circle cx="412" cy="105" r="4" fill="#10b981" opacity="0.9" class="gcm-hotspot" style="animation-delay:-1.5s"/>
+                            <circle cx="412" cy="105" r="10" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.3" class="gcm-hotspot" style="animation-delay:-2.5s"/>
+                            <!-- Brussels -->
+                            <circle cx="480" cy="120" r="5" fill="#3b82f6" opacity="0.9" class="gcm-hotspot" style="animation-delay:-1s"/>
+                            <circle cx="480" cy="120" r="12" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.4" class="gcm-hotspot" style="animation-delay:-2s"/>
+                            <!-- New Delhi -->
+                            <circle cx="650" cy="230" r="4" fill="#f59e0b" opacity="0.9" class="gcm-hotspot" style="animation-delay:-0.8s"/>
+                            <circle cx="650" cy="230" r="10" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.3" class="gcm-hotspot" style="animation-delay:-1.8s"/>
+                            <!-- Canberra -->
+                            <circle cx="838" cy="365" r="4" fill="#3b82f6" opacity="0.8" class="gcm-hotspot" style="animation-delay:-2.2s"/>
+
+                            <!-- ═══ Dashed Data-Flow Lines ═══ -->
+                            <g fill="none" stroke="#3b82f6" stroke-width="1" stroke-dasharray="6,4">
+                                <path d="M170,165 Q290,80 412,105" opacity="0.3"/>
+                                <path d="M412,105 Q446,100 480,120" opacity="0.35"/>
+                                <path d="M480,120 Q565,160 650,230" opacity="0.25"/>
+                                <path d="M650,230 Q745,290 838,365" opacity="0.2"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Detail Panel -->
+                    <div class="gcm-detail-panel animate-right">
+                        <!-- Placeholder -->
+                        <div class="gcm-detail-placeholder">
+                            <i class="fas fa-globe"></i>
+                            <p>Hover over a region on the map to view its compliance details.</p>
+                        </div>
+
+                        <!-- Populated content (shown via JS) -->
+                        <div class="gcm-detail-body">
+                            <div class="gcm-detail-header">
+                                <div class="gcm-detail-flag" id="gcm-p-flag">🌍</div>
+                                <div>
+                                    <h3 id="gcm-p-name">Region</h3>
+                                    <p id="gcm-p-subtitle">Subtitle</p>
+                                </div>
+                            </div>
+
+                            <div class="gcm-data-row">
+                                <span class="gcm-data-label">Primary Regulation</span>
+                                <div class="gcm-data-value" id="gcm-p-regulation">—</div>
+                            </div>
+                            <div class="gcm-data-row">
+                                <span class="gcm-data-label">Legal Status</span>
+                                <div class="gcm-status-pill status-green" id="gcm-p-status">—</div>
+                            </div>
+                            <div class="gcm-data-row">
+                                <span class="gcm-data-label">Signature Tiers Supported</span>
+                                <div class="gcm-tier-badges" id="gcm-p-tiers"></div>
+                            </div>
+                            <div class="gcm-data-row">
+                                <span class="gcm-data-label">Legal Overview</span>
+                                <p id="gcm-p-legal" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin:0;"></p>
+                            </div>
+
+                            <a href="join-waitlist.html" class="gcm-panel-cta">
+                                <i class="fas fa-calendar-check"></i> Get Region Compliance Audit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════
+             3. STATS STRIP
+        ══════════════════════════════════════════════ -->
+        <div class="gcm-stats-strip">
+            <div class="container">
+                <div class="gcm-stats-grid">
+                    <div>
+                        <div class="gcm-stat-number gcm-count" data-target="40" data-suffix="+">0+</div>
+                        <div class="gcm-stat-label">Jurisdictions Covered</div>
+                    </div>
+                    <div>
+                        <div class="gcm-stat-number gcm-count" data-target="3" data-suffix="">0</div>
+                        <div class="gcm-stat-label">Signature Tiers (SES/AES/QES)</div>
+                    </div>
+                    <div>
+                        <div class="gcm-stat-number gcm-count" data-target="100" data-suffix="%">0%</div>
+                        <div class="gcm-stat-label">eIDAS Qualified Ready</div>
+                    </div>
+                    <div>
+                        <div class="gcm-stat-number gcm-count" data-target="12" data-suffix="">0</div>
+                        <div class="gcm-stat-label">Data Residency Zones</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══════════════════════════════════════════════
+             4. REGULATION FRAMEWORK CARDS
+        ══════════════════════════════════════════════ -->
+        <section class="gcm-frameworks-section">
+            <div class="container">
+                <div class="section-header text-center animate-up">
+                    <h2 class="premium-heading">Key Regulatory Frameworks</h2>
+                    <p class="section-subtitle">BrillSign enforces the correct technical standard automatically depending on where your signers are located.</p>
+                </div>
+
+                <div class="gcm-framework-grid">
+                    <div class="gcm-framework-card animate-up">
+                        <div class="gcm-fw-header">
+                            <span class="gcm-fw-flag">🇪🇺</span>
+                            <h4>eIDAS — European Union</h4>
+                        </div>
+                        <div class="gcm-fw-tag">QES / AES / SES</div>
+                        <p>The gold standard for electronic signatures. QES carries the same legal weight as a handwritten signature across all 27 member states.</p>
+                    </div>
+
+                    <div class="gcm-framework-card animate-up" style="transition-delay:0.1s;">
+                        <div class="gcm-fw-header">
+                            <span class="gcm-fw-flag">🇺🇸</span>
+                            <h4>ESIGN & UETA — United States</h4>
+                        </div>
+                        <div class="gcm-fw-tag">Federal + State</div>
+                        <p>ESIGN Act (federal) and UETA (state-level) provide broad enforceability for consumer and commercial e-signatures across the US.</p>
+                    </div>
+
+                    <div class="gcm-framework-card animate-up" style="transition-delay:0.2s;">
+                        <div class="gcm-fw-header">
+                            <span class="gcm-fw-flag">🇬🇧</span>
+                            <h4>UK eIDAS — United Kingdom</h4>
+                        </div>
+                        <div class="gcm-fw-tag">Post-Brexit</div>
+                        <p>UK retained its own eIDAS-equivalent framework post-Brexit. QES issued by UKAS-accredited Trust Service Providers is fully valid.</p>
+                    </div>
+
+                    <div class="gcm-framework-card animate-up" style="transition-delay:0.3s;">
+                        <div class="gcm-fw-header">
+                            <span class="gcm-fw-flag">🇨🇭</span>
+                            <h4>ZertES — Switzerland</h4>
+                        </div>
+                        <div class="gcm-fw-tag">QES Mandatory</div>
+                        <p>Switzerland's ZertES law mandates accredited Certificate Authorities for legally binding QES, fully supported by BrillSign's integration layer.</p>
+                    </div>
+
+                    <div class="gcm-framework-card animate-up" style="transition-delay:0.4s;">
+                        <div class="gcm-fw-header">
+                            <span class="gcm-fw-flag">🇮🇳</span>
+                            <h4>IT Act — India</h4>
+                        </div>
+                        <div class="gcm-fw-tag">DSC Required (Tier 3)</div>
+                        <p>High-value transactions require Aadhaar-based or PKI token Digital Signature Certificates (DSC) recognised under the Information Technology Act, 2000.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════
+             5. IMAGE PROOF (AI-GENERATED DETAIL VISUAL)
+        ══════════════════════════════════════════════ -->
+        <section class="gcm-proof-section">
+            <div class="container">
+                <div class="gcm-proof-grid">
+                    <div class="animate-left">
+                        <h2 class="premium-heading">Compliance Status at a Glance</h2>
+                        <p class="body-large" style="margin-top:1.5rem;">
+                            BrillSign surfaces regulation-specific details directly within your signing workflow — no need for your signers to understand the underlying legal framework. We handle that automatically.
+                        </p>
+                        <ul class="feature-bullets" style="margin-top:1.5rem;">
+                            <li><i class="fas fa-check-circle text-blue"></i> <strong>Auto-detected</strong> jurisdiction based on signer IP + metadata.</li>
+                            <li><i class="fas fa-check-circle text-blue"></i> <strong>Real-time</strong> rule application — no manual policy selections.</li>
+                            <li><i class="fas fa-check-circle text-blue"></i> <strong>Audit-ready</strong> evidence formatted per regional court requirements.</li>
+                        </ul>
+                        <a href="jurisdiction-aware-signing.html" class="btn-primary" style="margin-top:2rem; display:inline-flex; align-items:center; gap:8px;">
+                            <span>Learn About Jurisdiction-Aware Signing</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="animate-right">
+                        <img src="compliance_regions_detail.png" alt="Compliance Region Details Panel" class="gcm-proof-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════
+             6. DARK CTA
+        ══════════════════════════════════════════════ -->
+        <section class="gcm-cta-section">
+            <div class="container">
+                <div class="animate-up">
+                    <h2 class="premium-heading">Ready for Global Scale?</h2>
+                    <p class="gcm-cta-sub">Scale your operations to any market without the compliance headache. Our engine handles the legal details automatically.</p>
+                    <a href="join-waitlist.html" class="btn-primary" style="font-size:1.1rem; padding:16px 40px;">
+                        <span>Talk to a Compliance Expert</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js?v=20260311_v6"></script>
+    <script src="global-compliance-map.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+/* Legal Teams Solution Page Styles */
+:root {
+    --legal-slate: #001a40;
+    --legal-blue: #0066ff;
+    --legal-red: #ff0000;
+    --legal-border: rgba(0, 102, 255, 0.15);
+    --legal-accent: #0066ff;
+    --legal-yellow: #FFB800;
+    --legal-gold: #fbbf24;
+}
+
+
+.legal-body {
+    background-color: #f8fafc;
+    color: var(--legal-slate);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Unique Hero Section - Split Layout */
+.legal-hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: var(--legal-slate);
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.legal-hero-visual {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background: url('images/scenario_legal.png') center/cover no-repeat;
+    opacity: 0.9;
+}
+
+.legal-hero-visual::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to right, var(--legal-slate), transparent);
+}
+
+.legal-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    padding: 0 5%;
+}
+
+.legal-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.legal-hero h1 span {
+    color: #ffffff;
+    /* Reverted to white for professionalism, or use var(--legal-blue) if needed */
+    display: block;
+    opacity: 0.95;
+}
+
+.legal-hero p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+/* Section 1: The Integrity Timeline */
+.integrity-timeline {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.timeline-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--legal-slate);
+}
+
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+}
+
+.timeline-grid::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--legal-accent), transparent);
+}
+
+.timeline-node {
+    padding: 60px 20px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.timeline-node .node-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--legal-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 33px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--legal-accent);
+}
+
+.timeline-node h4 {
+    color: var(--legal-slate);
+    margin-bottom: 12px;
+}
+
+.timeline-node p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Section 2: Evidence Matrix - Expert Console Aesthetic */
+.evidence-matrix {
+    padding: 100px 0 0;
+    background: #ffffff;
+    color: var(--legal-slate);
+}
+
+.matrix-header h2 {
+    color: var(--legal-slate) !important;
+}
+
+.matrix-header p {
+    color: #64748b !important;
+}
+
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.matrix-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 16px;
+    padding: 40px 40px 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.matrix-card:hover {
+    background: #ffffff;
+    border-color: var(--legal-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+.matrix-card i {
+    font-size: 2rem;
+    color: var(--legal-blue);
+    margin-bottom: 24px;
+}
+
+.matrix-card h3 {
+    margin-bottom: 16px;
+    color: var(--legal-slate);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Section 3: Compliance Map */
+.compliance-map {
+    padding: 0 0 100px;
+    background: url('images/scenario_compliance_new.png') center/cover fixed;
+    position: relative;
+}
+
+.compliance-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.compliance-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+.compliance-content h2 {
+    color: #ffffff !important;
+}
+
+.compliance-content p {
+    color: #cbd5e1 !important;
+}
+
+/* Footer Section */
+.legal-footer-cta {
+    padding: 120px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #1e293b, var(--legal-slate)) !important;
+    color: #fff !important;
+}
+
+.legal-footer-cta h2 {
+    color: #ffffff !important;
+}
+
+.legal-footer-cta p {
+    color: #94a3b8 !important;
+}
+
+.btn-legal {
+    background: var(--legal-blue);
+    color: #ffffff;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-legal:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3);
+}
+
+/* Ghost button */
+.btn-ghost-legal {
+    color: #ffffff !important;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-ghost-legal:hover {
+    background: #ffffff;
+    border-color: #ffffff !important;
+    color: var(--legal-slate) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Enhancements */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 102, 255, 0.1);
+    border: 1px solid var(--legal-border);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.role-badge i {
+    color: var(--legal-red);
+    /* Keep small icon red for a surgical accent */
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 55px;
+    flex-wrap: wrap;
+}
+
+.hero-trust-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 38px;
+}
+
+.trust-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-num {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--legal-blue);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+/* Timeline Section Details */
+
+.section-sub {
+    color: #64748b;
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin: 16px auto 0;
+    line-height: 1.7;
+}
+
+.node-number {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(0, 210, 255, 0.15);
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--legal-accent);
+    font-size: 1.4rem;
+}
+
+/* Jurisdiction Grid */
+.jurisdiction-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.jurisdiction-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 50px;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.jurisdiction-pill i {
+    color: #22c55e;
+    font-size: 0.85rem;
+}
+
+.jurisdiction-pill:hover {
+    border-color: var(--legal-gold);
+    background: rgba(251, 191, 36, 0.05);
+    color: #fff;
+}
+
+/* Evidence Matrix badges */
+.matrix-badge {
+    display: inline-block;
+    margin-top: 20px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    color: var(--legal-gold);
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* Expert Witness Section */
+.expert-witness-section {
+    background: #f8fafc;
+}
+
+.expert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.expert-visual-side {
+    position: relative;
+}
+
+.expert-floating-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 210, 255, 0.15);
+}
+
+.expert-floating-badge i {
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 210, 255, 0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--legal-accent);
+    font-size: 1.2rem;
+}
+
+.badge-title {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--legal-slate);
+}
+
+.badge-sub {
+    display: block;
+    font-size: 0.78rem;
+    color: #64748b;
+}
+
+.expert-text-side h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--legal-slate);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.expert-text-side p {
+    color: #475569;
+    margin-bottom: 36px;
+    line-height: 1.7;
+}
+
+.expert-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.expert-feature-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.expert-feature-list li i {
+    color: #22c55e;
+    font-size: 1.2rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.expert-feature-list li div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.expert-feature-list li strong {
+    color: var(--legal-slate);
+    font-weight: 600;
+}
+
+.expert-feature-list li span {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Workflow Section */
+.workflow-advantage {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.workflow-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.workflow-step {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.workflow-step:hover {
+    border-color: var(--legal-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.08);
+}
+
+.step-icon-box {
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: var(--primary-blue, #0066ff);
+    font-size: 1.4rem;
+}
+
+.workflow-step h4 {
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--legal-slate);
+}
+
+.workflow-step p {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.step-connector {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    padding: 0 16px;
+    flex-shrink: 0;
+}
+
+/* Final CTA badge */
+.final-cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    color: var(--legal-gold);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+}

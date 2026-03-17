@@ -1,0 +1,323 @@
+/* ============================================================
+   Global Compliance Map — Premium Redesign CSS
+   ============================================================ */
+
+/* Base */
+.compliance-map-page { overflow-x: hidden; }
+
+/* ── 1. HERO (Light Theme) ── */
+.gcm-hero {
+    position: relative;
+    padding: 160px 0 100px;
+    background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    overflow: hidden;
+}
+
+.gcm-hero-grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.4;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+}
+
+.gcm-hero-blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(120px); opacity: 0.4; z-index: 1;
+}
+.gcm-blob-1 { width: 600px; height: 600px; background: rgba(59,130,246,0.12); top: -150px; left: -100px; }
+.gcm-blob-2 { width: 500px; height: 500px; background: rgba(14,165,233,0.08); bottom: -100px; right: -100px; }
+
+.gcm-hero .container { position: relative; z-index: 3; }
+
+.gcm-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.gcm-live-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 100px;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    color: #3b82f6;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.live-dot {
+    width: 8px; height: 8px; background: #10b981; border-radius: 50%;
+    animation: ping-green 2s infinite;
+}
+@keyframes ping-green {
+    0%   { box-shadow: 0 0 0 0 rgba(16,185,129,.7); }
+    70%  { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+    100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+
+.gcm-hero .premium-heading { color: var(--text-primary); }
+.gcm-hero-subtitle {
+    font-size: 1.15rem; line-height: 1.7;
+    color: var(--text-secondary) !important;
+    margin-bottom: 2.5rem;
+}
+.gcm-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Hero image wrapper */
+.gcm-hero-image-wrap {
+    position: relative;
+    border-radius: 20px;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+.gcm-hero-image { width: 100%; border-radius: 12px; display: block; }
+
+/* Floating stat chips */
+.gcm-stat-chip {
+    position: absolute;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    padding: 10px 18px; border-radius: 12px;
+    display: flex; align-items: center; gap: 10px;
+    color: var(--text-primary);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    animation: float-chip 6s ease-in-out infinite;
+}
+.gcm-stat-chip .chip-label { font-size: 0.65rem; color: var(--text-secondary); letter-spacing: 1px; display: block; }
+.gcm-stat-chip strong { font-size: 0.95rem; }
+
+.chip-a { top: -20px; left: -30px; animation-delay: 0s; }
+.chip-b { bottom: 30px; right: -30px; animation-delay: -3s; }
+
+@keyframes float-chip {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
+}
+
+/* ── 2. INTERACTIVE MAP SECTION ── */
+.gcm-map-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+}
+
+.gcm-map-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Map canvas */
+.gcm-map-canvas {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.gcm-map-canvas svg {
+    width: 100%;
+    height: auto;
+}
+
+.gcm-region {
+    fill: #b8c6d9;
+    stroke: #fff;
+    stroke-width: 0.6;
+    transition: fill 0.3s, filter 0.3s;
+    cursor: pointer;
+}
+[data-theme="dark"] .gcm-region { fill: #3d4f66; stroke: #1a202c; }
+
+.gcm-region:hover, .gcm-region.gcm-active {
+    fill: #3b82f6 !important;
+    filter: drop-shadow(0 0 12px rgba(59,130,246,0.5));
+}
+
+/* Hotspot pulses */
+.gcm-hotspot {
+    animation: hotspot-pulse 3s ease-in-out infinite;
+    transform-origin: center;
+}
+@keyframes hotspot-pulse {
+    0%, 100% { opacity: 1; r: 5; }
+    50%       { opacity: 0.5; r: 8; }
+}
+
+/* Map detail panel */
+.gcm-detail-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px;
+    position: sticky;
+    top: 100px;
+}
+
+.gcm-detail-placeholder {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 40px 0;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.gcm-detail-placeholder i { font-size: 2rem; opacity: 0.3; }
+
+.gcm-detail-body { display: none; }
+.gcm-detail-body.visible { display: block; animation: fadeSlideIn 0.4s ease; }
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.gcm-detail-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 24px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+.gcm-detail-flag { font-size: 2.5rem; }
+.gcm-detail-header h3 { font-size: 1.5rem; color: var(--text-primary); margin: 0; }
+.gcm-detail-header p  { font-size: 0.85rem; color: var(--text-secondary); margin: 4px 0 0; }
+
+.gcm-data-row { margin-bottom: 18px; }
+.gcm-data-label {
+    display: block; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--text-secondary); margin-bottom: 5px;
+}
+.gcm-data-value { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); }
+
+.gcm-tier-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
+.tier-badge {
+    padding: 4px 12px; border-radius: 100px; font-size: 0.8rem; font-weight: 600;
+}
+.tier-ses  { background: rgba(234,179,8,0.1);  color: #ca8a04; border: 1px solid rgba(234,179,8,0.3); }
+.tier-aes  { background: rgba(59,130,246,0.1); color: #2563eb; border: 1px solid rgba(59,130,246,0.3); }
+.tier-qes  { background: rgba(16,185,129,0.1); color: #059669; border: 1px solid rgba(16,185,129,0.3); }
+
+.gcm-status-pill {
+    display: inline-block; padding: 5px 14px;
+    border-radius: 100px; font-size: 0.85rem; font-weight: 600;
+}
+.status-green { background: rgba(16,185,129,0.1); color: #059669; }
+.status-blue  { background: rgba(59,130,246,0.1); color: #2563eb; }
+
+.gcm-panel-cta {
+    display: block; text-align: center;
+    margin-top: 28px; padding: 12px;
+    background: var(--primary-color);
+    color: #fff !important;
+    border-radius: 12px; font-weight: 600;
+    transition: opacity 0.2s;
+}
+.gcm-panel-cta:hover { opacity: 0.85; }
+
+/* ── 3. STATS STRIP ── */
+.gcm-stats-strip {
+    padding: 70px 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+.gcm-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+.gcm-stat-number {
+    font-size: 3rem; font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.gcm-stat-label { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* ── 4. REGULATION FRAMEWORK GRID ── */
+.gcm-frameworks-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+}
+.gcm-framework-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+}
+.gcm-framework-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.gcm-framework-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+.gcm-fw-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+}
+.gcm-fw-flag { font-size: 1.8rem; }
+.gcm-fw-header h4 { font-size: 1.1rem; color: var(--text-primary); margin: 0; }
+.gcm-fw-tag {
+    display: inline-block; padding: 3px 10px;
+    border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+    margin-bottom: 12px;
+    background: rgba(59,130,246,0.1); color: #2563eb;
+}
+.gcm-framework-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem; line-height: 1.6; margin: 0;
+}
+
+/* ── 5. IMAGE PROOF SECTION ── */
+.gcm-proof-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+}
+.gcm-proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.gcm-proof-img {
+    width: 100%; border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* ── 6. CTA FOOTER (Light Theme) ── */
+.gcm-cta-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+    text-align: center;
+}
+.gcm-cta-section .premium-heading { color: var(--text-primary); }
+.gcm-cta-sub { color: var(--text-secondary) !important; font-size: 1.1rem; margin: 1.5rem 0 2.5rem; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .gcm-map-layout { grid-template-columns: 1fr; }
+    .gcm-detail-panel { position: static; }
+}
+@media (max-width: 768px) {
+    .gcm-hero-grid   { grid-template-columns: 1fr; }
+    .gcm-stats-grid  { grid-template-columns: repeat(2, 1fr); }
+    .gcm-proof-grid  { grid-template-columns: 1fr; }
+    .chip-a, .chip-b { display: none; }
+}
