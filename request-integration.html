@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request an Integration | BrillSign - Secure Digital Signatures</title>
+    <meta name="description"
+        content="Tell us about the tools you use. Help us prioritize the next BrillSign ecosystem integrations for your workflow.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cta-pages.css">
+</head>
+
+<body class="cta-page-body">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="cta-hero">
+        <div class="cta-hero-bg"
+            style="position: absolute; inset: 0; background: url('book_demo_visual.png') center/cover no-repeat; opacity: 0.15; z-index: 1;">
+        </div>
+        <div class="container">
+            <h1>Request a New <span>Integration</span></h1>
+            <p>Don't see your favorite tool in our ecosystem? Tell us what you need, and our engineering team will
+                prioritize it for the next release.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="cta-form-section">
+        <div class="container">
+            <div class="cta-form-container">
+                <form id="integration-form" action="javascript:void(0);">
+                    <div class="cta-form-grid">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Doe" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" placeholder="john@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" placeholder="Acme Inc." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tool-name">Integration Tool</label>
+                            <input type="text" id="tool-name" placeholder="e.g. Jira, Slack, Trello" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="use-case">Primary Use Case</label>
+                            <textarea id="use-case" rows="4"
+                                placeholder="How would this integration help your team?"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Request</button>
+                </form>
+
+                <div id="success-message" class="success-message" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h2>Request Submitted!</h2>
+                    <p>Thank you for helping us grow the BrillSign ecosystem. Our team has received your request and
+                        will
+                        update you on the integration status shortly.</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html'">Return Home</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="cta-benefits">
+        <div class="feature-hub-container">
+            <!-- Visual Pillar (CSS Dashboard Mockup) -->
+            <div class="hub-visual-column">
+                <div class="bs-dashboard">
+                    <!-- Top Bar -->
+                    <div class="bs-topbar">
+                        <span class="bs-brand">Ecosystem Preview</span>
+                        <span class="bs-live-badge"><i class="fas fa-circle"></i> V3.0
+                            Live</span>
+                    </div>
+                    <!-- Stats Row -->
+                    <div class="bs-stats-row">
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">50+</span>
+                            <span class="bs-stat-label">Active SDKs</span>
+                        </div>
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">1.2M</span>
+                            <span class="bs-stat-label">API Calls/Day</span>
+                        </div>
+                        <div class="bs-stat">
+                            <span class="bs-stat-num">99.9%</span>
+                            <span class="bs-stat-label">Uptime</span>
+                        </div>
+                    </div>
+                    <!-- Chart Area (Integrations Heatmap Mockup) -->
+                    <div class="bs-chart-area">
+                        <span class="bs-chart-title">Integration Traffic</span>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px;">
+                            <div style="height: 40px; background: rgba(0, 102, 255, 0.1); border-radius: 4px;"></div>
+                            <div style="height: 40px; background: rgba(0, 102, 255, 0.4); border-radius: 4px;"></div>
+                            <div style="height: 40px; background: rgba(0, 102, 255, 0.7); border-radius: 4px;"></div>
+                            <div style="height: 40px; background: rgba(0, 102, 255, 0.3); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <!-- Recent Signers -->
+                    <div class="bs-signers">
+                        <div class="bs-signer-row">
+                            <div class="bs-avatar" style="background:#e0eaff;"><i class="fab fa-slack"></i></div>
+                            <div class="bs-signer-info"><span>Slack Connector</span><small>Status: ACTIVE</small></div>
+                            <span class="bs-signed-badge">Live</span>
+                        </div>
+                        <div class="bs-signer-row">
+                            <div class="bs-avatar" style="background:#ffe0e0;"><i class="fab fa-jira"></i></div>
+                            <div class="bs-signer-info"><span>Jira Integration</span><small>Status: BETA</small></div>
+                            <span class="bs-pending-badge">Beta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Pillar -->
+            <div class="hub-features-column">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <h2 style="font-size: 2.8rem; font-weight: 800; line-height: 1.3; text-align: left;">Why help us
+                        <span
+                            style="color: var(--cta-blue); padding: 0.1em 0; margin: -0.1em 0; display: inline-block;">Build?</span>
+                    </h2>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: #64748b; text-align: left;">
+                        Your feedback directly shapes our development roadmap.</p>
+                </div>
+
+                <div class="feature-strip blue">
+                    <div class="strip-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="strip-content">
+                        <h3>Rapid Development</h3>
+                        <p>Our modular integration architecture allows us to deploy requested connectors in record time.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-strip red">
+                    <div class="strip-icon"><i class="fas fa-users-gear"></i></div>
+                    <div class="strip-content">
+                        <h3>Beta Access</h3>
+                        <p>Be the first to test and provide feedback on the integration you requested before the public
+                            launch.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-strip yellow">
+                    <div class="strip-icon"><i class="fas fa-bolt-lightning"></i></div>
+                    <div class="strip-content">
+                        <h3>Efficiency First</h3>
+                        <p>Stop context switching and use BrillSign directly within the tools your team already loves.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="shared-components.js"></script>
+    <script>
+        // Form Interactivity
+        document.getElementById('integration-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+
+            // Console log the "data"
+            const formData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                toolName: document.getElementById('tool-name').value,
+                useCase: document.getElementById('use-case').value
+            };
+            console.log('Integration Request Data:', formData);
+        });
+    </script>
+</body>
+
+</html>

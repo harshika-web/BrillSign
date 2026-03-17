@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Integration | BrillSign</title>
+    <meta name="description"
+        content="Close deals faster. Send proposals from HubSpot Deals pipeline and watch signing status sync to your deal stage automatically.">
+    <style>
+        :root {
+            --pi-color: #FF7A59;
+            --pi-glow: rgba(255, 122, 89, 0.2);
+            --pi-color-mid: rgba(255, 122, 89, 0.12);
+            --pi-icon-bg: rgba(255, 122, 89, 0.1);
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../faq-section.css">
+    <link rel="stylesheet" href="platform-integration.css">
+    <style>
+        :root {
+            --pi-color: #FF7A59;
+            --pi-glow: rgba(255, 122, 89, 0.2);
+            --pi-color-mid: rgba(255, 122, 89, 0.12);
+            --pi-icon-bg: rgba(255, 122, 89, 0.1);
+        }
+        
+        /* Premium Hero Adjustments (Light Theme) */
+        .pi-hero {
+            background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+            padding: 140px 24px 100px;
+        }
+        .pi-blob-1 { background: radial-gradient(circle, var(--pi-glow) 0%, transparent 65%); }
+        .pi-blob-2 { display: none; }
+        .pi-hero-title.premium-heading { color: var(--text-primary); }
+        .pi-hero-title .text-highlight { color: var(--pi-color); }
+        .pi-hero-sub { color: var(--text-secondary); }
+        .pi-hero .btn-outline { color: var(--text-primary); border-color: var(--card-border); background: var(--card-bg); }
+        .pi-hero .btn-outline i { color: var(--pi-color); }
+        
+        /* Force Light Theme on Shared Dark Sections */
+        .pi-how { background: var(--bg-body); }
+        .pi-how-bg { display: none; }
+        .pi-flow-step { background: var(--card-bg); border-color: var(--card-border); box-shadow: var(--card-shadow); }
+        .pi-flow-step h4 { color: var(--text-primary); }
+        .pi-flow-step p { color: var(--text-secondary); }
+        .pi-flow-num { background: var(--pi-color); color: white; }
+        .pi-flow-icon { background: var(--bg-accent); color: var(--pi-color); }
+        .pi-cta { background: var(--bg-accent); border-top: 1px solid var(--card-border); }
+        .pi-cta-glow { display: none; }
+
+        .pi-section-header-dark .pi-label-dark { background: rgba(255, 122, 89, 0.1); border-color: rgba(255, 122, 89, 0.2); color: var(--pi-color); }
+        
+        /* Alternating Feature Split Layout */
+        .split-features { padding: 120px 24px; background: var(--bg-body); }
+        .split-row { display: flex; align-items: center; gap: 80px; margin-bottom: 140px; }
+        .split-row:last-child { margin-bottom: 0; }
+        .split-row.reverse { flex-direction: row-reverse; }
+        .split-content { flex: 1; }
+        .split-image { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid var(--card-border); background: var(--card-bg); line-height: 0; display: flex; align-items: center; justify-content: center; min-height: 350px;}
+        .split-image img { width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        .split-content .tag { display:inline-block; padding: 6px 16px; border-radius: 50px; background: rgba(255, 122, 89, 0.1); color: var(--pi-color); font-weight: 600; font-size: 0.85rem; margin-bottom: 16px; border: 1px solid rgba(255, 122, 89, 0.2); }
+        .split-content h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--text-primary); font-weight: 700; line-height: 1.2; }
+        .split-content p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+        
+        @media(max-width: 900px) {
+            .split-row, .split-row.reverse { flex-direction: column; text-align: left; gap: 40px; margin-bottom: 80px; }
+            .split-content h3 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+
+        <section class="pi-hero">
+            <div class="pi-hero-grid"></div>
+            <div class="pi-blob-1 glow-blob"></div>
+            <div class="pi-blob-2 glow-blob"></div>
+            <div class="container">
+                <div class="pi-hero-layout">
+                    <div class="pi-hero-content animate-up">
+                        <div class="pi-hero-badge"><i class="fab fa-hubspot" style="color:#FF7A59"></i> HubSpot
+                            Integration · CRM &amp; Sales</div>
+                        <h1 class="pi-hero-title premium-heading">Close Deals Faster. <span class="text-highlight">Sign
+                                from HubSpot.</span></h1>
+                        <p class="pi-hero-sub">BrillSign lives inside your HubSpot CRM — send proposals and contracts
+                            directly from the Deals pipeline, watch signing status sync to your deal stage
+                            automatically, and never lose track of an unsigned document again.</p>
+                        <div class="pi-hero-ctas feature-ctas">
+                            <a href="../index.html#waitlist" class="btn-primary"><span>Connect HubSpot</span><i
+                                    class="fas fa-arrow-right"></i></a>
+                            <a href="#how" class="btn-outline"><i class="fas fa-play"></i><span>See How It
+                                    Works</span></a>
+                        </div>
+                    </div>
+                    <div class="pi-hero-diagram animate-right">
+                        <div style="position: relative; width: 100%; border-radius: 32px; overflow: hidden; box-shadow: 0 40px 80px rgba(255, 122, 89, 0.15); border: 1px solid var(--card-border); line-height: 0;">
+                            <img src="../assets/images/integrations/hubspot_hero_realistic.png" alt="HubSpot Secure Pipe Hero Mockup" style="width: 100%; height: auto; display: block;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="split-features" id="features">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label" style="background: rgba(255, 122, 89, 0.1); border-color: rgba(255, 122, 89, 0.2); color: var(--pi-color);">Key Features</div>
+                    <h2 class="premium-heading">From Pipeline to Signed in <span class="text-highlight">One Click.</span></h2>
+                    <p style="color: var(--text-secondary);">BrillSign eliminates the gap between "deal ready to close" and "contract signed" — everything happens inside HubSpot, automatically.</p>
+                </div>
+
+                <!-- ROW 1: HubSpot Deals -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-file-invoice-dollar" style="color: var(--pi-color);"></i> Deals Pipeline</div>
+                        <h3>Send Proposals from Deals Pipeline</h3>
+                        <p>A native BrillSign interaction module appears securely on every HubSpot Deal card.</p>
+                        <p>Click once to select a dynamic contract template. We automatically extract and pull deal data into the document fields, sending it out for execution in a single fluid motion.</p>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/hubspot_deals_mockup.png" alt="HubSpot Deals Mockup">
+                    </div>
+                </div>
+
+                <!-- ROW 2: Deal Stage Sync (Reverse) -->
+                <div class="split-row reverse animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-arrow-trend-up" style="color: var(--pi-color);"></i> Stage Sync</div>
+                        <h3>Signing Status Syncs to Deal Stage</h3>
+                        <p>When a signer views, signs, or declines a document, the HubSpot deal stage advances automatically based on your programmed logic.</p>
+                        <p>Monitor real-time progress as deals move from "Contract Sent" to "Contract Signed" to "Closed Won." No more manual pipeline administration.</p>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/hubspot_stage_sync.png" alt="HubSpot Stage Sync Mockup">
+                    </div>
+                </div>
+
+                <!-- ROW 3: Contact Creation -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-user-plus" style="color: var(--pi-color);"></i> Contact Generation</div>
+                        <h3>Auto-Create Contact on Signature</h3>
+                        <p>Occasionally, an unlisted stakeholder signs an enterprise agreement. If a signer isn't yet in your HubSpot CRM, BrillSign will create them automatically upon completion.</p>
+                        <p>The signing activity timeline and the cryptographic document attachments are immutably tied to their newly minted contact record.</p>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/hubspot_contact_creation.png" alt="HubSpot Contact Auto-creation">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-how" id="how">
+            <div class="pi-how-bg"></div>
+            <div class="container">
+                <div class="pi-section-header pi-section-header-dark animate-up">
+                    <div class="pi-section-label pi-label-dark">How It Works</div>
+                    <h2 class="premium-heading" style="color:#fff;">From HubSpot Deal to <span
+                            class="text-highlight">Closed Won.</span></h2>
+                </div>
+                <div class="pi-flow animate-up">
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">1</div>
+                        <div class="pi-flow-icon"><i class="fab fa-hubspot"></i></div>
+                        <h4>Click "Send for Signing" on any Deal</h4>
+                        <p>BrillSign auto-fills the contract template with HubSpot deal data — company name, deal value,
+                            contact info — and sends for signing in one click.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">2</div>
+                        <div class="pi-flow-icon"><i class="fas fa-pen-nib"></i></div>
+                        <h4>Contact Signs on Any Device</h4>
+                        <p>Your prospect receives a branded signing email. They sign on desktop or mobile — no account
+                            needed. ZK-encrypted and legally binding.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">3</div>
+                        <div class="pi-flow-icon"><i class="fas fa-trophy"></i></div>
+                        <h4>Deal Closes. CRM Updates. Done.</h4>
+                        <p>HubSpot deal stage advances to Closed Won. Contact record updates. Signed document attaches.
+                            You get a Slack notification. All automatic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-setup">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">Quick Setup</div>
+                    <h2 class="premium-heading">Install from the <span class="text-highlight">HubSpot
+                            Marketplace.</span></h2>
+                </div>
+                <div class="pi-setup-grid animate-up">
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">1</div>
+                        <h4>Install from HubSpot Marketplace</h4>
+                        <p>Search "BrillSign" in the HubSpot App Marketplace. Click Install — no code, no technical
+                            setup required. Works with HubSpot free through Enterprise.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">2</div>
+                        <h4>Connect Your BrillSign Account</h4>
+                        <p>Authorize BrillSign with your HubSpot portal via OAuth. Your deals, contacts, and document
+                            templates sync automatically.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">3</div>
+                        <h4>Map Deal Stages to Signing Events</h4>
+                        <p>Configure which HubSpot deal stage maps to "Contract Sent" and "Contract Signed." BrillSign
+                            will advance the stage on each signing event automatically.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">4</div>
+                        <h4>Create or Import Contract Templates</h4>
+                        <p>Build signing templates in BrillSign using HubSpot merge variables — {{company}}, {{amount}},
+                            {{contact.email}} — for automatic data fill on each send.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section pi-faq">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">FAQ</div>
+                    <h2 class="premium-heading">HubSpot Integration <span class="text-highlight">Questions</span></h2>
+                </div>
+                <div class="faq-container animate-up">
+                    <div class="faq-item"><button class="faq-question"><span>Does BrillSign work with HubSpot free
+                                plans?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. The BrillSign HubSpot integration works with all HubSpot tiers — Free CRM,
+                                    Starter, Professional, and Enterprise. Deal stage automation and contact
+                                    auto-creation work on all plans. Advanced workflow triggers (HubSpot Workflows)
+                                    require HubSpot Professional or above.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Can I use BrillSign with HubSpot
+                                Sequences?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. You can trigger a BrillSign signing request as a step in HubSpot Sequences — for
+                                    example, send a contract after 3 email follow-ups with no response. The signing
+                                    request fires automatically when the sequence step runs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>What happens if a contact declines to
+                                sign?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>If a signer declines, BrillSign fires a <code>signer.declined</code> event. The
+                                    HubSpot deal stage can be configured to move back to a "Reviewing / Negotiation"
+                                    stage, and your rep gets a HubSpot notification and task assigned to follow up.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Can multiple signers be required from a
+                                single HubSpot deal?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. BrillSign supports multi-party signing. You can configure templates to require
+                                    signatures from multiple contacts on a deal — for example, both the prospect and an
+                                    internal approver — in sequential or parallel order.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-cta">
+            <div class="pi-cta-glow"></div>
+            <div class="container">
+                <div class="pi-cta-layout animate-up">
+                    <div class="pi-cta-text">
+                        <h2 class="premium-heading" style="color:#fff;">Ready to Close Deals Faster with <span
+                                class="text-highlight">HubSpot?</span></h2>
+                        <p>Install from the HubSpot Marketplace and send your first contract in under 5 minutes.</p>
+                    </div>
+                    <div class="pi-cta-actions"><a href="../index.html#waitlist" class="btn-primary"><span>Get Started
+                                Free</span><i class="fas fa-arrow-right"></i></a><a href="integrations-hub.html"
+                            class="pi-cta-secondary"><i class="fas fa-grid-2"></i><span>All Integrations</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../shared-components.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../animations.js"></script>
+    <script src="platform-integration.js"></script>
+</body>
+
+</html>

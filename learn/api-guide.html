@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Guide | BrillSign</title>
+    <meta name="description"
+        content="BrillSign API documentation. Get your API key, make your first call, and integrate zero-knowledge signing into your application.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="api-guide.css">
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="api-hero">
+        <div class="api-hero-grid"></div>
+
+        <!-- Animated wave decoration -->
+        <svg class="api-hero-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#c2185b" stop-opacity="0.5" />
+                    <stop offset="40%" stop-color="#e65100" stop-opacity="0.4" />
+                    <stop offset="70%" stop-color="#ff8f00" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#b71c1c" stop-opacity="0.45" />
+                </linearGradient>
+                <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#d50000" stop-opacity="0.35" />
+                    <stop offset="50%" stop-color="#ff6d00" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#c62828" stop-opacity="0.4" />
+                </linearGradient>
+                <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#880e4f" stop-opacity="0.3" />
+                    <stop offset="50%" stop-color="#bf360c" stop-opacity="0.2" />
+                    <stop offset="100%" stop-color="#d32f2f" stop-opacity="0.35" />
+                </linearGradient>
+            </defs>
+            <path d="M0,120 C200,180 400,60 720,120 C1040,180 1240,70 1440,110 L1440,200 L0,200 Z" fill="url(#waveGrad1)">
+                <animate attributeName="d"
+                    values="M0,120 C200,180 400,60 720,120 C1040,180 1240,70 1440,110 L1440,200 L0,200 Z;
+                            M0,130 C200,70 400,160 720,100 C1040,60 1240,150 1440,120 L1440,200 L0,200 Z;
+                            M0,120 C200,180 400,60 720,120 C1040,180 1240,70 1440,110 L1440,200 L0,200 Z"
+                    dur="8s" repeatCount="indefinite" />
+            </path>
+            <path d="M0,140 C300,100 500,170 800,130 C1100,90 1300,160 1440,140 L1440,200 L0,200 Z" fill="url(#waveGrad2)">
+                <animate attributeName="d"
+                    values="M0,140 C300,100 500,170 800,130 C1100,90 1300,160 1440,140 L1440,200 L0,200 Z;
+                            M0,150 C300,170 500,100 800,150 C1100,170 1300,100 1440,130 L1440,200 L0,200 Z;
+                            M0,140 C300,100 500,170 800,130 C1100,90 1300,160 1440,140 L1440,200 L0,200 Z"
+                    dur="6s" repeatCount="indefinite" />
+            </path>
+            <path d="M0,160 C240,140 480,175 720,155 C960,135 1200,170 1440,160 L1440,200 L0,200 Z" fill="url(#waveGrad3)">
+                <animate attributeName="d"
+                    values="M0,160 C240,140 480,175 720,155 C960,135 1200,170 1440,160 L1440,200 L0,200 Z;
+                            M0,165 C240,175 480,140 720,165 C960,175 1200,140 1440,155 L1440,200 L0,200 Z;
+                            M0,160 C240,140 480,175 720,155 C960,135 1200,170 1440,160 L1440,200 L0,200 Z"
+                    dur="10s" repeatCount="indefinite" />
+            </path>
+        </svg>
+        <div class="api-hero-badge"><i class="fas fa-code"></i> Developer Portal</div>
+        <h1 class="api-hero-title">Build with <span class="grad-text">BrillSign API</span></h1>
+        <p class="api-hero-sub">
+            Integrate zero-knowledge document signing into your application with our RESTful API, SDKs, and webhooks.
+        </p>
+
+        <!-- Terminal -->
+        <div class="api-terminal">
+            <div class="api-terminal-bar">
+                <div class="api-terminal-dot"></div>
+                <div class="api-terminal-dot"></div>
+                <div class="api-terminal-dot"></div>
+                <span class="api-terminal-title">bash — api.brillsign.com</span>
+            </div>
+            <div class="api-terminal-body">
+                <div class="api-type-line"><span class="comment"># Sign a document via API</span></div>
+                <div class="api-type-line"><span class="cmd">curl</span> -X POST <span
+                        class="str">https://api.brillsign.com/v1/sign</span> \</div>
+                <div class="api-type-line"> -H <span class="str">"Authorization: Bearer YOUR_API_KEY"</span> \</div>
+                <div class="api-type-line"> -d <span class="str">'{"document_id": "doc_abc123"}'</span></div>
+                <div class="api-type-line"></div>
+                <div class="api-type-line"><span class="comment"># Response:</span></div>
+                <div class="api-type-line">{ <span class="key">"status"</span>: <span class="val">"signed"</span>, <span
+                        class="key">"signature_id"</span>: <span class="val">"sig_7f3k9..."</span> }<span
+                        class="cursor"></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUICK START ===== -->
+    <section class="api-quickstart">
+        <div class="api-section-header">
+            <h2>Get Started in 3 Steps</h2>
+            <p>From zero to your first API call in under 5 minutes.</p>
+        </div>
+        <div class="api-qs-grid">
+            <div class="api-qs-card">
+                <div class="api-qs-num">1</div>
+                <h3>Get Your API Key</h3>
+                <p>Create an account and generate your API key from the developer dashboard.</p>
+                <div class="api-qs-code">export BRILLSIGN_KEY="sk_live_..."</div>
+            </div>
+            <div class="api-qs-card">
+                <div class="api-qs-num">2</div>
+                <h3>Make Your First Call</h3>
+                <p>Upload a document and initiate a signing request with a single API call.</p>
+                <div class="api-qs-code">POST /v1/documents/upload</div>
+            </div>
+            <div class="api-qs-card">
+                <div class="api-qs-num">3</div>
+                <h3>Verify the Signature</h3>
+                <p>Use the verification endpoint to cryptographically verify any signed document.</p>
+                <div class="api-qs-code">GET /v1/verify/{signature_id}</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CODE PLAYGROUND ===== -->
+    <section class="api-playground">
+        <div class="api-section-header">
+            <h2>Code Examples</h2>
+            <p>Copy-paste ready examples in your favorite language.</p>
+        </div>
+
+        <div class="api-lang-tabs" id="langTabs">
+            <button class="api-lang-btn active" data-lang="curl"><i class="fas fa-terminal"></i> cURL</button>
+            <button class="api-lang-btn" data-lang="python"><i class="fab fa-python"></i> Python</button>
+            <button class="api-lang-btn" data-lang="nodejs"><i class="fab fa-node-js"></i> Node.js</button>
+            <button class="api-lang-btn" data-lang="java"><i class="fab fa-java"></i> Java</button>
+        </div>
+
+        <div class="api-code-window">
+            <div class="api-code-bar">
+                <div class="api-code-dots"><span></span><span></span><span></span></div>
+                <button class="api-copy-btn" id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+
+            <pre class="api-code-block active" data-lang="curl"><span class="cm"># Upload and sign a document</span>
+<span class="fn">curl</span> -X POST https://api.brillsign.com/v1/sign \
+  -H <span class="str">"Authorization: Bearer $BRILLSIGN_KEY"</span> \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{
+    "document_id": "doc_abc123",
+    "signers": [
+      { "email": "alice@example.com", "role": "signer" },
+      { "email": "bob@example.com", "role": "approver" }
+    ],
+    "encryption": "aes-256-gcm"
+  }'</span></pre>
+
+            <pre class="api-code-block" data-lang="python"><span class="cm"># pip install brillsign</span>
+<span class="kw">from</span> brillsign <span class="kw">import</span> Client
+
+client = Client(api_key=<span class="str">"sk_live_..."</span>)
+
+<span class="cm"># Upload and sign</span>
+result = client.documents.sign(
+    document_id=<span class="str">"doc_abc123"</span>,
+    signers=[
+        {<span class="str">"email"</span>: <span class="str">"alice@example.com"</span>, <span class="str">"role"</span>: <span class="str">"signer"</span>},
+        {<span class="str">"email"</span>: <span class="str">"bob@example.com"</span>, <span class="str">"role"</span>: <span class="str">"approver"</span>}
+    ],
+    encryption=<span class="str">"aes-256-gcm"</span>
+)
+
+<span class="fn">print</span>(result.signature_id)  <span class="cm"># sig_7f3k9...</span></pre>
+
+            <pre class="api-code-block" data-lang="nodejs"><span class="cm">// npm install @brillsign/sdk</span>
+<span class="kw">const</span> { BrillSign } = <span class="fn">require</span>(<span class="str">'@brillsign/sdk'</span>);
+
+<span class="kw">const</span> client = <span class="kw">new</span> <span class="fn">BrillSign</span>(<span class="str">'sk_live_...'</span>);
+
+<span class="cm">// Upload and sign</span>
+<span class="kw">const</span> result = <span class="kw">await</span> client.documents.<span class="fn">sign</span>({
+  documentId: <span class="str">'doc_abc123'</span>,
+  signers: [
+    { email: <span class="str">'alice@example.com'</span>, role: <span class="str">'signer'</span> },
+    { email: <span class="str">'bob@example.com'</span>, role: <span class="str">'approver'</span> }
+  ],
+  encryption: <span class="str">'aes-256-gcm'</span>
+});
+
+console.<span class="fn">log</span>(result.signatureId); <span class="cm">// sig_7f3k9...</span></pre>
+
+            <pre class="api-code-block"
+                data-lang="java"><span class="cm">// Maven: com.brillsign:sdk:1.0.0</span>
+<span class="kw">import</span> com.brillsign.BrillSignClient;
+<span class="kw">import</span> com.brillsign.models.*;
+
+BrillSignClient client = <span class="kw">new</span> <span class="fn">BrillSignClient</span>(<span class="str">"sk_live_..."</span>);
+
+<span class="cm">// Upload and sign</span>
+SignResult result = client.documents().<span class="fn">sign</span>(
+    SignRequest.<span class="fn">builder</span>()
+        .<span class="fn">documentId</span>(<span class="str">"doc_abc123"</span>)
+        .<span class="fn">addSigner</span>(<span class="str">"alice@example.com"</span>, <span class="str">"signer"</span>)
+        .<span class="fn">addSigner</span>(<span class="str">"bob@example.com"</span>, <span class="str">"approver"</span>)
+        .<span class="fn">encryption</span>(<span class="str">"aes-256-gcm"</span>)
+        .<span class="fn">build</span>()
+);
+
+System.out.<span class="fn">println</span>(result.<span class="fn">getSignatureId</span>()); <span class="cm">// sig_7f3k9...</span></pre>
+        </div>
+    </section>
+
+    <!-- ===== ENDPOINTS ===== -->
+    <section class="api-endpoints">
+        <div class="api-section-header">
+            <h2>Core Endpoints</h2>
+            <p>The essential API endpoints you'll use most frequently.</p>
+        </div>
+        <div class="api-ep-grid">
+            <div class="api-ep-card">
+                <div class="api-ep-header">
+                    <span class="api-method-badge method-post">POST</span>
+                    <span class="api-ep-path">/v1/sign</span>
+                </div>
+                <p>Initiate a signing request for one or more signers on an uploaded document.</p>
+            </div>
+            <div class="api-ep-card">
+                <div class="api-ep-header">
+                    <span class="api-method-badge method-get">GET</span>
+                    <span class="api-ep-path">/v1/verify/{id}</span>
+                </div>
+                <p>Cryptographically verify a signature using its unique ID and audit proof.</p>
+            </div>
+            <div class="api-ep-card">
+                <div class="api-ep-header">
+                    <span class="api-method-badge method-post">POST</span>
+                    <span class="api-ep-path">/v1/documents/upload</span>
+                </div>
+                <p>Upload an encrypted document for signing. Supports PDF, DOCX, and PNG formats.</p>
+            </div>
+            <div class="api-ep-card">
+                <div class="api-ep-header">
+                    <span class="api-method-badge method-get">GET</span>
+                    <span class="api-ep-path">/v1/documents/{id}</span>
+                </div>
+                <p>Retrieve document metadata, signing status, and download links.</p>
+            </div>
+            <div class="api-ep-card">
+                <div class="api-ep-header">
+                    <span class="api-method-badge method-post">POST</span>
+                    <span class="api-ep-path">/v1/webhooks</span>
+                </div>
+                <p>Register webhook URLs to receive real-time notifications on signing events.</p>
+            </div>
+            <div class="api-ep-card">
+                <div class="api-ep-header">
+                    <span class="api-method-badge method-del">DELETE</span>
+                    <span class="api-ep-path">/v1/documents/{id}</span>
+                </div>
+                <p>Permanently delete a document and all associated signatures from the system.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AUTHENTICATION FLOW ===== -->
+    <section class="api-auth">
+        <div class="api-section-header">
+            <h2>Authentication Flow</h2>
+            <p>Every API request is authenticated with your secret key and processed through our zero-knowledge
+                pipeline.</p>
+        </div>
+        <div class="api-auth-flow">
+            <div class="api-auth-node">
+                <div class="api-auth-icon auth-app"><i class="fas fa-laptop-code"></i></div>
+                <div class="api-auth-label">Your App</div>
+                <div class="api-auth-desc">Sends request with API key</div>
+            </div>
+            <div class="api-auth-arrow">
+                <svg width="50" height="20" viewBox="0 0 50 20">
+                    <line class="api-arrow-line" x1="0" y1="10" x2="40" y2="10" />
+                    <polygon points="40,5 50,10 40,15" fill="#cbd5e1" />
+                    <circle class="api-arrow-dot" cx="0" cy="10" r="3.5" />
+                </svg>
+            </div>
+            <div class="api-auth-node">
+                <div class="api-auth-icon auth-key"><i class="fas fa-key"></i></div>
+                <div class="api-auth-label">Auth Layer</div>
+                <div class="api-auth-desc">Validates key & permissions</div>
+            </div>
+            <div class="api-auth-arrow">
+                <svg width="50" height="20" viewBox="0 0 50 20">
+                    <line class="api-arrow-line" x1="0" y1="10" x2="40" y2="10" />
+                    <polygon points="40,5 50,10 40,15" fill="#cbd5e1" />
+                    <circle class="api-arrow-dot" cx="0" cy="10" r="3.5" style="animation-delay: 0.4s" />
+                </svg>
+            </div>
+            <div class="api-auth-node">
+                <div class="api-auth-icon auth-server"><i class="fas fa-server"></i></div>
+                <div class="api-auth-label">ZK Engine</div>
+                <div class="api-auth-desc">Processes without reading data</div>
+            </div>
+            <div class="api-auth-arrow">
+                <svg width="50" height="20" viewBox="0 0 50 20">
+                    <line class="api-arrow-line" x1="0" y1="10" x2="40" y2="10" />
+                    <polygon points="40,5 50,10 40,15" fill="#cbd5e1" />
+                    <circle class="api-arrow-dot" cx="0" cy="10" r="3.5" style="animation-delay: 0.8s" />
+                </svg>
+            </div>
+            <div class="api-auth-node">
+                <div class="api-auth-icon auth-resp"><i class="fas fa-check-double"></i></div>
+                <div class="api-auth-label">Response</div>
+                <div class="api-auth-desc">Signed proof returned</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SDKs ===== -->
+    <section class="api-sdks">
+        <div class="api-section-header">
+            <h2>Official SDKs</h2>
+            <p>Install the SDK for your language and start building in minutes.</p>
+        </div>
+        <div class="api-sdk-grid">
+            <div class="api-sdk-card">
+                <div class="api-sdk-icon sdk-python"><i class="fab fa-python"></i></div>
+                <h4>Python</h4>
+                <p>v1.2.0 • PyPI</p>
+                <div class="api-sdk-install">pip install brillsign</div>
+            </div>
+            <div class="api-sdk-card">
+                <div class="api-sdk-icon sdk-node"><i class="fab fa-node-js"></i></div>
+                <h4>Node.js</h4>
+                <p>v1.1.0 • npm</p>
+                <div class="api-sdk-install">npm i @brillsign/sdk</div>
+            </div>
+            <div class="api-sdk-card">
+                <div class="api-sdk-icon sdk-java"><i class="fab fa-java"></i></div>
+                <h4>Java</h4>
+                <p>v1.0.0 • Maven</p>
+                <div class="api-sdk-install">com.brillsign:sdk</div>
+            </div>
+            <div class="api-sdk-card">
+                <div class="api-sdk-icon sdk-go"><i class="fas fa-cube"></i></div>
+                <h4>Go</h4>
+                <p>v0.9.0 • Go Modules</p>
+                <div class="api-sdk-install">go get brillsign</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="api-cta">
+        <div class="api-cta-card">
+            <h2>Ready to integrate BrillSign?</h2>
+            <p>Get your API key and start building secure document signing into your application today.</p>
+            <div class="api-cta-btns">
+                <a href="../index.html#waitlist" class="api-cta-primary">
+                    Get API Key <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="../faq/faq.html" class="api-cta-secondary">
+                    <i class="fas fa-circle-question"></i> Visit Help Center
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../shared-components.js"></script>
+    <script src="../animations.js"></script>
+    <script src="../translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ===== Scroll reveal =====
+            const revealEls = document.querySelectorAll('.api-qs-card, .api-ep-card, .api-auth-node, .api-auth-arrow, .api-sdk-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, idx) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => entry.target.classList.add('visible'), idx * 80);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+            revealEls.forEach(el => observer.observe(el));
+
+            // ===== Language tabs =====
+            const langBtns = document.querySelectorAll('.api-lang-btn');
+            const codeBlocks = document.querySelectorAll('.api-code-block');
+
+            langBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    langBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const lang = btn.dataset.lang;
+
+                    codeBlocks.forEach(block => {
+                        block.classList.toggle('active', block.dataset.lang === lang);
+                    });
+                });
+            });
+
+            // ===== Copy button =====
+            const copyBtn = document.getElementById('copyBtn');
+            copyBtn.addEventListener('click', () => {
+                const activeBlock = document.querySelector('.api-code-block.active');
+                if (activeBlock) {
+                    navigator.clipboard.writeText(activeBlock.textContent).then(() => {
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                        copyBtn.classList.add('copied');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                            copyBtn.classList.remove('copied');
+                        }, 2000);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

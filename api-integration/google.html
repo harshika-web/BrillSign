@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Workspace Integration | BrillSign</title>
+    <meta name="description"
+        content="Sign from Google Drive, Gmail, and Docs. BrillSign's native Google Workspace integration with zero-knowledge security.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../faq-section.css">
+    <link rel="stylesheet" href="platform-integration.css">
+    
+    <style>
+        :root {
+            --gg-blue: #4285F4;
+            --gg-red: #EA4335;
+            --gg-yellow: #FBBC04;
+            --gg-green: #34A853;
+            --gg-light: #f0f8ff;
+            --gg-glow: rgba(66, 133, 244, 0.15);
+            --pi-color: #4285F4; /* Ensure shared CSS uses this */
+        }
+        
+        /* Premium Hero Adjustments (Light Theme) */
+        .pi-hero {
+            background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+            padding: 140px 24px 100px;
+        }
+        .pi-blob-1 { background: radial-gradient(circle, var(--gg-glow) 0%, transparent 65%); }
+        .pi-blob-2 { display: none; }
+        .pi-hero-title.premium-heading { color: var(--text-primary); }
+        .pi-hero-title .text-highlight { 
+            color: var(--primary-blue);
+        }
+        
+        /* Force Light Theme on Shared Dark Sections */
+        .pi-how { background: var(--bg-body); }
+        .pi-how-bg { display: none; }
+        .pi-flow-step { background: var(--card-bg); border-color: var(--card-border); box-shadow: var(--card-shadow); }
+        .pi-flow-step h4 { color: var(--text-primary); }
+        .pi-flow-step p { color: var(--text-secondary); }
+        .pi-flow-num { background: var(--primary-blue); color: white; }
+        .pi-flow-icon { background: var(--bg-accent); color: var(--primary-blue); }
+        .pi-cta { background: var(--bg-accent); border-top: 1px solid var(--card-border); }
+        .pi-cta-glow { display: none; }
+
+        
+        /* Alternating Feature Split Layout */
+        .split-features { padding: 120px 24px; background: var(--bg-body); }
+        .split-row { display: flex; align-items: center; gap: 80px; margin-bottom: 140px; }
+        .split-row:last-child { margin-bottom: 0; }
+        .split-row.reverse { flex-direction: row-reverse; }
+        .split-content { flex: 1; }
+        .split-image { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid var(--card-border); background: var(--card-bg); line-height: 0; }
+        .split-image img { width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        .split-content .tag { display:inline-block; padding: 6px 16px; border-radius: 50px; background: rgba(66, 133, 244, 0.1); color: var(--gg-blue); font-weight: 600; font-size: 0.85rem; margin-bottom: 16px; border: 1px solid rgba(66, 133, 244, 0.2); }
+        .split-content h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--text-primary); font-weight: 700; line-height: 1.2; }
+        .split-content p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+        
+        @media(max-width: 900px) {
+            .split-row, .split-row.reverse { flex-direction: column; text-align: left; gap: 40px; margin-bottom: 80px; }
+            .split-content h3 { font-size: 1.8rem; }
+        }
+        
+        /* Enhanced Setup Steps */
+        .gg-setup-container {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 4px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .gg-setup-header {
+            background: var(--bg-accent);
+            border-radius: 28px 28px 0 0;
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .gg-setup-dots span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            opacity: 0.5;
+        }
+        .gg-setup-dots span:nth-child(1) { background: #ff5f56; opacity: 1; }
+        .gg-setup-dots span:nth-child(2) { background: #ffbd2e; opacity: 1; }
+        .gg-setup-dots span:nth-child(3) { background: #27c93f; opacity: 1; }
+        
+        .gg-setup-grid {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            background: var(--card-bg);
+            border-radius: 0 0 28px 28px;
+        }
+        
+        .gg-step-card {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            border-radius: 20px;
+            background: var(--bg-accent);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .gg-step-card:hover {
+            background: var(--card-bg);
+            border-color: rgba(66, 133, 244, 0.2);
+            box-shadow: var(--card-shadow);
+        }
+        .gg-step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--gg-blue);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .gg-step-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .gg-step-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 900px) {
+            .gg-setup-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+
+        <!-- PREMIUM LIGHT HERO -->
+        <section class="pi-hero">
+            <div class="pi-hero-grid"></div>
+            <div class="pi-blob-1 glow-blob"></div>
+            <div class="container">
+                <div class="pi-hero-layout" style="gap: 40px;">
+                    <div class="pi-hero-content animate-up">
+                        <div class="pi-hero-badge" style="background: var(--bg-accent); border-color: var(--card-border); color: var(--primary-blue);">
+                            <i class="fab fa-google"></i> Google Workspace · Native Integration
+                        </div>
+                        <h1 class="pi-hero-title premium-heading">Sign from Drive, Gmail, or Docs — <br><span class="text-highlight">Instantly.</span></h1>
+                        <p class="pi-hero-sub" style="color: var(--text-secondary); font-size: 1.15rem;">BrillSign lives inside Google Workspace. Right-click a Drive file, hit Send for Signing — and the signed doc auto-saves back to Drive the moment it's complete. No downloads, no uploads, no switching tools.</p>
+                        <div class="pi-hero-ctas feature-ctas">
+                            <a href="../index.html#waitlist" class="btn-primary" style="background:var(--primary-blue); padding: 16px 32px; border-radius: 12px; font-size: 1.1rem;"><span>Install Add-on</span><i class="fas fa-arrow-right"></i></a>
+                            <a href="#how" class="btn-outline-v3" style="color: var(--text-primary); border-color: var(--card-border);"><i class="fas fa-play" style="margin-right: 8px;"></i><span>See Workflow</span></a>
+                        </div>
+                    </div>
+                    <div class="pi-hero-diagram animate-right">
+                        <div style="position: relative; width: 100%; border-radius: 32px; overflow: hidden; box-shadow: 0 40px 80px rgba(66, 133, 244, 0.15); border: 1px solid var(--card-border); line-height: 0;">
+                            <img src="../assets/images/integrations/google_hero_realistic_v2.png" alt="Google Workspace Secure Signing" style="width: 100%; height: auto; display: block;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALTERNATING IMAGE FEATURES -->
+        <section class="split-features" id="features">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label" style="background: rgba(66, 133, 244, 0.1); border-color: rgba(66, 133, 244, 0.2); color: #4285F4;">Zero Context Switching</div>
+                    <h2 class="premium-heading" style="color: var(--text-primary);">True Native Integration. <br><span class="text-highlight">No Workarounds.</span></h2>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 20px auto 0;">Most "integrations" just dump files into a folder. BrillSign actually embeds the signing experience directly inside your Google Workspace.</p>
+                </div>
+                
+                <!-- ROW 1: Drive -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fab fa-google-drive"></i> Google Drive</div>
+                        <h3>Right-Click to Request Signatures</h3>
+                        <p>Our native Drive add-on embeds perfectly into your Workspace. Stop downloading files just to upload them to a signing portal. Simply right-click any document, select "Send for Signing," and BrillSign takes over.</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary); display: flex; flex-direction: column; gap: 12px; margin-bottom: 0;">
+                            <li><i class="fas fa-check-circle" style="color: var(--gg-green); margin-right: 12px;"></i> Auto-converts Docs & Slides to PDF</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--gg-green); margin-right: 12px;"></i> Completed files save back to the identical origin folder</li>
+                        </ul>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/gg_drive_mockup_1773314487708.png" alt="Google Drive BrillSign Integration Mockup">
+                    </div>
+                </div>
+
+                <!-- ROW 2: Gmail (Reverse) -->
+                <div class="split-row reverse animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-envelope" style="color: var(--gg-red);"></i> Gmail Sidebar</div>
+                        <h3>Transform Attachments into Contracts</h3>
+                        <p>Negotiating over email? When it's time to sign, open the BrillSign Gmail sidebar to instantly convert conversational attachments into formal, legally binding documents.</p>
+                        <p>You can track the live status of the document seamlessly alongside your email thread—meaning you never lose the context of the deal.</p>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/gg_gmail_mockup_1773314506911.png" alt="Gmail BrillSign Addon Mockup">
+                    </div>
+                </div>
+
+                <!-- ROW 3: Google Docs -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-file-word" style="color: var(--gg-blue);"></i> Google Docs</div>
+                        <h3>Draft & Embed Logic Naturally</h3>
+                        <p>Draft your master service agreements natively in Google Docs. By applying our specific "Tags," you define exactly where signatures and dates should go while composing the document.</p>
+                        <p>When you initiate the signing process, BrillSign intelligently parses the document, creating a flawless zero-knowledge digital envelope.</p>
+                    </div>
+                    <div class="split-image" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+                        <img src="../assets/images/integrations/gg_docs_mockup_1773314521818.png" alt="Google Docs BrillSign Tagging Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-how" id="how">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">How It Works</div>
+                    <h2 class="premium-heading" style="color:var(--text-primary);">From Drive File to Signed Doc in <span
+                            class="text-highlight">3 Clicks.</span></h2>
+                </div>
+                <div class="pi-flow animate-up">
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">1</div>
+                        <div class="pi-flow-icon"><i class="fab fa-google-drive"></i></div>
+                        <h4>Right-click in Drive</h4>
+                        <p>Select any file in Google Drive and click "Send for Signing" from the context menu.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">2</div>
+                        <div class="pi-flow-icon"><i class="fas fa-signature"></i></div>
+                        <h4>Signers Sign On Any Device</h4>
+                        <p>Signers receive a branded email. They sign on desktop or mobile with no BrillSign account
+                            needed.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">3</div>
+                        <div class="pi-flow-icon"><i class="fas fa-folder-open"></i></div>
+                        <h4>Signed Doc Saved to Drive</h4>
+                        <p>The completed document auto-saves back to Drive. You get a notification in Gmail. No action
+                            needed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETUP MOCKUP -->
+        <section class="pi-setup" style="padding: 120px 24px; background: var(--bg-accent);">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label" style="background: var(--card-bg); color: var(--text-primary); border-color: var(--card-border);">Quick Setup</div>
+                    <h2 class="premium-heading" style="color: var(--text-primary);">Install from <span class="text-highlight" style="color:var(--primary-blue);">Google Workspace
+                            Marketplace.</span></h2>
+                    <p style="color: var(--text-secondary);">Enterprise-ready controls for Google Administrators. Deploy domain-wide in 3 minutes.</p>
+                </div>
+                
+                <div class="gg-setup-container animate-up">
+                    <div class="gg-setup-header">
+                        <div class="gg-setup-dots"><span></span><span></span><span></span></div>
+                        <div style="font-family: var(--mono); font-size: 0.85rem; color: var(--text-muted); margin-left: auto; background: var(--card-bg); padding: 4px 12px; border-radius: 12px; border: 1px solid var(--card-border);">Google Admin Center Module</div>
+                    </div>
+                    
+                    <div class="gg-setup-grid">
+                        <div class="gg-step-card">
+                            <div class="gg-step-num">1</div>
+                            <div class="gg-step-content">
+                                <h4>Install via Marketplace</h4>
+                                <p>Search "BrillSign" in the Google Workspace Marketplace. Admins can deploy to specific OUs or domain-wide.</p>
+                            </div>
+                        </div>
+                        <div class="gg-step-card">
+                            <div class="gg-step-num">2</div>
+                            <div class="gg-step-content">
+                                <h4>Minimal OAuth Scopes</h4>
+                                <p>We only request API scopes limited strictly to processing the files you designate. Zero-knowledge extends to our API infrastructure.</p>
+                            </div>
+                        </div>
+                        <div class="gg-step-card">
+                            <div class="gg-step-num">3</div>
+                            <div class="gg-step-content">
+                                <h4>Connect Administrator</h4>
+                                <p>Map your BrillSign organization to your Google Workspace directory to immediately sync user permissions.</p>
+                            </div>
+                        </div>
+                        <div class="gg-step-card">
+                            <div class="gg-step-num" style="background: var(--gg-green);">✓</div>
+                            <div class="gg-step-content">
+                                <h4>Set Default Service Folders</h4>
+                                <p>Choose default Shared Drives where completed organizational contracts will be saved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section pi-faq">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">FAQ</div>
+                    <h2 class="premium-heading">Google Workspace <span class="text-highlight">Questions</span></h2>
+                </div>
+                <div class="faq-container animate-up">
+                    <div class="faq-item"><button class="faq-question"><span>Does BrillSign work with Shared
+                                Drives?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. BrillSign works with both personal My Drive and Shared Drives. Signed documents
+                                    save back to the same location as the source file, maintaining your team's folder
+                                    structure.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>What file types can I send for
+                                signing?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>PDF, Google Docs (auto-converted to PDF), DOCX, and PNG/JPG files can all be sent for
+                                    signing directly from Drive. The conversion happens inside BrillSign's ZK
+                                    environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Can I deploy this to my entire Google
+                                Workspace organization?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. Google Workspace admins can deploy BrillSign to all users from the Admin Console
+                                    under Apps &gt; Google Workspace Marketplace Apps, with no action required from
+                                    individual users.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Does BrillSign read my Google Drive
+                                files?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>No. BrillSign's zero-knowledge architecture means your document content is encrypted
+                                    client-side before leaving your device. BrillSign servers only process cryptographic
+                                    proofs — never plaintext document content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-cta">
+            <div class="container">
+                <div class="pi-cta-layout animate-up">
+                    <div class="pi-cta-text">
+                        <h2 class="premium-heading" style="color:var(--text-primary);">Ready to Sign from <span
+                                class="text-highlight">Google Workspace?</span></h2>
+                        <p style="color: var(--text-secondary);">Install from the Google Workspace Marketplace and start signing in 2 minutes.</p>
+                    </div>
+                    <div class="pi-cta-actions"><a href="../index.html#waitlist" class="btn-primary" style="background:var(--primary-blue);"><span>Get Started
+                                Free</span><i class="fas fa-arrow-right"></i></a><a href="integrations-hub.html"
+                            class="pi-cta-secondary"><i class="fas fa-grid-2"></i><span>All Integrations</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../shared-components.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../animations.js"></script>
+    <script src="platform-integration.js"></script>
+</body>
+
+</html>

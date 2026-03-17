@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Integration | BrillSign</title>
+    <meta name="description"
+        content="Compliant signing for SAP purchase orders and contracts. BrillSign integrates with SAP Ariba and SAP GRC for enterprise-grade document signing.">
+    <style>
+        :root {
+            --pi-color: #0FAAFF;
+            --pi-glow: rgba(15, 170, 255, 0.2);
+            --pi-color-mid: rgba(15, 170, 255, 0.12);
+            --pi-icon-bg: rgba(15, 170, 255, 0.1);
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../faq-section.css">
+    <link rel="stylesheet" href="platform-integration.css">
+    <style>
+        :root {
+            --pi-color: #0FAAFF;
+            --pi-glow: rgba(15, 170, 255, 0.2);
+            --pi-color-mid: rgba(15, 170, 255, 0.12);
+            --pi-icon-bg: rgba(15, 170, 255, 0.1);
+        }
+        
+        /* Premium Hero Adjustments (Light Theme) */
+        .pi-hero {
+            background: linear-gradient(135deg, var(--bg-hero-start) 0%, var(--bg-hero-end) 100%);
+            padding: 140px 24px 100px;
+        }
+        .pi-blob-1 { background: radial-gradient(circle, var(--pi-glow) 0%, transparent 65%); }
+        .pi-blob-2 { display: none; }
+        .pi-hero-title.premium-heading { color: var(--text-primary); }
+        .pi-hero-title .text-highlight { color: var(--pi-color); }
+        .pi-hero-sub { color: var(--text-secondary); }
+        .pi-hero .btn-outline { color: var(--text-primary); border-color: var(--card-border); background: var(--card-bg); }
+        .pi-hero .btn-outline i { color: var(--pi-color); }
+        
+        /* Force Light Theme on Shared Dark Sections */
+        .pi-how { background: var(--bg-body); }
+        .pi-how-bg { display: none; }
+        .pi-flow-step { background: var(--card-bg); border-color: var(--card-border); box-shadow: var(--card-shadow); }
+        .pi-flow-step h4 { color: var(--text-primary); }
+        .pi-flow-step p { color: var(--text-secondary); }
+        .pi-flow-num { background: var(--pi-color); color: white; }
+        .pi-flow-icon { background: var(--bg-accent); color: var(--pi-color); }
+        .pi-cta { background: var(--bg-accent); border-top: 1px solid var(--card-border); }
+        .pi-cta-glow { display: none; }
+
+        .pi-section-header-dark .pi-label-dark { background: rgba(15, 170, 255, 0.1); border-color: rgba(15, 170, 255, 0.2); color: var(--pi-color); }
+        
+        /* Alternating Feature Split Layout */
+        .split-features { padding: 120px 24px; background: var(--bg-body); }
+        .split-row { display: flex; align-items: center; gap: 80px; margin-bottom: 140px; }
+        .split-row:last-child { margin-bottom: 0; }
+        .split-row.reverse { flex-direction: row-reverse; }
+        .split-content { flex: 1; }
+        .split-image { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid var(--card-border); background: var(--card-bg); line-height: 0; display: flex; align-items: center; justify-content: center; min-height: 350px;}
+        .split-image img { width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        .split-content .tag { display:inline-block; padding: 6px 16px; border-radius: 50px; background: rgba(15, 170, 255, 0.1); color: var(--pi-color); font-weight: 600; font-size: 0.85rem; margin-bottom: 16px; border: 1px solid rgba(15, 170, 255, 0.2); }
+        .split-content h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--text-primary); font-weight: 700; line-height: 1.2; }
+        .split-content p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+        
+        @media(max-width: 900px) {
+            .split-row, .split-row.reverse { flex-direction: column; text-align: left; gap: 40px; margin-bottom: 80px; }
+            .split-content h3 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+    <main>
+
+        <section class="pi-hero">
+            <div class="pi-hero-grid"></div>
+            <div class="pi-blob-1 glow-blob"></div>
+            <div class="pi-blob-2 glow-blob"></div>
+            <div class="container">
+                <div class="pi-hero-layout">
+                    <div class="pi-hero-content animate-up">
+                        <div class="pi-hero-badge"><i class="fas fa-database" style="color:#0FAAFF"></i> SAP Integration
+                            · Enterprise ERP</div>
+                        <h1 class="pi-hero-title premium-heading">Compliant Signing for SAP POs <span
+                                class="text-highlight">&amp; Contracts.</span></h1>
+                        <p class="pi-hero-sub">BrillSign integrates with SAP Ariba, SAP S/4HANA, and SAP GRC — routing
+                            purchase orders, NDAs, and enterprise contracts through cryptographically verified signing
+                            workflows, with audit trails that export directly to SAP GRC.</p>
+                        <div class="pi-hero-ctas feature-ctas">
+                            <a href="../index.html#waitlist" class="btn-primary"><span>Connect SAP</span><i
+                                    class="fas fa-arrow-right"></i></a>
+                            <a href="#how" class="btn-outline"><i class="fas fa-play"></i><span>See How It
+                                    Works</span></a>
+                        </div>
+                    </div>
+                    <div class="pi-hero-diagram animate-right">
+                        <div style="position: relative; width: 100%; border-radius: 32px; overflow: hidden; box-shadow: 0 40px 80px rgba(15, 170, 255, 0.15); border: 1px solid var(--card-border); line-height: 0;">
+                            <img src="../assets/images/integrations/sap_hero_realistic.png" alt="SAP ERP Secure Signing Integration Hero" style="width: 100%; height: auto; display: block;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="split-features" id="features">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label" style="background: rgba(15, 170, 255, 0.1); border-color: rgba(15, 170, 255, 0.2); color: var(--pi-color);">Key Features</div>
+                    <h2 class="premium-heading">Enterprise Signing for <span class="text-highlight">SAP's Ecosystem.</span></h2>
+                    <p style="color: var(--text-secondary);">From Ariba sourcing to S/4HANA contracts, BrillSign adds legal-grade signing to every document workflow in your SAP environment.</p>
+                </div>
+
+                <!-- ROW 1: SAP Ariba -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-handshake-simple" style="color: var(--pi-color);"></i> Ariba Connector</div>
+                        <h3>Direct SAP Ariba Integration</h3>
+                        <p>BrillSign's SAP Ariba connector routes contracts and supplier agreements from Ariba Contracts directly to BrillSign for secure execution.</p>
+                        <p>No more downloading and uploading PDFs. Send, track, and sync data fields automatically without your procurement team ever leaving the Ariba interface.</p>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/sap_ariba_realistic.png" alt="SAP Ariba Routing Mockup">
+                    </div>
+                </div>
+
+                <!-- ROW 2: Multi-party POs (Reverse) -->
+                <div class="split-row reverse animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-diagram-project" style="color: var(--pi-color);"></i> Approval Chains</div>
+                        <h3>Complex PO Approval Chains</h3>
+                        <p>Configure sophisticated, multi-party signing dependencies for enterprise purchase orders or master agreements.</p>
+                        <p>Map out sequential routing—CFO approval first, legal validation second, supplier signature third—all managed within a single, atomic BrillSign execution request.</p>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/sap_po_approval_realistic.png" alt="SAP Multi-Party PO Approval Mockup">
+                    </div>
+                </div>
+
+                <!-- ROW 3: SAP GRC Audit -->
+                <div class="split-row animate-up">
+                    <div class="split-content">
+                        <div class="tag"><i class="fas fa-file-export" style="color: var(--pi-color);"></i> SAP GRC Sync</div>
+                        <h3>Audit Trail Sync to SAP GRC</h3>
+                        <p>Enterprise compliance demands centralized evidence. Every signature creates a zero-knowledge cryptographic proof file.</p>
+                        <p>These ironclad audit trails are automatically exported to SAP Governance, Risk, and Compliance (GRC)—ensuring your digital signature records immediately meet regulatory audit requirements.</p>
+                    </div>
+                    <div class="split-image">
+                        <img src="../assets/images/integrations/sap_grc_audit_realistic.png" alt="SAP GRC Audit Dashboard Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-how" id="how">
+            <div class="pi-how-bg"></div>
+            <div class="container">
+                <div class="pi-section-header pi-section-header-dark animate-up">
+                    <div class="pi-section-label pi-label-dark">How It Works</div>
+                    <h2 class="premium-heading" style="color:#fff;">From SAP Purchase Order to <span
+                            class="text-highlight">Signed & Archived.</span></h2>
+                </div>
+                <div class="pi-flow animate-up">
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">1</div>
+                        <div class="pi-flow-icon"><i class="fas fa-file-invoice"></i></div>
+                        <h4>SAP Triggers Signing Request</h4>
+                        <p>A SAP Ariba contract or S/4HANA PO reaches "Pending Signature" status, triggering BrillSign
+                            via API or webhook.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">2</div>
+                        <div class="pi-flow-icon"><i class="fas fa-pen-nib"></i></div>
+                        <h4>Multi-Party Signing Chain</h4>
+                        <p>BrillSign routes the document through your configured approval chain. Each signer is notified
+                            in sequence. ZK-encrypted throughout.</p>
+                    </div>
+                    <div class="pi-flow-connector">
+                        <div class="pi-flow-travel"></div>
+                    </div>
+                    <div class="pi-flow-step">
+                        <div class="pi-flow-num">3</div>
+                        <div class="pi-flow-icon"><i class="fas fa-file-shield"></i></div>
+                        <h4>SAP Updated, GRC Archived</h4>
+                        <p>SAP record status updates to "Fully Executed." Cryptographic audit trail exports to SAP GRC
+                            automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-setup">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">Integration Setup</div>
+                    <h2 class="premium-heading">Connect via <span class="text-highlight">SAP BTP or Direct API.</span>
+                    </h2>
+                </div>
+                <div class="pi-setup-grid animate-up">
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">1</div>
+                        <h4>Contact Enterprise Sales</h4>
+                        <p>SAP integration setup begins with a call with our enterprise team to map your SAP landscape —
+                            Ariba version, S/4HANA release, GRC modules in use.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">2</div>
+                        <h4>Deploy BTP Integration Flow</h4>
+                        <p>BrillSign provides a pre-built SAP BTP (Business Technology Platform) integration flow that
+                            connects Ariba or S/4HANA to BrillSign's API via iFlow.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">3</div>
+                        <h4>Configure Routing Rules</h4>
+                        <p>Define which SAP document types (PO, NDA, Contract, SLA) route through BrillSign and which
+                            signing chain templates apply to each type.</p>
+                    </div>
+                    <div class="pi-setup-step">
+                        <div class="pi-setup-num">4</div>
+                        <h4>GRC Audit Export Configuration</h4>
+                        <p>Map BrillSign audit events to SAP GRC risk taxonomy. Set export frequency (real-time or
+                            nightly batch) and evidence retention periods.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section pi-faq">
+            <div class="container">
+                <div class="pi-section-header animate-up">
+                    <div class="pi-section-label">FAQ</div>
+                    <h2 class="premium-heading">SAP Integration <span class="text-highlight">Questions</span></h2>
+                </div>
+                <div class="faq-container animate-up">
+                    <div class="faq-item"><button class="faq-question"><span>Which SAP versions are supported?</span><i
+                                class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>BrillSign supports SAP S/4HANA (Cloud and on-premise), SAP Ariba (Contracts and
+                                    Sourcing), SAP ECC 6.0 via RFC/BAPI calls, and SAP BTP. Legacy SAP versions are
+                                    supported via the REST API with BTP middleware.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Does BrillSign meet SAP's digital signature
+                                compliance requirements?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. BrillSign meets eIDAS (EU), ESIGN Act (US), UETA, and ZertES (Switzerland)
+                                    standards. Our cryptographic audit trails are accepted by SAP GRC as valid digital
+                                    signature evidence. We also provide compliance documentation for enterprise audit
+                                    teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Can I configure different signing workflows
+                                per SAP document category?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. BrillSign's template engine supports different signing chains per document type.
+                                    Purchase orders can route to procurement and legal only, while enterprise contracts
+                                    can require additional CFO or board-level signatures depending on contract value
+                                    thresholds.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-question"><span>Is this available as a white-label solution
+                                for SAP ISVs?</span><i class="fas fa-chevron-down faq-icon"></i></button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. BrillSign's Partner Program includes white-label options for SAP ISVs and system
+                                    integrators who want to embed BrillSign signing into their own SAP add-on products.
+                                    Contact our enterprise team for partner terms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pi-cta">
+            <div class="pi-cta-glow"></div>
+            <div class="container">
+                <div class="pi-cta-layout animate-up">
+                    <div class="pi-cta-text">
+                        <h2 class="premium-heading" style="color:#fff;">Ready to Add Compliant Signing to <span
+                                class="text-highlight">Your SAP Stack?</span></h2>
+                        <p>Talk to our enterprise team to map your SAP environment and plan your integration.</p>
+                    </div>
+                    <div class="pi-cta-actions"><a href="../index.html#waitlist" class="btn-primary"><span>Talk to
+                                Enterprise Sales</span><i class="fas fa-arrow-right"></i></a><a
+                            href="integrations-hub.html" class="pi-cta-secondary"><i class="fas fa-grid-2"></i><span>All
+                                Integrations</span></a></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../shared-components.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../animations.js"></script>
+    <script src="platform-integration.js"></script>
+</body>
+
+</html>

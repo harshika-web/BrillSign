@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication | BrillSign Developer Portal</title>
+    <meta name="description"
+        content="BrillSign Authentication — API keys, OAuth 2.0, and HMAC request signing. Military-grade auth with zero-knowledge architecture underneath.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="authentication.css">
+    <link rel="stylesheet" href="faq-premium.css">
+</head>
+
+<body class="feature-page">
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <!-- ===== SECTION 1: HERO ===== -->
+        <section class="auth-hero">
+            <div class="auth-hero-grid"></div>
+            <div class="glow-blob auth-blob-1"></div>
+            <div class="glow-blob auth-blob-2"></div>
+
+            <div class="container">
+                <div class="auth-hero-layout">
+
+                    <!-- Left: Content -->
+                    <div class="auth-hero-content animate-up">
+                        <div class="auth-hero-badge">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>Authentication · Zero-Knowledge</span>
+                        </div>
+
+                        <h1 class="auth-hero-title premium-heading">
+                            Every Request Authenticated.
+                            Every Action
+                            <span class="text-highlight">Attributable.</span>
+                        </h1>
+
+                        <p class="auth-hero-sub">
+                            BrillSign uses a layered auth model — API keys for automation, OAuth 2.0 for user flows,
+                            and HMAC signing for webhooks. All with zero-knowledge architecture underneath,
+                            so even fully-authenticated users can't expose document content.
+                        </p>
+
+                        <div class="auth-hero-chips">
+                            <div class="auth-chip auth-chip-gold">
+                                <i class="fas fa-key"></i>
+                                <span>API Key Auth</span>
+                            </div>
+                            <div class="auth-chip auth-chip-blue">
+                                <i class="fas fa-lock-open"></i>
+                                <span>OAuth 2.0</span>
+                            </div>
+                            <div class="auth-chip auth-chip-purple">
+                                <i class="fas fa-fingerprint"></i>
+                                <span>HMAC Signing</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-hero-ctas feature-ctas">
+                            <a href="../index.html#waitlist" class="btn-primary">
+                                <span>Get Your API Key</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#methods" class="btn-outline">
+                                <i class="fas fa-layer-group"></i>
+                                <span>See Auth Methods</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: 3-Ring Rotating Auth Diagram -->
+                    <div class="auth-hero-diagram animate-right">
+                        <!-- Rings -->
+                        <div class="auth-ring auth-ring-outer">
+                            <div class="auth-ring-label auth-rl-tls">TLS 1.3</div>
+                        </div>
+                        <div class="auth-ring auth-ring-mid">
+                            <div class="auth-ring-label auth-rl-oauth">OAuth 2.0 / Bearer</div>
+                        </div>
+                        <div class="auth-ring auth-ring-inner">
+                            <div class="auth-ring-label auth-rl-zk">ZK Engine</div>
+                        </div>
+
+                        <!-- Center Shield -->
+                        <div class="auth-ring-core">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+
+                        <!-- Orbiting Nodes -->
+                        <div class="auth-orbit auth-orbit-1">
+                            <div class="auth-orbit-node auth-on-gold" title="API Key">
+                                <i class="fas fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="auth-orbit auth-orbit-2">
+                            <div class="auth-orbit-node auth-on-blue" title="OAuth">
+                                <i class="fas fa-lock-open"></i>
+                            </div>
+                        </div>
+                        <div class="auth-orbit auth-orbit-3">
+                            <div class="auth-orbit-node auth-on-purple" title="HMAC">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                        </div>
+
+                        <!-- Particle request animation -->
+                        <div class="auth-particle" id="authParticle"></div>
+
+                        <!-- Layer Labels -->
+                        <div class="auth-diagram-labels">
+                            <div class="auth-dlabel auth-dl-1">
+                                <span class="auth-dl-dot" style="background:#64748b;"></span>
+                                Network Layer
+                            </div>
+                            <div class="auth-dlabel auth-dl-2">
+                                <span class="auth-dl-dot" style="background:#3b82f6;"></span>
+                                Auth Layer
+                            </div>
+                            <div class="auth-dlabel auth-dl-3">
+                                <span class="auth-dl-dot" style="background:#22c55e;"></span>
+                                ZK Processing
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2: 3 AUTH METHODS ===== -->
+        <section class="auth-methods" id="methods">
+            <div class="container">
+                <div class="auth-section-header animate-up">
+                    <div class="auth-section-label">Auth Methods</div>
+                    <h2 class="premium-heading">Three Layers of Trust.
+                        <span class="text-highlight">Choose What Fits.</span>
+                    </h2>
+                    <p>Pick the authentication method that matches your use case. Mix and match — all three can be
+                        active simultaneously for different parts of your integration.</p>
+                </div>
+
+                <div class="auth-methods-grid">
+
+                    <!-- Card 1: API Key -->
+                    <div class="auth-method-card animate-up"
+                        style="transition-delay:0.04s; --am-color:#f59e0b; --am-glow:rgba(245,158,11,0.15);">
+                        <div class="auth-method-accent"></div>
+                        <div class="auth-method-icon auth-mi-gold">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>API Key Auth</h3>
+                        <p class="auth-method-desc">The simplest path to production. Send your secret key as a Bearer
+                            token on every request. Perfect for server-to-server automation, CI/CD pipelines, and
+                            backend services.</p>
+
+                        <div class="auth-method-code">
+                            <div class="auth-code-label">HTTP Header</div>
+                            <div class="auth-inline-code">
+                                <code>Authorization: Bearer sk_live_<span class="auth-key-mask">••••••••••••</span></code>
+                                <button class="auth-mini-copy" data-copy="Authorization: Bearer sk_live_..."><i
+                                        class="fas fa-copy"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="auth-method-tags">
+                            <span class="auth-tag auth-tag-gold">Simplest Setup</span>
+                            <span class="auth-tag auth-tag-gold">Server-to-Server</span>
+                            <span class="auth-tag auth-tag-gold">CI/CD Ready</span>
+                        </div>
+
+                        <div class="auth-method-when">
+                            <div class="auth-when-title"><i class="fas fa-check-circle"></i> Best for</div>
+                            <ul>
+                                <li>Backend microservices</li>
+                                <li>Automated pipelines</li>
+                                <li>Cron-triggered signing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: OAuth 2.0 -->
+                    <div class="auth-method-card animate-up"
+                        style="transition-delay:0.12s; --am-color:#3b82f6; --am-glow:rgba(59,130,246,0.15);">
+                        <div class="auth-method-accent"></div>
+                        <div class="auth-method-icon auth-mi-blue">
+                            <i class="fas fa-lock-open"></i>
+                        </div>
+                        <h3>OAuth 2.0</h3>
+                        <p class="auth-method-desc">For user-facing applications where signers log in and grant access
+                            directly. Follows the Authorization Code flow — your app never touches the user's
+                            credentials.</p>
+
+                        <!-- OAuth Mini Flow -->
+                        <div class="auth-oauth-flow">
+                            <div class="auth-of-step">
+                                <div class="auth-of-dot">1</div>
+                                <span>User clicks <em>Sign with BrillSign</em></span>
+                            </div>
+                            <div class="auth-of-arrow"><i class="fas fa-chevron-right"></i></div>
+                            <div class="auth-of-step">
+                                <div class="auth-of-dot">2</div>
+                                <span>BrillSign grants auth code</span>
+                            </div>
+                            <div class="auth-of-arrow"><i class="fas fa-chevron-right"></i></div>
+                            <div class="auth-of-step">
+                                <div class="auth-of-dot">3</div>
+                                <span>Exchange code → access token</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-method-tags">
+                            <span class="auth-tag auth-tag-blue">User Flows</span>
+                            <span class="auth-tag auth-tag-blue">Delegated Auth</span>
+                            <span class="auth-tag auth-tag-blue">PKCE Support</span>
+                        </div>
+
+                        <div class="auth-method-when">
+                            <div class="auth-when-title"><i class="fas fa-check-circle"></i> Best for</div>
+                            <ul>
+                                <li>SaaS apps with user logins</li>
+                                <li>Signer-facing portals</li>
+                                <li>Mobile applications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: HMAC -->
+                    <div class="auth-method-card animate-up"
+                        style="transition-delay:0.20s; --am-color:#8b5cf6; --am-glow:rgba(139,92,246,0.15);">
+                        <div class="auth-method-accent"></div>
+                        <div class="auth-method-icon auth-mi-purple">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h3>HMAC Request Signing</h3>
+                        <p class="auth-method-desc">For webhook endpoints and high-security environments. Every inbound
+                            webhook payload is signed by BrillSign with your secret using HMAC-SHA256 — you verify it
+                            before processing.</p>
+
+                        <div class="auth-method-code">
+                            <div class="auth-code-label">Verification Header</div>
+                            <div class="auth-inline-code">
+                                <code>X-BrillSign-Signature: sha256=<span class="auth-key-mask">a4b2c8d9...</span></code>
+                            </div>
+                        </div>
+
+                        <div class="auth-method-tags">
+                            <span class="auth-tag auth-tag-purple">Webhook Security</span>
+                            <span class="auth-tag auth-tag-purple">Tamper-Proof</span>
+                            <span class="auth-tag auth-tag-purple">Enterprise</span>
+                        </div>
+
+                        <div class="auth-method-when">
+                            <div class="auth-when-title"><i class="fas fa-check-circle"></i> Best for</div>
+                            <ul>
+                                <li>Webhook endpoint security</li>
+                                <li>High-security environments</li>
+                                <li>Zero-trust architectures</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 3: KEY MANAGEMENT CHECKLIST ===== -->
+        <section class="auth-checklist">
+            <div class="auth-checklist-bg"></div>
+            <div class="container">
+                <div class="auth-section-header animate-up">
+                    <div class="auth-section-label">Best Practices</div>
+                    <h2 class="premium-heading">Treat Your API Key Like a Private Key.
+                        <span class="text-highlight">We Certainly Do.</span>
+                    </h2>
+                    <p>Follow these rules to keep your integration secure. BrillSign enforces
+                        some of these at the platform level — secure defaults are not optional.</p>
+                </div>
+
+                <div class="auth-checklist-layout animate-up">
+                    <div class="auth-checks" id="authChecks">
+                        <div class="auth-check-item" data-delay="0">
+                            <div class="auth-check-box" id="chk0"><i class="fas fa-check"></i></div>
+                            <div class="auth-check-body">
+                                <strong>Store in environment variables, never in source code</strong>
+                                <span>Hardcoded keys routinely leak via git history. Use <code>.env</code> files or a
+                                    secrets manager like AWS Secrets Manager or Vault.</span>
+                            </div>
+                        </div>
+                        <div class="auth-check-item" data-delay="150">
+                            <div class="auth-check-box" id="chk1"><i class="fas fa-check"></i></div>
+                            <div class="auth-check-body">
+                                <strong>Use separate keys for dev / staging / production</strong>
+                                <span>A compromised dev key must not be able to affect production data. Scope
+                                    permissions to match each environment's needs.</span>
+                            </div>
+                        </div>
+                        <div class="auth-check-item" data-delay="300">
+                            <div class="auth-check-box" id="chk2"><i class="fas fa-check"></i></div>
+                            <div class="auth-check-body">
+                                <strong>Rotate keys every 90 days</strong>
+                                <span>BrillSign sends you reminder emails before expiry. Zero-downtime rotation — create
+                                    new key, update your service, then revoke the old one.</span>
+                            </div>
+                        </div>
+                        <div class="auth-check-item" data-delay="450">
+                            <div class="auth-check-box" id="chk3"><i class="fas fa-check"></i></div>
+                            <div class="auth-check-body">
+                                <strong>Restrict permissions with scopes — least privilege by default</strong>
+                                <span>A key used only to upload documents should not have <code>audit:read</code> or
+                                    <code>keys:manage</code> scopes. Narrow scope = smaller blast radius.</span>
+                            </div>
+                        </div>
+                        <div class="auth-check-item" data-delay="600">
+                            <div class="auth-check-box" id="chk4"><i class="fas fa-check"></i></div>
+                            <div class="auth-check-body">
+                                <strong>Monitor usage via developer dashboard anomaly alerts</strong>
+                                <span>BrillSign flags unusual patterns — sudden volume spikes, first-time geo access,
+                                    off-hours API calls — and notifies you in real time.</span>
+                            </div>
+                        </div>
+                        <div class="auth-check-item" data-delay="750">
+                            <div class="auth-check-box" id="chk5"><i class="fas fa-check"></i></div>
+                            <div class="auth-check-body">
+                                <strong>Revoke instantly if compromised — zero downtime</strong>
+                                <span>Key revocation is immediate. Issue a new key, deploy, then revoke in any order.
+                                    There's no dependency between creation and revocation.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side stat card -->
+                    <div class="auth-checklist-aside">
+                        <div class="auth-aside-card">
+                            <div class="auth-aside-icon"><i class="fas fa-shield-check"></i></div>
+                            <div class="auth-aside-stat">0</div>
+                            <div class="auth-aside-stat-label">Known key leaks from BrillSign's infrastructure</div>
+                            <p>BrillSign never stores your API key in plaintext. We store a bcrypt hash of the key —
+                                even our database cannot be used to reconstruct it.</p>
+                        </div>
+                        <div class="auth-aside-card auth-aside-card-2">
+                            <div class="auth-aside-icon auth-ai-amber"><i class="fas fa-rotate"></i></div>
+                            <div class="auth-aside-stat auth-aside-stat-amber">90d</div>
+                            <div class="auth-aside-stat-label">Recommended rotation interval</div>
+                            <p>Automated reminders keep you on schedule. Override with custom intervals in your
+                                dashboard settings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 4: SCOPES & PERMISSIONS ===== -->
+        <section class="auth-scopes">
+            <div class="container">
+                <div class="auth-section-header animate-up">
+                    <div class="auth-section-label">Scopes</div>
+                    <h2 class="premium-heading">Least Privilege by Default.
+                        <span class="text-highlight">Maximum Safety by Design.</span>
+                    </h2>
+                    <p>Fine-grained API scopes ensure every key does exactly what it needs — nothing more. Grant only
+                        the permissions each service requires.</p>
+                </div>
+
+                <div class="auth-scopes-layout animate-up">
+                    <!-- Scopes Table -->
+                    <div class="auth-scopes-wrap">
+                        <table class="auth-scopes-table">
+                            <thead>
+                                <tr>
+                                    <th>Scope</th>
+                                    <th>Allows</th>
+                                    <th>Risk Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="auth-sr-hover">
+                                    <td><code>documents:read</code></td>
+                                    <td>Read document metadata, status, and signer list</td>
+                                    <td><span class="auth-risk auth-risk-low">Low</span></td>
+                                </tr>
+                                <tr class="auth-sr-hover">
+                                    <td><code>documents:write</code></td>
+                                    <td>Upload documents, create signing requests</td>
+                                    <td><span class="auth-risk auth-risk-low">Low</span></td>
+                                </tr>
+                                <tr class="auth-sr-hover">
+                                    <td><code>documents:sign</code></td>
+                                    <td>Initiate and complete signing actions</td>
+                                    <td><span class="auth-risk auth-risk-med">Medium</span></td>
+                                </tr>
+                                <tr class="auth-sr-hover">
+                                    <td><code>webhooks:write</code></td>
+                                    <td>Register, update, and delete webhook endpoints</td>
+                                    <td><span class="auth-risk auth-risk-med">Medium</span></td>
+                                </tr>
+                                <tr class="auth-sr-hover">
+                                    <td><code>webhooks:read</code></td>
+                                    <td>List active webhooks and delivery history</td>
+                                    <td><span class="auth-risk auth-risk-low">Low</span></td>
+                                </tr>
+                                <tr class="auth-sr-hover">
+                                    <td><code>audit:read</code></td>
+                                    <td>Download cryptographic audit trails and proof chains</td>
+                                    <td><span class="auth-risk auth-risk-med">Medium</span></td>
+                                </tr>
+                                <tr class="auth-sr-hover">
+                                    <td><code>keys:manage</code></td>
+                                    <td>Create, rotate, and revoke API keys</td>
+                                    <td><span class="auth-risk auth-risk-high">High</span></td>
+                                </tr>
+                                <tr class="auth-sr-hover">
+                                    <td><code>team:admin</code></td>
+                                    <td>Manage team members, roles, and permissions</td>
+                                    <td><span class="auth-risk auth-risk-high">High</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Key Builder Mock -->
+                    <div class="auth-key-builder">
+                        <div class="auth-kb-header">
+                            <i class="fas fa-sliders"></i>
+                            <span>Scope Builder</span>
+                            <span class="auth-kb-badge">Interactive</span>
+                        </div>
+                        <div class="auth-kb-desc">Toggle scopes to preview what your key will allow:</div>
+                        <div class="auth-kb-toggles" id="scopeToggles">
+                            <label class="auth-scope-toggle">
+                                <input type="checkbox" checked data-scope="documents:read">
+                                <span class="auth-st-track"></span>
+                                <span class="auth-st-label"><code>documents:read</code></span>
+                            </label>
+                            <label class="auth-scope-toggle">
+                                <input type="checkbox" checked data-scope="documents:write">
+                                <span class="auth-st-track"></span>
+                                <span class="auth-st-label"><code>documents:write</code></span>
+                            </label>
+                            <label class="auth-scope-toggle">
+                                <input type="checkbox" data-scope="documents:sign">
+                                <span class="auth-st-track"></span>
+                                <span class="auth-st-label"><code>documents:sign</code></span>
+                            </label>
+                            <label class="auth-scope-toggle">
+                                <input type="checkbox" data-scope="webhooks:write">
+                                <span class="auth-st-track"></span>
+                                <span class="auth-st-label"><code>webhooks:write</code></span>
+                            </label>
+                            <label class="auth-scope-toggle">
+                                <input type="checkbox" data-scope="audit:read">
+                                <span class="auth-st-track"></span>
+                                <span class="auth-st-label"><code>audit:read</code></span>
+                            </label>
+                            <label class="auth-scope-toggle">
+                                <input type="checkbox" data-scope="keys:manage">
+                                <span class="auth-st-track"></span>
+                                <span class="auth-st-label"><code>keys:manage</code></span>
+                            </label>
+                        </div>
+                        <div class="auth-kb-preview">
+                            <div class="auth-kb-preview-label">Generated scope string:</div>
+                            <code class="auth-kb-preview-code" id="scopePreview">documents:read documents:write</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 5: ZK + AUTH EXPLAINER ===== -->
+        <section class="auth-zk">
+            <div class="auth-zk-bg"></div>
+            <div class="container">
+                <div class="auth-section-header animate-up">
+                    <div class="auth-section-label">Zero-Knowledge</div>
+                    <h2 class="premium-heading">Auth Proves Who You Are.
+                        <span class="text-highlight">ZK Ensures No One Reads What You Sign.</span>
+                    </h2>
+                    <p>Authentication and zero-knowledge are separate guarantees that work
+                        together. One identifies you. The other protects what you're doing.</p>
+                </div>
+
+                <div class="auth-zk-layout animate-up">
+
+                    <!-- Traditional (bad) -->
+                    <div class="auth-zk-card auth-zk-traditional">
+                        <div class="auth-zk-card-header">
+                            <div class="auth-zk-badge auth-zk-badge-red">
+                                <i class="fas fa-times-circle"></i> Traditional Signing APIs
+                            </div>
+                        </div>
+                        <div class="auth-zk-steps">
+                            <div class="auth-zk-step auth-zks-bad">
+                                <div class="auth-zk-step-num">1</div>
+                                <div class="auth-zk-step-body">
+                                    <strong>Authenticated request arrives</strong>
+                                    <span>API validates your token ✓</span>
+                                </div>
+                            </div>
+                            <div class="auth-zk-connector auth-zkc-red"></div>
+                            <div class="auth-zk-step auth-zks-bad">
+                                <div class="auth-zk-step-num">2</div>
+                                <div class="auth-zk-step-body">
+                                    <strong>Server reads the document</strong>
+                                    <span>Plaintext content visible to vendor ⚠️</span>
+                                </div>
+                            </div>
+                            <div class="auth-zk-connector auth-zkc-red"></div>
+                            <div class="auth-zk-step auth-zks-bad">
+                                <div class="auth-zk-step-num">3</div>
+                                <div class="auth-zk-step-body">
+                                    <strong>Signature applied server-side</strong>
+                                    <span>You trust the vendor never to look 🤞</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="auth-zk-verdict auth-zk-verdict-red">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Authentication doesn't protect content — it just proves who sent it.
+                        </div>
+                    </div>
+
+                    <!-- BrillSign (good) -->
+                    <div class="auth-zk-card auth-zk-brillsign">
+                        <div class="auth-zk-card-header">
+                            <div class="auth-zk-badge auth-zk-badge-green">
+                                <i class="fas fa-check-circle"></i> BrillSign Zero-Knowledge
+                            </div>
+                        </div>
+                        <div class="auth-zk-steps">
+                            <div class="auth-zk-step auth-zks-good">
+                                <div class="auth-zk-step-num auth-zkn-green">1</div>
+                                <div class="auth-zk-step-body">
+                                    <strong>Document encrypted client-side</strong>
+                                    <span>Encrypted before leaving your device ✓</span>
+                                </div>
+                            </div>
+                            <div class="auth-zk-connector auth-zkc-green"></div>
+                            <div class="auth-zk-step auth-zks-good">
+                                <div class="auth-zk-step-num auth-zkn-green">2</div>
+                                <div class="auth-zk-step-body">
+                                    <strong>Authenticated request + ZK proof</strong>
+                                    <span>Server processes hash only — never content ✓</span>
+                                </div>
+                            </div>
+                            <div class="auth-zk-connector auth-zkc-green"></div>
+                            <div class="auth-zk-step auth-zks-good">
+                                <div class="auth-zk-step-num auth-zkn-green">3</div>
+                                <div class="auth-zk-step-body">
+                                    <strong>Cryptographic proof returned</strong>
+                                    <span>Architecture enforces what policy cannot ✓</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="auth-zk-verdict auth-zk-verdict-green">
+                            <i class="fas fa-shield-halved"></i>
+                            Even with root API access, BrillSign cannot read your document content.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Callout -->
+                <div class="auth-zk-callout animate-up">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Authentication proves who you are. Zero-knowledge ensures no one — not even us — can read what
+                        you sign. Architecture enforces what policy cannot."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 6: CTA BANNER ===== -->
+        <section class="auth-cta">
+            <div class="auth-cta-glow"></div>
+            <div class="container">
+                <div class="auth-cta-layout animate-up">
+                    <div class="auth-cta-text">
+                        <h2 class="premium-heading">Ready to
+                            <span class="text-highlight">Authenticate Securely?</span>
+                        </h2>
+                        <p>Get your API key and start building in minutes. Choose your auth method, apply
+                            least-privilege scopes, and ship with confidence.</p>
+                    </div>
+                    <div class="auth-cta-actions">
+                        <a href="../index.html#waitlist" class="btn-primary">
+                            <span>Get Your API Key</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="rest-api.html" class="auth-cta-secondary">
+                            <i class="fas fa-code"></i>
+                            <span>Explore REST API</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 7: FAQ ===== -->
+        <section class="premium-faq-section auth-faq">
+            <div class="container">
+                <div class="auth-section-header animate-up">
+                    <div class="auth-section-label">FAQ</div>
+                    <h2 class="premium-heading">Auth <span class="text-highlight">Questions Answered</span></h2>
+                </div>
+                <div class="faq-container animate-up">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What if my API key is compromised?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Revoke it immediately from your BrillSign dashboard — revocation is instant, with no
+                                    downtime. After revoking, generate a new key, update your environment variables, and
+                                    redeploy. All requests made with the revoked key will receive a
+                                    <code>401 Unauthorized</code> response the moment revocation takes effect.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Does BrillSign support SSO or SAML?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes — SAML 2.0 and OIDC-based SSO are available on the Enterprise plan. This allows
+                                    your team to log in to the BrillSign dashboard using your existing identity provider
+                                    (Okta, Microsoft Entra, Google Workspace, etc.) with enforced MFA and just-in-time
+                                    provisioning.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is OAuth 2.0 required for signer-facing flows?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Recommended but not required. You can embed signing flows via signed URLs generated
+                                    by your backend with a Bearer token. OAuth 2.0 is the cleaner choice for apps where
+                                    signers have their own BrillSign accounts, as it avoids sharing credentials between
+                                    your app and BrillSign's user identity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can two services share the same API key?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Strongly discouraged. Each service should have its own scoped API key. Shared keys
+                                    create attribution problems (you can't tell which service caused a spike), make
+                                    least-privilege impossible, and mean a compromise in one service exposes all
+                                    services. BrillSign supports unlimited keys per account on Pro and Enterprise plans.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Does BrillSign rate limit API key requests?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes. Free tier: 100 requests/min. Pro: 1,000 requests/min. Enterprise: custom limits
+                                    negotiated per account. Rate limit headers are returned on every response:
+                                    <code>X-RateLimit-Limit</code>, <code>X-RateLimit-Remaining</code>, and
+                                    <code>X-RateLimit-Reset</code>. All SDKs handle 429 responses with automatic
+                                    exponential backoff.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../shared-components.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../animations.js"></script>
+    <script src="authentication.js"></script>
+</body>
+
+</html>
